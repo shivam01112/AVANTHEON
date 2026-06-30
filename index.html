@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="images/hero.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
 </head>
@@ -205,11 +206,11 @@
                         <span>Shipping &amp; Logistics</span>
                     </article>
                     <article class="industry-card reveal">
-                        <img class="industry-image" src="images/container.png" alt="Freight forwarding sector" loading="lazy">
+                        <img class="industry-image" src="images/Defense Logistics.png" alt="Freight forwarding sector" loading="lazy">
                         <span>Freight Forwarding</span>
                     </article>
                     <article class="industry-card reveal">
-                        <img class="industry-image" src="images/worldmap.png" alt="Import and export enterprises" loading="lazy">
+                        <img class="industry-image" src="images/oil&gas.png" alt="Import and export enterprises" loading="lazy">
                         <span>Import &amp; Export Enterprises</span>
                     </article>
                     <article class="industry-card reveal">
@@ -243,63 +244,37 @@
                 </div>
 
                 <div class="map-panel reveal" aria-label="Interactive AVANTHEON global route map">
-                    <svg class="interactive-world-map" viewBox="0 0 1000 560" role="img" aria-labelledby="global-map-title">
-                        <title id="global-map-title">Interactive global route map with Avantheon locations in Europe, Asia, the Middle East, Africa, and South America</title>
-                        <defs>
-                            <pattern id="worldMapDots" width="8" height="8" patternUnits="userSpaceOnUse">
-                                <circle cx="2" cy="2" r="1.35"></circle>
-                            </pattern>
-                            <linearGradient id="interactiveRouteLine" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#B8902B"/>
-                                <stop offset="0.48" stop-color="#D4AF37"/>
-                                <stop offset="1" stop-color="#F2E2A2"/>
-                            </linearGradient>
-                        </defs>
-                        <rect class="map-ocean" width="1000" height="560" rx="18"></rect>
-                        <g class="map-land" aria-hidden="true">
-                            <path d="M72 206c20-45 77-68 132-61 24-31 84-38 122-14 31 20 22 48 58 64 31 14 39 44 10 61-30 18-66-5-101 7-39 13-54 44-104 28-32-10-54-36-88-35-35 1-57-20-29-50z"/>
-                            <path d="M260 286c43 6 72 27 101 52-20 18-64 8-95-14-22-15-31-31-6-38z"/>
-                            <path d="M327 338c42 25 68 73 58 127-7 42-30 72-54 63-23-9-27-45-41-75-16-34-46-61-35-91 9-24 39-39 72-24z"/>
-                            <path d="M404 85c44-28 102-25 134 2 25 21 2 50-45 51-46 1-85 24-119 3-19-12-3-36 30-56z"/>
-                            <path d="M462 184c39-28 82-24 111-1 21 17 16 45-16 58-35 14-64-7-103 8-31 12-58-8-47-32 8-17 26-24 55-33z"/>
-                            <path d="M537 263c54-14 102 22 115 85 13 61-13 129-54 136-36 6-72-38-84-91-14-58 1-119 23-130z"/>
-                            <path d="M590 168c61-38 149-36 218-6 70 31 129 58 128 116-1 48-57 74-118 57-48-13-83-49-132-25-43 21-96 10-124-30-27-39-16-84 28-112z"/>
-                            <path d="M782 404c55-27 122-13 149 25 26 37-18 73-78 61-58-12-108-57-71-86z"/>
-                        </g>
-                        <g class="map-links">
-                            <g class="map-link europe" tabindex="0" aria-label="Europe route">
-                                <path class="trade-route" d="M612 298 C584 250 548 222 504 214"></path>
-                                <circle class="location-halo" cx="504" cy="214" r="22"></circle>
-                                <circle class="location-core" cx="504" cy="214" r="9"></circle>
-                                <text class="location-label" x="526" y="205">Europe</text>
+                    <div class="network-map-wrap">
+                        <div id="global-network-map" class="network-map"></div>
+                        <svg class="world-vector-map" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
+                            <defs>
+                                <pattern id="continentDots" width="8" height="8" patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1.25"></circle>
+                                </pattern>
+                            </defs>
+                            <g class="continent-shapes">
+                                <path d="M68 205c34-54 94-80 166-72 38 4 70 18 105 10 45-10 82 8 102 41 21 34 3 67-42 75-40 8-76-11-116 5-56 22-96 52-154 23-46-23-84-43-61-82z"></path>
+                                <path d="M244 318c41-22 84-11 116 22 39 40 34 96-2 138-30 35-71 45-96 11-24-34-28-88-47-125-10-20 5-34 29-46z"></path>
+                                <path d="M420 143c46-31 111-37 165-13 32 15 65 8 102 17 53 13 82 49 62 82-19 32-66 25-110 24-48-2-86 31-134 15-65-22-123-87-85-125z"></path>
+                                <path d="M596 267c57-37 143-42 219-9 74 32 98 94 45 127-49 31-111-2-163-6-46-4-70 29-112 11-49-21-36-91 11-123z"></path>
+                                <path d="M712 152c61-20 128-5 169 38 35 37 12 83-44 84-50 0-83-33-133-21-42 10-81-15-72-53 6-25 32-39 80-48z"></path>
+                                <path d="M696 415c43-14 93 6 110 45 18 42-14 73-62 68-43-5-83-37-88-72-3-21 12-34 40-41z"></path>
                             </g>
-                            <g class="map-link asia" tabindex="0" aria-label="Asia route">
-                                <path class="trade-route" d="M612 298 C678 250 748 222 818 238"></path>
-                                <circle class="location-halo" cx="818" cy="238" r="22"></circle>
-                                <circle class="location-core" cx="818" cy="238" r="9"></circle>
-                                <text class="location-label" x="840" y="242">Asia</text>
-                            </g>
-                            <g class="map-link africa" tabindex="0" aria-label="Africa route">
-                                <path class="trade-route" d="M612 298 C598 322 586 348 579 382"></path>
-                                <circle class="location-halo" cx="579" cy="382" r="22"></circle>
-                                <circle class="location-core" cx="579" cy="382" r="9"></circle>
-                                <text class="location-label" x="601" y="387">Africa</text>
-                            </g>
-                            <g class="map-link south-america" tabindex="0" aria-label="South America route">
-                                <path class="trade-route" d="M612 298 C514 326 412 369 334 432"></path>
-                                <circle class="location-halo" cx="334" cy="432" r="22"></circle>
-                                <circle class="location-core" cx="334" cy="432" r="9"></circle>
-                                <text class="location-label lower" x="276" y="477">South America</text>
-                            </g>
-                            <g class="map-link hub" tabindex="0" aria-label="Middle East UAE hub">
-                                <circle class="hub-ring" cx="612" cy="298" r="34"></circle>
-                                <circle class="location-halo hub-halo" cx="612" cy="298" r="24"></circle>
-                                <circle class="location-core hub-core" cx="612" cy="298" r="11"></circle>
-                                <text class="location-label hub-label" x="574" y="260">Middle East</text>
-                                <text class="location-label hub-label" x="590" y="278">UAE Hub</text>
-                            </g>
-                        </g>
-                    </svg>
+                        </svg>
+                        <svg class="network-route-layer" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
+                            <path class="network-route" d="M570 280 C540 225 506 188 460 170"></path>
+                            <path class="network-route" d="M570 280 C642 238 702 218 760 220"></path>
+                            <path class="network-route" d="M570 280 C548 310 536 336 530 355"></path>
+                            <path class="network-route" d="M570 280 C475 318 370 362 285 415"></path>
+                        </svg>
+                        <button class="map-pin map-pin-europe" type="button" data-location="Europe" data-detail="Regional access across European trade corridors">Europe</button>
+                        <button class="map-pin map-pin-asia" type="button" data-location="Asia" data-detail="Procurement and container movement across Asian gateways">Asia</button>
+                        <button class="map-pin map-pin-hub" type="button" data-location="Middle East - UAE Hub" data-detail="Primary coordination hub for global container solutions">Middle East<br>UAE Hub</button>
+                        <button class="map-pin map-pin-africa" type="button" data-location="Africa" data-detail="Connected trade support for African supply networks">Africa</button>
+                        <button class="map-pin map-pin-south-america" type="button" data-location="South America" data-detail="Container access across South American trade markets">South America</button>
+                        <div class="map-tooltip" id="network-map-tooltip" role="status" aria-live="polite"></div>
+                        <div class="map-fallback">Interactive world map loading...</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -383,9 +358,12 @@
                 </a>
                 <p>Container infrastructure solutions for seamless commerce across the global trade ecosystem.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                  
-                    <a href="#" aria-label="YouTube">YouTube</a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.8h3v9.7h-3V8.8Zm1.5-4.6c1 0 1.7.7 1.7 1.6 0 .9-.7 1.6-1.8 1.6-1 0-1.7-.7-1.7-1.6 0-.9.7-1.6 1.8-1.6Zm3.3 4.6h2.9v1.3c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7v5.3h-3v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5v4.8h-3V8.8Z"/></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.8 4 12 4 12 4s-3.8 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2.2 9 2.2 10.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.1c.8.8 1.9.8 2.4.9 1.7.2 6.4.2 6.4.2s3.8 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.8.2-3.6v-1.7c0-1.8-.2-3.6-.2-3.6ZM10.1 14.5V8.3l5.9 3.1-5.9 3.1Z"/></svg>
+                    </a>
                 </div>
             </div>
             <div>
@@ -411,9 +389,20 @@
             </div>
             <div>
                 <h3>Contact</h3>
-                <a href="mailto:info@avantheon.com">info@avantheon.com</a>
-                <a href="tel:+97148807456">+971 4 880 7456</a>
-                <span>Dubai, UAE</span>
+                <div class="footer-contact">
+                    <a href="mailto:info@avantheon.com">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4v-11Zm8 6.1 6-4.2H6l6 4.2Zm0 2.1L6 10.5v5.2h12v-5.2l-6 4.2Z"/></svg>
+                        <span>info@avantheon.com</span>
+                    </a>
+                    <a href="tel:+97148807456">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 4.5 9.6 4c.6-.1 1.2.2 1.4.8l1 2.4c.2.5.1 1-.3 1.4l-1.4 1.1c.9 1.8 2.3 3.2 4 4l1.2-1.4c.3-.4.9-.5 1.4-.3l2.4 1c.6.2.9.8.8 1.4l-.5 2.5c-.1.7-.7 1.1-1.4 1.1C10.8 18 5 12.2 5 4.9c0-.7.5-1.3 1.1-1.4Z"/></svg>
+                        <span>+971 4 880 7456</span>
+                    </a>
+                    <span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c3.5 0 6.4 2.8 6.4 6.3 0 4.6-6.4 12.1-6.4 12.1S5.6 13.7 5.6 9.1c0-3.5 2.9-6.3 6.4-6.3Zm0 8.7c1.3 0 2.4-1.1 2.4-2.4S13.3 6.7 12 6.7 9.6 7.8 9.6 9.1s1.1 2.4 2.4 2.4Z"/></svg>
+                        <span>Dubai, UAE</span>
+                    </span>
+                </div>
             </div>
         </div>
         <div class="container footer-bottom">
@@ -425,6 +414,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
