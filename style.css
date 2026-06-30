@@ -563,8 +563,16 @@ h2 span {
 }
 
 .service-card svg {
-    width: 38px;
-    height: 38px;
+    position: relative;
+    z-index: 1;
+    width: 54px;
+    height: 54px;
+    padding: 12px;
+    stroke: var(--service-accent);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), var(--service-accent-soft));
+    border: 1px solid var(--service-accent-border);
+    border-radius: 6px;
+    filter: drop-shadow(0 12px 18px var(--service-accent-shadow));
 }
 
 .stat-item strong {
@@ -590,9 +598,36 @@ h2 span {
 }
 
 .presence,
-.services,
 .catalogue {
     background: linear-gradient(180deg, var(--white), var(--slate-50));
+}
+
+.services {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, var(--navy-900) 0, var(--navy-900) 430px, var(--slate-50) 430px, var(--white) 100%);
+    isolation: isolate;
+}
+
+.services::before {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 0;
+    height: 430px;
+    content: "";
+    background:
+        linear-gradient(90deg, rgba(242, 226, 162, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(242, 226, 162, 0.07) 1px, transparent 1px),
+        linear-gradient(135deg, transparent 0 58%, rgba(212, 175, 55, 0.14) 58%, transparent 72%),
+        linear-gradient(120deg, rgba(15, 94, 156, 0.24), transparent 44%);
+    background-size: 72px 72px, 72px 72px, auto, auto;
+    pointer-events: none;
+}
+
+.services .container {
+    position: relative;
+    z-index: 1;
 }
 
 .split-layout {
@@ -646,6 +681,38 @@ h2 span {
     display: grid;
     max-width: 760px;
     margin-bottom: 36px;
+}
+
+.services .section-intro {
+    grid-template-columns: minmax(0, 760px) minmax(180px, auto);
+    align-items: end;
+    justify-content: space-between;
+    gap: 34px;
+    max-width: none;
+    margin-bottom: 46px;
+}
+
+.services .eyebrow {
+    color: var(--gold-100);
+}
+
+.services .section-intro h2 {
+    max-width: 760px;
+    color: var(--white);
+}
+
+.services .section-intro p {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.services .section-intro .text-link {
+    justify-self: end;
+    margin-top: 0;
+    padding: 13px 18px;
+    color: var(--navy-900);
+    background: linear-gradient(90deg, var(--gold-700), var(--gold-500), var(--gold-100));
+    border-radius: 4px;
+    box-shadow: 0 14px 28px rgba(212, 175, 55, 0.2);
 }
 
 .center-intro {
@@ -718,72 +785,140 @@ h2 span {
 .service-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+    gap: 18px;
+    counter-reset: services;
 }
 
 .service-card {
+    --service-accent: var(--gold-500);
+    --service-accent-soft: rgba(212, 175, 55, 0.12);
+    --service-accent-border: rgba(212, 175, 55, 0.28);
+    --service-accent-shadow: rgba(212, 175, 55, 0.18);
+    counter-increment: services;
+    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 390px;
-    padding: 28px;
-    background: linear-gradient(180deg, var(--white), #FAFBFD);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 6px;
-    box-shadow: 0 8px 22px rgba(4, 24, 56, 0.06);
+    min-height: 430px;
+    overflow: hidden;
+    padding: 30px 28px 28px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), #F8FBFE 60%, #F1F6FB),
+        linear-gradient(135deg, var(--service-accent-soft), transparent 54%);
+    border: 1px solid rgba(11, 58, 109, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 22px 46px rgba(4, 24, 56, 0.12), 0 6px 18px rgba(4, 24, 56, 0.06);
     transition: border var(--ease), box-shadow var(--ease), transform var(--ease);
 }
 
+.service-card:nth-child(2) {
+    --service-accent: var(--blue-500);
+    --service-accent-soft: rgba(15, 94, 156, 0.12);
+    --service-accent-border: rgba(15, 94, 156, 0.24);
+    --service-accent-shadow: rgba(15, 94, 156, 0.16);
+}
+
+.service-card:nth-child(3) {
+    --service-accent: #02847E;
+    --service-accent-soft: rgba(2, 132, 126, 0.12);
+    --service-accent-border: rgba(2, 132, 126, 0.24);
+    --service-accent-shadow: rgba(2, 132, 126, 0.16);
+}
+
+.service-card:nth-child(4) {
+    --service-accent: #596C86;
+    --service-accent-soft: rgba(89, 108, 134, 0.12);
+    --service-accent-border: rgba(89, 108, 134, 0.24);
+    --service-accent-shadow: rgba(89, 108, 134, 0.16);
+}
+
+.service-card::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    content: "";
+    background: linear-gradient(90deg, var(--service-accent), rgba(255, 255, 255, 0));
+}
+
+.service-card::after {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    content: "0" counter(services);
+    color: rgba(4, 24, 56, 0.08);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+}
+
 .service-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold-500);
-    box-shadow: var(--shadow-card);
+    transform: translateY(-6px);
+    border-color: var(--service-accent-border);
+    box-shadow: 0 30px 62px rgba(4, 24, 56, 0.18), 0 10px 24px rgba(4, 24, 56, 0.08);
 }
 
 .service-card h3 {
-    margin: 22px 0 8px;
+    position: relative;
+    z-index: 1;
+    margin: 26px 0 10px;
     color: var(--navy-900);
     font-family: var(--body);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
+    line-height: 1.35;
     text-transform: uppercase;
 }
 
 .service-card p {
+    position: relative;
+    z-index: 1;
     margin: 0 0 18px;
     color: var(--slate-500);
 }
 
 .service-card ul {
     display: grid;
-    gap: 8px;
-    margin: 0 0 24px;
+    gap: 0;
+    margin: 2px 0 26px;
     padding: 0;
     color: var(--slate-500);
+    border-top: 1px solid rgba(11, 58, 109, 0.08);
     list-style: none;
 }
 
 .service-card li {
     position: relative;
-    padding-left: 18px;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid rgba(11, 58, 109, 0.08);
+    font-size: 14px;
+    line-height: 1.35;
 }
 
 .service-card li::before {
     position: absolute;
-    top: 10px;
+    top: 17px;
     left: 0;
     width: 6px;
     height: 6px;
     content: "";
-    background: var(--gold-500);
+    background: var(--service-accent);
     border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--service-accent-soft);
 }
 
 .service-card a {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
     margin-top: auto;
-    color: var(--gold-600);
+    color: var(--service-accent);
     font-size: 13px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+.service-card a:hover {
+    color: var(--navy-900);
 }
 
 .industries {
@@ -1231,6 +1366,10 @@ h2 span {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .service-card {
+        min-height: 400px;
+    }
+
     .industry-track {
         grid-template-columns: repeat(4, minmax(160px, 1fr));
     }
@@ -1295,6 +1434,26 @@ h2 span {
     .hero-inner {
         min-height: 780px;
         padding-bottom: 150px;
+    }
+
+    .services {
+        background:
+            linear-gradient(180deg, var(--navy-900) 0, var(--navy-900) 440px, var(--slate-50) 440px, var(--white) 100%);
+    }
+
+    .services::before {
+        height: 440px;
+    }
+
+    .services .section-intro {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 22px;
+        margin-bottom: 38px;
+    }
+
+    .services .section-intro .text-link {
+        justify-self: start;
     }
 
     .stats-band {
@@ -1420,6 +1579,23 @@ h2 span {
 
     .presence-metrics {
         grid-template-columns: 1fr;
+    }
+
+    .services {
+        background:
+            linear-gradient(180deg, var(--navy-900) 0, var(--navy-900) 500px, var(--slate-50) 500px, var(--white) 100%);
+    }
+
+    .services::before {
+        height: 500px;
+    }
+
+    .services .section-intro h2 {
+        font-size: 32px;
+    }
+
+    .services .section-intro .text-link {
+        width: fit-content;
     }
 
     .stats-band {
