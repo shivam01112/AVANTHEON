@@ -634,7 +634,7 @@ h2 span {
 .about-company {
     position: relative;
     overflow: hidden;
-    padding: 86px 0;
+    padding: 76px 0;
     background:
         linear-gradient(180deg, #FFFFFF 0%, #F7FAFD 100%);
     border-bottom: 1px solid rgba(11, 58, 109, 0.08);
@@ -656,11 +656,11 @@ h2 span {
 
 .about-layout {
     display: grid;
-    grid-template-columns: minmax(360px, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
     align-items: center;
-    gap: 44px;
-    padding: 26px;
-    background: rgba(255, 255, 255, 0.84);
+    gap: 40px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(11, 58, 109, 0.08);
     border-radius: 10px;
     box-shadow: 0 24px 70px rgba(4, 24, 56, 0.08);
@@ -670,8 +670,8 @@ h2 span {
     display: grid;
     justify-items: start;
     gap: 16px;
-    max-width: 560px;
-    padding: 10px 0 10px 8px;
+    max-width: 540px;
+    padding: 18px 0 18px 22px;
 }
 
 .about-content .eyebrow {
@@ -681,16 +681,16 @@ h2 span {
 }
 
 .about-content h2 {
-    max-width: 540px;
-    font-size: 38px;
+    max-width: 520px;
+    font-size: 36px;
     line-height: 1.1;
 }
 
 .about-content p {
     margin: 0;
     color: var(--slate-500);
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.68;
 }
 
 .about-highlights {
@@ -701,10 +701,10 @@ h2 span {
 }
 
 .about-highlights span {
-    padding: 9px 11px;
+    padding: 8px 10px;
     color: var(--blue-700);
-    background: #F4F8FC;
-    border: 1px solid rgba(15, 94, 156, 0.14);
+    background: rgba(15, 94, 156, 0.045);
+    border: 1px solid rgba(15, 94, 156, 0.12);
     border-radius: 4px;
     font-size: 10px;
     font-weight: 800;
@@ -714,15 +714,16 @@ h2 span {
 
 .about-content .button {
     margin-top: 8px;
+    min-width: 230px;
 }
 
 .about-media {
     position: relative;
-    min-height: 450px;
+    min-height: 430px;
     overflow: hidden;
     border: 1px solid rgba(11, 58, 109, 0.12);
-    border-radius: 8px;
-    box-shadow: 0 20px 48px rgba(4, 24, 56, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 26px 62px rgba(4, 24, 56, 0.16);
     isolation: isolate;
 }
 
@@ -739,7 +740,7 @@ h2 span {
 
 .about-media::after {
     position: absolute;
-    inset: 16px;
+    inset: 18px;
     z-index: 2;
     content: "";
     border: 1px solid rgba(255, 255, 255, 0.46);
@@ -753,7 +754,7 @@ h2 span {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 62% center;
+    object-position: 58% center;
     transform: scale(1);
     transition: transform 700ms ease;
 }
@@ -764,8 +765,8 @@ h2 span {
 
 .about-media-badge {
     position: absolute;
-    right: 28px;
-    bottom: 28px;
+    right: 24px;
+    bottom: 24px;
     z-index: 3;
     max-width: 300px;
     padding: 18px 20px;
@@ -1981,7 +1982,7 @@ h2 span {
     }
 
     .about-media {
-        min-height: 340px;
+        min-height: 360px;
     }
 
     .trust {
@@ -2102,7 +2103,7 @@ h2 span {
     }
 
     .about-media {
-        min-height: 280px;
+        min-height: 320px;
     }
 
     .about-media-badge {
