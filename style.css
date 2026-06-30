@@ -1091,7 +1091,7 @@ h2 span {
 }
 
 .container-shadow {
-    fill: rgba(4, 24, 56, 0.2);
+    fill: rgb(0 0 0 / 36%);
     filter: blur(7px);
     transform-origin: center;
     transform-box: fill-box;
@@ -1106,14 +1106,14 @@ h2 span {
     }
 
     50% {
-        transform: translate3d(-50%, -18px, 0);
+        transform: translate3d(-50%, -38px, 0);
     }
 }
 
 @keyframes containerShadowPulse {
     0%,
     100% {
-        opacity: 0.74;
+        opacity: 0.94;
         transform: scaleX(1.04) scaleY(1);
     }
 
