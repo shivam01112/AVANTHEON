@@ -659,11 +659,11 @@ h2 span {
     grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
     align-items: center;
     gap: 40px;
-    padding: 24px;
+    /* padding: 24px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(11, 58, 109, 0.08);
     border-radius: 10px;
-    box-shadow: 0 24px 70px rgba(4, 24, 56, 0.08);
+    box-shadow: 0 24px 70px rgba(4, 24, 56, 0.08); */
 }
 
 .about-content {
@@ -874,12 +874,12 @@ h2 span {
 }
 
 .services .section-intro {
-    grid-template-columns: minmax(0, 760px) minmax(180px, auto);
-    align-items: end;
-    justify-content: space-between;
-    gap: 34px;
+  grid-template-columns: minmax(0, 760px) minmax(180px, 3fr);
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 0px;
     max-width: none;
-    margin-bottom: 46px;
+    margin-bottom: 60px;
 }
 
 .services .eyebrow {
@@ -896,7 +896,7 @@ h2 span {
 }
 
 .services .section-intro .text-link {
-    justify-self: end;
+    justify-self: start;
     margin-top: 0;
     padding: 13px 18px;
     color: var(--navy-900);
