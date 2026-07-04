@@ -1170,6 +1170,7 @@ h2 span {
     bottom: 22px;
     z-index: 6;
     max-width: 300px;
+    gap: 15px;
     padding: 14px 16px;
     color: var(--white);
     background: rgba(4, 24, 56, 0.9);
