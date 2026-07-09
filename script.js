@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const nav = document.getElementById("primary-nav");
     const navLinks = Array.from(document.querySelectorAll(".nav-link"));
     const sections = navLinks
-        .map((link) => document.querySelector(link.getAttribute("href")))
+        .map((link) => {
+            const href = link.getAttribute("href") || "";
+            return href.startsWith("#") ? document.querySelector(href) : null;
+        })
         .filter(Boolean);
 
     const setHeaderState = () => {
@@ -39,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             navLinks.forEach((link) => {
-                link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+                const href = link.getAttribute("href") || "";
+                link.classList.toggle("active", href === `#${entry.target.id}`);
             });
         });
     }, {
