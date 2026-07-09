@@ -1,1 +1,397 @@
-AVANTHEON CONTAINERS TRADING FZCO A	AVANTHEON C O N T A I N E R S	T R A D I N G	F Z C O Website	Build Specification. A	complete,	pixel-faithful	blueprint	for	recreating	the	AVANTHEON corporate	website	—	design	system,	layout	architecture,	content	copy, and	engineering	guidance. Document	Type Technical	Design	Specification Version 1.0 Project Corporate	Marketing	Website	(1:1	Replica) Status Ready	for	Development Industry Container	Trading	&	Global	Logistics Audience Design	&	Frontend	Engineering	TeamCONTENTS Table	of	Contents 01 Project	Overview	—	identity,	positioning,	design	intent 02 Design	System	&	Brand	Guidelines	—	gradients,	palette,	typography,	UI	components 03 Layout	&	Page	Structure	—	section-by-section	breakdown,	top	to	bottom 04 Visual	&	Technical	Requirements	—	spacing,	grid,	responsive,	motion,	a11y,	performance 05 Content	Copy	—	verbatim	text	inventory 06 Assets	Needed	—	images,	icons,	illustrations 07 Implementation	Recommendations	—	stack,	SEO,	hosting How	to	use	this	document.	Every	visual	element	of	the	reference	design	is	described	here	in	enough	detail	to	build	the	site	without	the	original	mockup.	Hex	codes,	gradient stops,	copy,	and	component	anatomy	are	exact.	Where	a	value	must	be	inferred	(e.g.	exact	pixel	paddings),	the	document	states	a	recommended	target	and	the	rationale.SECTION	01 AVANTHEON	—	legal	entity	Avantheon	Containers	Trading	FZCO Project	Overview Company Industry Premium	container	trading,	infrastructure	solutions,	and	strategic	global	logistics	assets Site	Type Single-page	(long-scroll)	corporate	marketing	homepage	with	multi-page	navigation	architecture Primary	Goal Establish	institutional	credibility;	drive	two	conversion	actions	—	Explore	Global	Operations	and	Request	Strategic Consultation Target	Audience Enterprise	procurement	teams,	freight	forwarders/NVOCCs,	government	contractors,	industrial	buyers	in	the	GCC	and international	markets Overall	Style	&	Art	Direction Mood Premium,	modern,	corporate,	cinematic	and	trustworthy.	The	design communicates	scale,	permanence	and	institutional	weight	—	the	visual	language of	an	asset-backed	infrastructure	company,	not	a	startup. Tone	of	Imagery Cinematic,	dusk-lit	photography	—	container	ships,	gantry	cranes,	the	Dubai skyline.	High	contrast,	warm	gold	light	against	cool	blue	shadows.	Photography	is treated	with	a	navy	overlay	for	text	legibility. Color	Theme Deep	navy	&	blue	gradients	(authority,	trust,	maritime	depth)	paired	with	a luxury	gold	accent	(excellence,	premium	positioning).	White	/	near-white	section backgrounds	keep	the	body	airy	and	editorial. Layout	Personality Generous	whitespace,	large	serif-feel	display	headings	against	clean	sans	body, restrained	gold	dividers,	and	confident	statistics.	Industrial-luxury	crossover. Brand	essence	statement.	The	signature	gradient	(navy	→	blue	→	gold)	"represents	trust,	strength,	global	reach	and	premium	excellence."	Every	section	should	reinforce one	of	these	four	pillars.SECTION	02 Design	System	&	Brand	Guidelines 2.1	Gradient	System All	gradients	are	linear	unless	noted.	Angle	defaults	to	90°	(left→right)	for	bars/CTAs	and	~135°	for	hero/section	fills.	Reproduce	stops	exactly. Primary	Brand	Gradient	(Hero) #041838		→		#0B3A6D		→		#0F5E9C Luxury	Accent	Gradient #88863B		→		#D4AF37		→		#F2E2A2 Hero	Overlay	Gradient	(applied	over	background	photo) rgba(4,27,56,0.92)		→		rgba(4,27,56,0.72)		→		rgba(4,27,56,0.10) CTA	Gradient #0B3A6D	→	#124F8A	→	#1A76C5 Section	Background	Gradient #FFFFFF	→	#F7F9FC Global	Map	Gradient #EAF2F9	→	#DDEAF7 Signature	Gradient	(Brand	Essence) CTA	Hover	State #124F8A	→	#1A76C5 Card	Gradient		(border:	rgba(212,175,55,0.15)) #FFFFFF	→	#FAFBFD Route	Line	Gradient #D4AF37	→	#F2E2A2 #041838	→	#0B3A6D	→	#D4AF37		—	"Represents	trust,	strength,	global	reach	and	premium	excellence."2.2	Color	Palette Primary #041838 Deep	Navy Neutral #F7F9FC Section	BG Role #0B3A6D Brand	Blue #FFFFFF White Primary	/	Hero	base Brand	blue Ocean	blue Accent	gold Bronze Light	gold Section	background Border Muted	text Body	/	ink #0F5E9C Ocean	Blue #E2E8F0 Border/Line Token navy-900 blue-700 blue-500 gold-500 gold-700 gold-100 slate-50 #D4AF37 Luxury	Gold #64748B Muted	Text Hex #041838 #0B3A6D #0F5E9C #D4AF37 #88863B #88863B Bronze/Olive #0F172A Body	Text Usage Hero	base,	footer,	dark	cards,	headings Mid	gradient	stop,	links,	subheadings Gradient	highlight,	accents CTAs,	icons,	dividers,	stat	numbers,	logo Gradient	darkest	gold	stop #F2E2A2 #F7F9FC slate-200 slate-500 slate-900 #E2E8F0 #64748B #0F172A Gradient	lightest	gold	stop,	route	line	tail Alternating	section	fills Card	borders,	dividers,	hairlines Body	paragraphs,	captions,	labels Default	body	copy	on	light2.3	Typography Type	is	inferred	from	the	design:	an	elegant	high-contrast	display	face	for	headlines	paired	with	a	clean	geometric/grotesque	sans	for	UI	and	body.	Recommended	pairings	below. Element Recommended	Font Weight Size (desktop) Style	notes Display	/	H1 headline "Playfair	Display"	or	"Canela"	(serif)	—	alt: "Fraunces" 700 56–72px Tight	leading	(1.05–1.15),	letter-spacing	-0.5px.	Gold	"."	period	accent	at	end of	headline. Section	H2 Same	display	serif 700 34–42px Two-line	balanced;	gold	full-stop	accent	recurring	motif. Card	/	H3	titles "Inter"	/	"Söhne"	(sans) 700 16–18px Uppercase	or	title	case;	letter-spacing	+0.3px. Eyebrow	/ overline Sans 700 11–12px UPPERCASE,	letter-spacing	+2.5px,	gold	color	#D4AF37	(or	muted	on	dark). Body "Inter"	/	"Söhne" 400 15–16px Line-height	1.6,	color	#64748B	on	light	/	#cfe0f2	on	dark. Stat	numbers Sans 700 30–40px Gold	or	white;	thin	label	beneath	in	10–11px	uppercase. Buttons	/	nav Sans 700 12–13px UPPERCASE,	letter-spacing	+1px. Typographic	rule.	Maintain	a	strict	two-family	system.	The	serif	is	reserved	exclusively	for	large	display	headlines;	everything	functional	(nav,	buttons,	labels,	body,	stats) uses	the	sans.	Never	mix	the	two	within	one	line. 2.4	UI	Elements Primary	Button PRIMARY	BUTTON	→ CTA	gradient	fill	#0B3A6D→#124F8A→#1A76C5,	white	text,	radius	4px,	~12px×24px padding,	trailing	arrow.	Hover	→	#124F8A→#1A76C5	+	slight	lift/shadow.	Secondary	Button SECONDARY	BUTTON	→ Luxury	accent	gradient	#88863B→#D4AF37→#F2E2A2,	dark	navy	text,	same radius/padding.	Used	for	highest-priority	gold	CTAs	(e.g.	Explore	Global Operations). Outline	/	Ghost	Button REQUEST	CONSULTATION 1.5px	border	(#cbd5e1	on	dark	hero	use	rgba(255,255,255,0.6)),	transparent	fill, label	in	white	on	hero.	Hover	fills	subtle	white/10%.	Icon	Style Thin	line	icons	(1.5px	stroke)	in	gold	#D4AF37.	Set	includes:	globe, building/warehouse,	location	pin,	padlock,	container,	layered-stack,	hub. Consistent	24×24	grid,	rounded	joins. Card	Component White-to-#FAFBFD	vertical	gradient,	1px	border	rgba(212,175,55,0.15),	radius	~6px,	soft	shadow.	Anatomy:	gold	line	icon	→	title	(sans	700)	→	supporting	line	→	bullet	list	→ "LEARN	MORE	→"	gold	link.	Hover:	border	deepens	to	gold,	elevation	increases,	icon	tint	intensifies.SECTION	03 Layout	&	Page	Structure Top-to-bottom	breakdown.	Container	max-width	~1280–1320px,	centered,	~24–32px	gutters.	Each	block	described	with	structure,	content,	and	styling. 3.1	Header	/	Navigation	Bar Position Sticky/fixed	top,	transparent	over	hero,	transitions	to	solid	navy	(#041838)	with	subtle	shadow	on	scroll. Logo	(left) Stylized	angular	"A"	mark	(gold)	+	wordmark	AVANTHEON,	with	CONTAINERS	TRADING	FZCO	in	small	gold	tracking	beneath. Nav	items	(center) HOME	·	SERVICES	·	INDUSTRIES	·	CONTAINERS	·	GLOBAL	OPERATIONS	·	INSIGHTS	·	ABOUT	US.	Uppercase	sans,	12–13px, white.	Active	item	("HOME")	has	a	gold	underline. CTA	(right) "CONTACT	US"	gold	button	(luxury	accent	gradient). Mobile Hamburger	icon	to	the	right	of	CTA;	collapses	nav	into	full-screen	navy	overlay	menu	on	tablet/mobile. Height ~80px	desktop;	condenses	to	~64px	on	scroll. 3.2	Hero	Section Background Full-bleed	cinematic	photo:	a	fully-laden	container	ship	berthed	at	port,	ship-to-shore	gantry	cranes,	and	the	Dubai skyline	incl.	Burj	Khalifa	at	dusk.	Warm	golden	light,	blue	shadows. Overlay Hero	Overlay	Gradient	left→right:	rgba(4,27,56,.92)→.72→.10	so	text	on	the	left	stays	legible	while	the	ship	reveals	on	the right. Eyebrow "GLOBAL	INFRASTRUCTURE.	LIMITLESS	POSSIBILITIES."	—	gold,	uppercase,	tracked. Headline "Engineering	Global	Trade	Infrastructure."	—	large	serif	display,	white,	gold	period. Subheadline "AVANTHEON	CONTAINERS	TRADING	FZCO	delivers	premium	container	trading,	infrastructure	solutions,	and	strategic logistics	assets	across	international	markets." Actions ①	EXPLORE	GLOBAL	OPERATIONS	→	(gold)			②	REQUEST	STRATEGIC	CONSULTATION	(outline)			③	▶ "WATCH	INTRO	FILM"	(circular	play	icon	+	text	link). Height ~88–95vh;	content	vertically	centered,	left-aligned	within	container. 3.3	Statistics	Bar A	5-column	band	sitting	on	a	darker	navy	panel	overlapping	the	bottom	of	the	hero.	Each	item:	gold	line	icon	+	large	number	+	small	uppercase	label.	Thin	vertical	dividers	between. Icon Value Label Globe 12+ COUNTRIES	SERVED Container/box 1.2M+ TEU	CAPACITY Stacked	containers 850K+ CONTAINERS	DELIVERED Location	pin 45+ GLOBAL	PORT	NETWORK Hub/node 6 OPERATIONAL	HUBS 3.4	Global	Presence Layout Two-column:	left	text	column,	right	large	dotted	world	map. Eyebrow "GLOBAL	PRESENCE" Heading "A	Network	Without	Borders." Body "Strategically	positioned	across	key	global	trade	routes,	we	connect	markets,	move	industries,	and	power	economies." Link "EXPLORE	OUR	NETWORK	→"	(gold) Map Dotted/halftone	world	map	on	light	blue	gradient	(#EAF2F9→#DDEAF7).	Glowing	gold	node	points	+	curved	gold	route lines	(Route	Line	Gradient)	arcing	between	hubs. Labels EUROPE	·	ASIA	·	MIDDLE	EAST	—	UAE	HUB	(emphasized)	·	AFRICA	·	SOUTH	AMERICA 3.5	Our	Ecosystem	—	Integrated	Solutions Eyebrow	/	Heading "OUR	ECOSYSTEM"	/	"Integrated	Solutions.	Industrial	Scale." Body "From	container	trading	to	infrastructure	solutions,	we	deliver	end-to-end	capabilities	for	global	industries."	+	"VIEW	ALL SERVICES	→" Layout Intro	text	column	on	far	left	+	4	equal	service	cards	in	a	row	(card	gradient	+	gold-tinted	border	+	line	icon). Card Bullets Container	Trading New	Containers	·	Used	Containers	·	Specialized	Units	·	Reefer	Containers	·	And	More Infrastructure	Solutions Modular	Units	·	Industrial	Conversion	·	Storage	Systems	·	Site	Solutions Logistics	Support Global	Sourcing	·	Procurement	·	Fleet	Coordination	·	Asset	Relocation Enterprise	Supply Government	Contracts	·	Industrial	Procurement	·	Bulk	Orders	·	Framework	Supply Each	card	ends	with	"LEARN	MORE	→"	in	gold.3.6	Industries	We	Empower "INDUSTRIES	WE	EMPOWER"	(centered,	uppercase) Heading Pattern Horizontal	scrollable	carousel	with	left/right	circular	arrow	controls.	Each	card	=	full-bleed	photo	with	a	dark	gradient bottom	and	uppercase	label. Cards OIL	&	GAS	·	INFRASTRUCTURE	·	CONSTRUCTION	·	MINING	·	MARITIME	·	DEFENSE	LOGISTICS	·	GOVERNMENT	(8	visible	tiles; verify	the	duplicate	"MINING"	label	in	source	—	likely	one	should	read	e.g.	"ENERGY"	or	"SHIPPING"). Card	style ~180–200px	tall	image	tiles,	rounded	corners,	label	bottom-left	over	navy	gradient	scrim;	active/hover	scales	slightly	& brightens. 3.7	Container	Catalogue Eyebrow	/	Heading "CONTAINER	CATALOGUE"	/	"Engineered	For	Every	Requirement." Body "Explore	our	wide	range	of	ISO	certified	containers	built	for	durability,	security	and	performance."	+	"VIEW	CATALOGUE	→" Hero	visual Large	3D	render	of	a	navy-blue	shipping	container	with	gold	AVANTHEON	logo	+	"PREMIUM	GLOBAL	COMMERCE", floating	with	a	soft	reflection. Type	selector Row	of	icon-buttons	(each	a	small	container	silhouette	+	label):	20FT	DRY	·	40FT	DRY	·	40FT	HC	·	REEFER	·	OPEN	TOP	· FLAT	RACK	·	OPEN	SIDE. 3.8	Trust	&	Certifications Background Split	panel	—	navy	(#041838)	left	third	with	heading,	transitioning	into	the	luxury	gold	gradient	across	the	stats/certs. Heading "TRUSTED	BY	INDUSTRIES.	BUILT	ON	EXCELLENCE." Body "Our	commitment	to	quality,	compliance	and	client	success	drives	everything	we	do."	+	"OUR	CERTIFICATIONS	→" Stat	blocks 100%	ISO	CERTIFIED	·	25+	YEARS	OF	COMBINED	INDUSTRY	EXPERIENCE	·	ZERO	COMPROMISE	ON	QUALITY	&	SAFETY	· 24/7	GLOBAL	SUPPORT	&	OPERATIONS Certification	logos ISO	9001:2015	·	CSC	CERTIFIED	·	IICL	MEMBER	·	WCA	MEMBER	·	TRACE	CERTIFIED	·	D&B	VERIFIED 3.9	Footer Background Deep	navy	#041838,	white/muted	text. Brand	block AVANTHEON	logo	+	"CONTAINERS	TRADING	FZCO"	+	tagline	"Engineering	global	trade	infrastructure	with	precision, reliability	and	vision."	+	social	icons:	LinkedIn,	Facebook,	Instagram,	YouTube. COMPANY About	Us	·	Leadership	·	Careers	·	News	&	Insights SERVICES Container	Trading	·	Infrastructure	Solutions	·	Logistics	Support	·	Enterprise	Supply RESOURCES Container	Catalogue	·	Certifications	·	Downloads	·	FAQ CONTACT info@avantheon.com	·	+971	4	880	7456	·	Dubai,	UAE VISUAL	GLIMPSE Two	small	thumbnail	photos	(port	/	skyline). Legal	bar "©	2024	AVANTHEON	CONTAINERS	TRADING	FZCO.	All	Rights	Reserved."	·	Privacy	Policy	·	Terms	of	UseSECTION	04 Visual	&	Technical	Requirements 4.1	Color	Usage	Rules	by	Section Section Background Accents Header	(scrolled) #041838 Gold	logo	+	active	underline;	white	nav Hero Photo	+	navy	overlay	gradient Gold	eyebrow,	gold	period,	gold	primary	CTA Stats	bar Navy	panel Gold	icons	+	numbers Global	Presence #FFFFFF	→	#F7F9FC;	map	#EAF2F9→#DDEAF7 Gold	nodes/routes Ecosystem	cards White;	cards	#FFFFFF→#FAFBFD Gold	icons	+	gold-tinted	borders	+	gold	links Industries White Photo	tiles,	navy	scrim	labels Catalogue White Navy	container,	gold	logo,	blue	type	chips Trust Navy	→	gold	split White/navy	stat	text Footer #041838 Gold	headings,	muted	links 4.2	Spacing,	Grid	&	Layout	System Grid:	12-column	fluid	grid,	max	container	~1280–1320px,	24–32px	gutters,	centered. Vertical	rhythm:	section	padding	~96–120px	top/bottom	on	desktop;	~56–72px	tablet;	~40–48px	mobile. Spacing	scale	(4px	base):	4	/	8	/	12	/	16	/	24	/	32	/	48	/	64	/	96	/	120. Cards:	equal-height	4-up	row	(desktop),	24px	gap,	~24px	internal	padding,	6px	radius. Radius	scale:	buttons/chips	4px;	cards	6px;	image	tiles	8–10px;	pills	999px. Shadows:	subtle,	low-spread	—	e.g.	0	8px	24px	rgba(4,27,56,0.08);	deepen	on	hover. 4.3	Responsive	Behavior Breakpoint Width Behavior Desktop ≥	1200px Full	layout;	5-col	stats,	4-col	cards,	2-col	presence,	multi-tile	carousel. Laptop 992–1199px Cards	remain	4-up	or	wrap	to	2×2;	reduced	section	padding. Tablet 768–991px Nav	→	hamburger;	stats	2–3	per	row;	cards	2-up;	presence	stacks	(text	over	map). Mobile <	768px Single	column;	stats	2-up	or	stacked;	cards	1-up;	hero	text	scales	(H1	~32–38px);	carousel	=	swipe;	footer	columns	stack. 4.4	Animation	&	Interaction Hero:	subtle	Ken-Burns	zoom	on	background	photo;	staggered	fade-up	of	eyebrow	→	headline	→	subhead	→	buttons. Nav:	background	fades	to	solid	navy	on	scroll;	underline	slides	under	active/hovered	item. Stats:	count-up	animation	when	scrolled	into	view	(IntersectionObserver). Map:	route	lines	draw/animate	(SVG	stroke-dashoffset)	with	pulsing	gold	node	glows. Cards:	on	hover	lift	(translateY	-4px),	border	→	gold,	shadow	deepens,	icon	tint	intensifies;	~200ms	ease. Carousel:	smooth	horizontal	scroll/snap;	arrow	controls;	momentum	on	touch. Buttons:	gradient	shift	to	hover	stops	+	1–2px	lift;	arrow	nudges	right	~3px. Global:	smooth-scroll	anchor	nav;	reveal-on-scroll	fade/slide	(respect	prefers-reduced-motion). 4.5	Image	Specifications Asset Format Guidance Hero	background WebP/AVIF	+	JPG	fallback ~2560px	wide,	<300KB	compressed,	responsive	srcset;	LCP	element	—	preload. Industry	tiles WebP ~800×600,	lazy-loaded,	art-directed	crops. Container	render PNG/WebP	(transparent) High-res	3D	render,	retina	@2x. Icons Inline	SVG Crisp	at	any	scale;	currentColor	for	theming. Cert	logos SVG/PNG Monochrome/duotone	to	suit	gold	band. Alt	text — Descriptive	&	meaningful	for	every	content	image	(decorative	=	empty	alt). 4.6	Accessibility WCAG	2.1	AA:	text	contrast	≥	4.5:1	(verify	gold-on-white	for	small	text	—	darken	to	~#B8902B	where	needed). Full	keyboard	navigation;	visible	focus	rings;	logical	tab	order;	skip-to-content	link. Semantic	landmarks	(header/nav/main/section/footer),	proper	heading	hierarchy,	ARIA	labels	on	icon-only	controls	(hamburger,	carousel	arrows,	social	links). Carousel	operable	by	keyboard;	prefers-reduced-motion	disables	non-essential	animation;	count-ups	have	static	fallback. Forms	(consultation/contact)	labelled,	with	error	messaging	and	required-field	cues. 4.7	Performance	Best	Practices Target	Core	Web	Vitals:	LCP	<	2.5s,	CLS	<	0.1,	INP	<	200ms. Preload	hero	image	&	primary	font;	font-display:	swap;	subset	fonts. Next-gen	images,	responsive	srcset,	lazy-load	below	the	fold,	explicit	width/height	to	avoid	CLS. Code-split,	defer	non-critical	JS,	inline	critical	CSS,	tree-shake. CDN	delivery,	HTTP/2-3,	long-cache	hashed	static	assets,	gzip/brotli.SECTION	05 Content	Copy	(Verbatim) All	on-screen	text	transcribed	exactly.	Use	as	the	canonical	copy	source. Location Copy Logo AVANTHEON	/	CONTAINERS	TRADING	FZCO Nav HOME	·	SERVICES	·	INDUSTRIES	·	CONTAINERS	·	GLOBAL	OPERATIONS	·	INSIGHTS	·	ABOUT	US	·	CONTACT	US Hero	eyebrow GLOBAL	INFRASTRUCTURE.	LIMITLESS	POSSIBILITIES. Hero	headline Engineering	Global	Trade	Infrastructure. Hero	subhead AVANTHEON	CONTAINERS	TRADING	FZCO	delivers	premium	container	trading,	infrastructure	solutions,	and	strategic logistics	assets	across	international	markets. Hero	buttons EXPLORE	GLOBAL	OPERATIONS	·	REQUEST	STRATEGIC	CONSULTATION	·	WATCH	INTRO	FILM Stats 12+	COUNTRIES	SERVED	·	1.2M+	TEU	CAPACITY	·	850K+	CONTAINERS	DELIVERED	·	45+	GLOBAL	PORT	NETWORK	·	6 OPERATIONAL	HUBS Presence GLOBAL	PRESENCE	/	A	Network	Without	Borders.	/	Strategically	positioned	across	key	global	trade	routes,	we	connect markets,	move	industries,	and	power	economies.	/	EXPLORE	OUR	NETWORK Map	labels EUROPE	·	ASIA	·	MIDDLE	EAST	UAE	HUB	·	AFRICA	·	SOUTH	AMERICA Ecosystem OUR	ECOSYSTEM	/	Integrated	Solutions.	Industrial	Scale.	/	From	container	trading	to	infrastructure	solutions,	we	deliver end-to-end	capabilities	for	global	industries.	/	VIEW	ALL	SERVICES Card	1 CONTAINER	TRADING	—	New	Containers	·	Used	Containers	·	Specialized	Units	·	Reefer	Containers	·	And	More	·	LEARN	MORE Card	2 INFRASTRUCTURE	SOLUTIONS	—	Modular	Units	·	Industrial	Conversion	·	Storage	Systems	·	Site	Solutions	·	LEARN	MORE Card	3 LOGISTICS	SUPPORT	—	Global	Sourcing	·	Procurement	·	Fleet	Coordination	·	Asset	Relocation	·	LEARN	MORE Card	4 ENTERPRISE	SUPPLY	—	Government	Contracts	·	Industrial	Procurement	·	Bulk	Orders	·	Framework	Supply	·	LEARN	MORE Industries INDUSTRIES	WE	EMPOWER	—	OIL	&	GAS	·	INFRASTRUCTURE	·	CONSTRUCTION	·	MINING	·	MARITIME	·	DEFENSE	LOGISTICS	· GOVERNMENT Catalogue CONTAINER	CATALOGUE	/	Engineered	For	Every	Requirement.	/	Explore	our	wide	range	of	ISO	certified	containers	built	for durability,	security	and	performance.	/	VIEW	CATALOGUE Container	mark AVANTHEON	·	PREMIUM	GLOBAL	COMMERCE Container	types 20FT	DRY	·	40FT	DRY	·	40FT	HC	·	REEFER	·	OPEN	TOP	·	FLAT	RACK	·	OPEN	SIDE Trust TRUSTED	BY	INDUSTRIES.	BUILT	ON	EXCELLENCE.	/	Our	commitment	to	quality,	compliance	and	client	success	drives everything	we	do.	/	OUR	CERTIFICATIONS Trust	stats 100%	ISO	CERTIFIED	·	25+	YEARS	OF	COMBINED	INDUSTRY	EXPERIENCE	·	ZERO	COMPROMISE	ON	QUALITY	&	SAFETY	·	24/7 GLOBAL	SUPPORT	&	OPERATIONS Certifications ISO	9001:2015	·	CSC	CERTIFIED	·	IICL	MEMBER	·	WCA	MEMBER	·	TRACE	CERTIFIED	·	D&B	VERIFIED Footer	tagline Engineering	global	trade	infrastructure	with	precision,	reliability	and	vision. Footer	cols COMPANY:	About	Us	·	Leadership	·	Careers	·	News	&	Insights	|	SERVICES:	Container	Trading	·	Infrastructure	Solutions	· Logistics	Support	·	Enterprise	Supply	|	RESOURCES:	Container	Catalogue	·	Certifications	·	Downloads	·	FAQ Footer	contact info@avantheon.com	·	+971	4	880	7456	·	Dubai,	UAE Legal ©	2024	AVANTHEON	CONTAINERS	TRADING	FZCO.	All	Rights	Reserved.	·	Privacy	Policy	·	Terms	of	UseSECTION	06 Assets	Needed 6.1	Photography Hero:	container	ship	at	berth	+	gantry	cranes	+	Dubai	skyline	(Burj	Khalifa)	at	golden-hour	dusk. Industry	tiles	(×8):	Oil	&	Gas	(rig/refinery),	Infrastructure	(bridge),	Construction	(crane/site),	Mining	(haul	truck/pit),	Maritime	(vessel),	Defense	Logistics	(military	transport), Government	(civic	building)	—	plus	resolve	the	duplicate	8th	tile. Footer	"Visual	Glimpse":	two	small	port/skyline	thumbnails. 6.2	3D	/	Product	Renders Navy	AVANTHEON-branded	shipping	container	(gold	logo	+	"PREMIUM	GLOBAL	COMMERCE"),	hero	angle	with	reflection. Seven	small	container-type	silhouettes	for	the	catalogue	selector	(20FT	DRY,	40FT	DRY,	40FT	HC,	REEFER,	OPEN	TOP,	FLAT	RACK,	OPEN	SIDE). 6.3	Icons	(inline	SVG,	gold	line	style) globe Plus	social:	container/box stacked	containers LinkedIn Facebook location	pin Instagram YouTube 6.4	Brand	&	Illustration hub/node modular/grid stack/layers AVANTHEON	logo	mark	(angular	"A")	+	wordmark,	light	&	dark	variants	(SVG). Dotted/halftone	world	map	illustration	(SVG)	with	hub	node	coordinates	&	curved	route	paths. Certification	logos:	ISO	9001:2015,	CSC,	IICL,	WCA,	TRACE,	D&B	(licensed/official	marks). 6.5	Fonts Display	serif	(e.g.	Playfair	Display	/	Canela	/	Fraunces)	—	headlines. Sans	family	(e.g.	Inter	/	Söhne)	—	UI	&	body.	Self-host	WOFF2,	subset,	font-display:	swap. warehouse padlock arrow-right play carousel	arrowsSECTION	07 Implementation	Recommendations 7.1	Suggested	Tech	Stack Layer Framework Styling Animation Icons Carousel Forms CMS	(optional) Hosting Recommendation Next.js	(App	Router,	React	18+) Tailwind	CSS	+	CSS	variables	for	tokens Framer	Motion	(+	small	IntersectionObserver	hooks) Custom	SVG	set	/	Lucide	(restyled	gold) Embla	/	Keen	Slider React	Hook	Form	+	serverless	handler Sanity	/	Contentful Vercel	/	Netlify	(or	Cloudflare	Pages) 7.2	Design	Tokens	(starter) Why SSR/SSG	for	SEO	+	performance;	image	&	font	optimization	built	in. Encode	the	palette/gradients	as	design	tokens;	rapid,	consistent	UI. Stagger	reveals,	count-ups,	hover	transitions;	SVG	route	draw. Inline,	theme-able,	crisp. Lightweight,	accessible,	touch-friendly	snap	scroll. Consultation/contact	capture	with	validation. Editable	services,	industries,	insights,	catalogue. Edge	CDN,	image	optimization,	preview	deploys.--navy-900:#041838;	--blue-700:#0B3A6D;	--blue-500:#0F5E9C;	--blue-cta:#124F8A;	--blue-hi:#1A76C5;--gold-700:#88863B;	--gold-500:#D4AF37;	--gold-100:#F2E2A2;--slate-50:#F7F9FC;	--white:#FFFFFF;	--slate-200:#E2E8F0;	--slate-500:#64748B;	--slate-900:#0F172A;--grad-hero:linear-gradient(135deg,#041838,#0B3A6D,#0F5E9C);--grad-gold:linear-gradient(90deg,#88863B,#D4AF37,#F2E2A2);--grad-cta:linear-gradient(90deg,#0B3A6D,#124F8A,#1A76C5);--grad-card:linear-gradient(180deg,#FFFFFF,#FAFBFD);	--card-border:rgba(212,175,55,0.15);--grad-map:linear-gradient(180deg,#EAF2F9,#DDEAF7);	--grad-route:linear-gradient(90deg,#D4AF37,#F2E2A2); 7.3	SEO SSG/SSR	rendered	HTML;	unique	title	+	meta	description;	semantic	headings	(single	H1	per	page). Open	Graph	+	Twitter	cards	(hero	image);	JSON-LD	Organization	&	LocalBusiness	(Dubai	address,	phone,	logo). Descriptive	alt	text;	clean	URL	structure	for	sub-pages	(Services,	Industries,	Containers,	Insights,	About). Sitemap.xml,	robots.txt,	canonical	tags. 7.4	Performance	&	Hosting	Notes Static-generate	marketing	pages;	ISR	for	CMS-driven	sections. Edge	CDN,	brotli,	HTTP/3,	immutable	hashed	assets,	image	CDN	with	AVIF/WebP. Lighthouse	budget	gate	in	CI;	monitor	CWV	via	RUM	(Vercel	Analytics	/	Web	Vitals). 7.5	Build	Order	(recommended) ①	Tokens	+	global	styles	&	type	scale	→	②	Header/nav	(sticky	+	mobile)	→	③	Hero	+	stats	bar	→	④	Reusable	Card	+	Section	primitives	→	⑤	Ecosystem	&	Trust	→	⑥	Global	map (SVG	+	animation)	→	⑦	Industries	carousel	→	⑧	Catalogue	+	type	selector	→	⑨	Footer	→	⑩	Motion,	a11y	pass,	performance	pass. Source-fidelity	note.	Two	items	to	confirm	against	the	live	brief	before	build:	(1)	the	apparent	duplicate	"MINING"	label	among	the	Industries	tiles,	and	(2)	any	exact	pixel paddings	—	values	here	are	calibrated	recommendations	consistent	with	the	visual	reference.	Everything	else	(copy,	hex,	gradient	stops,	structure)	is	transcribed	exactly.
+
+
+
+Industries Section [2nd section of this page ]
+Interaction Requirement
+
+The attached references demonstrate the default state and the interaction state of the Industries section.
+
+State 1 (Reference 1 – Default View)
+
+* When the page first loads, the Industries section should appear as shown in Reference 1.
+* All industry cards are displayed around the center.
+* The center initially shows the default Avantheon graphic/placeholder with no industry selected.
+
+State 2 (Reference 2 – After User Clicks)
+
+* When a user clicks on any industry card, the layout should transform into the view shown in Reference 2.
+* The selected industry card becomes active/highlighted.
+* The center placeholder is replaced with a detailed industry information panel.
+* The panel should dynamically display:
+    * Industry banner image
+    * Industry name
+    * Short description
+    * Industry Challenges
+    * How Avantheon Helps
+    * Business Benefits
+    * Solutions Most Used
+    * Typical Applications
+    * “Explore Solutions” CTA
+* Clicking a different industry should update the same panel with that industry’s content without reloading the page.
+* The transition between industries should be smooth (fade/slide animation).
+
+In short: The section should have two states:
+
+1. Default state – as shown in Reference 1.
+2. Expanded interactive state – as shown in Reference 2, triggered when an industry card is clicked.
+
+
+
+
+
+
+
+Avantheon Industries Page Master Content
+PART1
+Eyebrow
+
+INDUSTRIES WE SERVE
+
+Headline
+
+Infrastructure Solutions Built Around Every Industry We Serve
+
+Supporting Copy
+
+Every industry moves differently. From global logistics providers to manufacturers and infrastructure companies, each business faces unique operational demands that require reliable, flexible, and scalable container infrastructure.
+
+Avantheon partners with organizations across the global trade ecosystem, delivering container leasing, strategic trading, and ownership solutions designed to strengthen operations, improve commercial flexibility, and support long-term business growth.
+
+CTA Buttons
+
+Connect With An Advisor
+
+Explore Solutions
+
+PART2
+
+Industry Intelligence Hub
+
+Eyebrow
+
+INDUSTRY INTELLIGENCE HUB
+
+Heading
+
+Explore How We Support Every Industry
+
+(Each industry card expands into the center panel.)
+
+01 Shipping & Logistics
+
+Keeping Global Cargo Moving Efficiently
+
+Industry Challenge
+
+Keeping containers available when demand suddenly changes while avoiding large upfront investments and delays that can disrupt cargo movement.
+
+How Avantheon Helps
+
+Avantheon provides flexible Container Leasing, Container Trading, and Lease-to-Own solutions, giving logistics companies quick access to containers whenever they need them—without unnecessary capital investment.
+
+Business Benefits
+
+• Reliable container availability
+• Lower capital investment
+• Flexible fleet expansion
+• Faster operations
+• Scalable growth
+
+Solutions Most Used
+
+• Container Leasing
+• Container Trading
+• Lease-to-Own
+
+Typical Applications
+
+• Cross-border logistics
+• Fleet expansion
+• Peak season demand
+• Intermodal transportation
+
+02 NVOCCs
+
+Infrastructure Built For Agile Freight Operations
+
+Industry Challenge
+
+Managing customer bookings without owning a large container fleet, while handling changing cargo volumes and controlling costs.
+
+How Avantheon Helps
+
+Avantheon helps NVOCCs access containers whenever they need them through flexible leasing and ownership options—allowing them to serve customers without making large capital investments.
+
+Business Benefits
+
+• Flexible equipment access
+• Reduced capital expenditure
+• Faster response to customer demand
+• Scalable operations
+• Reliable support
+
+Solutions Most Used
+
+• Container Leasing
+• Container Trading
+• Lease-to-Own
+
+Typical Applications
+
+• Export consolidation
+• Regional expansion
+• Equipment balancing
+• Customer-specific projects
+
+03 Freight Forwarders
+
+Supporting Efficient End-to-End Logistics
+
+Industry Challenge
+
+Many freight forwarders struggle to access containers when their shipment volumes are low. Larger volume requirements in the market can make it difficult for small and growing businesses to secure the equipment they need, limiting their ability to take on new business and grow with confidence.
+
+How Avantheon Helps
+
+Avantheon supports freight forwarders of every size with flexible Container Leasing and Lease-to-Own solutions—without any minimum demand requirements. Whether you need one container or an entire fleet, we help you access the equipment you need so you can serve your customers, expand your operations, and participate confidently in global trade.
+
+Business Benefits
+
+• Improved service reliability
+• Flexible leasing options
+• Lower upfront investment
+• Scalable operations
+• Responsive support
+
+Solutions Most Used
+
+• Container Leasing
+• Lease-to-Own
+
+Typical Applications
+
+• Consolidated freight
+• International forwarding
+• Seasonal logistics
+• Multi-modal transportation
+
+04 Import & Export Enterprises
+
+Simplifying International Trade Operations
+
+Industry Challenge
+
+Buying containers ties up valuable capital, while relying on limited equipment availability can delay shipments and affect customer commitments.
+
+How Avantheon Helps
+
+Avantheon provides flexible access to containers through leasing, trading, and ownership solutions, helping importers and exporters move cargo without large upfront costs.
+
+Business Benefits
+
+• Reliable container access
+• Better cash flow
+• Lower upfront investment
+• Smooth cargo movement
+• Greater flexibility
+
+Solutions Most Used
+
+• Container Leasing
+• Lease-to-Own
+• Container Trading
+
+Typical Applications
+
+• International exports
+• Import logistics
+• Distribution hubs
+• Regional trade
+
+05 Manufacturing & Industrial Enterprises
+
+Infrastructure That Supports Continuous Production
+
+Industry Challenge
+
+Manufacturers need reliable containers for transporting and storing goods without disrupting production or investing heavily in logistics assets.
+
+How Avantheon Helps
+
+Avantheon provides flexible container solutions that help manufacturers move raw materials, store inventory, and transport finished goods efficiently.
+
+Business Benefits
+
+• Continuous operations
+• Better inventory management
+• Flexible storage
+• Lower capital investment
+• Reliable logistics support
+
+Solutions Most Used
+
+• Container Leasing
+• Lease-to-Own
+
+Typical Applications
+
+• Factory logistics
+• Raw material storage
+• Finished goods transportation
+• Industrial expansion
+
+06 Infrastructure & Construction Companies
+
+Supporting Projects From Groundbreaking To Completion
+
+Industry Challenge
+
+Construction projects require secure storage and transport solutions that can be deployed quickly across different project locations.
+
+How Avantheon Helps
+
+Avantheon supplies durable containers for storage, transportation, and long-term project use with flexible leasing and ownership options.
+
+Business Benefits
+
+• Secure site storage
+• Quick deployment
+• Flexible ownership options
+• Durable container solutions
+• Reliable project support
+
+Solutions Most Used
+
+• Container Leasing
+• Lease-to-Own
+
+Typical Applications
+
+• Construction sites
+• Infrastructure projects
+• Remote operations
+• Equipment storage
+
+07 Supply Chain & Distribution Networks
+
+Strengthening Supply Chain Resilience
+
+Industry Challenge
+
+Changing customer demand and supply chain disruptions require businesses to quickly increase or reduce container capacity without affecting operations.
+
+How Avantheon Helps
+
+Avantheon provides flexible container infrastructure that allows businesses to scale capacity as demand changes while keeping supply chains moving.
+
+Business Benefits
+
+• Increased flexibility
+• Better business continuity
+• Faster response to demand
+• Scalable operations
+• Reliable infrastructure
+
+Solutions Most Used
+
+• Container Leasing
+• Container Trading
+
+Typical Applications
+
+• Distribution centres
+• Warehousing
+• Retail logistics
+• Regional distribution
+
+08 Container Traders & Fleet Operators
+
+Optimizing Container Assets For Maximum Value
+
+Industry Challenge
+
+Finding reliable equipment, managing fleet utilization, and buying or selling containers at the right time can be difficult in a changing market.
+
+How Avantheon Helps
+
+Avantheon helps businesses source, lease, and trade containers efficiently, improving fleet utilization and maximizing asset value.
+
+Business Benefits
+
+• Better fleet utilization
+• Easier equipment sourcing
+• Improved asset value
+• Flexible commercial options
+• Reliable market access
+
+Solutions Most Used
+
+• Container Trading
+• Container Leasing
+
+Typical Applications
+
+• Fleet expansion
+• Asset repositioning
+• Container resale
+• Regional trading
+
+PART3
+
+Real-World Applications
+
+Eyebrow
+
+REAL-WORLD APPLICATIONS
+
+Heading
+
+Supporting Businesses Across Every Stage Of Global Commerce
+
+Our infrastructure solutions support a wide range of commercial operations across industries, enabling businesses to adapt, scale, and operate with greater confidence.
+
+Applications
+
+• Cross-Border Logistics
+• Seasonal Capacity Expansion
+• Temporary Industrial Storage
+• Project Cargo Support
+• Export Operations
+• Infrastructure Projects
+• Manufacturing Logistics
+• Supply Chain Optimization
+
+Can’t Find Your Industry?
+
+Heading
+
+Every Business Has Unique Infrastructure Requirements
+
+Supporting Copy
+
+Our expertise extends beyond industry categories. If your business depends on reliable container infrastructure, we’ll work with you to develop a solution aligned with your operational objectives, commercial priorities, and long-term growth plans.
+
+CTA
+
+Connect With An Advisor
+
+Final CTA
+
+Eyebrow
+
+READY TO SUPPORT YOUR BUSINESS?
+
+Heading
+
+Let’s Build Infrastructure Around The Way Your Business Operates
+
+Supporting Copy
+
+Whether you’re expanding into new markets, strengthening your supply chain, or investing in long-term container infrastructure, Avantheon delivers flexible solutions backed by reliable execution and a commitment to long-term partnership.
+
+CTA Buttons
+
+Request A Quote
+
+Connect With An Advisor
+
