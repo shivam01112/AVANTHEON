@@ -80,19 +80,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const stage = catalogueSection.querySelector("[data-catalogue-stage]");
         const stageImage = catalogueSection.querySelector(".catalogue-hero-image");
         const activeLabel = catalogueSection.querySelector("[data-catalogue-active]");
+        const activeMeta = catalogueSection.querySelector("[data-catalogue-active-meta]");
         const descriptionLabel = catalogueSection.querySelector("[data-catalogue-description]");
         const stageType = catalogueSection.querySelector("[data-catalogue-stage-type]");
         const stageMeta = catalogueSection.querySelector("[data-catalogue-stage-meta]");
         const usageLabel = catalogueSection.querySelector("[data-catalogue-usage]");
         const specsWrap = catalogueSection.querySelector("[data-catalogue-specs]");
+        const activePosition = catalogueSection.querySelector("[data-catalogue-position]");
+        const activeTotal = catalogueSection.querySelector("[data-catalogue-total]");
         const rail = catalogueSection.querySelector("[data-catalogue-rail]");
         const cards = Array.from(catalogueSection.querySelectorAll(".catalogue-card"));
         const prevButton = catalogueSection.querySelector("[data-catalogue-nav=\"prev\"]");
         const nextButton = catalogueSection.querySelector("[data-catalogue-nav=\"next\"]");
         let activeIndex = Math.max(cards.findIndex((card) => card.classList.contains("active")), 0);
-        let autoAdvanceEnabled = false;
+        let autoAdvanceEnabled = cards.length > 1;
         let autoAdvanceTimer = 0;
         let transitionTimer = 0;
+
+        if (activeTotal) {
+            activeTotal.textContent = String(cards.length).padStart(2, "0");
+        }
 
         const renderSpecs = (list) => {
             if (!specsWrap) {
@@ -118,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.clearTimeout(autoAdvanceTimer);
             autoAdvanceTimer = window.setTimeout(() => {
                 applyCatalogueState(activeIndex + 1);
-            }, 10000);
+            }, 3000);
         };
 
         const applyCatalogueState = (index, options = {}) => {
@@ -153,6 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     descriptionLabel.textContent = selectedCard.dataset.description || "";
                 }
 
+                if (activeMeta) {
+                    activeMeta.textContent = selectedCard.dataset.stageMeta || "";
+                }
+
                 if (stageType) {
                     stageType.textContent = selectedCard.dataset.type || "";
                 }
@@ -163,6 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (usageLabel) {
                     usageLabel.textContent = selectedCard.dataset.usage || "";
+                }
+
+                if (activePosition) {
+                    activePosition.textContent = String(normalizedIndex + 1).padStart(2, "0");
                 }
 
                 if (stageImage) {
@@ -186,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (userTriggered) {
-                autoAdvanceEnabled = true;
+                autoAdvanceEnabled = cards.length > 1;
             }
 
             scheduleAutoAdvance();
