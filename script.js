@@ -73,6 +73,142 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const catalogueSection = document.getElementById("container-catalogue");
+
+    if (catalogueSection) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const stage = catalogueSection.querySelector("[data-catalogue-stage]");
+        const stageImage = catalogueSection.querySelector(".catalogue-hero-image");
+        const activeLabel = catalogueSection.querySelector("[data-catalogue-active]");
+        const descriptionLabel = catalogueSection.querySelector("[data-catalogue-description]");
+        const stageType = catalogueSection.querySelector("[data-catalogue-stage-type]");
+        const stageMeta = catalogueSection.querySelector("[data-catalogue-stage-meta]");
+        const usageLabel = catalogueSection.querySelector("[data-catalogue-usage]");
+        const specsWrap = catalogueSection.querySelector("[data-catalogue-specs]");
+        const rail = catalogueSection.querySelector("[data-catalogue-rail]");
+        const cards = Array.from(catalogueSection.querySelectorAll(".catalogue-card"));
+        const prevButton = catalogueSection.querySelector("[data-catalogue-nav=\"prev\"]");
+        const nextButton = catalogueSection.querySelector("[data-catalogue-nav=\"next\"]");
+        let activeIndex = Math.max(cards.findIndex((card) => card.classList.contains("active")), 0);
+        let autoAdvanceEnabled = false;
+        let autoAdvanceTimer = 0;
+        let transitionTimer = 0;
+
+        const renderSpecs = (list) => {
+            if (!specsWrap) {
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            list.forEach((spec) => {
+                const item = document.createElement("span");
+                item.textContent = spec;
+                fragment.appendChild(item);
+            });
+
+            specsWrap.replaceChildren(fragment);
+        };
+
+        const scheduleAutoAdvance = () => {
+            if (!autoAdvanceEnabled) {
+                return;
+            }
+
+            window.clearTimeout(autoAdvanceTimer);
+            autoAdvanceTimer = window.setTimeout(() => {
+                applyCatalogueState(activeIndex + 1);
+            }, 10000);
+        };
+
+        const applyCatalogueState = (index, options = {}) => {
+            if (!cards.length) {
+                return;
+            }
+
+            const { userTriggered = false, shouldScrollRail = true } = options;
+            const normalizedIndex = (index + cards.length) % cards.length;
+            const selectedCard = cards[normalizedIndex];
+            const specs = (selectedCard.dataset.specs || "")
+                .split("|")
+                .map((value) => value.trim())
+                .filter(Boolean);
+
+            activeIndex = normalizedIndex;
+            stage?.classList.add("is-transitioning");
+
+            cards.forEach((card, cardIndex) => {
+                const isActive = cardIndex === normalizedIndex;
+                card.classList.toggle("active", isActive);
+                card.setAttribute("aria-pressed", String(isActive));
+            });
+
+            window.clearTimeout(transitionTimer);
+            transitionTimer = window.setTimeout(() => {
+                if (activeLabel) {
+                    activeLabel.textContent = selectedCard.dataset.type || "";
+                }
+
+                if (descriptionLabel) {
+                    descriptionLabel.textContent = selectedCard.dataset.description || "";
+                }
+
+                if (stageType) {
+                    stageType.textContent = selectedCard.dataset.type || "";
+                }
+
+                if (stageMeta) {
+                    stageMeta.textContent = selectedCard.dataset.stageMeta || "";
+                }
+
+                if (usageLabel) {
+                    usageLabel.textContent = selectedCard.dataset.usage || "";
+                }
+
+                if (stageImage) {
+                    stageImage.alt = `${selectedCard.dataset.type || "AVANTHEON"} shipping container with AVANTHEON branding`;
+                    if (selectedCard.dataset.image) {
+                        stageImage.src = selectedCard.dataset.image;
+                    }
+                }
+
+                renderSpecs(specs);
+                stage?.classList.remove("is-transitioning");
+            }, prefersReducedMotion ? 0 : 150);
+
+            if (rail && shouldScrollRail) {
+                const nextLeft = selectedCard.offsetLeft - ((rail.clientWidth - selectedCard.clientWidth) / 2);
+
+                rail.scrollTo({
+                    left: Math.max(nextLeft, 0),
+                    behavior: prefersReducedMotion ? "auto" : "smooth"
+                });
+            }
+
+            if (userTriggered) {
+                autoAdvanceEnabled = true;
+            }
+
+            scheduleAutoAdvance();
+        };
+
+        prevButton?.addEventListener("click", () => {
+            applyCatalogueState(activeIndex - 1, { userTriggered: true });
+        });
+
+        nextButton?.addEventListener("click", () => {
+            applyCatalogueState(activeIndex + 1, { userTriggered: true });
+        });
+
+        cards.forEach((card, index) => {
+            card.addEventListener("click", () => {
+                applyCatalogueState(index, { userTriggered: true });
+            });
+        });
+
+        applyCatalogueState(activeIndex, { shouldScrollRail: false });
+    }
+
     const networkMapElement = document.getElementById("global-network-map");
     const mapTooltip = document.getElementById("network-map-tooltip");
     const mapPins = Array.from(document.querySelectorAll(".map-pin"));
