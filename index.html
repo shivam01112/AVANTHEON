@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="images/hero.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
 </head>
@@ -435,34 +435,84 @@
 
                 <div class="map-panel reveal" aria-label="Interactive AVANTHEON global route map">
                     <div class="network-map-wrap">
+                        <div class="map-atmosphere" aria-hidden="true"></div>
+                        <div class="map-legend" aria-hidden="true">
+                            <span class="map-legend-item"><i></i> Trade Routes</span>
+                            <span class="map-legend-item map-legend-item-hub"><i></i> UAE Hub</span>
+                        </div>
                         <div id="global-network-map" class="network-map"></div>
-                        <svg class="world-vector-map" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
+                        <svg class="vector-network-overlay" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
                             <defs>
-                                <pattern id="continentDots" width="8" height="8" patternUnits="userSpaceOnUse">
-                                    <circle cx="2" cy="2" r="1.25"></circle>
-                                </pattern>
+                                <linearGradient id="vectorRouteStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#F6E6A5"></stop>
+                                    <stop offset="46%" stop-color="#F5C116"></stop>
+                                    <stop offset="100%" stop-color="#B8902B"></stop>
+                                </linearGradient>
+                                <radialGradient id="vectorHubGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#F5C116" stop-opacity="0.74"></stop>
+                                    <stop offset="58%" stop-color="#F5C116" stop-opacity="0.18"></stop>
+                                    <stop offset="100%" stop-color="#F5C116" stop-opacity="0"></stop>
+                                </radialGradient>
                             </defs>
-                            <g class="continent-shapes">
-                                <path d="M68 205c34-54 94-80 166-72 38 4 70 18 105 10 45-10 82 8 102 41 21 34 3 67-42 75-40 8-76-11-116 5-56 22-96 52-154 23-46-23-84-43-61-82z"></path>
-                                <path d="M244 318c41-22 84-11 116 22 39 40 34 96-2 138-30 35-71 45-96 11-24-34-28-88-47-125-10-20 5-34 29-46z"></path>
-                                <path d="M420 143c46-31 111-37 165-13 32 15 65 8 102 17 53 13 82 49 62 82-19 32-66 25-110 24-48-2-86 31-134 15-65-22-123-87-85-125z"></path>
-                                <path d="M596 267c57-37 143-42 219-9 74 32 98 94 45 127-49 31-111-2-163-6-46-4-70 29-112 11-49-21-36-91 11-123z"></path>
-                                <path d="M712 152c61-20 128-5 169 38 35 37 12 83-44 84-50 0-83-33-133-21-42 10-81-15-72-53 6-25 32-39 80-48z"></path>
-                                <path d="M696 415c43-14 93 6 110 45 18 42-14 73-62 68-43-5-83-37-88-72-3-21 12-34 40-41z"></path>
+                            <g class="vector-ambient-lanes">
+                                <path d="M110 225 C240 175 380 194 510 245 S730 300 900 224"></path>
+                                <path d="M98 392 C250 320 405 344 555 410 S772 450 920 388"></path>
+                                <path d="M220 155 C340 112 446 136 552 196 S730 246 858 172"></path>
+                            </g>
+                            <circle class="vector-hub-glow" cx="625" cy="285" r="82"></circle>
+                            <circle class="vector-hub-orbit" cx="625" cy="285" r="72"></circle>
+                            <path class="vector-route-glow" d="M625 285 C585 260 535 230 492 210"></path>
+                            <path class="vector-route-glow" d="M625 285 C672 280 718 284 760 288"></path>
+                            <path class="vector-route-glow" d="M625 285 C612 314 596 338 575 355"></path>
+                            <path class="vector-route-glow" d="M625 285 C520 318 420 365 338 410"></path>
+                            <path id="premium-route-europe" class="vector-route" d="M625 285 C585 260 535 230 492 210"></path>
+                            <path id="premium-route-asia" class="vector-route" d="M625 285 C672 280 718 284 760 288"></path>
+                            <path id="premium-route-africa" class="vector-route" d="M625 285 C612 314 596 338 575 355"></path>
+                            <path id="premium-route-south-america" class="vector-route" d="M625 285 C520 318 420 365 338 410"></path>
+                            <path class="vector-route-motion vector-route-motion-1" d="M625 285 C585 260 535 230 492 210"></path>
+                            <path class="vector-route-motion vector-route-motion-2" d="M625 285 C672 280 718 284 760 288"></path>
+                            <path class="vector-route-motion vector-route-motion-3" d="M625 285 C612 314 596 338 575 355"></path>
+                            <path class="vector-route-motion vector-route-motion-4" d="M625 285 C520 318 420 365 338 410"></path>
+                            <g class="vector-cargo-pulses">
+                                <circle r="4">
+                                    <animateMotion dur="4.8s" repeatCount="indefinite" begin="-0.4s">
+                                        <mpath href="#premium-route-europe"></mpath>
+                                    </animateMotion>
+                                </circle>
+                                <circle r="4">
+                                    <animateMotion dur="4.2s" repeatCount="indefinite" begin="-1.1s">
+                                        <mpath href="#premium-route-asia"></mpath>
+                                    </animateMotion>
+                                </circle>
+                                <circle r="3.6">
+                                    <animateMotion dur="4.5s" repeatCount="indefinite" begin="-1.8s">
+                                        <mpath href="#premium-route-africa"></mpath>
+                                    </animateMotion>
+                                </circle>
+                                <circle r="4">
+                                    <animateMotion dur="5.8s" repeatCount="indefinite" begin="-2.4s">
+                                        <mpath href="#premium-route-south-america"></mpath>
+                                    </animateMotion>
+                                </circle>
+                            </g>
+                            <g class="vector-mini-ports">
+                                <circle cx="548" cy="246" r="3"></circle>
+                                <circle cx="690" cy="281" r="3"></circle>
+                                <circle cx="607" cy="322" r="3"></circle>
+                                <circle cx="500" cy="330" r="3"></circle>
+                                <circle cx="430" cy="360" r="3"></circle>
                             </g>
                         </svg>
-                        <svg class="network-route-layer" viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
-                            <path class="network-route" d="M570 280 C540 225 506 188 460 170"></path>
-                            <path class="network-route" d="M570 280 C642 238 702 218 760 220"></path>
-                            <path class="network-route" d="M570 280 C548 310 536 336 530 355"></path>
-                            <path class="network-route" d="M570 280 C475 318 370 362 285 415"></path>
-                        </svg>
-                        <button class="map-pin map-pin-europe" type="button" data-location="Europe" data-detail="Regional access across European trade corridors">Europe </button>
-                        <button class="map-pin map-pin-asia" type="button" data-location="Asia" data-detail="Procurement and container movement across Asian gateways">Asia </button>
-                        <button class="map-pin map-pin-hub" type="button" data-location="Middle East - UAE Hub" data-detail="Primary coordination hub for global container solutions">Middle East<br>UAE Hub</button>
-                        <button class="map-pin map-pin-africa" type="button" data-location="Africa" data-detail=" Connected trade support for African supply networks"> Africa </button>
-                        <button class="map-pin map-pin-south-america" type="button" data-location="South America" data-detail="Container access across South American trade markets">South America </button>
-                        <div class="map-tooltip" id="network-map-tooltip" role="status" aria-live="polite"></div>
+                        <button class="vector-map-pin vector-pin-europe" type="button" data-location="Europe" data-detail="Connected access across key European trade corridors." aria-label="Europe"></button>
+                        <button class="vector-map-pin vector-pin-asia" type="button" data-location="Asia" data-detail="Procurement and movement across major Asian gateways." aria-label="Asia"></button>
+                        <button class="vector-map-pin vector-pin-hub" type="button" data-location="UAE Hub" data-detail="Primary coordination hub for global container solutions." aria-label="UAE Hub"></button>
+                        <button class="vector-map-pin vector-pin-africa" type="button" data-location="Africa" data-detail="Trade support across connected African supply networks." aria-label="Africa"></button>
+                        <button class="vector-map-pin vector-pin-south-america" type="button" data-location="South America" data-detail="Container access across South American trade markets." aria-label="South America"></button>
+                        <div class="vector-map-tooltip" id="network-map-tooltip" role="status" aria-live="polite"></div>
+                        <div class="map-status-card" aria-hidden="true">
+                            <span>Live Network</span>
+                            <strong>UAE Hub + 4 Trade Regions</strong>
+                        </div>
                         <div class="map-fallback"> Interactive world map loading...</div>
                     </div>
                 </div>
@@ -606,7 +656,8 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -225,98 +225,91 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const networkMapElement = document.getElementById("global-network-map");
-    const mapTooltip = document.getElementById("network-map-tooltip");
-    const mapPins = Array.from(document.querySelectorAll(".map-pin"));
+    const vectorMapTooltip = document.getElementById("network-map-tooltip");
+    const vectorMapPins = Array.from(document.querySelectorAll(".vector-map-pin"));
 
-    const showMapTooltip = (pin) => {
-        if (!mapTooltip || !pin) {
+    const showVectorMapTooltip = (pin) => {
+        if (!pin || !vectorMapTooltip) {
             return;
         }
 
-        const title = pin.dataset.location || pin.textContent.trim();
+        const wrap = pin.closest(".network-map-wrap");
+        const title = pin.dataset.location || "";
         const detail = pin.dataset.detail || "";
-        mapTooltip.innerHTML = `<strong>${title}</strong>${detail}`;
-        mapTooltip.classList.add("is-visible");
-        mapPins.forEach((item) => item.classList.toggle("is-active", item === pin));
+
+        if (wrap) {
+            const wrapRect = wrap.getBoundingClientRect();
+            const pinRect = pin.getBoundingClientRect();
+            const tooltipWidth = Math.min(280, Math.max(210, wrapRect.width - 28));
+            const rawLeft = pinRect.left - wrapRect.left + pinRect.width / 2;
+            const rawTop = pinRect.top - wrapRect.top;
+            const left = Math.min(Math.max(rawLeft, tooltipWidth / 2 + 14), wrapRect.width - tooltipWidth / 2 - 14);
+            const top = Math.max(rawTop - 96, 16);
+
+            vectorMapTooltip.style.setProperty("--vector-tooltip-left", `${left}px`);
+            vectorMapTooltip.style.setProperty("--vector-tooltip-top", `${top}px`);
+        }
+
+        vectorMapTooltip.innerHTML = `<span>Global Route</span><strong>${title}</strong><small>${detail}</small>`;
+        vectorMapTooltip.classList.add("is-visible");
+        vectorMapPins.forEach((item) => item.classList.toggle("is-active", item === pin));
     };
 
-    const hideMapTooltip = () => {
-        if (!mapTooltip) {
+    const hideVectorMapTooltip = () => {
+        if (!vectorMapTooltip) {
             return;
         }
 
-        mapTooltip.classList.remove("is-visible");
-        mapPins.forEach((item) => item.classList.remove("is-active"));
+        vectorMapTooltip.classList.remove("is-visible");
+        vectorMapPins.forEach((item) => item.classList.remove("is-active"));
     };
 
-    mapPins.forEach((pin) => {
-        pin.addEventListener("mouseenter", () => showMapTooltip(pin));
-        pin.addEventListener("focus", () => showMapTooltip(pin));
-        pin.addEventListener("mouseleave", hideMapTooltip);
-        pin.addEventListener("blur", hideMapTooltip);
+    vectorMapPins.forEach((pin) => {
+        pin.addEventListener("mouseenter", () => showVectorMapTooltip(pin));
+        pin.addEventListener("focus", () => showVectorMapTooltip(pin));
+        pin.addEventListener("mouseleave", hideVectorMapTooltip);
+        pin.addEventListener("blur", hideVectorMapTooltip);
     });
 
-    if (networkMapElement && window.L) {
+    if (networkMapElement && window.jsVectorMap) {
         const networkMapWrap = networkMapElement.closest(".network-map-wrap");
-
-        const networkMap = L.map(networkMapElement, {
-            zoomControl: false,
-            attributionControl: false,
-            dragging: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            boxZoom: false,
-            keyboard: false,
-            tap: false
-        }).setView([18, 25], 2);
-
-        L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
-            subdomains: "abcd",
-            maxZoom: 5,
-            minZoom: 2
-        }).addTo(networkMap);
-
-        const mapLocations = [
-            { label: "Europe", detail: "Regional access across European trade corridors", coords: [50.1109, 8.6821] },
-            { label: "Asia", detail: "Procurement and container movement across Asian gateways", coords: [23.5, 103.8] },
-            { label: "Middle East - UAE Hub", detail: "Primary coordination hub for global container solutions", coords: [25.2048, 55.2708] },
-            { label: "Africa", detail: "Connected trade support for African supply networks", coords: [-1.2921, 36.8219] },
-            { label: "South America", detail: "Container access across South American trade markets", coords: [-23.5505, -46.6333] }
-        ];
-
-        const hub = mapLocations[2].coords;
-
-        mapLocations.forEach((location) => {
-            const isHub = location.label.includes("UAE");
-            const marker = L.circleMarker(location.coords, {
-                radius: isHub ? 8 : 5,
-                color: "#FFFFFF",
-                weight: 3,
-                fillColor: isHub ? "#B8902B" : "#D4AF37",
-                fillOpacity: 0.92,
-                className: "leaflet-network-marker"
-            }).addTo(networkMap);
-
-            marker.bindTooltip(`<strong>${location.label}</strong><br>${location.detail}`, {
-                direction: "top",
-                offset: [0, -10],
-                opacity: 1,
-                className: "leaflet-network-tooltip"
-            });
-
-            if (!isHub) {
-                L.polyline([hub, location.coords], {
-                    color: "#D4AF37",
-                    weight: 1.6,
-                    opacity: 0.5,
-                    dashArray: "7 11",
-                    className: "leaflet-network-route"
-                }).addTo(networkMap);
+        const mapOptions = {
+            selector: "#global-network-map",
+            map: "world",
+            backgroundColor: "transparent",
+            zoomButtons: false,
+            zoomOnScroll: false,
+            draggable: false,
+            regionStyle: {
+                initial: {
+                    fill: "#D4E1E8",
+                    stroke: "#FFFFFF",
+                    strokeWidth: 0.7,
+                    fillOpacity: 0.96
+                },
+                hover: {
+                    fill: "#C6D8E2",
+                    cursor: "default"
+                }
+            },
+            onRegionTooltipShow(event) {
+                event.preventDefault();
             }
-        });
+        };
 
-        networkMapElement.classList.add("is-ready");
-        networkMapWrap?.classList.add("map-ready");
+        try {
+            const networkMap = new jsVectorMap(mapOptions);
+            networkMapElement.classList.add("is-ready");
+            networkMapWrap?.classList.add("map-ready");
+
+            window.addEventListener("resize", () => {
+                networkMap.updateSize?.();
+            });
+        } catch (error) {
+            networkMapElement.classList.add("is-ready", "is-fallback");
+            networkMapWrap?.classList.add("map-ready");
+            console.warn("jsVectorMap could not initialize.", error);
+        }
     }
 
     const statObserver = new IntersectionObserver((entries, observer) => {
