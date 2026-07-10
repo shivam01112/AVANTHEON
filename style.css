@@ -5378,6 +5378,224 @@ body.about-page {
     will-change: opacity, transform;
 }
 
+.vision-visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-content: center;
+    gap: 18px;
+    min-height: 520px;
+    overflow: hidden;
+    padding: 42px 44px 34px;
+    background:
+        radial-gradient(circle at 52% 48%, rgba(245, 193, 22, 0.16), transparent 22%),
+        radial-gradient(circle at 18% 24%, rgba(15, 94, 156, 0.16), transparent 24%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(226, 239, 248, 0.92));
+    border: 1px solid rgba(11, 58, 109, 0.13);
+    border-radius: 24px;
+    box-shadow:
+        0 36px 86px rgba(4, 24, 56, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    isolation: isolate;
+}
+
+.vision-visual::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    background:
+        linear-gradient(90deg, rgba(11, 58, 109, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(11, 58, 109, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at center, #000 0 64%, transparent 88%);
+    pointer-events: none;
+}
+
+.vision-visual::after {
+    position: absolute;
+    inset: 28px;
+    z-index: 0;
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    pointer-events: none;
+}
+
+.vision-orbit {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    z-index: 1;
+    width: 270px;
+    height: 270px;
+    border: 1px dashed rgba(245, 193, 22, 0.38);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 42px rgba(245, 193, 22, 0.05),
+        0 0 80px rgba(245, 193, 22, 0.12);
+    transform: translate(-50%, -50%);
+    animation: visionOrbitSpin 18s linear infinite;
+}
+
+.vision-flow-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.vision-flow {
+    fill: none;
+    stroke: url(#visionFlowGold);
+    stroke-dasharray: 18 18;
+    stroke-linecap: round;
+    stroke-width: 2.2;
+    opacity: 0.76;
+    filter: drop-shadow(0 0 10px rgba(245, 193, 22, 0.22));
+    animation: visionFlowMove 4.8s linear infinite;
+}
+
+.vision-flow-two {
+    animation-duration: 5.6s;
+    animation-delay: -1.4s;
+    opacity: 0.58;
+}
+
+.vision-flow-three {
+    animation-duration: 6.2s;
+    animation-delay: -2.1s;
+    opacity: 0.5;
+}
+
+.vision-core-card,
+.vision-node,
+.vision-stats-row {
+    position: relative;
+    z-index: 2;
+}
+
+.vision-core-card {
+    display: grid;
+    grid-column: 2 / 6;
+    width: 100%;
+    min-height: 158px;
+    align-content: center;
+    padding: 26px 30px;
+    color: var(--white);
+    background:
+        linear-gradient(135deg, rgba(4, 24, 56, 0.96), rgba(11, 58, 109, 0.9));
+    border: 1px solid rgba(242, 226, 162, 0.26);
+    border-radius: 20px;
+    box-shadow:
+        0 26px 54px rgba(4, 24, 56, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: none;
+}
+
+.vision-core-card span,
+.vision-node small {
+    display: inline-flex;
+    color: var(--gold-100);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vision-core-card strong {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--display);
+    font-size: clamp(26px, 2.1vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.vision-node {
+    width: auto;
+    min-height: 132px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(11, 58, 109, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 18px 38px rgba(4, 24, 56, 0.12);
+    backdrop-filter: blur(14px);
+    animation: visionNodeFloat 4.2s ease-in-out infinite;
+}
+
+.vision-node::before {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 10px;
+    height: 10px;
+    content: "";
+    background: var(--gold-500);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 7px rgba(245, 193, 22, 0.14);
+}
+
+.vision-node strong {
+    display: block;
+    margin: 7px 0 4px;
+    color: var(--navy-900);
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.vision-node span {
+    color: var(--slate-500);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.vision-node-top {
+    grid-column: 1 / 3;
+}
+
+.vision-node-right {
+    grid-column: 3 / 5;
+    animation-delay: -1.2s;
+}
+
+.vision-node-bottom {
+    grid-column: 5 / 7;
+    animation-delay: -2.2s;
+}
+
+.vision-stats-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.vision-stats-row span {
+    padding: 12px 10px;
+    color: var(--slate-500);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(11, 58, 109, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(4, 24, 56, 0.08);
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.vision-stats-row strong {
+    display: block;
+    color: var(--navy-900);
+    font-size: 14px;
+}
+
 @keyframes containerFloat {
     0%,
     100% {
@@ -6339,6 +6557,9 @@ body.about-page {
     .vector-hub-glow,
     .vector-hub-orbit,
     .vector-route-motion,
+    .vision-orbit,
+    .vision-flow,
+    .vision-node,
     .location-halo,
     .hub-ring {
         animation: none !important;
@@ -6346,6 +6567,29 @@ body.about-page {
 
     .vector-cargo-pulses {
         display: none;
+    }
+}
+
+@keyframes visionFlowMove {
+    to {
+        stroke-dashoffset: -72;
+    }
+}
+
+@keyframes visionOrbitSpin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes visionNodeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
     }
 }
 
@@ -6648,6 +6892,30 @@ body.about-page {
 
     .container-showcase {
         min-height: 430px;
+    }
+
+    .vision-visual {
+        min-height: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 34px;
+    }
+
+    .vision-node {
+        width: auto;
+    }
+
+    .vision-core-card,
+    .vision-stats-row {
+        grid-column: 1 / -1;
+    }
+
+    .vision-node-top,
+    .vision-node-right {
+        grid-column: span 1;
+    }
+
+    .vision-node-bottom {
+        grid-column: 1 / -1;
     }
 
     .floating-container-image {
@@ -7061,6 +7329,59 @@ body.about-page {
 
     .container-showcase {
         min-height: 320px;
+    }
+
+    .vision-visual {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 22px;
+    }
+
+    .vision-visual::after {
+        inset: 12px;
+        border-radius: 16px;
+    }
+
+    .vision-orbit,
+    .vision-flow-lines {
+        opacity: 0.5;
+    }
+
+    .vision-core-card,
+    .vision-node,
+    .vision-stats-row {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        max-width: none;
+        transform: none;
+    }
+
+    .vision-core-card {
+        grid-column: 1;
+        min-height: auto;
+        margin-bottom: 14px;
+        padding: 22px;
+    }
+
+    .vision-core-card strong {
+        font-size: 26px;
+    }
+
+    .vision-node {
+        grid-column: 1;
+        min-height: auto;
+        margin-top: 10px;
+        animation: none;
+    }
+
+    .vision-stats-row {
+        grid-template-columns: 1fr;
+        margin-top: 14px;
     }
 
     .floating-container-image {
