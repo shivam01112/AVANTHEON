@@ -288,13 +288,13 @@ document.addEventListener("DOMContentLoaded", () => {
             draggable: false,
             regionStyle: {
                 initial: {
-                    fill: "#D4E1E8",
-                    stroke: "#FFFFFF",
+                    fill: "#33577F",
+                    stroke: "rgba(255, 255, 255, 0.18)",
                     strokeWidth: 0.7,
-                    fillOpacity: 0.96
+                    fillOpacity: 0.82
                 },
                 hover: {
-                    fill: "#C6D8E2",
+                    fill: "#3E6A98",
                     cursor: "default"
                 }
             },

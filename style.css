@@ -4103,10 +4103,75 @@ body.about-page {
     padding: 110px 0;
 }
 
-.presence,
 .about-company,
 .catalogue {
     background: linear-gradient(180deg, var(--white), var(--slate-50));
+}
+
+.presence {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 16% 24%, rgba(245, 193, 22, 0.11), transparent 19%),
+        radial-gradient(circle at 74% 20%, rgba(255, 255, 255, 0.08), transparent 12%),
+        radial-gradient(circle at 88% 56%, rgba(15, 94, 156, 0.22), transparent 24%),
+        linear-gradient(108deg, #03142E 0%, var(--navy-900) 36%, var(--navy-800) 66%, var(--blue-700) 100%);
+    isolation: isolate;
+}
+
+.presence::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    background:
+        radial-gradient(circle at 22% 28%, rgba(255, 255, 255, 0.2) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 34% 62%, rgba(245, 193, 22, 0.22) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 58% 20%, rgba(255, 255, 255, 0.16) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 72% 48%, rgba(245, 193, 22, 0.16) 0 1.2px, transparent 2px),
+        linear-gradient(90deg, rgba(242, 226, 162, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(242, 226, 162, 0.035) 1px, transparent 1px);
+    background-size: auto, auto, auto, auto, 72px 72px, 72px 72px;
+    pointer-events: none;
+}
+
+.presence::after {
+    position: absolute;
+    inset: auto 0 0 auto;
+    width: min(54vw, 920px);
+    height: 100%;
+    content: "";
+    background:
+        radial-gradient(circle at 40% 48%, rgba(245, 193, 22, 0.14), transparent 20%),
+        radial-gradient(circle at 66% 34%, rgba(255, 255, 255, 0.08), transparent 16%),
+        linear-gradient(90deg, transparent, rgba(11, 58, 109, 0.2));
+    pointer-events: none;
+}
+
+.presence .container {
+    position: relative;
+    z-index: 1;
+}
+
+.presence .split-layout {
+    grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
+    gap: 34px;
+}
+
+.presence .section-copy {
+    max-width: 470px;
+}
+
+.presence .section-copy .eyebrow {
+    color: var(--gold-100);
+}
+
+.presence .section-copy h2 {
+    color: var(--white);
+}
+
+.presence .section-copy p:not(.eyebrow) {
+    color: rgba(207, 224, 242, 0.92);
 }
 
 .about-company {
@@ -4408,94 +4473,44 @@ body.about-page {
 
 .map-panel {
     position: relative;
-    min-height: 485px;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 74% 30%, rgba(245, 193, 22, 0.10), transparent 24%),
-        radial-gradient(circle at 22% 78%, rgba(15, 94, 156, 0.12), transparent 24%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.995), rgba(229, 241, 249, 0.98)),
-        linear-gradient(180deg, #FAFCFE, #DFECF6);
-    border: 1px solid rgba(11, 58, 109, 0.1);
-    border-radius: 28px;
-    box-shadow:
-        0 34px 80px rgba(4, 24, 56, 0.14),
-        0 14px 34px rgba(4, 24, 56, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    min-height: 540px;
+    overflow: visible;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
     isolation: isolate;
 }
 
 .map-panel::before {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    content: "";
-    background:
-        linear-gradient(90deg, rgba(11, 58, 109, 0.028) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(11, 58, 109, 0.028) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
+    display: none;
 }
 
 .map-panel::after {
-    position: absolute;
-    inset: 18px;
-    z-index: 1;
-    content: "";
-    border: 1px solid rgba(255, 255, 255, 0.76);
-    border-radius: 22px;
-    pointer-events: none;
+    display: none;
 }
 
 .network-map-wrap {
     position: absolute;
-    inset: 18px;
+    inset: 0;
     z-index: 2;
     overflow: hidden;
-    background:
-        radial-gradient(circle at 56% 48%, rgba(245, 193, 22, 0.14), transparent 18%),
-        radial-gradient(circle at 18% 24%, rgba(11, 58, 109, 0.10), transparent 23%),
-        linear-gradient(135deg, rgba(248, 252, 255, 0.94), rgba(241, 237, 228, 0.88));
-    border: 1px solid rgba(255, 255, 255, 0.78);
-    border-radius: 24px;
-    box-shadow:
-        inset 0 0 0 1px rgba(11, 58, 109, 0.05),
-        0 18px 34px rgba(4, 24, 56, 0.06);
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .network-map-wrap::before {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    content: "";
-    background:
-        linear-gradient(180deg, rgba(8, 43, 86, 0.07), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(8, 43, 86, 0.07)),
-        linear-gradient(135deg, rgba(4, 24, 56, 0.10), transparent 34%, rgba(245, 193, 22, 0.11) 72%, transparent),
-        radial-gradient(circle at 58% 50%, rgba(245, 193, 22, 0.18), transparent 17%);
-    pointer-events: none;
+    display: none;
 }
 
 .network-map-wrap::after {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    content: "";
-    background:
-        radial-gradient(circle at 57% 50%, rgba(245, 193, 22, 0.16), transparent 16%),
-        radial-gradient(circle at 25% 76%, rgba(11, 58, 109, 0.10), transparent 21%),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.22), transparent 34%, rgba(245, 193, 22, 0.06));
-    opacity: 0.82;
-    pointer-events: none;
+    display: none;
 }
 
 .map-atmosphere {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background:
-        radial-gradient(circle at 72% 34%, rgba(245, 193, 22, 0.06), transparent 18%),
-        radial-gradient(circle at 18% 70%, rgba(15, 94, 156, 0.08), transparent 22%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
-    pointer-events: none;
+    display: none;
 }
 
 .map-legend,
@@ -4506,10 +4521,10 @@ body.about-page {
     gap: 8px;
     align-items: center;
     padding: 10px 12px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.82);
+    background: rgba(4, 24, 56, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    box-shadow: 0 14px 30px rgba(4, 24, 56, 0.08);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(12px);
 }
 
@@ -4526,7 +4541,7 @@ body.about-page {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    color: var(--navy-900);
+    color: rgba(255, 255, 255, 0.86);
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -4548,7 +4563,7 @@ body.about-page {
 }
 
 .map-status-card {
-    left: 18px;
+    left: 46%;
     bottom: 18px;
     flex-direction: column;
     align-items: flex-start;
@@ -4557,9 +4572,9 @@ body.about-page {
     padding: 14px 16px;
     color: var(--white);
     background:
-        linear-gradient(135deg, rgba(4, 24, 56, 0.94), rgba(11, 58, 109, 0.86));
-    border-color: rgba(242, 226, 162, 0.22);
-    box-shadow: 0 22px 42px rgba(4, 24, 56, 0.22);
+        linear-gradient(135deg, rgba(4, 24, 56, 0.9), rgba(11, 58, 109, 0.74));
+    border-color: rgba(242, 226, 162, 0.18);
+    box-shadow: 0 22px 42px rgba(0, 0, 0, 0.24);
 }
 
 .map-status-card span {
@@ -4581,21 +4596,11 @@ body.about-page {
     z-index: 2;
     opacity: 1;
     pointer-events: auto;
-    background:
-        radial-gradient(circle at 58% 48%, rgba(245, 193, 22, 0.12), transparent 18%),
-        linear-gradient(180deg, #F8FCFF, #E1EEF6);
+    background: none;
 }
 
 .network-map::before {
-    position: absolute;
-    inset: 8% 6%;
-    z-index: 0;
-    content: "";
-    background:
-        radial-gradient(circle at 58% 48%, rgba(245, 193, 22, 0.22), transparent 22%),
-        radial-gradient(circle at 34% 38%, rgba(15, 94, 156, 0.08), transparent 24%),
-        radial-gradient(circle at 78% 35%, rgba(245, 193, 22, 0.08), transparent 22%);
-    pointer-events: none;
+    display: none;
 }
 
 .network-map .jvm-container {
@@ -4604,12 +4609,12 @@ body.about-page {
     width: 100%;
     height: 100%;
     background: transparent;
-    filter: saturate(0.92) contrast(0.98);
+    filter: saturate(0.86) brightness(0.78) contrast(1.08);
 }
 
 .network-map svg {
     overflow: visible;
-    transform: scale(1.04);
+    /* transform: scale(1.04); */
     transform-origin: 50% 50%;
 }
 
@@ -4693,11 +4698,11 @@ body.about-page {
 
 .vector-ambient-lanes path {
     fill: none;
-    stroke: rgba(11, 58, 109, 0.13);
+    stroke: rgba(255, 255, 255, 0.12);
     stroke-dasharray: 2 13;
     stroke-linecap: round;
     stroke-width: 1.2;
-    opacity: 0.62;
+    opacity: 0.44;
     animation: premiumAmbientRoute 13s linear infinite;
 }
 
@@ -4864,7 +4869,8 @@ body.about-page {
 .vector-pin-asia { top: 51.4%; left: 76%; }
 .vector-pin-hub { top: 50.9%; left: 62.5%; }
 .vector-pin-africa { top: 63.4%; left: 57.5%; }
-.vector-pin-south-america { top: 73.2%; left: 33.8%; }
+.vector-pin-south-america {     top: 70.2%;
+    left: 32.8%;}
 
 .vector-map-tooltip {
     position: absolute;
@@ -4947,10 +4953,10 @@ body.about-page {
     display: grid;
     place-items: center;
     padding: 24px;
-    color: var(--navy-900);
+    color: rgba(255, 255, 255, 0.88);
     font-weight: 800;
     text-align: center;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(4, 24, 56, 0.58);
     backdrop-filter: blur(8px);
 }
 
@@ -7259,7 +7265,7 @@ body.about-page {
     }
 
     .network-map-wrap {
-        inset: 12px;
+        inset: 0;
     }
 
     .map-legend {
