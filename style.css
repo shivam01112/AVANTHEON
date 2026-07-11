@@ -826,7 +826,7 @@ body.industries-page {
 .industry-hero-showcase {
     position: relative;
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr) 76px;
     align-content: stretch;
     gap: 0;
     height: 100%;
@@ -944,20 +944,48 @@ body.industries-page {
 
 .industry-hero-points {
     position: relative;
+    z-index: 4;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: visible;
     color: var(--white);
-    padding-left: 136px;
-    background: linear-gradient(90deg, #041838 0%, #06224A 48%, #082D5A 100%);
-    border-top: 1px solid rgba(245, 193, 22, 0.22);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    padding: 0 24px 0 118px;
+    background:
+        linear-gradient(90deg, rgba(245, 193, 22, 0.08), transparent 28%),
+        linear-gradient(90deg, #041838 0%, #06224A 58%, #041838 100%);
+    border: 0;
+    box-shadow: 0 -18px 34px rgba(4, 24, 56, 0.18), inset 0 1px 0 rgba(245, 193, 22, 0.14);
 }
 
 .industry-hero-points::before {
-    display: none;
+    position: absolute;
+    top: -30px;
+    bottom: 0;
+    left: -118px;
+    z-index: 0;
+    width: 210px;
+    content: "";
+    background: #041838;
+    border-top-right-radius: 56px;
+    clip-path: polygon(54% 0, 100% 0, 100% 100%, 0 100%, 0 70%);
+    box-shadow: 0 -18px 34px rgba(4, 24, 56, 0.16);
+    filter: none;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.industry-hero-points::after {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    left: 118px;
+    z-index: 2;
+    height: 1px;
+    content: "";
+    background: linear-gradient(90deg, rgba(245, 193, 22, 0.58), transparent 70%);
+    pointer-events: none;
 }
 
 .industry-hero-points article {
@@ -965,12 +993,17 @@ body.industries-page {
     z-index: 1;
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-height: 56px;
-    padding: 11px 14px;
-    isolation: isolate;
+    justify-content: center;
+    gap: 13px;
+    min-height: 76px;
+    padding: 12px 18px;
     overflow: hidden;
-    transition: transform 240ms ease, background-color 240ms ease;
+    isolation: isolate;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 260ms ease, color 260ms ease;
 }
 
 .industry-hero-points article::before,
@@ -983,15 +1016,15 @@ body.industries-page {
 .industry-hero-points article::before {
     inset: 0;
     z-index: -1;
-    background: linear-gradient(120deg, rgba(245, 193, 22, 0.12), rgba(255, 255, 255, 0.03) 44%, transparent 72%);
+    background: linear-gradient(120deg, transparent, rgba(245, 193, 22, 0.12), transparent);
     opacity: 0;
     transition: opacity 240ms ease;
 }
 
 .industry-hero-points article::after {
-    right: 14px;
-    bottom: 0;
-    left: 14px;
+    right: 20%;
+    bottom: 14px;
+    left: 20%;
     height: 2px;
     background: linear-gradient(90deg, var(--gold-700), var(--gold-500));
     transform: scaleX(0);
@@ -1000,8 +1033,7 @@ body.industries-page {
 }
 
 .industry-hero-points article:hover {
-    background-color: rgba(255, 255, 255, 0.04);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .industry-hero-points article:hover::before {
@@ -1020,15 +1052,19 @@ body.industries-page {
     position: relative;
     z-index: 1;
     flex: 0 0 auto;
-    width: 22px;
-    height: 22px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
     fill: none;
     stroke: var(--gold-100);
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.8;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     animation: industryPointPulse 3.8s ease-in-out infinite;
-    transition: transform 240ms ease, stroke 240ms ease;
+    transition: transform 240ms ease, stroke 240ms ease, filter 240ms ease;
 }
 
 .industry-hero-points article:nth-child(2) svg {
@@ -1046,15 +1082,17 @@ body.industries-page {
 .industry-hero-points article:hover svg {
     animation: none;
     stroke: var(--gold-500);
-    transform: translateY(-1px) scale(1.08);
+    filter: drop-shadow(0 0 10px rgba(245, 193, 22, 0.28));
+    transform: translateY(-1px) scale(1.1);
 }
 
 .industry-hero-points span {
     position: relative;
     z-index: 1;
-    font-size: 13px;
+    max-width: 118px;
+    font-size: 13.5px;
     font-weight: 800;
-    line-height: 1.35;
+    line-height: 1.18;
     color: rgba(255, 255, 255, 0.96);
 }
 
@@ -2522,6 +2560,7 @@ body.industries-page {
 
     .industry-hero-showcase {
         margin-left: -84px;
+        grid-template-rows: minmax(0, 1fr) 64px;
     }
 
     .industry-collage-slice {
@@ -2537,24 +2576,38 @@ body.industries-page {
     }
 
     .industry-hero-points {
-        padding-left: 140px;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        min-height: 64px;
+        padding: 0 14px 0 92px;
     }
 
     .industry-hero-points::before {
-        left: -12px;
-        top: -16px;
-        width: 68px;
-        height: 50px;
-        border-radius: 0 0 50px 0;
+        top: -22px;
+        bottom: 0;
+        left: -92px;
+        display: block;
+        width: 164px;
+        height: auto;
+        border-top-right-radius: 44px;
     }
 
     .industry-hero-points article {
-        min-height: 46px;
-        padding: 10px 8px;
+        min-height: 64px;
+        padding: 8px 10px;
+    }
+
+    .industry-hero-points svg {
+        width: 30px;
+        height: 30px;
+        padding: 0;
     }
 
     .industry-hero-points span {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
@@ -2590,31 +2643,36 @@ body.industries-page {
     }
 
     .industry-hero-points {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        padding-left: 120px;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        padding: 0 16px 0 96px;
     }
 
     .industry-hero-points article {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border: 0;
     }
 
     .industry-hero-points article:nth-child(-n + 2) {
-        border-top: none;
+        border-top: 0;
     }
 
     .industry-hero-points article + article {
-        border-left: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .industry-hero-points article:nth-child(2n) {
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .industry-hero-points::before {
-        left: -12px;
-        top: -16px;
-        width: 74px;
-        height: 54px;
+        top: -24px;
+        bottom: 0;
+        left: -96px;
+        width: 172px;
+        height: auto;
     }
 
     .industry-hub-layout {
@@ -2742,6 +2800,7 @@ body.industries-page {
 
     .industry-hero-showcase {
         margin-left: 0;
+        grid-template-rows: minmax(0, 1fr) auto;
     }
 
     .industry-hero-showcase {
@@ -2765,16 +2824,24 @@ body.industries-page {
 
     .industry-hero-points {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        padding-left: 0;
+        min-height: auto;
+        padding: 12px;
     }
 
     .industry-hero-points article {
-        min-height: 54px;
-        padding: 10px 10px 12px;
+        justify-content: flex-start;
+        min-height: 58px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .industry-hero-points::before {
         display: none;
+    }
+
+    .industry-hero-points::after {
+        right: 12px;
+        left: 12px;
     }
 
     .industry-hub-section,
@@ -2960,16 +3027,17 @@ body.industries-page {
 
     .industry-hero-points {
         grid-template-columns: 1fr;
+        padding: 12px;
     }
 
     .industry-hero-points article {
         min-height: 50px;
         padding: 10px 12px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .industry-hero-points article:nth-child(1) {
-        border-top: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .industry-hero-points article:nth-child(n + 2) {
