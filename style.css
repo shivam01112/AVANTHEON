@@ -5034,7 +5034,7 @@ body.about-page {
 }
 
 .service-card:nth-child(3) {
-    --service-accent: #02847E;
+    --service-accent:#021c84;
     --service-accent-soft: rgba(2, 132, 126, 0.12);
     --service-accent-border: rgba(2, 132, 126, 0.24);
     --service-accent-shadow: rgba(2, 132, 126, 0.16);
@@ -5284,13 +5284,13 @@ body.about-page {
     min-height: 470px;
     overflow: hidden;
     padding: 0;
-    background:
+    /* background:
         radial-gradient(ellipse at 50% 38%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.42) 38%, transparent 62%),
         linear-gradient(180deg, #EAF4FC 0%, #DDECF8 100%);
     border: 1px solid rgba(11, 58, 109, 0.12);
     border-radius: 8px;
     box-shadow: 0 26px 68px rgba(4, 24, 56, 0.12), 0 10px 24px rgba(4, 24, 56, 0.08);
-    isolation: isolate;
+    isolation: isolate; */
 }
 
 .container-showcase::before {
@@ -5836,10 +5836,10 @@ body.about-page {
 .catalogue-stage.container-showcase {
     min-height: 450px;
     border-radius: 24px;
-    background:
+    /* background:
         radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.96), transparent 24%),
         radial-gradient(circle at 78% 24%, rgba(212, 175, 55, 0.18), transparent 30%),
-        linear-gradient(180deg, #F8FBFE 0%, #E7F1FA 100%);
+        linear-gradient(180deg, #F8FBFE 0%, #E7F1FA 100%); */
 }
 
 .catalogue-stage.container-showcase::before {

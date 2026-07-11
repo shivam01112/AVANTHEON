@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const catalogueSection = document.getElementById("container-catalogue");
 
     if (catalogueSection) {
+        const autoAdvanceDelayMs = 8000;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const stage = catalogueSection.querySelector("[data-catalogue-stage]");
         const stageImage = catalogueSection.querySelector(".catalogue-hero-image");
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const specsWrap = catalogueSection.querySelector("[data-catalogue-specs]");
         const activePosition = catalogueSection.querySelector("[data-catalogue-position]");
         const activeTotal = catalogueSection.querySelector("[data-catalogue-total]");
+        const autoAdvanceLabel = catalogueSection.querySelector("[data-catalogue-auto-interval]");
         const rail = catalogueSection.querySelector("[data-catalogue-rail]");
         const cards = Array.from(catalogueSection.querySelectorAll(".catalogue-card"));
         const prevButton = catalogueSection.querySelector("[data-catalogue-nav=\"prev\"]");
@@ -99,6 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (activeTotal) {
             activeTotal.textContent = String(cards.length).padStart(2, "0");
+        }
+
+        if (autoAdvanceLabel) {
+            autoAdvanceLabel.textContent = `Auto-updating every ${autoAdvanceDelayMs / 1000} seconds`;
         }
 
         const renderSpecs = (list) => {
@@ -125,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.clearTimeout(autoAdvanceTimer);
             autoAdvanceTimer = window.setTimeout(() => {
                 applyCatalogueState(activeIndex + 1);
-            }, 3000);
+            }, autoAdvanceDelayMs);
         };
 
         const applyCatalogueState = (index, options = {}) => {
