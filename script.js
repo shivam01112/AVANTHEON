@@ -73,6 +73,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const serviceCards = Array.from(document.querySelectorAll(".service-card"));
+    const enableServiceCardTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+        && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const resetServiceCardTilt = (card) => {
+        card.style.setProperty("--card-rotate-x", "0deg");
+        card.style.setProperty("--card-rotate-y", "0deg");
+        card.style.setProperty("--card-shine-x", "50%");
+        card.style.setProperty("--card-shine-y", "20%");
+        card.classList.remove("is-tilting");
+    };
+
+    serviceCards.forEach((card) => {
+        resetServiceCardTilt(card);
+
+        if (!enableServiceCardTilt) {
+            return;
+        }
+
+        card.addEventListener("pointermove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const relativeX = (event.clientX - rect.left) / rect.width;
+            const relativeY = (event.clientY - rect.top) / rect.height;
+            const rotateY = (relativeX - 0.5) * 16;
+            const rotateX = (0.5 - relativeY) * 14;
+
+            card.style.setProperty("--card-rotate-x", `${rotateX.toFixed(2)}deg`);
+            card.style.setProperty("--card-rotate-y", `${rotateY.toFixed(2)}deg`);
+            card.style.setProperty("--card-shine-x", `${(relativeX * 100).toFixed(2)}%`);
+            card.style.setProperty("--card-shine-y", `${(relativeY * 100).toFixed(2)}%`);
+            card.classList.add("is-tilting");
+        });
+
+        card.addEventListener("pointerleave", () => {
+            resetServiceCardTilt(card);
+        });
+
+        card.addEventListener("pointercancel", () => {
+            resetServiceCardTilt(card);
+        });
+    });
+
     const catalogueSection = document.getElementById("container-catalogue");
 
     if (catalogueSection) {
@@ -241,22 +283,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const wrap = pin.closest(".network-map-wrap");
         const title = pin.dataset.location || "";
-        const detail = pin.dataset.detail || "";
+
+        vectorMapTooltip.innerHTML = `<strong>${title}</strong>`;
 
         if (wrap) {
             const wrapRect = wrap.getBoundingClientRect();
             const pinRect = pin.getBoundingClientRect();
-            const tooltipWidth = Math.min(280, Math.max(210, wrapRect.width - 28));
+            const tooltipWidth = Math.min(vectorMapTooltip.getBoundingClientRect().width || vectorMapTooltip.scrollWidth || 0, wrapRect.width - 28);
             const rawLeft = pinRect.left - wrapRect.left + pinRect.width / 2;
             const rawTop = pinRect.top - wrapRect.top;
             const left = Math.min(Math.max(rawLeft, tooltipWidth / 2 + 14), wrapRect.width - tooltipWidth / 2 - 14);
-            const top = Math.max(rawTop - 96, 16);
+            const top = Math.max(rawTop - 68, 16);
 
             vectorMapTooltip.style.setProperty("--vector-tooltip-left", `${left}px`);
             vectorMapTooltip.style.setProperty("--vector-tooltip-top", `${top}px`);
         }
 
-        vectorMapTooltip.innerHTML = `<span>Global Route</span><strong>${title}</strong><small>${detail}</small>`;
         vectorMapTooltip.classList.add("is-visible");
         vectorMapPins.forEach((item) => item.classList.toggle("is-active", item === pin));
     };
