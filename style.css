@@ -113,8 +113,76 @@ a:focus-visible {
     gap: 12px;
     min-width: max-content;
 }
+
+.site-header .brand {
+    position: relative;
+    isolation: isolate;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    color: var(--white);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 260ms ease;
+}
+
+.site-header .brand::before,
+.site-header .brand::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+}
+
+.site-header .brand::before {
+    inset: -12% -10%;
+    z-index: 0;
+    background: radial-gradient(ellipse at 50% 52%, rgba(245, 193, 22, 0.24), rgba(245, 193, 22, 0.1) 36%, transparent 70%);
+    opacity: 0.34;
+    transform: scale(0.86);
+    filter: blur(10px);
+    animation: headerLogoAura 4.8s ease-in-out infinite;
+}
+
+.site-header .brand::after {
+    inset: -18% -40%;
+    z-index: 2;
+    height: auto;
+    /* background: linear-gradient(112deg, transparent 36%, rgba(255, 255, 255, 0.14) 45%, rgba(245, 193, 22, 0.5) 50%, rgba(255, 255, 255, 0.12) 55%, transparent 64%); */
+    mix-blend-mode: screen;
+    opacity: 0;
+    transform: translateX(-62%) skewX(-18deg);
+    animation: headerLogoLightPass 6.2s ease-in-out infinite;
+}
+
+.site-header .brand:hover,
+.site-header .brand:focus-visible {
+    transform: translateY(-2px);
+}
+
+.site-header .brand:hover::before,
+.site-header .brand:focus-visible::before {
+    opacity: 0.58;
+    transform: scale(1.08);
+}
+
 .logo-heander {
+    position: relative;
+    z-index: 1;
+    display: block;
     width: 120px;
+    transform-origin: center;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18)) brightness(1.04) saturate(1.04);
+    animation: headerLogoGoldMotion 4.8s ease-in-out infinite;
+    transition: transform 260ms ease, filter 260ms ease;
+    will-change: transform, filter;
+}
+
+.site-header .brand:hover .logo-heander,
+.site-header .brand:focus-visible .logo-heander {
+    filter: drop-shadow(0 16px 24px rgba(245, 193, 22, 0.38)) brightness(1.18) saturate(1.15) contrast(1.05);
+    transform: translateY(-2px) scale(1.08);
 }
 
 .brand-mark {
@@ -248,6 +316,64 @@ a:focus-visible {
 
 .button-outline:hover {
     background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes headerLogoGoldMotion {
+    0%,
+    100% {
+        filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18)) drop-shadow(0 0 0 rgba(245, 193, 22, 0)) brightness(1.02) saturate(1.04);
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    28% {
+        filter: drop-shadow(0 10px 18px rgba(245, 193, 22, 0.18)) brightness(1.12) saturate(1.12);
+        transform: translate3d(1px, -2px, 0) scale(1.045);
+    }
+
+    58% {
+        filter: drop-shadow(0 12px 20px rgba(245, 193, 22, 0.24)) brightness(1.16) saturate(1.15);
+        transform: translate3d(-1px, -3px, 0) scale(1.065);
+    }
+
+    78% {
+        filter: drop-shadow(0 9px 16px rgba(245, 193, 22, 0.12)) brightness(1.07) saturate(1.08);
+        transform: translate3d(0, -1px, 0) scale(1.025);
+    }
+}
+
+@keyframes headerLogoAura {
+    0% {
+        opacity: 0.28;
+        transform: scale(0.82);
+    }
+
+    50% {
+        opacity: 0.52;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 0.28;
+        transform: scale(0.82);
+    }
+}
+
+@keyframes headerLogoLightPass {
+    0%,
+    62% {
+        opacity: 0;
+        transform: translateX(-62%) skewX(-18deg);
+    }
+
+    72% {
+        opacity: 0.58;
+    }
+
+    86%,
+    100% {
+        opacity: 0;
+        transform: translateX(62%) skewX(-18deg);
+    }
 }
 
 .hero {
@@ -7248,6 +7374,10 @@ body.about-page {
 
     .floating-container-image,
     .container-shadow,
+    .site-header .brand,
+    .site-header .brand::before,
+    .site-header .brand::after,
+    .logo-heander,
     .trade-route,
     .network-map .jvm-line,
     .vector-ambient-lanes path,
@@ -7294,6 +7424,13 @@ body.about-page {
 
     .industry-support-card:hover,
     .industry-support .button:hover {
+        transform: none !important;
+    }
+
+    .site-header .brand:hover,
+    .site-header .brand:focus-visible,
+    .site-header .brand:hover .logo-heander,
+    .site-header .brand:focus-visible .logo-heander {
         transform: none !important;
     }
 
