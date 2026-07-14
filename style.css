@@ -5303,7 +5303,8 @@ body.about-page {
     box-shadow: 0 0 18px rgba(245, 193, 22, 0.56);
 }
 
-.vector-pin-europe { top: 37.5%; left: 49.2%; }
+.vector-pin-europe { top: 38.5%;
+    left: 48.2%; }
 .vector-pin-asia { top: 51.4%; left: 76%; }
 .vector-pin-hub { top: 50.9%; left: 62.5%; }
 .vector-pin-africa { top: 63.4%; left: 57.5%; }
@@ -5470,7 +5471,7 @@ body.about-page {
     background:
         linear-gradient(90deg, var(--service-accent), rgba(255, 255, 255, 0)) top / 100% 4px no-repeat,
         linear-gradient(180deg, rgba(255, 255, 255, 0.985), #F7FAFE 56%, #EAF1F8 100%);
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid rgb(161 161 161 / 90%);
     border-radius: 24px;
     box-shadow:
         0 28px 60px rgba(4, 24, 56, 0.12),
@@ -5509,6 +5510,13 @@ body.about-page {
         rotateY(var(--card-rotate-y))
         translateY(var(--card-translate-y))
         scale(var(--card-scale));
+}
+
+.service-card:first-child {
+    --service-accent: #c2854d;
+    --service-accent-soft: rgba(31, 138, 112, 0.16);
+    --service-accent-border: rgba(31, 138, 112, 0.28);
+    --service-accent-shadow: rgba(31, 138, 112, 0.22);
 }
 
 .service-card:nth-child(2) {
@@ -5567,7 +5575,7 @@ body.about-page {
     background:
         linear-gradient(90deg, var(--service-accent), rgba(255, 255, 255, 0)) top / 100% 4px no-repeat,
         linear-gradient(180deg, rgba(255, 255, 255, 1), #F7FBFF 56%, #E7EFF8 100%);
-    border-color: rgba(255, 255, 255, 0.98);
+    border-color: #000;
     outline-color: var(--service-accent-border);
     box-shadow:
         0 42px 80px rgba(4, 24, 56, 0.2),
@@ -5753,7 +5761,6 @@ body.about-page {
         linear-gradient(180deg, rgba(11, 58, 109, 0.026) 1px, transparent 1px),
         linear-gradient(115deg, transparent 0 62%, rgba(245, 193, 22, 0.06) 62%, transparent 78%);
     background-size: 90px 90px, 90px 90px, auto;
-    animation: industriesBackdropDrift 24s linear infinite;
     pointer-events: none;
 }
 
@@ -5766,7 +5773,6 @@ body.about-page {
         linear-gradient(90deg, rgba(245, 193, 22, 0.045), transparent 26%, transparent 72%, rgba(15, 94, 156, 0.06)),
         linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.72) 46%, transparent);
     opacity: 0.78;
-    animation: industriesSoftSweep 12s ease-in-out infinite alternate;
     pointer-events: none;
 }
 
@@ -5827,7 +5833,7 @@ body.about-page {
         0 20px 42px rgba(4, 24, 56, 0.10),
         0 8px 18px rgba(4, 24, 56, 0.06);
     backface-visibility: hidden;
-    will-change: transform;
+    contain: paint;
 }
 
 .industry-card.reveal {
@@ -5853,16 +5859,13 @@ body.about-page {
     inset: 0;
     content: "";
     z-index: -1;
+    pointer-events: none;
 }
 
 .industry-card::before {
     background:linear-gradient(180deg, rgb(4 24 56 / 0%) 0%, rgb(4 24 56 / 0%) 42%, rgba(4, 24, 56, 0.86) 100%), linear-gradient(90deg, rgb(4 24 56 / 0%), transparent 54%, rgb(127 104 27 / 0%));
     /* opacity: 0.92;
     transition: opacity 320ms ease; */
-}
-
-.industry-card.reveal.is-visible::before {
-    animation: industryOverlayBreath 7.5s ease-in-out infinite;
 }
 
 /* .industry-card::after {
@@ -5878,7 +5881,7 @@ body.about-page {
 
 .industry-card:hover,
 .industry-card:focus-within {
-    --industry-lift: -8px;
+    --industry-lift: -3px;
     border-color: rgba(11, 58, 109, 0.24);
     box-shadow:
         0 28px 58px rgba(4, 24, 56, 0.16),
@@ -5899,15 +5902,15 @@ body.about-page {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: saturate(0.9) contrast(1.02) brightness(0.86);
+    pointer-events: none;
+    filter: saturate(0.92) contrast(1.01) brightness(0.88);
     transform: scale(1.02);
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms ease;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .industry-card:hover .industry-image,
 .industry-card:focus-within .industry-image {
-    filter: saturate(1) contrast(1.04) brightness(0.98);
-    transform: scale(1.06);
+    transform: scale(1.03);
 }
 
 .industry-card span {
@@ -6834,7 +6837,7 @@ body.about-page {
     color: var(--white);
     background:
         linear-gradient(115deg, #041838 0%, #082B56 42%, #1F3E4E 66%, #806B1D 100%);
-    isolation: isolate;
+    /* isolation: isolate; */
 }
 
 .trust::before {
