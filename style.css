@@ -6,8 +6,8 @@
     --blue-400: #1A76C5;
     --gold-700:#D4AF37;
     --gold-600: #B8902B;
-    --gold-500:#f5c116;
-    --gold-100: #eabf16;
+    --gold-500:#f6cd53;
+    --gold-100:#ffdc4d;
     --white: #FFFFFF;
     --slate-50: #F7F9FC;
     --slate-100: #EEF3F8;
@@ -304,7 +304,9 @@ a:focus-visible {
 
 .button-gold {
     color: var(--navy-900);
-    background: linear-gradient(90deg, var(--gold-700), var(--gold-500), var(--gold-100));
+   background: #EEA42D;
+background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
+
     box-shadow: 0 12px 24px rgba(212, 175, 55, 0.18);
 }
 
@@ -4912,7 +4914,9 @@ body.about-page {
     margin-top: 0;
     padding: 13px 18px;
     color: var(--navy-900);
-    background: linear-gradient(90deg, var(--gold-700), var(--gold-500), var(--gold-100));
+ background: #EEA42D;
+background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
+
     border-radius: 4px;
     box-shadow: 0 14px 28px rgba(212, 175, 55, 0.2);
 }
@@ -5474,11 +5478,22 @@ body.about-page {
     perspective: 1800px;
 }
 
+@property --service-border-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
 .service-card {
     --service-accent: var(--gold-500);
-    --service-accent-soft: rgba(212, 175, 55, 0.16);
-    --service-accent-border: rgba(212, 175, 55, 0.3);
-    --service-accent-shadow: rgba(212, 175, 55, 0.24);
+    --service-accent-soft: rgba(212, 175, 55, 0.10);
+    --service-accent-border: rgba(80, 132, 174, 0.46);
+    --service-accent-shadow: rgba(15, 94, 156, 0.20);
+    --service-ring-track: rgba(31, 91, 143, 0.50);
+    --service-ring-light: rgba(246, 205, 83, 1);
+    --service-ring-ice: rgba(58, 151, 214, 0.95);
+    --service-border-angle: 0deg;
+    --service-border-size: 3px;
     --card-rotate-x: 0deg;
     --card-rotate-y: 0deg;
     --card-translate-y: 0px;
@@ -5494,10 +5509,9 @@ body.about-page {
     isolation: isolate;
     padding: 28px 28px 26px;
     background:
-        linear-gradient(90deg, var(--service-accent), rgba(255, 255, 255, 0)) top / 100% 4px no-repeat,
-        linear-gradient(180deg, rgba(255, 255, 255, 0.985), #F7FAFE 56%, #EAF1F8 100%);
-    border: 1px solid rgb(161 161 161 / 90%);
-    border-radius: 24px;
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, #F8FBFE 54%, #EAF2F8 100%);
+    border: 1px solid rgba(73, 117, 155, 0.34);
+    border-radius: 8px;
     box-shadow:
         0 28px 60px rgba(4, 24, 56, 0.12),
         0 10px 22px rgba(4, 24, 56, 0.08),
@@ -5538,24 +5552,30 @@ body.about-page {
 }
 
 .service-card:first-child {
-    --service-accent: #c2854d;
-    --service-accent-soft: rgba(31, 138, 112, 0.16);
-    --service-accent-border: rgba(31, 138, 112, 0.28);
-    --service-accent-shadow: rgba(31, 138, 112, 0.22);
+    --service-accent: #B87943;
+    --service-accent-soft: rgba(184, 121, 67, 0.12);
+    --service-accent-border: rgba(184, 121, 67, 0.42);
+    --service-accent-shadow: rgba(184, 121, 67, 0.22);
+    --service-ring-track: rgba(119, 82, 48, 0.42);
+    --service-ring-ice: rgba(206, 147, 86, 0.86);
 }
 
 .service-card:nth-child(2) {
     --service-accent: var(--blue-500);
-    --service-accent-soft: rgba(15, 94, 156, 0.16);
-    --service-accent-border: rgba(15, 94, 156, 0.28);
-    --service-accent-shadow: rgba(15, 94, 156, 0.22);
+    --service-accent-soft: rgba(15, 94, 156, 0.12);
+    --service-accent-border: rgba(15, 94, 156, 0.46);
+    --service-accent-shadow: rgba(15, 94, 156, 0.24);
+    --service-ring-track: rgba(11, 75, 130, 0.48);
+    --service-ring-ice: rgba(77, 161, 215, 0.96);
 }
 
 .service-card:nth-child(3) {
-    --service-accent: #163D93;
-    --service-accent-soft: rgba(22, 61, 147, 0.15);
-    --service-accent-border: rgba(22, 61, 147, 0.26);
-    --service-accent-shadow: rgba(22, 61, 147, 0.2);
+    --service-accent: #17489F;
+    --service-accent-soft: rgba(23, 72, 159, 0.11);
+    --service-accent-border: rgba(23, 72, 159, 0.44);
+    --service-accent-shadow: rgba(23, 72, 159, 0.22);
+    --service-ring-track: rgba(20, 64, 141, 0.48);
+    --service-ring-ice: rgba(120, 153, 216, 0.92);
 }
 
 .service-card:nth-child(4) {
@@ -5568,29 +5588,49 @@ body.about-page {
 .service-card::before {
     position: absolute;
     inset: 0;
+    z-index: 0;
     content: "";
     background:
-        radial-gradient(circle at var(--card-shine-x) var(--card-shine-y), rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.34) 14%, rgba(255, 255, 255, 0) 36%),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 64%, rgba(4, 24, 56, 0.06) 100%),
-        radial-gradient(circle at 12% 8%, var(--service-accent-soft), transparent 34%);
-    opacity: 0.9;
+        radial-gradient(circle at var(--card-shine-x) var(--card-shine-y), rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0) 37%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 31%, rgba(255, 255, 255, 0) 66%, rgba(4, 24, 56, 0.055) 100%),
+        radial-gradient(circle at 14% 10%, var(--service-accent-soft), transparent 30%);
+    opacity: 0.82;
     transition: opacity var(--ease);
     pointer-events: none;
 }
 
 .service-card::after {
     position: absolute;
-    right: 8%;
-    bottom: -14px;
-    left: 8%;
-    z-index: 0;
-    height: 48px;
+    inset: 0;
+    z-index: 2;
+    padding: var(--service-border-size);
     content: "";
-    background: radial-gradient(ellipse at center, rgba(4, 24, 56, 0.22), transparent 72%);
-    opacity: 0.48;
-    filter: blur(4px);
-    transform: translateY(18px) scaleX(0.8);
-    transition: opacity var(--ease), transform 320ms ease;
+    background:
+        conic-gradient(
+            from var(--service-border-angle),
+            var(--service-ring-track) 0deg 54deg,
+            var(--service-ring-ice) 70deg,
+            var(--service-ring-light) 90deg,
+            rgba(255, 245, 175, 1) 104deg,
+            var(--service-accent) 122deg,
+            var(--service-ring-ice) 146deg,
+            var(--service-ring-track) 168deg 360deg
+        );
+    border-radius: inherit;
+    opacity: 0.94;
+    filter:
+        drop-shadow(0 0 10px rgba(246, 205, 83, 0.18))
+        drop-shadow(0 0 15px var(--service-accent-shadow));
+    animation: serviceBorderSpin 4.6s linear infinite;
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: opacity var(--ease), filter 320ms ease, padding 260ms ease;
     pointer-events: none;
 }
 
@@ -5598,14 +5638,14 @@ body.about-page {
 .service-grid .service-card:focus-within,
 .service-grid .service-card.is-tilting {
     background:
-        linear-gradient(90deg, var(--service-accent), rgba(255, 255, 255, 0)) top / 100% 4px no-repeat,
-        linear-gradient(180deg, rgba(255, 255, 255, 1), #F7FBFF 56%, #E7EFF8 100%);
-    border-color: #000;
+        linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, #F9FCFF 50%, #E8F1F9 100%);
+    border-color: var(--service-accent-border);
     outline-color: var(--service-accent-border);
     box-shadow:
-        0 42px 80px rgba(4, 24, 56, 0.2),
-        0 22px 42px var(--service-accent-shadow),
-        inset 0 0 0 1px rgba(4, 24, 56, 0.08),
+        0 42px 82px rgba(4, 24, 56, 0.18),
+        0 20px 44px var(--service-accent-shadow),
+        0 0 0 1px rgba(216, 176, 74, 0.14),
+        inset 0 0 0 1px rgba(73, 117, 155, 0.10),
         inset 0 1px 0 rgba(255, 255, 255, 0.96);
     --card-translate-y: -14px;
     --card-scale: 1.015;
@@ -5634,8 +5674,12 @@ body.about-page {
 .service-grid .service-card:hover::after,
 .service-grid .service-card:focus-within::after,
 .service-grid .service-card.is-tilting::after {
-    opacity: 0.76;
-    transform: translateY(22px) scaleX(0.96);
+    padding: 4px;
+    opacity: 1;
+    filter:
+        drop-shadow(0 0 20px var(--service-accent-shadow))
+        drop-shadow(0 0 14px rgba(246, 205, 83, 0.26));
+    animation-duration: 2.8s;
 }
 
 .service-card > * {
@@ -5765,6 +5809,12 @@ body.about-page {
 .service-card ul,
 .service-card a {
     transform: translateZ(28px);
+}
+
+@keyframes serviceBorderSpin {
+    to {
+        --service-border-angle: 360deg;
+    }
 }
 
 .industries {
@@ -7560,6 +7610,10 @@ body.about-page {
     .service-grid .service-card:focus-within a,
     .service-grid .service-card.is-tilting a {
         transform: none !important;
+    }
+
+    .service-card::after {
+        animation: none !important;
     }
 }
 
