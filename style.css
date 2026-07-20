@@ -2278,6 +2278,16 @@ body.industries-page {
     transform: scaleX(1.08);
 }
 
+
+.gradient-text {
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+ -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  color: #ff7e5f;
+}
+
 .industry-support {
     position: relative;
     padding: 0px 0 86px;
