@@ -1,9 +1,9 @@
 # Design QA
 
-- Source visual truth: user-provided process-section reference image in the current conversation (no local source path exposed).
-- Implementation screenshot: unavailable; the in-app browser returned no available browser surfaces.
-- Intended viewport: desktop, approximately 1198 × 499 px for the referenced section crop.
-- Source pixels: 1198 × 499 px.
+- Source visual truth: user-provided About-page process-section screenshot in the current conversation (no local source path exposed).
+- Implementation screenshot: unavailable; the in-app browser reported no available browser surfaces.
+- Intended viewport: desktop; the supplied section crop is approximately 1863 × 739 px.
+- Source pixels: approximately 1863 × 739 px.
 - Implementation pixels / CSS size / density: not captured; density normalization could not be performed.
 - State: third step (`Deliver`) active, steps 1–2 complete, step 4 upcoming.
 
@@ -11,44 +11,44 @@
 
 - [P1] Browser-rendered comparison is unavailable
   - Location: About page, `#process`.
-  - Evidence: the source reference is visible in the conversation, but no browser surface was available to capture the implementation at the matching viewport and state.
-  - Impact: typography, exact spacing, image crops, line alignment, animation timing, and active-state glow cannot be verified visually.
-  - Fix: open the in-app browser, capture the About-page process section with step 3 active, and compare it side by side with the source reference.
+  - Evidence: the reference is available in the conversation, but the browser runtime exposed no preview surface for a matching implementation capture.
+  - Impact: the revised separation, exact spacing, responsive layout, animation state, and final image crop cannot be judged from rendered evidence.
+  - Fix: capture the About-page process section at the matching desktop viewport with step 3 active, then compare the source and implementation in one view.
 
 ## Required Fidelity Surfaces
 
-- Fonts and typography: implemented to follow the existing Playfair Display and Inter brand system; visual comparison blocked.
-- Spacing and layout rhythm: separate four-node timeline and four-card grid implemented; pixel comparison blocked.
-- Colors and visual tokens: light ivory, navy, teal, cyan, and gold state palette implemented; rendered sampling blocked.
-- Image quality and asset fidelity: all four supplied process photographs are used; crop and rendered sharpness comparison blocked.
-- Copy and content: step numbers, labels, titles, descriptions, and state labels match the intended four-step flow.
+- Fonts and typography: existing display/body typography and copy are preserved; rendered weight, wrapping, and antialiasing are unverified.
+- Spacing and layout rhythm: the image and copy are now distinct layers with a 23 px transition zone, a dedicated content surface, and aligned internal padding; rendered proportions are unverified.
+- Colors and visual tokens: the established ivory, navy, teal, cyan, and gold state palette is preserved; rendered sampling is unavailable.
+- Image quality and asset fidelity: all four existing process photographs remain in use; the artificial bottom fade was removed and image borders/shadows were strengthened, but rendered crop and sharpness are unverified.
+- Copy and content: all step labels, headings, and descriptions are unchanged.
 
 ## Full-view Comparison Evidence
 
-- Source: conversation reference image.
-- Implementation: not captured because the in-app browser is unavailable.
+- Source: user-provided process-section screenshot in the current conversation.
+- Implementation: not captured because no in-app browser surface is available.
 
 ## Focused-region Comparison Evidence
 
-- Not available for the same browser-capture blocker.
+- Source focus: the boundary between each process photograph and its heading/description.
+- Implementation focus: unavailable for the same browser-capture blocker.
 
 ## Comparison History
 
-- Iteration 1: rebuilt the process section into a separate animated timeline and compact translucent cards, added completed/current/up-next states, image markers, and a synchronized route runner.
-- Iteration 2: matched the supplied reference more closely with three fixed segment sparks, staged rail-first transitions, muted completed nodes, multi-ring active-node treatment, active pointer, image-bottom fades, tighter card proportions, and reference-specific ivory/navy/gold/teal/cyan tokens.
-- Iteration 3: replaced the unreliable CSS pointer with an explicit SVG down-arrow beneath every active node; replaced steps 1, 2, and 4 with recognizable Bootstrap Icons assets while preserving the approved truck icon; locked all four photographs to a 16:9 crop with per-image focal positions, a stronger lower fade, and the state marker centered across the image edge.
+- Earlier state: the photograph used a lower white fade that visually blended it into the copy area.
+- Current fix: removed the fade, wrapped each heading and paragraph in a dedicated `.process-card-body`, added a deliberate gap around the status marker, and gave the image and copy independent borders, radii, and elevation.
+- Static evidence: four process cards and four matching content wrappers parse successfully; CSS braces are balanced and `git diff --check` passes.
 - Post-fix visual evidence: unavailable.
 
 ## Implementation Checklist
 
-- Capture the desktop section at the reference viewport with step 3 active.
-- Verify node centers align exactly with the process rail.
-- Verify card heights, image crops, and title wrapping against the reference.
-- Test automatic progression and timeline-button selection.
-- Check mobile horizontal timeline behavior and browser console errors.
+- Capture the desktop section with step 3 active.
+- Verify the status marker sits cleanly in the gap without touching either surface.
+- Verify all four content panels align to a common bottom edge.
+- Test automatic progression, timeline-button selection, mobile stacking, and browser console errors.
 
 ## Follow-up Polish
 
-- Tune spacing and glow intensity only after a browser-rendered side-by-side comparison is available.
+- Tune the 23 px transition gap only after a browser-rendered comparison is available.
 
 final result: blocked
