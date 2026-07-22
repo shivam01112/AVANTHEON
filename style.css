@@ -12050,8 +12050,8 @@ body.about-page #process .process-timeline-step .about-process-icon .process-lib
     position: relative;
     z-index: 2;
     display: block;
-    width: 31px;
-    height: 31px;
+    width: 17px;
+    height: 17px;
     filter: none;
     transition: filter 420ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -12062,8 +12062,8 @@ body.about-page #process .process-timeline-step.is-active-step .about-process-ic
 }
 
 body.about-page #process .process-timeline-step[data-process-index="0"] .about-process-icon .process-library-icon {
-    width: 32px;
-    height: 32px;
+    width: 21px;
+    height: 21px;
 }
 
 body.about-page #process .process-timeline-step[data-process-index="3"] .about-process-icon .process-library-icon {
@@ -12684,7 +12684,7 @@ body.about-page #process .about-process-step.is-active-step .process-step-image:
 
 body.about-page #process .process-image-status {
     position: absolute;
-    bottom: -17px;
+    bottom: -35px;
     left: 50%;
     z-index: 4;
     display: grid;
@@ -12957,8 +12957,8 @@ body.about-page #process .process-timeline-step.is-complete-step .about-process-
 }
 
 body.about-page #process .process-timeline-step.is-active-step .about-process-icon {
-    width: 92px;
-    height: 92px;
+    width: 60px;
+    height: 60px;
     color: #FFFFFF;
     background: #FFFFFF;
     border: 3px solid #E8B33E;
@@ -13133,6 +13133,9 @@ body.about-page #process .process-card-body {
     border: 1px solid rgba(84, 112, 130, 0.14);
     /* border-radius: 13px; */
     box-shadow: 0 7px 18px rgba(8, 42, 71, 0.05), inset 0 1px 0 #FFFFFF;
+    position: relative;
+    z-index: 1;
+
 }
 
 body.about-page #process .about-process-step.is-complete-step .process-card-body {
@@ -13144,6 +13147,8 @@ body.about-page #process .about-process-step.is-active-step .process-card-body {
     border-color: rgba(232, 179, 62, 0.32);
     border-top-color: rgba(232, 179, 62, 0.74);
     box-shadow: 0 9px 22px rgba(8, 42, 71, 0.075), inset 0 1px 0 #FFFFFF;
+    position: relative;
+    z-index: 1;
 }
 
 body.about-page #process .about-process-step h3,
