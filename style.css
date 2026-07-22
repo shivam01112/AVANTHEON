@@ -6375,38 +6375,596 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 .vector-hub-glow {
     fill: url(#vectorHubGlow);
-    opacity: 0.95;
-    animation: premiumHubGlow 3.2s ease-in-out infinite;
+    opacity: 0.72;
+    animation: premiumHubGlow 4.8s ease-in-out infinite;
+}
+
+/* Premium workflow cards — final process-section treatment. */
+.about-process {
+    padding: 96px 0 104px;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(35, 111, 168, 0.34), transparent 38%),
+        radial-gradient(circle at 8% 92%, rgba(211, 166, 47, 0.12), transparent 30%),
+        linear-gradient(135deg, #03142E 0%, #061F40 52%, #082B50 100%);
+}
+
+.about-process::before {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 1;
+}
+
+.about-process::after {
+    inset: 0;
+    height: auto;
+    background: url("images/worldmap.png") center 32px / min(980px, 78vw) auto no-repeat;
+    opacity: 0.035;
+}
+
+.about-process .about-section-heading {
+    margin-bottom: 54px;
+}
+
+.about-process .about-section-heading .eyebrow {
+    color: #F1C75B;
+}
+
+.about-process .about-section-heading h2 {
+    color: #FFFFFF;
+    text-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.about-process-track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+    padding: 0;
+}
+
+.about-process-track::before,
+.about-process-track::after {
+    display: none;
+}
+
+.about-process-step,
+.about-process-step.reveal,
+.about-process-step.reveal.is-visible {
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    overflow: visible;
+    padding: 28px 24px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #FFFFFF;
+    text-align: left;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(49, 126, 181, 0.18), transparent 34%),
+        linear-gradient(155deg, rgba(13, 50, 89, 0.96), rgba(5, 27, 58, 0.97));
+    border: 1px solid rgba(159, 193, 220, 0.18);
+    border-radius: 16px;
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(14px);
+    animation: none;
+}
+
+.about-process-step.reveal {
+    opacity: 0;
+    transform: translateY(34px) scale(0.97);
+    transition:
+        opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 260ms ease,
+        box-shadow 260ms ease;
+}
+
+.about-process-step.reveal:nth-child(2) { transition-delay: 130ms; }
+.about-process-step.reveal:nth-child(3) { transition-delay: 260ms; }
+.about-process-step.reveal:nth-child(4) { transition-delay: 390ms; }
+
+.about-process-step.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-process-step.reveal.is-visible:hover {
+    z-index: 5;
+    border-color: rgba(241, 199, 91, 0.44);
+    box-shadow:
+        0 32px 70px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(241, 199, 91, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    transform: translateY(-7px) scale(1);
+}
+
+.about-process-step::before,
+.about-process-step.reveal.is-visible::before {
+    position: absolute;
+    inset: 0 24px auto;
+    width: auto;
+    height: 3px;
+    content: "";
+    background: linear-gradient(90deg, #D3A62F, #F1CD67 58%, transparent);
+    border-radius: 0 0 999px 999px;
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-process-step.reveal.is-visible::before {
+    transform: scaleX(1);
+    transition-delay: 420ms;
+}
+
+.about-process-step:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    z-index: 8;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    content: "\2192";
+    place-items: center;
+    color: #061E3D;
+    background: linear-gradient(145deg, #FFE59B, #D3A62F);
+    border: 5px solid #061D3B;
+    border-radius: 50%;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-8px) scale(0.8);
+}
+
+.about-process-step.reveal.is-visible:not(:last-child)::after {
+    animation: processConnectorReveal 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 640ms;
+}
+
+.about-process-icon,
+.about-process-step.reveal.is-visible .about-process-icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 68px;
+    height: 68px;
+    margin: 0 0 24px;
+    color: #F5D472;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.035));
+    border: 1px solid rgba(241, 199, 91, 0.34);
+    border-radius: 14px;
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: none;
+    animation: none;
+}
+
+.about-process-icon::before {
+    display: none;
+}
+
+.about-process-icon::after {
+    inset: 7px;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
+}
+
+.about-process-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke-width: 1.8;
+}
+
+.process-step-meta,
+.about-process-step.reveal.is-visible .process-step-meta {
+    display: flex;
+    width: 100%;
+    min-height: 32px;
+    margin: 0 0 19px;
+    align-items: center;
+    gap: 10px;
+    color: #AFC3D7;
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.process-step-meta b,
+.about-process-step.reveal.is-visible .process-step-meta b {
+    display: block;
+    width: auto;
+    height: auto;
+    color: #F1C75B;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    animation: none;
+}
+
+.process-step-meta em {
+    display: inline-flex;
+    min-height: 25px;
+    padding: 0 10px;
+    align-items: center;
+    color: #D6E3EE;
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
+
+.about-process-step h3,
+.about-process-step.reveal.is-visible h3 {
+    max-width: none;
+    margin: 0 0 16px;
+    padding: 0;
+    color: #FFFFFF;
+    font-size: clamp(23px, 1.5vw, 28px);
+    line-height: 1.12;
+    text-align: left;
+    letter-spacing: -0.035em;
+    animation: none;
+}
+
+.about-process-step h3::after {
+    display: none;
+}
+
+.about-process-step p,
+.about-process-step.reveal.is-visible p {
+    max-width: none;
+    margin: 0;
+    color: rgba(210, 226, 239, 0.72);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.65;
+    text-align: left;
+    animation: none;
+}
+
+@keyframes processConnectorReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-8px) scale(0.8) rotate(-12deg);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(3px) scale(1.06) rotate(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0) scale(1) rotate(0);
+    }
+}
+
+@media (max-width: 1180px) {
+    .about-process-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .about-process-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .about-process-step {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-process {
+        padding: 72px 0;
+    }
+
+    .about-process-track {
+        grid-template-columns: 1fr;
+    }
+
+    .about-process-step,
+    .about-process-step.reveal,
+    .about-process-step.reveal.is-visible {
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .about-process-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Premium process sequence: fixed, crisp icons with the journey progressing through the route. */
+.about-process-track::before {
+    background-image: repeating-linear-gradient(90deg, rgba(64, 103, 138, 0.46) 0 7px, transparent 7px 16px);
+    background-size: auto;
+    animation: none;
+}
+
+.about-process-track::after {
+    height: 3px;
+    background: linear-gradient(90deg, #C89420 0%, #F1CD67 52%, #176394 100%);
+    box-shadow: 0 0 12px rgba(211, 166, 47, 0.25);
+    transform-origin: left center;
+    animation: aboutProcessRouteProgressPremium 16s cubic-bezier(0.65, 0, 0.35, 1) infinite both;
+}
+
+.about-process-step,
+.about-process-step.reveal.is-visible,
+.about-process-step span,
+.about-process-step h3,
+.about-process-step p {
+    animation: none;
+    opacity: 1;
+}
+
+.about-process-step::before,
+.about-process-step.reveal.is-visible::before {
+    background: linear-gradient(#D3A62F, rgba(211, 166, 47, 0));
+    animation: none;
+    opacity: 0.48;
+    transform: translateX(-50%);
+}
+
+.about-process-icon,
+.about-process-icon::before {
+    animation: none;
+}
+
+.about-process-icon::before {
+    opacity: 0;
+    transform: none;
+}
+
+.about-process-icon {
+    color: #1A5687;
+    border-color: #C8D9E6;
+    background: linear-gradient(145deg, #FFFFFF 0%, #F6FAFD 100%);
+    box-shadow:
+        0 12px 26px rgba(17, 52, 85, 0.11),
+        0 0 0 7px rgba(226, 236, 244, 0.76);
+    will-change: transform, box-shadow;
+}
+
+.about-process-step.reveal.is-visible .about-process-icon {
+    animation: aboutProcessNodePulse 16s ease-in-out infinite both;
+    animation-delay: var(--step-delay);
+}
+
+.about-process-step h3::after {
+    width: 26px;
+    background: #C8D8E5;
+    box-shadow: none;
+    animation: none;
+}
+
+.about-process-step.reveal.is-visible h3::after {
+    animation: aboutProcessTitleMarker 16s ease-in-out infinite both;
+    animation-delay: var(--step-delay);
+}
+
+@keyframes aboutProcessRouteProgressPremium {
+    0%, 18% {
+        transform: scaleX(0.035);
+        opacity: 0.78;
+    }
+    25%, 43% {
+        transform: scaleX(0.35);
+        opacity: 1;
+    }
+    50%, 68% {
+        transform: scaleX(0.675);
+        opacity: 1;
+    }
+    75%, 96% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(0.035);
+        opacity: 0;
+    }
+}
+
+@keyframes aboutProcessNodePulse {
+    0%, 20% {
+        transform: translateX(-50%) scale(1.055);
+        box-shadow:
+            0 18px 36px rgba(17, 52, 85, 0.18),
+            0 0 0 7px rgba(211, 166, 47, 0.17),
+            0 0 0 13px rgba(211, 166, 47, 0.06);
+    }
+    27%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow:
+            0 12px 26px rgba(17, 52, 85, 0.11),
+            0 0 0 7px rgba(226, 236, 244, 0.76);
+    }
+}
+
+@keyframes aboutProcessTitleMarker {
+    0%, 20% {
+        width: 54px;
+        background: #D3A62F;
+        box-shadow: 0 3px 10px rgba(211, 166, 47, 0.22);
+    }
+    27%, 100% {
+        width: 26px;
+        background: #C8D8E5;
+        box-shadow: none;
+    }
+}
+
+/* A visible route cursor makes the four cards read as one guided workflow. */
+.about-process-track::after {
+    top: 37px;
+    right: auto;
+    left: calc(12.5% - 7px);
+    width: 14px;
+    height: 14px;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    background: #D3A62F;
+    box-shadow:
+        0 0 0 4px rgba(211, 166, 47, 0.18),
+        0 5px 14px rgba(17, 52, 85, 0.18);
+    animation: aboutProcessRouteCursor 16s cubic-bezier(0.65, 0, 0.35, 1) infinite both;
+}
+
+.process-step-meta {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 30px;
+    margin: 0 0 17px;
+    color: #66809A;
+    font-family: var(--body);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.process-step-meta b {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: #16486F;
+    background: #FFFFFF;
+    border: 1px solid #D1DFEA;
+    border-radius: 50%;
+    box-shadow: 0 5px 12px rgba(17, 52, 85, 0.08);
+    font-size: 11px;
+    letter-spacing: 0;
+}
+
+.process-step-meta em {
+    font-style: normal;
+}
+
+.about-process-step.reveal.is-visible .process-step-meta {
+    animation: aboutProcessMetaActivate 16s ease-in-out infinite both;
+    animation-delay: var(--step-delay);
+}
+
+.about-process-step.reveal.is-visible .process-step-meta b {
+    animation: aboutProcessNumberActivate 16s ease-in-out infinite both;
+    animation-delay: var(--step-delay);
+}
+
+@keyframes aboutProcessRouteCursor {
+    0%, 18% {
+        left: calc(12.5% - 7px);
+        opacity: 1;
+    }
+    25%, 43% {
+        left: calc(37.5% - 7px);
+        opacity: 1;
+    }
+    50%, 68% {
+        left: calc(62.5% - 7px);
+        opacity: 1;
+    }
+    75%, 94% {
+        left: calc(87.5% - 7px);
+        opacity: 1;
+    }
+    99% {
+        left: calc(87.5% - 7px);
+        opacity: 0;
+    }
+    100% {
+        left: calc(12.5% - 7px);
+        opacity: 0;
+    }
+}
+
+@keyframes aboutProcessMetaActivate {
+    0%, 20% {
+        color: #A06F09;
+        transform: translateY(-1px);
+    }
+    27%, 100% {
+        color: #66809A;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aboutProcessNumberActivate {
+    0%, 20% {
+        color: #FFFFFF;
+        background: #123F66;
+        border-color: #123F66;
+        box-shadow: 0 7px 16px rgba(18, 63, 102, 0.22);
+    }
+    27%, 100% {
+        color: #16486F;
+        background: #FFFFFF;
+        border-color: #D1DFEA;
+        box-shadow: 0 5px 12px rgba(17, 52, 85, 0.08);
+    }
 }
 
 .vector-hub-orbit {
     fill: none;
-    stroke: rgba(245, 193, 22, 0.34);
-    stroke-dasharray: 5 11;
+    stroke: rgba(245, 193, 22, 0.28);
+    stroke-dasharray: 3 12;
     stroke-linecap: round;
-    stroke-width: 1.8;
+    stroke-width: 1.1;
     transform-origin: 625px 285px;
     animation: premiumHubOrbit 8s linear infinite;
 }
 
 .vector-route-glow {
     fill: none;
-    stroke: rgba(245, 193, 22, 0.22);
+    stroke: rgba(245, 193, 22, 0.16);
     stroke-linecap: round;
-    stroke-width: 7;
-    opacity: 0.96;
-    filter: blur(1px) drop-shadow(0 0 13px rgba(245, 193, 22, 0.2));
+    stroke-width: 4;
+    opacity: 0.68;
+    filter: blur(1px) drop-shadow(0 0 10px rgba(245, 193, 22, 0.16));
 }
 
 .vector-route {
     fill: none;
     stroke: url(#vectorRouteStroke);
     stroke-linecap: round;
-    stroke-width: 2.3;
-    opacity: 0.96;
+    stroke-width: 1.35;
+    opacity: 0.82;
     filter:
         drop-shadow(0 0 5px rgba(245, 193, 22, 0.34))
         drop-shadow(0 8px 13px rgba(184, 144, 43, 0.14));
+}
+
+.vector-route-secondary {
+    fill: none;
+    stroke: rgba(246, 230, 165, 0.42);
+    stroke-dasharray: 2 9;
+    stroke-linecap: round;
+    stroke-width: 0.85;
+    opacity: 0.72;
+    animation: premiumAmbientRoute 18s linear infinite;
 }
 
 .vector-route-motion {
@@ -6438,37 +6996,38 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .vector-cargo-pulses circle {
-    fill: #FFFFFF;
+    fill: #FFF9D6;
     stroke: var(--gold-500);
-    stroke-width: 1.7;
-    opacity: 0.96;
+    stroke-width: 0.75;
+    opacity: 0.9;
     filter:
-        drop-shadow(0 0 8px rgba(245, 193, 22, 0.72))
-        drop-shadow(0 0 18px rgba(245, 193, 22, 0.32));
+        drop-shadow(0 0 5px rgba(245, 193, 22, 0.72))
+        drop-shadow(0 0 10px rgba(245, 193, 22, 0.28));
 }
 
 .vector-mini-ports circle {
     fill: rgba(255, 255, 255, 0.92);
     stroke: rgba(245, 193, 22, 0.64);
-    stroke-width: 1.3;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 7px rgba(245, 193, 22, 0.22));
+    stroke-width: 0.8;
+    opacity: 0.68;
+    filter: drop-shadow(0 0 5px rgba(245, 193, 22, 0.2));
 }
 
 .vector-map-pin {
     position: absolute;
     z-index: 5;
     display: grid;
-    width: 24px;
-    height: 24px;
+    width: 15px;
+    height: 15px;
     padding: 0;
     place-items: center;
     background: rgba(255, 255, 255, 0.96);
-    border: 2px solid rgba(245, 193, 22, 0.88);
+    border: 1.5px solid rgba(245, 193, 22, 0.9);
     border-radius: 50%;
     box-shadow:
-        0 0 0 4px rgba(255, 255, 255, 0.75),
-        0 12px 22px rgba(4, 24, 56, 0.16);
+        0 0 0 2px rgba(255, 255, 255, 0.72),
+        0 0 0 5px rgba(245, 193, 22, 0.12),
+        0 8px 16px rgba(4, 24, 56, 0.16);
     cursor: pointer;
     outline: none;
     transform: translate(-50%, -50%);
@@ -6476,8 +7035,8 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .vector-map-pin::before {
-    width: 9px;
-    height: 9px;
+    width: 5px;
+    height: 5px;
     content: "";
     background: linear-gradient(135deg, var(--gold-700), var(--gold-500));
     border-radius: 50%;
@@ -6486,7 +7045,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 .vector-map-pin::after {
     position: absolute;
-    inset: -9px;
+    inset: -7px;
     z-index: -1;
     content: "";
     background: radial-gradient(circle, rgba(245, 193, 22, 0.26), transparent 64%);
@@ -6516,18 +7075,19 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .vector-pin-hub {
-    width: 34px;
-    height: 34px;
+    width: 23px;
+    height: 23px;
     background: radial-gradient(circle at 50% 50%, #0B3A6D 0 55%, #041838 56% 100%);
     border-color: rgba(245, 193, 22, 0.95);
     box-shadow:
-        0 0 0 4px rgba(255, 255, 255, 0.72),
-        0 18px 34px rgba(4, 24, 56, 0.28);
+        0 0 0 3px rgba(255, 255, 255, 0.72),
+        0 0 0 7px rgba(245, 193, 22, 0.13),
+        0 12px 24px rgba(4, 24, 56, 0.28);
 }
 
 .vector-pin-hub::before {
-    width: 12px;
-    height: 12px;
+    width: 7px;
+    height: 7px;
     background: linear-gradient(135deg, var(--gold-100), var(--gold-500));
     box-shadow: 0 0 18px rgba(245, 193, 22, 0.56);
 }
@@ -7397,7 +7957,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 
 .solutions-main{
-    
+
     display: inline-flex;
     width: fit-content;
     margin-bottom: 22px;
@@ -8385,7 +8945,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    
+
 }
 
 .cert-list span::before {
@@ -9175,7 +9735,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 @media (max-width: 920px) {
-   
+
     .menu-toggle {
         display: block;
     }
@@ -9860,23 +10420,23 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .vector-map-pin {
+        width: 13px;
+        height: 13px;
+    }
+
+    .vector-map-pin::before {
+        width: 4px;
+        height: 4px;
+    }
+
+    .vector-pin-hub {
         width: 20px;
         height: 20px;
     }
 
-    .vector-map-pin::before {
-        width: 7px;
-        height: 7px;
-    }
-
-    .vector-pin-hub {
-        width: 28px;
-        height: 28px;
-    }
-
     .vector-pin-hub::before {
-        width: 10px;
-        height: 10px;
+        width: 6px;
+        height: 6px;
     }
 
     .vector-map-tooltip {
@@ -10002,5 +10562,2516 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     .social-links a {
         width: 40px;
         height: 40px;
+    }
+}
+
+/* Final cascade lock: premium process workflow. */
+body.about-page #process.about-process {
+    padding: 96px 0 104px;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(35, 111, 168, 0.34), transparent 38%),
+        radial-gradient(circle at 8% 92%, rgba(211, 166, 47, 0.12), transparent 30%),
+        linear-gradient(135deg, #03142E 0%, #061F40 52%, #082B50 100%);
+}
+
+body.about-page #process::before {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 1;
+}
+
+body.about-page #process::after {
+    inset: 0;
+    height: auto;
+    background: url("images/worldmap.png") center 32px / min(980px, 78vw) auto no-repeat;
+    opacity: 0.035;
+}
+
+body.about-page #process .about-section-heading {
+    margin-bottom: 54px;
+}
+
+body.about-page #process .about-section-heading .eyebrow { color: #F1C75B; }
+body.about-page #process .about-section-heading h2 { color: #FFFFFF; }
+
+body.about-page #process .about-process-track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+    padding: 0;
+}
+
+body.about-page #process .about-process-track::before,
+body.about-page #process .about-process-track::after {
+    display: none;
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible {
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    overflow: visible;
+    padding: 28px 24px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #FFFFFF;
+    text-align: left;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(49, 126, 181, 0.18), transparent 34%),
+        linear-gradient(155deg, rgba(13, 50, 89, 0.96), rgba(5, 27, 58, 0.97));
+    border: 1px solid rgba(159, 193, 220, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(14px);
+    animation: none;
+}
+
+body.about-page #process .about-process-step.reveal {
+    opacity: 0;
+    transform: translateY(34px) scale(0.97);
+    transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease, box-shadow 260ms ease;
+}
+
+body.about-page #process .about-process-step.reveal:nth-child(2) { transition-delay: 130ms; }
+body.about-page #process .about-process-step.reveal:nth-child(3) { transition-delay: 260ms; }
+body.about-page #process .about-process-step.reveal:nth-child(4) { transition-delay: 390ms; }
+
+body.about-page #process .about-process-step.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+body.about-page #process .about-process-step.reveal.is-visible:hover {
+    z-index: 5;
+    border-color: rgba(241, 199, 91, 0.44);
+    box-shadow: 0 32px 70px rgba(0, 0, 0, 0.30), 0 0 0 1px rgba(241, 199, 91, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    transform: translateY(-7px);
+    transition-delay: 0ms;
+}
+
+body.about-page #process .about-process-step::before,
+body.about-page #process .about-process-step.reveal.is-visible::before {
+    position: absolute;
+    inset: 0 24px auto;
+    width: auto;
+    height: 3px;
+    background: linear-gradient(90deg, #D3A62F, #F1CD67 58%, transparent);
+    border-radius: 0 0 999px 999px;
+    opacity: 1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    animation: none;
+}
+
+body.about-page #process .about-process-step.reveal.is-visible::before {
+    transform: scaleX(1);
+    transition-delay: 420ms;
+}
+
+body.about-page #process .about-process-step:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    z-index: 8;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    content: "\2192";
+    place-items: center;
+    color: #061E3D;
+    background: linear-gradient(145deg, #FFE59B, #D3A62F);
+    border: 5px solid #061D3B;
+    border-radius: 50%;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-8px) scale(0.8);
+}
+
+body.about-page #process .about-process-step.reveal.is-visible:not(:last-child)::after {
+    animation: processConnectorReveal 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 640ms;
+}
+
+body.about-page #process .about-process-step.reveal.is-visible:nth-child(2)::after { animation-delay: 770ms; }
+body.about-page #process .about-process-step.reveal.is-visible:nth-child(3)::after { animation-delay: 900ms; }
+
+body.about-page #process .about-process-icon,
+body.about-page #process .about-process-step.reveal.is-visible .about-process-icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 68px;
+    height: 68px;
+    margin: 0 0 24px;
+    color: #F5D472;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.035));
+    border: 1px solid rgba(241, 199, 91, 0.34);
+    border-radius: 14px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: none;
+    animation: none;
+}
+
+body.about-page #process .about-process-icon::before { display: none; }
+body.about-page #process .about-process-icon::after { inset: 7px; border-radius: 9px; border-color: rgba(255,255,255,0.08); }
+body.about-page #process .about-process-icon svg { width: 32px; height: 32px; }
+
+body.about-page #process .process-step-meta,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta {
+    display: flex;
+    width: 100%;
+    min-height: 32px;
+    margin: 0 0 19px;
+    align-items: center;
+    gap: 10px;
+    color: #AFC3D7;
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+body.about-page #process .process-step-meta b,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta b {
+    display: block;
+    width: auto;
+    height: auto;
+    color: #F1C75B;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: var(--display);
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    animation: none;
+}
+
+body.about-page #process .process-step-meta em {
+    display: inline-flex;
+    min-height: 25px;
+    padding: 0 10px;
+    align-items: center;
+    color: #D6E3EE;
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    font-size: 9px;
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: none;
+    margin: 0 0 16px;
+    padding: 0;
+    color: #FFFFFF;
+    font-size: clamp(23px, 1.5vw, 28px);
+    line-height: 1.12;
+    text-align: left;
+    animation: none;
+}
+
+body.about-page #process .about-process-step h3::after { display: none; }
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: none;
+    margin: 0;
+    color: rgba(210, 226, 239, 0.72);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.65;
+    text-align: left;
+    animation: none;
+}
+
+@media (max-width: 1180px) {
+    body.about-page #process .about-process-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    body.about-page #process .about-process-step:not(:last-child)::after { display: none; }
+    body.about-page #process .about-process-step { min-height: 350px; }
+}
+
+@media (max-width: 640px) {
+    body.about-page #process.about-process { padding: 72px 0; }
+    body.about-page #process .about-process-track { grid-template-columns: 1fr; }
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible { min-height: 0; padding: 24px; }
+}
+
+/* Light animated process timeline — final approved direction. */
+body.about-page #process.about-process {
+    padding: 64px 0 96px;
+    background:
+        linear-gradient(90deg, rgba(16, 56, 91, 0.028) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(16, 56, 91, 0.026) 1px, transparent 1px),
+        radial-gradient(circle at 50% 18%, rgba(24, 111, 167, 0.07), transparent 31%),
+        linear-gradient(180deg, #FFFFFF 0%, #FAFCFE 52%, #F2F7FB 100%);
+    background-size: 88px 88px, 88px 88px, auto, auto;
+}
+
+body.about-page #process::before {
+    background: radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.78), transparent 64%);
+    opacity: 1;
+}
+
+body.about-page #process::after {
+    inset: 18px 0 auto;
+    height: 230px;
+    background: url("images/worldmap.png") center top / min(980px, 82vw) auto no-repeat;
+    opacity: 0.045;
+}
+
+body.about-page #process .about-section-heading {
+    margin-bottom: 48px;
+}
+
+body.about-page #process .about-section-heading .eyebrow { color: #D3A62F; }
+body.about-page #process .about-section-heading h2 { color: #041838; text-shadow: none; }
+
+body.about-page #process .process-banner {
+    position: relative;
+    height: clamp(150px, 13vw, 205px);
+    margin: 0 0 44px;
+    overflow: hidden;
+    background: #153D52;
+    border: 1px solid rgba(35, 80, 102, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 24px 52px rgba(17, 52, 85, 0.14);
+    isolation: isolate;
+}
+
+body.about-page #process .process-banner::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    content: "";
+    background:
+        linear-gradient(90deg, rgba(8, 36, 54, 0.76), rgba(8, 36, 54, 0.08) 48%, rgba(8, 36, 54, 0.34)),
+        linear-gradient(180deg, transparent 40%, rgba(5, 28, 45, 0.52));
+    pointer-events: none;
+}
+
+body.about-page #process .process-banner::after {
+    position: absolute;
+    inset: 12px;
+    z-index: 2;
+    content: "";
+    border: 1px solid rgba(239, 222, 172, 0.34);
+    border-radius: 11px;
+    pointer-events: none;
+}
+
+body.about-page #process .process-banner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 57%;
+    filter: saturate(0.82) contrast(1.04);
+    transform: scale(1.025);
+    transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-banner.is-visible img {
+    transform: scale(1);
+}
+
+body.about-page #process .process-banner span {
+    position: absolute;
+    bottom: 24px;
+    left: 28px;
+    z-index: 3;
+    color: rgba(255, 249, 231, 0.94);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+body.about-page #process .about-process-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+    padding: 14px 0 0;
+}
+
+body.about-page #process .about-process-track::before {
+    position: absolute;
+    top: 58px;
+    right: 12.5%;
+    left: 12.5%;
+    z-index: 0;
+    display: block;
+    width: auto;
+    height: 4px;
+    content: "";
+    background: linear-gradient(90deg, rgba(133, 158, 170, 0.16), rgba(80, 121, 136, 0.38), rgba(133, 158, 170, 0.16));
+    border-radius: 999px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.82), 0 4px 12px rgba(17, 52, 85, 0.08);
+    opacity: 1;
+    animation: none;
+}
+
+body.about-page #process .about-process-track::after {
+    position: absolute;
+    top: 57px;
+    right: 12.5%;
+    left: 12.5%;
+    z-index: 1;
+    display: block;
+    width: auto;
+    height: 6px;
+    content: "";
+    background: linear-gradient(90deg, #315F70 0%, #4E8189 32%, #F0E6C8 51%, #7A9D9D 68%, #315F70 100%);
+    background-size: 220% 100%;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 0 9px rgba(55, 107, 119, 0.28), 0 0 18px rgba(88, 133, 139, 0.14);
+    opacity: 1;
+    transform: scaleX(0.02);
+    transform-origin: left center;
+    animation: processRouteBuildLight 16s cubic-bezier(0.65, 0, 0.35, 1) infinite both;
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: 340px;
+    overflow: visible;
+    padding: 0 14px 12px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #123454;
+    text-align: center;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+body.about-page #process .about-process-step.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 650ms ease, transform 650ms ease;
+}
+
+body.about-page #process .about-process-step.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: processStepZoomLight 16s cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation-delay: var(--step-delay);
+}
+
+body.about-page #process .about-process-step.reveal.is-visible:hover {
+    border: 0;
+    box-shadow: none;
+}
+
+body.about-page #process .about-process-step::before,
+body.about-page #process .about-process-step.reveal.is-visible::before,
+body.about-page #process .about-process-step:not(:last-child)::after,
+body.about-page #process .about-process-step.reveal.is-visible:not(:last-child)::after {
+    display: none;
+    animation: none;
+}
+
+body.about-page #process .about-process-icon,
+body.about-page #process .about-process-step.reveal.is-visible .about-process-icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 3;
+    display: grid;
+    width: 92px;
+    height: 92px;
+    margin: 0 0 22px;
+    place-items: center;
+    overflow: visible;
+    color: #FFF9E9;
+    background:
+        radial-gradient(circle at 32% 22%, rgba(102, 157, 162, 0.88), transparent 36%),
+        linear-gradient(145deg, #376F7B 0%, #255667 48%, #163C54 100%);
+    border: 2px solid rgba(197, 166, 102, 0.70);
+    border-radius: 50%;
+    box-shadow:
+        0 16px 30px rgba(18, 57, 72, 0.20),
+        0 0 0 7px rgba(225, 235, 237, 0.88),
+        0 0 0 9px rgba(189, 156, 91, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    transform: none;
+    animation: processIconGrowLight 16s cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+    animation-delay: var(--step-delay);
+}
+
+body.about-page #process .about-process-icon::before {
+    position: absolute;
+    inset: -12px;
+    z-index: -1;
+    display: block;
+    content: "";
+    background: transparent;
+    border: 2px solid rgba(183, 151, 88, 0.40);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.82);
+    animation: processNodeRippleLight 16s ease-out infinite both;
+    animation-delay: var(--step-delay);
+}
+
+body.about-page #process .about-process-icon::after {
+    inset: 8px;
+    display: block;
+    border: 1px solid rgba(255, 247, 222, 0.24);
+    border-radius: 50%;
+}
+
+body.about-page #process .about-process-icon svg {
+    width: 38px;
+    height: 38px;
+    stroke-width: 1.9;
+    filter: drop-shadow(0 3px 7px rgba(2, 20, 42, 0.28));
+}
+
+body.about-page #process .process-step-meta,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta {
+    display: inline-flex;
+    width: auto;
+    min-height: 30px;
+    margin: 0 0 18px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #627A94;
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+body.about-page #process .process-step-meta b,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta b {
+    display: grid;
+    width: 31px;
+    height: 31px;
+    place-items: center;
+    color: #16486F;
+    background: #FFFFFF;
+    border: 1px solid #D1DFEA;
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(17, 52, 85, 0.09);
+    font-family: var(--body);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0;
+    animation: none;
+}
+
+body.about-page #process .process-step-meta em {
+    min-height: 0;
+    padding: 0;
+    color: #627A94;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: 248px;
+    margin: 0 auto 14px;
+    padding: 0 0 13px;
+    color: #123454;
+    font-size: 22px;
+    line-height: 1.2;
+    text-align: center;
+    animation: none;
+}
+
+body.about-page #process .about-process-step h3::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 28px;
+    height: 2px;
+    content: "";
+    background: #C8D8E5;
+    transform: translateX(-50%);
+}
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: 270px;
+    margin: 0 auto;
+    color: #5C7189;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    text-align: center;
+    animation: none;
+}
+
+@keyframes processStepZoomLight {
+    0%, 19% {
+        opacity: 1;
+        transform: translateY(-9px) scale(1.025);
+        filter: saturate(1.05);
+    }
+    27%, 100% {
+        opacity: 0.78;
+        transform: translateY(0) scale(0.975);
+        filter: saturate(0.92);
+    }
+}
+
+@keyframes processNodeRippleLight {
+    0% { opacity: 0; transform: scale(0.82); }
+    4%, 14% { opacity: 0.75; transform: scale(1); }
+    20% { opacity: 0; transform: scale(1.16); }
+    27%, 100% { opacity: 0; transform: scale(0.82); }
+}
+
+@keyframes processIconGrowLight {
+    0%, 19% {
+        transform: scale(1.13);
+        box-shadow:
+            0 22px 40px rgba(18, 57, 72, 0.26),
+            0 0 0 8px rgba(229, 237, 237, 0.88),
+            0 0 0 15px rgba(183, 151, 88, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.30);
+    }
+    27%, 100% {
+        transform: scale(0.96);
+        box-shadow:
+            0 13px 27px rgba(18, 57, 72, 0.17),
+            0 0 0 7px rgba(225, 235, 237, 0.88),
+            0 0 0 9px rgba(183, 151, 88, 0.09),
+            inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    }
+}
+
+@keyframes processRouteBuildLight {
+    0%, 19% { transform: scaleX(0.02); background-position: 100% 0; opacity: 1; }
+    25%, 44% { transform: scaleX(0.34); background-position: 66% 0; opacity: 1; }
+    50%, 69% { transform: scaleX(0.67); background-position: 33% 0; opacity: 1; }
+    75%, 96% { transform: scaleX(1); background-position: 0% 0; opacity: 1; }
+    100% { transform: scaleX(0.02); background-position: 100% 0; opacity: 0; }
+}
+
+@media (max-width: 920px) {
+    body.about-page #process .about-process-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 46px 22px;
+    }
+
+    body.about-page #process .about-process-track::before,
+    body.about-page #process .about-process-track::after {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    body.about-page #process.about-process { padding: 70px 0; }
+    body.about-page #process .process-banner { height: 145px; margin-bottom: 36px; border-radius: 13px; }
+    body.about-page #process .process-banner::after { inset: 8px; border-radius: 8px; }
+    body.about-page #process .process-banner span { right: 18px; bottom: 18px; left: 18px; font-size: 8px; line-height: 1.5; }
+    body.about-page #process .about-process-track { grid-template-columns: 1fr; gap: 34px; }
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible { min-height: 0; padding: 0 14px 12px; }
+}
+
+/* Process section refresh: clearer palette and step-specific visual stories. */
+body.about-page #process.about-process {
+    --process-navy: #071E36;
+    --process-blue: #0B5275;
+    --process-teal: #1F746D;
+    --process-gold: #C8942D;
+    --process-gold-bright: #E8C66B;
+    --process-cream: #F6F0E4;
+    padding: 82px 0 104px;
+    background:
+        radial-gradient(circle at 10% 12%, rgba(200, 148, 45, 0.13), transparent 27%),
+        radial-gradient(circle at 91% 82%, rgba(11, 82, 117, 0.10), transparent 29%),
+        linear-gradient(90deg, rgba(7, 30, 54, 0.028) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(7, 30, 54, 0.028) 1px, transparent 1px),
+        linear-gradient(180deg, #FFFEFB 0%, #F7F4ED 54%, #F1F5F4 100%);
+    background-size: auto, auto, 84px 84px, 84px 84px, auto;
+}
+
+body.about-page #process::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 38%);
+}
+
+body.about-page #process::after {
+    top: 24px;
+    opacity: 0.035;
+}
+
+body.about-page #process .about-section-heading {
+    margin-bottom: 56px;
+}
+
+body.about-page #process .about-section-heading .eyebrow {
+    color: #A97818;
+    letter-spacing: 0.16em;
+}
+
+body.about-page #process .about-section-heading h2 {
+    color: var(--process-navy);
+}
+
+body.about-page #process .about-process-track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+    padding-top: 0;
+}
+
+body.about-page #process .about-process-track::before {
+    top: 47px;
+    right: 12.5%;
+    left: 12.5%;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, rgba(90, 116, 132, 0.30) 0 8px, rgba(90, 116, 132, 0.08) 8px 16px);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.86), 0 4px 13px rgba(7, 30, 54, 0.07);
+}
+
+body.about-page #process .about-process-track::after {
+    top: 46px;
+    right: 12.5%;
+    left: 12.5%;
+    height: 6px;
+    background: linear-gradient(90deg, #B98521 0%, #E8C66B 36%, #2A7A79 72%, #0B5275 100%);
+    background-size: 180% 100%;
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(200, 148, 45, 0.34), 0 0 24px rgba(11, 82, 117, 0.16);
+    transform: scaleX(var(--process-progress, 0));
+    transform-origin: left center;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible {
+    position: relative;
+    display: flex;
+    min-height: 570px;
+    padding: 0 18px 30px;
+    overflow: visible;
+    flex-direction: column;
+    align-items: center;
+    color: var(--process-navy);
+    background: transparent;
+    border: 0;
+    opacity: 0.58;
+    transform: none;
+    filter: saturate(0.72);
+    animation: none;
+    transition: opacity 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1), filter 620ms ease;
+}
+
+body.about-page #process .about-process-step::before,
+body.about-page #process .about-process-step.reveal.is-visible::before {
+    position: absolute;
+    inset: 112px 0 0;
+    z-index: 0;
+    display: block;
+    width: auto;
+    height: auto;
+    content: "";
+    background:
+        radial-gradient(circle at 50% 16%, rgba(232, 198, 107, 0.13), transparent 40%),
+        linear-gradient(180deg, rgba(11, 82, 117, 0.035), transparent 68%);
+    border: 1px solid transparent;
+    border-top: 2px solid transparent;
+    border-radius: 20px;
+    box-shadow: none;
+    opacity: 0;
+    transform: translateY(5px) scale(0.96);
+    animation: none;
+    transition: opacity 620ms ease, border-color 620ms ease, box-shadow 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .about-process-step.reveal.is-visible:hover::before {
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body.about-page #process .about-process-step:not(:last-child)::after,
+body.about-page #process .about-process-step.reveal.is-visible:not(:last-child)::after {
+    display: none;
+}
+
+body.about-page #process .about-process-step > * {
+    position: relative;
+    z-index: 2;
+}
+
+body.about-page #process .about-process-icon,
+body.about-page #process .about-process-step.reveal.is-visible .about-process-icon {
+    width: 94px;
+    height: 94px;
+    margin: 0 0 25px;
+    overflow: visible;
+    color: #486A81;
+    background: rgba(247, 251, 251, 0.76);
+    border: 2px solid rgba(126, 153, 169, 0.42);
+    box-shadow:
+        0 12px 26px rgba(7, 30, 54, 0.10),
+        0 0 0 7px rgba(255, 255, 255, 0.72),
+        0 0 0 9px rgba(109, 137, 153, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    animation: none;
+    transition: color 620ms ease, background 620ms ease, border-color 620ms ease, box-shadow 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .about-process-icon::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    content: "";
+    background:
+        radial-gradient(circle at 31% 22%, rgba(39, 125, 145, 0.94), transparent 35%),
+        linear-gradient(145deg, #0B5275 0%, #071E36 78%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.82);
+    animation: none;
+    transition: opacity 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .about-process-icon::after {
+    inset: -11px;
+    z-index: -1;
+    border: 2px solid transparent;
+    border-top-color: var(--process-gold-bright);
+    border-right-color: rgba(11, 82, 117, 0.62);
+    opacity: 0;
+    transform: rotate(0deg);
+}
+
+body.about-page #process .process-step-meta,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta {
+    width: calc(100% - 2px);
+    min-height: 34px;
+    margin: 0 0 15px;
+    justify-content: flex-start;
+    gap: 10px;
+    color: var(--process-blue);
+    transition: color 500ms ease;
+}
+
+body.about-page #process .process-step-meta::after {
+    margin-left: auto;
+    padding: 5px 8px;
+    content: "UP NEXT";
+    color: #7890A1;
+    background: rgba(255, 255, 255, 0.32);
+    border: 1px solid rgba(87, 118, 137, 0.18);
+    border-radius: 999px;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    opacity: 0.76;
+    transition: color 420ms ease, background 420ms ease, border-color 420ms ease, box-shadow 420ms ease, opacity 420ms ease, transform 420ms ease;
+}
+
+body.about-page #process .process-step-meta b,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta b {
+    width: 34px;
+    height: 34px;
+    color: var(--process-navy);
+    background: rgba(244, 239, 226, 0.68);
+    border: 1px solid rgba(200, 148, 45, 0.32);
+    box-shadow: 0 6px 14px rgba(7, 30, 54, 0.07);
+    font-size: 11px;
+    transition: color 520ms ease, background 520ms ease, border-color 520ms ease, box-shadow 520ms ease, transform 520ms ease;
+}
+
+body.about-page #process .process-step-meta em {
+    color: var(--process-blue);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+}
+
+body.about-page #process .process-step-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin: 0 0 22px;
+    overflow: hidden;
+    background: rgba(220, 230, 236, 0.48);
+    border: 1px solid rgba(7, 30, 54, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 9px 22px rgba(7, 30, 54, 0.08);
+    transform: translateY(0) scale(0.985);
+    transition: border-color 620ms ease, box-shadow 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-step-image::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(108deg, transparent 25%, rgba(255, 255, 255, 0.58) 48%, transparent 68%);
+    opacity: 0;
+    transform: translateX(-130%);
+    pointer-events: none;
+}
+
+body.about-page #process .process-step-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.62) contrast(0.98) brightness(1.03);
+    transform: scale(1.01);
+    transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1), filter 620ms ease;
+}
+
+body.about-page #process .about-process-step:hover .process-step-image img {
+    transform: scale(1.01);
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: none;
+    margin: 0 0 13px;
+    padding: 0 0 14px;
+    color: var(--process-navy);
+    font-size: clamp(20px, 1.35vw, 23px);
+    line-height: 1.18;
+    transition: color 520ms ease, transform 520ms ease;
+}
+
+body.about-page #process .about-process-step h3::after {
+    width: 34px;
+    height: 3px;
+    background: linear-gradient(90deg, #91A9B8, #CBD8DE);
+    border-radius: 999px;
+    transform: translateX(-50%) scaleX(0.72);
+    transition: background 520ms ease, transform 520ms ease, box-shadow 520ms ease;
+}
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: none;
+    color: #53677B;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.66;
+    transition: color 520ms ease, opacity 520ms ease;
+}
+
+body.about-page #process .process-route-runner {
+    position: absolute;
+    top: 49px;
+    left: var(--runner-position, 12.5%);
+    z-index: 1;
+    display: grid;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    place-items: center;
+    background: linear-gradient(145deg, #F2D783, #C8942D);
+    border: 4px solid #FFFDF7;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(200, 148, 45, 0.28), 0 6px 18px rgba(7, 30, 54, 0.18), 0 0 22px rgba(232, 198, 107, 0.48);
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: left 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+}
+
+body.about-page #process .process-route-runner::before {
+    position: absolute;
+    inset: -8px;
+    content: "";
+    border: 2px solid rgba(200, 148, 45, 0.46);
+    border-radius: inherit;
+    animation: none;
+}
+
+body.about-page #process .process-route-runner::after {
+    width: 4px;
+    height: 4px;
+    content: "";
+    background: var(--process-navy);
+    border-radius: 50%;
+}
+
+body.about-page #process .about-process-track.is-resetting::after {
+    transition: none;
+}
+
+body.about-page #process .about-process-track.is-resetting .process-route-runner {
+    transition: none;
+}
+
+body.about-page #process .about-process-track.is-running::after {
+    animation: processLineShimmer 2.2s linear infinite;
+}
+
+body.about-page #process .about-process-track.is-running .process-route-runner::before {
+    animation: processRunnerRipple 1.7s ease-out infinite;
+}
+
+body.about-page #process .about-process-step.is-active-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step {
+    z-index: 4;
+    opacity: 1;
+    filter: saturate(1);
+    transform: translateY(-9px) scale(1.018);
+}
+
+body.about-page #process .about-process-step.is-active-step::before,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step::before {
+    border-color: rgba(200, 148, 45, 0.18);
+    border-top-color: rgba(200, 148, 45, 0.72);
+    box-shadow: 0 24px 52px rgba(7, 30, 54, 0.09), 0 0 42px rgba(232, 198, 107, 0.11);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-complete-step {
+    opacity: 0.82;
+    filter: saturate(0.88);
+}
+
+body.about-page #process .about-process-step.is-active-step .about-process-icon,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step .about-process-icon {
+    color: #FFF9E9;
+    border-color: var(--process-gold-bright);
+    box-shadow:
+        0 20px 40px rgba(7, 30, 54, 0.23),
+        0 0 0 7px rgba(255, 255, 255, 0.90),
+        0 0 0 11px rgba(200, 148, 45, 0.18),
+        0 0 30px rgba(232, 198, 107, 0.25);
+    transform: scale(1.12);
+    animation: processActiveIconPulse 1.8s ease-in-out infinite;
+}
+
+body.about-page #process .about-process-step.is-active-step .about-process-icon::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.about-page #process .about-process-step.is-active-step .about-process-icon::after {
+    opacity: 1;
+    animation: processIconOrbit 1.6s linear infinite;
+}
+
+body.about-page #process .about-process-step.is-complete-step .about-process-icon {
+    color: #236C64;
+    background: rgba(226, 241, 237, 0.86);
+    border-color: rgba(56, 128, 116, 0.46);
+    box-shadow: 0 12px 26px rgba(31, 116, 109, 0.10), 0 0 0 7px rgba(255, 255, 255, 0.68);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-meta b {
+    color: var(--process-navy);
+    background: linear-gradient(145deg, #F0D783, #C8942D);
+    border-color: transparent;
+    box-shadow: 0 9px 22px rgba(200, 148, 45, 0.30);
+    transform: scale(1.08);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-meta::after {
+    content: "IN PROGRESS";
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #0B5275, #1F746D);
+    border-color: transparent;
+    box-shadow: 0 7px 16px rgba(11, 82, 117, 0.18);
+    opacity: 1;
+    transform: translateY(-1px);
+    animation: processStatusPulse 1.5s ease-in-out infinite;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-meta::after {
+    content: "COMPLETE";
+    color: #236C64;
+    background: rgba(226, 241, 237, 0.78);
+    border-color: rgba(56, 128, 116, 0.22);
+    opacity: 1;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image {
+    border-color: rgba(200, 148, 45, 0.64);
+    box-shadow: 0 18px 34px rgba(7, 30, 54, 0.16), 0 0 0 3px rgba(232, 198, 107, 0.10);
+    transform: translateY(-2px) scale(1);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image::after {
+    opacity: 1;
+    animation: processImageSweep 3.6s ease-in-out infinite;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image img {
+    filter: saturate(1.04) contrast(1.045) brightness(1.01);
+    transform: scale(1.045);
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-image img {
+    filter: saturate(0.86) contrast(1.01);
+}
+
+body.about-page #process .about-process-step.is-active-step h3 {
+    color: #061B31;
+    transform: translateY(-1px);
+}
+
+body.about-page #process .about-process-step.is-active-step h3::after {
+    background: linear-gradient(90deg, var(--process-gold), var(--process-gold-bright), var(--process-blue));
+    box-shadow: 0 0 10px rgba(200, 148, 45, 0.26);
+    transform: translateX(-50%) scaleX(1.35);
+}
+
+body.about-page #process .about-process-step.is-active-step p {
+    color: #40586D;
+}
+
+@keyframes processLineShimmer {
+    from { background-position: 100% 0; }
+    to { background-position: -80% 0; }
+}
+
+@keyframes processRunnerRipple {
+    0% { opacity: 0.72; transform: scale(0.74); }
+    70%, 100% { opacity: 0; transform: scale(1.55); }
+}
+
+@keyframes processActiveIconPulse {
+    0%, 100% { transform: scale(1.09); }
+    50% { transform: scale(1.14); }
+}
+
+@keyframes processIconOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes processStatusPulse {
+    0%, 100% { box-shadow: 0 7px 16px rgba(11, 82, 117, 0.16); }
+    50% { box-shadow: 0 7px 22px rgba(31, 116, 109, 0.34); }
+}
+
+@keyframes processImageSweep {
+    0%, 18% { opacity: 0; transform: translateX(-130%); }
+    42% { opacity: 0.72; }
+    64%, 100% { opacity: 0; transform: translateX(130%); }
+}
+
+@media (max-width: 1080px) {
+    body.about-page #process .about-process-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 42px 24px;
+    }
+
+    body.about-page #process .about-process-track::before,
+    body.about-page #process .about-process-track::after,
+    body.about-page #process .process-route-runner {
+        display: none;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible {
+        min-height: 600px;
+    }
+}
+
+@media (max-width: 640px) {
+    body.about-page #process.about-process {
+        padding: 68px 0 76px;
+    }
+
+    body.about-page #process .about-section-heading {
+        margin-bottom: 42px;
+    }
+
+    body.about-page #process .about-process-track {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible {
+        min-height: 0;
+        padding: 0 18px 30px;
+    }
+
+    body.about-page #process .about-process-step.is-active-step,
+    body.about-page #process .about-process-step.reveal.is-visible.is-active-step {
+        transform: translateY(-6px) scale(1);
+    }
+
+    body.about-page #process .process-step-image {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page #process .about-process-track::after {
+        transform: scaleX(1);
+        transition: none;
+        animation: none;
+    }
+
+    body.about-page #process .process-route-runner {
+        display: none;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-active-step,
+    body.about-page #process .about-process-step.is-complete-step {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+        animation: none;
+    }
+
+    body.about-page #process .about-process-icon,
+    body.about-page #process .about-process-icon::after,
+    body.about-page #process .process-step-meta::after,
+    body.about-page #process .process-step-image::after {
+        animation: none;
+    }
+}
+
+/* Pixel-fidelity pass for the supplied animated process reference. */
+body.about-page #process.about-process {
+    --reference-navy: #082A47;
+    --reference-blue: #1598D4;
+    --reference-cyan: #56C8F6;
+    --reference-teal: #18B9AA;
+    --reference-gold: #E8B33E;
+    --reference-paper: #FAF8F2;
+    background:
+        radial-gradient(circle at 50% 5%, rgba(232, 179, 62, 0.10), transparent 23%),
+        radial-gradient(circle at 84% 76%, rgba(24, 185, 170, 0.055), transparent 30%),
+        linear-gradient(90deg, rgba(8, 42, 71, 0.020) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(8, 42, 71, 0.020) 1px, transparent 1px),
+        linear-gradient(180deg, #FCFBF7 0%, #F8F6F0 62%, #F2F5F2 100%);
+    background-size: auto, auto, 76px 76px, 76px 76px, auto;
+}
+
+body.about-page #process .process-timeline::before {
+    height: 2px;
+    background: repeating-linear-gradient(90deg, rgba(86, 106, 123, 0.72) 0 7px, rgba(86, 106, 123, 0.06) 7px 14px);
+}
+
+body.about-page #process .process-timeline::after {
+    height: 4px;
+    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #37A69A 66%, #1699D5 100%);
+    box-shadow: 0 0 8px rgba(232, 179, 62, 0.32), 0 0 17px rgba(21, 152, 212, 0.16);
+}
+
+body.about-page #process .process-route-spark {
+    position: absolute;
+    top: 45px;
+    z-index: 2;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #FFFFFF;
+    border: 3px solid rgba(228, 233, 234, 0.88);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.34), 0 0 15px rgba(62, 89, 107, 0.13);
+    transform: translate(-50%, -50%);
+    transition: background 620ms ease, border-color 620ms ease, box-shadow 620ms ease, transform 620ms ease;
+    pointer-events: none;
+}
+
+body.about-page #process .process-route-spark[data-process-segment="0"] { left: 25%; }
+body.about-page #process .process-route-spark[data-process-segment="1"] { left: 50%; }
+body.about-page #process .process-route-spark[data-process-segment="2"] { left: 75%; }
+
+body.about-page #process .process-route-spark.is-complete-segment {
+    background: #FFFFFF;
+    border-color: #F1BF48;
+    box-shadow: 0 0 0 5px rgba(241, 191, 72, 0.10), 0 0 18px rgba(232, 179, 62, 0.58);
+}
+
+body.about-page #process .process-route-spark.is-active-segment {
+    background: #FFFFFF;
+    border-color: var(--reference-cyan);
+    box-shadow: 0 0 0 5px rgba(86, 200, 246, 0.11), 0 0 20px rgba(21, 152, 212, 0.72);
+    animation: referenceSparkPulse 1.35s ease-in-out infinite;
+}
+
+body.about-page #process .process-timeline .process-route-runner {
+    width: 13px;
+    height: 13px;
+    border-width: 3px;
+    border-color: #FFFFFF;
+    background: var(--reference-cyan);
+    box-shadow: 0 0 0 5px rgba(86, 200, 246, 0.12), 0 0 20px rgba(21, 152, 212, 0.66);
+    opacity: 0;
+    transition: left 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
+}
+
+body.about-page #process .process-timeline.is-advancing .process-route-runner {
+    opacity: 1;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon,
+body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+    width: 86px;
+    height: 86px;
+    color: #587083;
+    background: rgba(251, 251, 249, 0.94);
+    border-color: rgba(95, 119, 135, 0.24);
+    box-shadow:
+        0 10px 24px rgba(8, 42, 71, 0.09),
+        0 0 0 7px rgba(255, 255, 255, 0.72),
+        0 0 0 9px rgba(106, 128, 141, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+    color: #587083;
+    border-color: rgba(95, 119, 135, 0.27);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon {
+    width: 92px;
+    height: 92px;
+    color: #FFFFFF;
+    background: #FFFFFF;
+    border-color: #E8B33E;
+    box-shadow:
+        0 18px 38px rgba(8, 42, 71, 0.24),
+        0 0 0 6px rgba(255, 255, 255, 0.90),
+        0 0 0 10px rgba(232, 179, 62, 0.23),
+        0 0 0 15px rgba(21, 152, 212, 0.075),
+        0 0 34px rgba(21, 152, 212, 0.25);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::before {
+    inset: 5px;
+    background:
+        radial-gradient(circle at 35% 24%, rgba(31, 116, 145, 0.98), transparent 38%),
+        linear-gradient(150deg, #0B5276 0%, #082A47 76%);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::after {
+    inset: -2px;
+    border-width: 2px;
+    border-top-color: rgba(232, 179, 62, 0.92);
+    border-right-color: rgba(232, 179, 62, 0.28);
+    border-bottom-color: rgba(21, 152, 212, 0.88);
+    border-left-color: rgba(21, 152, 212, 0.18);
+}
+
+body.about-page #process .process-timeline-step.is-active-step::after {
+    top: 96px;
+    border-top-color: var(--reference-navy);
+}
+
+body.about-page #process .timeline-step-meta {
+    margin-top: 17px;
+}
+
+body.about-page #process .process-timeline-step.is-active-step .timeline-step-meta b {
+    background: #0D5B78;
+}
+
+body.about-page #process .about-process-track {
+    gap: 16px;
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible,
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.is-active-step {
+    min-height: 358px;
+    padding: 11px 13px 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.25), rgba(249, 250, 247, 0.08));
+    border-color: rgba(94, 119, 135, 0.16);
+    border-radius: 17px;
+    box-shadow: 0 12px 28px rgba(8, 42, 71, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-complete-step {
+    opacity: 0.96;
+    filter: saturate(0.95);
+}
+
+body.about-page #process .about-process-step.is-active-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step {
+    background: linear-gradient(160deg, rgba(255, 252, 242, 0.42), rgba(248, 251, 249, 0.13));
+    border-color: rgba(232, 179, 62, 0.82);
+    box-shadow:
+        0 18px 40px rgba(8, 42, 71, 0.105),
+        0 0 0 2px rgba(232, 179, 62, 0.15),
+        0 0 28px rgba(232, 179, 62, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.76);
+    animation: referenceActiveCardGlow 2.2s ease-in-out infinite;
+}
+
+body.about-page #process .process-step-image,
+body.about-page #process .about-process-step.is-active-step .process-step-image {
+    margin-bottom: 25px;
+}
+
+body.about-page #process .process-step-image::before {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    z-index: 2;
+    display: block;
+    height: 36%;
+    content: "";
+    background: linear-gradient(180deg, transparent, rgba(250, 249, 245, 0.80) 78%, rgba(250, 249, 245, 0.96));
+    border-radius: 0 0 13px 13px;
+    pointer-events: none;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image::before {
+    background: linear-gradient(180deg, transparent, rgba(255, 250, 237, 0.72) 80%, rgba(255, 250, 237, 0.92));
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-image img {
+    filter: saturate(0.96) contrast(1.015) brightness(1.01);
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: 245px;
+    margin-bottom: 7px;
+    color: #0D2A47;
+    font-size: clamp(17px, 1.12vw, 19px);
+}
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: 244px;
+    color: #536B7D;
+    font-size: 10.5px;
+    line-height: 1.52;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-card-progress {
+    background: linear-gradient(90deg, transparent, var(--reference-teal), transparent);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-card-progress {
+    background: linear-gradient(90deg, transparent, var(--reference-blue) 27%, #1678D5 46%, var(--reference-gold) 74%, transparent);
+    background-size: 180% 100%;
+}
+
+@keyframes referenceSparkPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.88); }
+    50% { transform: translate(-50%, -50%) scale(1.13); }
+}
+
+@keyframes referenceActiveCardGlow {
+    0%, 100% {
+        box-shadow: 0 18px 40px rgba(8, 42, 71, 0.105), 0 0 0 2px rgba(232, 179, 62, 0.14), 0 0 24px rgba(232, 179, 62, 0.11);
+    }
+    50% {
+        box-shadow: 0 20px 44px rgba(8, 42, 71, 0.13), 0 0 0 2px rgba(232, 179, 62, 0.23), 0 0 34px rgba(232, 179, 62, 0.19);
+    }
+}
+
+@media (max-width: 1080px) {
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible {
+        min-height: 396px;
+    }
+}
+
+@media (max-width: 720px) {
+    body.about-page #process .process-route-spark {
+        display: none;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-active-step {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page #process .process-route-spark,
+    body.about-page #process .about-process-step.is-active-step {
+        animation: none;
+    }
+}
+
+/* Reference lock: library icons, explicit active arrow and photographic card framing. */
+body.about-page #process .process-timeline-step::after {
+    display: none;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon .process-library-icon,
+body.about-page #process .process-image-status .process-library-icon {
+    fill: currentColor;
+    stroke: none;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon .process-library-icon {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 31px;
+    height: 31px;
+    filter: none;
+    transition: filter 420ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon .process-library-icon {
+    filter: brightness(0) invert(1);
+    transform: scale(1.04);
+}
+
+body.about-page #process .process-timeline-step[data-process-index="0"] .about-process-icon .process-library-icon {
+    width: 32px;
+    height: 32px;
+}
+
+body.about-page #process .process-timeline-step[data-process-index="3"] .about-process-icon .process-library-icon {
+    width: 33px;
+    height: 33px;
+}
+
+body.about-page #process .process-active-arrow {
+    position: absolute;
+    top: 98px;
+    left: 50%;
+    z-index: 6;
+    display: block;
+    width: 19px;
+    height: 19px;
+    fill: #082A47;
+    stroke: none;
+    opacity: 0;
+    filter: drop-shadow(0 5px 5px rgba(8, 42, 71, 0.16));
+    pointer-events: none;
+    transform: translate(-50%, -8px) scale(0.72);
+    transform-origin: center;
+    transition: opacity 340ms ease, transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .process-active-arrow {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    animation: processArrowDrop 1.65s ease-in-out infinite;
+}
+
+body.about-page #process .process-step-image,
+body.about-page #process .about-process-step.is-active-step .process-step-image {
+    aspect-ratio: 16 / 9;
+    margin: 0 0 27px;
+    isolation: isolate;
+    overflow: visible;
+    border-radius: 13px;
+}
+
+body.about-page #process .process-step-image img,
+body.about-page #process .about-process-step:hover .process-step-image img {
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(8, 42, 71, 0.075);
+    border-radius: 13px;
+    box-shadow: 0 10px 22px rgba(8, 42, 71, 0.10);
+}
+
+body.about-page #process .about-process-step[data-process-index="0"] .process-step-image img {
+    object-position: center 47%;
+}
+
+body.about-page #process .about-process-step[data-process-index="1"] .process-step-image img {
+    object-position: center 48%;
+}
+
+body.about-page #process .about-process-step[data-process-index="2"] .process-step-image img {
+    object-position: center 54%;
+}
+
+body.about-page #process .about-process-step[data-process-index="3"] .process-step-image img {
+    object-position: center 45%;
+}
+
+body.about-page #process .process-step-image::before {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    z-index: 2;
+    display: block;
+    height: 43%;
+    content: "";
+    background: linear-gradient(180deg, rgba(249, 249, 246, 0) 0%, rgba(249, 249, 246, 0.12) 28%, rgba(249, 249, 246, 0.78) 78%, rgba(249, 249, 246, 0.98) 100%);
+    border-radius: 0 0 13px 13px;
+    pointer-events: none;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image::before {
+    background: linear-gradient(180deg, rgba(255, 251, 240, 0) 0%, rgba(255, 251, 240, 0.08) 28%, rgba(255, 251, 240, 0.72) 78%, rgba(255, 251, 240, 0.96) 100%);
+}
+
+body.about-page #process .process-step-image::after {
+    z-index: 3;
+}
+
+body.about-page #process .process-image-status {
+    bottom: -17px;
+    z-index: 5;
+}
+
+body.about-page #process .process-image-status .process-library-icon {
+    position: absolute;
+    display: block;
+    width: 17px;
+    height: 17px;
+    opacity: 0;
+    filter: brightness(0) invert(1);
+    transform: scale(0.7);
+    transition: opacity 420ms ease, transform 420ms ease;
+}
+
+@keyframes processArrowDrop {
+    0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+    }
+    50% {
+        transform: translate(-50%, 4px) scale(1.04);
+    }
+}
+
+@media (max-width: 720px) {
+    body.about-page #process .process-active-arrow {
+        top: 83px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page #process .process-timeline-step.is-active-step .process-active-arrow {
+        animation: none;
+    }
+}
+
+/* Reference-matched process journey: separate timeline and compact translucent cards. */
+body.about-page #process.about-process {
+    padding: 76px 0 94px;
+    background:
+        radial-gradient(circle at 50% 8%, rgba(232, 198, 107, 0.11), transparent 25%),
+        radial-gradient(circle at 86% 78%, rgba(41, 115, 125, 0.08), transparent 28%),
+        linear-gradient(90deg, rgba(7, 30, 54, 0.024) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(7, 30, 54, 0.024) 1px, transparent 1px),
+        linear-gradient(180deg, #FFFDF8 0%, #F8F5EF 58%, #F2F5F2 100%);
+    background-size: auto, auto, 76px 76px, 76px 76px, auto;
+}
+
+body.about-page #process .about-section-heading {
+    margin-bottom: 42px;
+}
+
+body.about-page #process .process-timeline {
+    --process-progress: 0;
+    --runner-position: 12.5%;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-height: 142px;
+    margin: 0 0 18px;
+    align-items: start;
+}
+
+body.about-page #process .process-timeline::before,
+body.about-page #process .process-timeline::after {
+    position: absolute;
+    top: 44px;
+    right: 12.5%;
+    left: 12.5%;
+    z-index: 0;
+    display: block;
+    height: 3px;
+    content: "";
+    border-radius: 999px;
+}
+
+body.about-page #process .process-timeline::before {
+    background: repeating-linear-gradient(90deg, rgba(88, 111, 129, 0.56) 0 7px, rgba(88, 111, 129, 0.09) 7px 14px);
+    box-shadow: 0 3px 10px rgba(7, 30, 54, 0.06);
+}
+
+body.about-page #process .process-timeline::after {
+    z-index: 1;
+    height: 5px;
+    background: linear-gradient(90deg, #D9A12F 0%, #F2C760 31%, #2F8882 68%, #1689C4 100%);
+    background-size: 180% 100%;
+    box-shadow: 0 0 10px rgba(217, 161, 47, 0.32), 0 0 20px rgba(22, 137, 196, 0.14);
+    transform: scaleX(var(--process-progress));
+    transform-origin: left center;
+    transition: transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline.is-running::after {
+    animation: processLineShimmer 2s linear infinite;
+}
+
+body.about-page #process .process-timeline.is-resetting::after {
+    transition: none;
+}
+
+body.about-page #process .process-timeline-step {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    color: #5E7487;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    opacity: 0.72;
+    transform: translateY(0) scale(0.96);
+    transition: opacity 620ms ease, color 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline-step:focus-visible {
+    outline: 2px solid var(--process-gold);
+    outline-offset: 7px;
+    border-radius: 18px;
+}
+
+body.about-page #process .process-timeline-step::after {
+    position: absolute;
+    top: 92px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 10px solid #0A3153;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    opacity: 0;
+    transform: translate(-50%, -7px);
+    transition: opacity 420ms ease, transform 420ms ease;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon,
+body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 3;
+    display: grid;
+    width: 88px;
+    height: 88px;
+    margin: 0;
+    place-items: center;
+    overflow: visible;
+    color: #526E82;
+    background: rgba(249, 251, 250, 0.92);
+    border: 1px solid rgba(104, 130, 147, 0.28);
+    border-radius: 50%;
+    box-shadow:
+        0 10px 26px rgba(7, 30, 54, 0.10),
+        0 0 0 7px rgba(255, 255, 255, 0.70),
+        0 0 0 9px rgba(113, 140, 155, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.96);
+    transform: none;
+    animation: none;
+    transition: color 620ms ease, border-color 620ms ease, box-shadow 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline-step .about-process-icon::before {
+    position: absolute;
+    inset: 6px;
+    z-index: 0;
+    display: block;
+    content: "";
+    background:
+        radial-gradient(circle at 32% 22%, rgba(31, 113, 145, 0.92), transparent 36%),
+        linear-gradient(145deg, #0A5276 0%, #071E36 80%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.78);
+    transition: opacity 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline-step .about-process-icon::after {
+    position: absolute;
+    inset: -10px;
+    z-index: -1;
+    display: block;
+    content: "";
+    border: 2px solid transparent;
+    border-top-color: #EBC35B;
+    border-right-color: rgba(22, 137, 196, 0.62);
+    border-bottom-color: rgba(217, 161, 47, 0.42);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon svg {
+    position: relative;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.9;
+    filter: none;
+}
+
+body.about-page #process .timeline-step-meta {
+    display: inline-flex;
+    min-height: 30px;
+    margin-top: 18px;
+    align-items: center;
+    gap: 9px;
+}
+
+body.about-page #process .timeline-step-meta b {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    place-items: center;
+    color: #3B7180;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(81, 119, 134, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(7, 30, 54, 0.07);
+    font-size: 10px;
+    line-height: 1;
+}
+
+body.about-page #process .timeline-step-meta em {
+    color: currentColor;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+body.about-page #process .process-timeline-step.is-complete-step {
+    color: #21746C;
+    opacity: 0.94;
+    transform: scale(0.985);
+}
+
+body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+    color: #376C77;
+    border-color: rgba(48, 126, 119, 0.30);
+}
+
+body.about-page #process .process-timeline-step.is-active-step {
+    color: #0A3153;
+    opacity: 1;
+    transform: translateY(-4px) scale(1.035);
+}
+
+body.about-page #process .process-timeline-step.is-active-step::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon {
+    color: #FFF9E9;
+    border: 3px solid #E8B84C;
+    box-shadow:
+        0 18px 38px rgba(7, 30, 54, 0.24),
+        0 0 0 7px rgba(255, 255, 255, 0.86),
+        0 0 0 12px rgba(232, 184, 76, 0.20),
+        0 0 34px rgba(22, 137, 196, 0.20);
+    transform: scale(1.12);
+    animation: referenceNodePulse 1.8s ease-in-out infinite;
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::after {
+    opacity: 1;
+    animation: processIconOrbit 1.8s linear infinite;
+}
+
+body.about-page #process .process-timeline-step.is-active-step .timeline-step-meta b {
+    color: #FFFFFF;
+    background: #0A5276;
+    border-color: transparent;
+    box-shadow: 0 7px 16px rgba(10, 82, 118, 0.20);
+}
+
+body.about-page #process .process-timeline .process-route-runner {
+    position: absolute;
+    top: 46px;
+    left: var(--runner-position);
+    z-index: 2;
+    display: grid;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    place-items: center;
+    background: #FFFFFF;
+    border: 4px solid #55BEF1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(85, 190, 241, 0.10), 0 0 22px rgba(85, 190, 241, 0.70);
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: left 950ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-timeline.is-resetting .process-route-runner {
+    transition: none;
+}
+
+body.about-page #process .process-timeline .process-route-runner::before {
+    position: absolute;
+    inset: -8px;
+    content: "";
+    border: 1px solid rgba(85, 190, 241, 0.52);
+    border-radius: 50%;
+    animation: processRunnerRipple 1.6s ease-out infinite;
+}
+
+body.about-page #process .process-timeline .process-route-runner::after {
+    display: none;
+}
+
+body.about-page #process .about-process-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+    padding: 0;
+}
+
+body.about-page #process .about-process-track::before,
+body.about-page #process .about-process-track::after {
+    display: none;
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible,
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.is-active-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 390px;
+    padding: 12px 14px 25px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    color: #17354F;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.34), rgba(247, 250, 248, 0.12));
+    border: 1px solid rgba(92, 120, 136, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 13px 30px rgba(7, 30, 54, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.70);
+    opacity: 0.64;
+    filter: saturate(0.72);
+    transform: scale(0.985);
+    backdrop-filter: blur(4px);
+    animation: none;
+    transition: opacity 650ms ease, filter 650ms ease, border-color 650ms ease, box-shadow 650ms ease, transform 650ms cubic-bezier(0.22, 1, 0.36, 1), background 650ms ease;
+}
+
+body.about-page #process .about-process-step::before,
+body.about-page #process .about-process-step::after,
+body.about-page #process .about-process-step.reveal.is-visible::before,
+body.about-page #process .about-process-step.reveal.is-visible::after {
+    display: none;
+}
+
+body.about-page #process .about-process-step > * {
+    position: relative;
+    z-index: 2;
+}
+
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-complete-step {
+    opacity: 0.90;
+    filter: saturate(0.90);
+    transform: scale(0.99);
+}
+
+body.about-page #process .about-process-step.is-active-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step {
+    z-index: 4;
+    color: #0A2945;
+    background: linear-gradient(160deg, rgba(255, 253, 245, 0.58), rgba(246, 250, 249, 0.22));
+    border-color: rgba(224, 171, 53, 0.74);
+    box-shadow:
+        0 18px 42px rgba(7, 30, 54, 0.13),
+        0 0 0 2px rgba(243, 198, 86, 0.18),
+        0 0 30px rgba(232, 184, 76, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    opacity: 1;
+    filter: saturate(1);
+    transform: translateY(-5px) scale(1.018);
+}
+
+body.about-page #process .process-step-meta,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta {
+    display: flex;
+    width: 100%;
+    min-height: 28px;
+    margin: 0 0 9px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+body.about-page #process .process-step-meta b,
+body.about-page #process .about-process-step.reveal.is-visible .process-step-meta b {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: #284862;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(80, 111, 132, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 5px 12px rgba(7, 30, 54, 0.06);
+    font-size: 9px;
+    transform: none;
+}
+
+body.about-page #process .process-step-meta em {
+    color: #24526C;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+}
+
+body.about-page #process .process-step-meta::after {
+    margin-left: auto;
+    padding: 4px 7px;
+    content: "UP NEXT";
+    color: #85939E;
+    background: rgba(255, 255, 255, 0.54);
+    border: 1px solid rgba(107, 126, 140, 0.18);
+    border-radius: 999px;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    line-height: 1;
+    opacity: 0.9;
+    animation: none;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-meta::after {
+    content: "COMPLETE";
+    color: #13978B;
+    background: rgba(236, 255, 251, 0.74);
+    border-color: rgba(19, 151, 139, 0.30);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-meta::after {
+    content: "IN PROGRESS";
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #0878AD, #16A5C0);
+    border-color: transparent;
+    box-shadow: 0 5px 14px rgba(8, 120, 173, 0.19);
+    animation: processStatusPulse 1.5s ease-in-out infinite;
+}
+
+body.about-page #process .process-step-image,
+body.about-page #process .about-process-step.is-active-step .process-step-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 27px;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    border-radius: 13px;
+    box-shadow: none;
+    transform: none;
+}
+
+body.about-page #process .process-step-image img,
+body.about-page #process .about-process-step:hover .process-step-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid rgba(7, 30, 54, 0.08);
+    border-radius: 13px;
+    box-shadow: 0 9px 20px rgba(7, 30, 54, 0.09);
+    filter: saturate(0.62) contrast(0.98) brightness(1.06);
+    transform: scale(1);
+    transition: filter 650ms ease, transform 850ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 650ms ease;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-image img {
+    filter: saturate(0.90) contrast(1.01) brightness(1.02);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image img {
+    box-shadow: 0 13px 27px rgba(7, 30, 54, 0.16);
+    filter: saturate(1.05) contrast(1.04) brightness(1.01);
+    transform: scale(1.025);
+}
+
+body.about-page #process .process-step-image::after {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    content: "";
+    background: linear-gradient(108deg, transparent 26%, rgba(255, 255, 255, 0.52) 48%, transparent 68%);
+    border-radius: 13px;
+    opacity: 0;
+    transform: translateX(-130%);
+    pointer-events: none;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-step-image::after {
+    animation: processImageSweep 3.6s ease-in-out infinite;
+}
+
+body.about-page #process .process-image-status {
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    z-index: 4;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: #82919C;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px dashed rgba(83, 109, 126, 0.52);
+    border-radius: 50%;
+    box-shadow: 0 7px 18px rgba(7, 30, 54, 0.10);
+    transform: translateX(-50%) scale(0.86);
+    transition: color 520ms ease, background 520ms ease, border-color 520ms ease, box-shadow 520ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.about-page #process .process-image-status svg {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 420ms ease, transform 420ms ease;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-image-status {
+    color: #FFFFFF;
+    background: linear-gradient(145deg, #34C7B8, #12A89B);
+    border-color: #FFFFFF;
+    border-style: solid;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.84), 0 7px 18px rgba(18, 168, 155, 0.24);
+    transform: translateX(-50%) scale(1);
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-image-status .status-check,
+body.about-page #process .about-process-step.is-active-step .process-image-status .status-step {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-image-status {
+    color: #FFF9E9;
+    background: linear-gradient(145deg, #0A5276, #071E36);
+    border: 2px solid #E7B94D;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.88), 0 9px 22px rgba(7, 30, 54, 0.24), 0 0 18px rgba(231, 185, 77, 0.25);
+    transform: translateX(-50%) scale(1.08);
+    animation: referenceMarkerPulse 1.7s ease-in-out infinite;
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: 250px;
+    margin: 0 auto 8px;
+    padding: 0;
+    color: #102C47;
+    font-size: clamp(17px, 1.18vw, 20px);
+    line-height: 1.12;
+    text-align: center;
+    transform: none;
+}
+
+body.about-page #process .about-process-step h3::after {
+    display: none;
+}
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: 250px;
+    margin: 0 auto;
+    color: #526C80;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.55;
+    text-align: center;
+}
+
+body.about-page #process .process-card-progress {
+    position: absolute;
+    right: 35%;
+    bottom: 0;
+    left: 35%;
+    z-index: 5;
+    display: block;
+    height: 3px;
+    background: #AEBBC3;
+    border-radius: 999px 999px 0 0;
+    opacity: 0.42;
+    transition: right 620ms ease, left 620ms ease, background 620ms ease, box-shadow 620ms ease, opacity 620ms ease;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-card-progress {
+    right: 12%;
+    left: 12%;
+    background: linear-gradient(90deg, transparent, #26C4B5, transparent);
+    box-shadow: 0 0 10px rgba(38, 196, 181, 0.34);
+    opacity: 1;
+}
+
+body.about-page #process .about-process-step.is-active-step .process-card-progress {
+    right: 8%;
+    left: 8%;
+    background: linear-gradient(90deg, transparent, #158BD0 24%, #E7B94D 72%, transparent);
+    box-shadow: 0 0 13px rgba(21, 139, 208, 0.30), 0 0 16px rgba(231, 185, 77, 0.26);
+    opacity: 1;
+    animation: referenceCardProgress 3.6s ease-in-out infinite;
+}
+
+@keyframes referenceNodePulse {
+    0%, 100% { transform: scale(1.09); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes referenceMarkerPulse {
+    0%, 100% { transform: translateX(-50%) scale(1.04); }
+    50% { transform: translateX(-50%) scale(1.12); }
+}
+
+@keyframes referenceCardProgress {
+    0%, 100% { background-position: 100% 0; transform: scaleX(0.82); }
+    50% { background-position: 0 0; transform: scaleX(1); }
+}
+
+@media (max-width: 1080px) {
+    body.about-page #process .process-timeline {
+        min-height: 132px;
+    }
+
+    body.about-page #process .process-timeline .process-route-runner {
+        display: grid;
+    }
+
+    body.about-page #process .about-process-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 720px) {
+    body.about-page #process.about-process {
+        padding: 66px 0 74px;
+    }
+
+    body.about-page #process .process-timeline {
+        grid-template-columns: repeat(4, 130px);
+        min-height: 132px;
+        margin-right: -24px;
+        margin-left: -24px;
+        padding: 4px 24px 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    body.about-page #process .process-timeline::-webkit-scrollbar {
+        display: none;
+    }
+
+    body.about-page #process .process-timeline::before,
+    body.about-page #process .process-timeline::after,
+    body.about-page #process .process-timeline .process-route-runner {
+        display: none;
+    }
+
+    body.about-page #process .process-timeline-step .about-process-icon,
+    body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+        width: 74px;
+        height: 74px;
+    }
+
+    body.about-page #process .process-timeline-step::after {
+        top: 78px;
+    }
+
+    body.about-page #process .timeline-step-meta {
+        margin-top: 14px;
+    }
+
+    body.about-page #process .about-process-track {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-active-step {
+        min-height: 0;
+        padding: 12px 14px 28px;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page #process .process-timeline::after {
+        transform: scaleX(1);
+        transition: none;
+        animation: none;
+    }
+
+    body.about-page #process .process-timeline .process-route-runner {
+        display: none;
+    }
+
+    body.about-page #process .process-timeline-step,
+    body.about-page #process .process-timeline-step .about-process-icon,
+    body.about-page #process .process-timeline-step .about-process-icon::after,
+    body.about-page #process .about-process-step,
+    body.about-page #process .process-step-image::after,
+    body.about-page #process .process-image-status,
+    body.about-page #process .process-card-progress {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Final cascade: exact palette, proportions and motion from the supplied reference. */
+body.about-page #process.about-process {
+    background:
+        radial-gradient(circle at 50% 5%, rgba(232, 179, 62, 0.10), transparent 23%),
+        radial-gradient(circle at 84% 76%, rgba(24, 185, 170, 0.055), transparent 30%),
+        linear-gradient(90deg, rgba(8, 42, 71, 0.020) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(8, 42, 71, 0.020) 1px, transparent 1px),
+        linear-gradient(180deg, #FCFBF7 0%, #F8F6F0 62%, #F2F5F2 100%);
+    background-size: auto, auto, 76px 76px, 76px 76px, auto;
+}
+
+body.about-page #process .process-timeline::before {
+    height: 2px;
+    background: repeating-linear-gradient(90deg, rgba(86, 106, 123, 0.72) 0 7px, rgba(86, 106, 123, 0.06) 7px 14px);
+}
+
+body.about-page #process .process-timeline::after {
+    height: 4px;
+    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #37A69A 66%, #1699D5 100%);
+    box-shadow: 0 0 8px rgba(232, 179, 62, 0.32), 0 0 17px rgba(21, 152, 212, 0.16);
+}
+
+body.about-page #process .process-timeline .process-route-runner {
+    top: 46px;
+    width: 13px;
+    height: 13px;
+    background: #56C8F6;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 5px rgba(86, 200, 246, 0.12), 0 0 20px rgba(21, 152, 212, 0.66);
+    opacity: 0;
+    transition: left 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
+}
+
+body.about-page #process .process-timeline.is-advancing .process-route-runner {
+    opacity: 1;
+}
+
+body.about-page #process .process-timeline-step .about-process-icon,
+body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+    width: 86px;
+    height: 86px;
+    color: #587083;
+    background: rgba(251, 251, 249, 0.94);
+    border-color: rgba(95, 119, 135, 0.24);
+    box-shadow: 0 10px 24px rgba(8, 42, 71, 0.09), 0 0 0 7px rgba(255, 255, 255, 0.72), 0 0 0 9px rgba(106, 128, 141, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon {
+    width: 92px;
+    height: 92px;
+    color: #FFFFFF;
+    background: #FFFFFF;
+    border: 3px solid #E8B33E;
+    box-shadow: 0 18px 38px rgba(8, 42, 71, 0.24), 0 0 0 6px rgba(255, 255, 255, 0.90), 0 0 0 10px rgba(232, 179, 62, 0.23), 0 0 0 15px rgba(21, 152, 212, 0.075), 0 0 34px rgba(21, 152, 212, 0.25);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::before {
+    inset: 5px;
+    background: radial-gradient(circle at 35% 24%, rgba(31, 116, 145, 0.98), transparent 38%), linear-gradient(150deg, #0B5276 0%, #082A47 76%);
+}
+
+body.about-page #process .process-timeline-step.is-active-step .about-process-icon::after {
+    inset: -2px;
+    border-width: 2px;
+    border-top-color: rgba(232, 179, 62, 0.92);
+    border-right-color: rgba(232, 179, 62, 0.28);
+    border-bottom-color: rgba(21, 152, 212, 0.88);
+    border-left-color: rgba(21, 152, 212, 0.18);
+}
+
+body.about-page #process .process-timeline-step.is-active-step::after {
+    top: 96px;
+    border-top-color: #082A47;
+}
+
+body.about-page #process .about-process-track {
+    gap: 16px;
+}
+
+body.about-page #process .about-process-step,
+body.about-page #process .about-process-step.reveal,
+body.about-page #process .about-process-step.reveal.is-visible,
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.is-active-step {
+    min-height: 358px;
+    padding: 11px 13px 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.25), rgba(249, 250, 247, 0.08));
+    border-color: rgba(94, 119, 135, 0.16);
+    border-radius: 17px;
+    box-shadow: 0 12px 28px rgba(8, 42, 71, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+body.about-page #process .about-process-step.is-complete-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-complete-step {
+    opacity: 0.96;
+    filter: saturate(0.95);
+}
+
+body.about-page #process .about-process-step.is-active-step,
+body.about-page #process .about-process-step.reveal.is-visible.is-active-step {
+    background: linear-gradient(160deg, rgba(255, 252, 242, 0.42), rgba(248, 251, 249, 0.13));
+    border-color: rgba(232, 179, 62, 0.82);
+    animation: referenceActiveCardGlow 2.2s ease-in-out infinite;
+}
+
+body.about-page #process .process-step-image,
+body.about-page #process .about-process-step.is-active-step .process-step-image {
+    margin-bottom: 25px;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-step-image img {
+    filter: saturate(0.96) contrast(1.015) brightness(1.01);
+}
+
+body.about-page #process .about-process-step h3,
+body.about-page #process .about-process-step.reveal.is-visible h3 {
+    max-width: 245px;
+    margin-bottom: 7px;
+    color: #0D2A47;
+    font-size: clamp(17px, 1.12vw, 28px);
+}
+
+body.about-page #process .about-process-step p,
+body.about-page #process .about-process-step.reveal.is-visible p {
+    max-width: 241px;
+    color: #536B7D;
+    font-size: 15.5px;
+    line-height: 1.52;
+}
+
+body.about-page #process .about-process-step.is-complete-step .process-card-progress {
+    background: linear-gradient(90deg, transparent, #18B9AA, transparent);
+}
+
+body.about-page #process .about-process-step.is-active-step .process-card-progress {
+    background: linear-gradient(90deg, transparent, #1598D4 27%, #1678D5 46%, #E8B33E 74%, transparent);
+    background-size: 180% 100%;
+}
+
+@media (max-width: 1080px) {
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible {
+        min-height: 396px;
+    }
+}
+
+@media (max-width: 720px) {
+    body.about-page #process .process-route-spark {
+        display: none;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-active-step {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page #process .process-route-spark,
+    body.about-page #process .about-process-step.is-active-step {
+        animation: none;
     }
 }

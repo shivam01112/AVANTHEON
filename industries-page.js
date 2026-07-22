@@ -86,6 +86,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
+    const processSection = document.getElementById("process");
+    const processTrack = processSection?.querySelector(".about-process-track");
+    const processSteps = Array.from(processSection?.querySelectorAll(".about-process-step") || []);
+    const processTimeline = processSection?.querySelector(".process-timeline");
+    const processTimelineSteps = Array.from(processSection?.querySelectorAll(".process-timeline-step") || []);
+    const processRouteSparks = Array.from(processSection?.querySelectorAll(".process-route-spark") || []);
+
+    if (processSection && processTrack && processTimeline && processSteps.length > 0) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const stepDurationMs = 4200;
+        const routeTravelDurationMs = 900;
+        let activeProcessIndex = 0;
+        let processTimer = 0;
+        let processTransitionTimer = 0;
+        let pendingProcessIndex = null;
+        let processIsVisible = false;
+
+        const updateProcessRoute = (index) => {
+            const lastStepIndex = processSteps.length - 1;
+            const progress = lastStepIndex > 0 ? index / lastStepIndex : 1;
+            const runnerPosition = 12.5 + (progress * 75);
+
+            processTimeline.style.setProperty("--process-progress", progress.toFixed(4));
+            processTimeline.style.setProperty("--runner-position", `${runnerPosition}%`);
+            processTimeline.dataset.activeStep = String(index + 1);
+
+            processRouteSparks.forEach((spark, segmentIndex) => {
+                spark.classList.toggle("is-complete-segment", segmentIndex < index - 1);
+                spark.classList.toggle("is-active-segment", segmentIndex === index - 1);
+            });
+        };
+
+        const renderProcessStates = (index) => {
+            activeProcessIndex = index;
+
+            processSteps.forEach((step, stepIndex) => {
+                const isActive = stepIndex === index;
+                step.classList.toggle("is-active-step", isActive);
+                step.classList.toggle("is-complete-step", stepIndex < index);
+
+                if (isActive) {
+                    step.setAttribute("aria-current", "step");
+                } else {
+                    step.removeAttribute("aria-current");
+                }
+            });
+
+            processTimelineSteps.forEach((step, stepIndex) => {
+                const isActive = stepIndex === index;
+                step.classList.toggle("is-active-step", isActive);
+                step.classList.toggle("is-complete-step", stepIndex < index);
+                step.setAttribute("aria-pressed", String(isActive));
+            });
+        };
+
+        const applyProcessStep = (index) => {
+            updateProcessRoute(index);
+            renderProcessStates(index);
+        };
+
+        const advanceProcess = () => {
+            const nextIndex = (activeProcessIndex + 1) % processSteps.length;
+
+            if (nextIndex === 0) {
+                processTimeline.classList.add("is-resetting");
+                applyProcessStep(0);
+
+                window.requestAnimationFrame(() => {
+                    window.requestAnimationFrame(() => processTimeline.classList.remove("is-resetting"));
+                });
+                return;
+            }
+
+            pendingProcessIndex = nextIndex;
+            processTimeline.classList.add("is-advancing");
+            updateProcessRoute(nextIndex);
+            window.clearTimeout(processTransitionTimer);
+            processTransitionTimer = window.setTimeout(() => {
+                renderProcessStates(nextIndex);
+                pendingProcessIndex = null;
+                processTransitionTimer = 0;
+                processTimeline.classList.remove("is-advancing");
+            }, routeTravelDurationMs);
+        };
+
+        const stopProcess = () => {
+            window.clearInterval(processTimer);
+            processTimer = 0;
+
+            if (processTransitionTimer) {
+                window.clearTimeout(processTransitionTimer);
+                processTransitionTimer = 0;
+            }
+
+            if (pendingProcessIndex !== null) {
+                renderProcessStates(pendingProcessIndex);
+                pendingProcessIndex = null;
+            }
+
+            processTimeline.classList.remove("is-running");
+            processTimeline.classList.remove("is-advancing");
+        };
+
+        const startProcess = () => {
+            if (prefersReducedMotion || processTimer || !processIsVisible || document.hidden) {
+                return;
+            }
+
+            processTimeline.classList.add("is-running");
+            processTimer = window.setInterval(advanceProcess, stepDurationMs);
+        };
+
+        applyProcessStep(0);
+
+        processTimelineSteps.forEach((step, stepIndex) => {
+            step.addEventListener("click", () => {
+                stopProcess();
+                applyProcessStep(stepIndex);
+                startProcess();
+            });
+        });
+
+        if (!prefersReducedMotion) {
+            const processObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    processIsVisible = entry.isIntersecting;
+
+                    if (processIsVisible) {
+                        startProcess();
+                    } else {
+                        stopProcess();
+                    }
+                });
+            }, {
+                threshold: 0.22
+            });
+
+            processObserver.observe(processSection);
+
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden) {
+                    stopProcess();
+                } else {
+                    startProcess();
+                }
+            });
+        }
+    }
+
     const industries = {
         "shipping-logistics": {
             name: "Shipping & Logistics",
