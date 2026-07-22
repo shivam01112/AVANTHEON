@@ -611,29 +611,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.querySelector(".application-nav-prev");
     const nextButton = document.querySelector(".application-nav-next");
     const dotsContainer = document.getElementById("application-dots");
-    let pageCount = 1;
+    let applicationPagePositions = [0];
+    let activeApplicationPage = 0;
     let isApplicationDragging = false;
     let applicationDragStartX = 0;
     let applicationDragStartScroll = 0;
+    let applicationScrollFrame = 0;
+    let applicationResizeFrame = 0;
+    let applicationTargetPage = null;
 
-    const updateApplicationDots = () => {
+    const closestApplicationPage = () => {
+        if (!scroller) {
+            return 0;
+        }
+
+        return applicationPagePositions.reduce((closestIndex, position, index) => {
+            const closestDistance = Math.abs(scroller.scrollLeft - applicationPagePositions[closestIndex]);
+            const currentDistance = Math.abs(scroller.scrollLeft - position);
+            return currentDistance < closestDistance ? index : closestIndex;
+        }, 0);
+    };
+
+    const updateApplicationControls = (requestedPage) => {
         if (!scroller || !dotsContainer) {
             return;
         }
 
-        const currentPage = Math.min(pageCount - 1, Math.max(0, Math.round(scroller.scrollLeft / scroller.clientWidth)));
+        activeApplicationPage = Number.isInteger(requestedPage) ? requestedPage : closestApplicationPage();
         const dots = Array.from(dotsContainer.children);
 
         dots.forEach((dot, index) => {
-            dot.classList.toggle("is-active", index === currentPage);
+            const isActive = index === activeApplicationPage;
+            dot.classList.toggle("is-active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
         });
 
         if (prevButton) {
-            prevButton.disabled = currentPage === 0;
+            prevButton.disabled = applicationPagePositions.length <= 1;
         }
 
         if (nextButton) {
-            nextButton.disabled = currentPage >= pageCount - 1;
+            nextButton.disabled = applicationPagePositions.length <= 1;
         }
     };
 
@@ -642,32 +660,76 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        pageCount = Math.max(1, Math.ceil(scroller.scrollWidth / scroller.clientWidth));
-        dotsContainer.innerHTML = "";
+        const card = scroller.querySelector(".application-card");
+        const cardWidth = card?.getBoundingClientRect().width || scroller.clientWidth;
+        const scrollerStyles = window.getComputedStyle(scroller);
+        const cardGap = Number.parseFloat(scrollerStyles.columnGap || scrollerStyles.gap) || 0;
+        const cardSpan = Math.max(1, cardWidth + cardGap);
+        const visibleCardCount = Math.max(1, Math.floor((scroller.clientWidth + cardGap) / cardSpan));
+        const pageStep = Math.max(cardSpan, visibleCardCount * cardSpan);
+        const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
 
-        for (let index = 0; index < pageCount; index += 1) {
-            const dot = document.createElement("span");
-            dot.className = "application-dot";
-            dot.setAttribute("aria-hidden", "true");
-            dotsContainer.append(dot);
+        applicationPagePositions = [0];
+
+        while (applicationPagePositions[applicationPagePositions.length - 1] < maxScroll) {
+            const nextPosition = Math.min(maxScroll, applicationPagePositions[applicationPagePositions.length - 1] + pageStep);
+
+            if (nextPosition === applicationPagePositions[applicationPagePositions.length - 1]) {
+                break;
+            }
+
+            applicationPagePositions.push(nextPosition);
         }
 
-        updateApplicationDots();
+        dotsContainer.innerHTML = "";
+
+        applicationPagePositions.forEach((position, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "application-dot";
+            dot.setAttribute("aria-label", `Show application group ${index + 1} of ${applicationPagePositions.length}`);
+            dot.addEventListener("click", () => scrollApplicationsToPage(index));
+            dotsContainer.append(dot);
+        });
+
+        activeApplicationPage = Math.min(activeApplicationPage, applicationPagePositions.length - 1);
+        applicationTargetPage = null;
+        scroller.scrollLeft = applicationPagePositions[activeApplicationPage];
+        updateApplicationControls(activeApplicationPage);
     };
 
-    const scrollApplications = (direction) => {
+    const scrollApplicationsToPage = (pageIndex) => {
         if (!scroller) {
             return;
         }
 
-        scroller.scrollBy({
-            left: scroller.clientWidth * 0.82 * direction,
+        const pageTotal = applicationPagePositions.length;
+        const targetPage = ((pageIndex % pageTotal) + pageTotal) % pageTotal;
+        activeApplicationPage = targetPage;
+        applicationTargetPage = targetPage;
+        updateApplicationControls(targetPage);
+
+        scroller.scrollTo({
+            left: applicationPagePositions[targetPage],
             behavior: "smooth"
         });
     };
 
+    const scrollApplications = (direction) => {
+        scrollApplicationsToPage(activeApplicationPage + direction);
+    };
+
     prevButton?.addEventListener("click", () => scrollApplications(-1));
     nextButton?.addEventListener("click", () => scrollApplications(1));
+
+    scroller?.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+            return;
+        }
+
+        event.preventDefault();
+        scrollApplications(event.key === "ArrowLeft" ? -1 : 1);
+    });
 
     scroller?.addEventListener("pointerdown", (event) => {
         if (event.button !== undefined && event.button !== 0) {
@@ -675,6 +737,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         isApplicationDragging = true;
+        applicationTargetPage = null;
         applicationDragStartX = event.clientX;
         applicationDragStartScroll = scroller.scrollLeft;
         scroller.classList.add("is-dragging");
@@ -688,7 +751,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const dragDistance = event.clientX - applicationDragStartX;
         scroller.scrollLeft = applicationDragStartScroll - dragDistance;
-        window.requestAnimationFrame(updateApplicationDots);
+        window.cancelAnimationFrame(applicationScrollFrame);
+        applicationScrollFrame = window.requestAnimationFrame(() => updateApplicationControls());
     });
 
     const stopApplicationDrag = (event) => {
@@ -699,7 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isApplicationDragging = false;
         scroller.classList.remove("is-dragging");
         scroller.releasePointerCapture?.(event.pointerId);
-        updateApplicationDots();
+        scrollApplicationsToPage(closestApplicationPage());
     };
 
     scroller?.addEventListener("pointerup", stopApplicationDrag);
@@ -707,10 +771,27 @@ document.addEventListener("DOMContentLoaded", () => {
     scroller?.addEventListener("pointerleave", stopApplicationDrag);
 
     scroller?.addEventListener("scroll", () => {
-        window.requestAnimationFrame(updateApplicationDots);
+        window.cancelAnimationFrame(applicationScrollFrame);
+        applicationScrollFrame = window.requestAnimationFrame(() => {
+            if (Number.isInteger(applicationTargetPage)) {
+                const targetPosition = applicationPagePositions[applicationTargetPage];
+
+                if (Math.abs(scroller.scrollLeft - targetPosition) < 2) {
+                    applicationTargetPage = null;
+                }
+
+                updateApplicationControls(activeApplicationPage);
+                return;
+            }
+
+            updateApplicationControls();
+        });
     });
 
-    window.addEventListener("resize", buildApplicationDots);
+    window.addEventListener("resize", () => {
+        window.cancelAnimationFrame(applicationResizeFrame);
+        applicationResizeFrame = window.requestAnimationFrame(buildApplicationDots);
+    });
     buildApplicationDots();
 
     window.addEventListener("scroll", setHeaderState, { passive: true });
