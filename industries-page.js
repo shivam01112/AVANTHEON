@@ -575,6 +575,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             detailPanel.classList.remove("is-switching");
             attachDetailEvents();
+
+            if (window.matchMedia("(max-width: 1180px)").matches) {
+                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                window.requestAnimationFrame(() => {
+                    detailPanel.scrollIntoView({
+                        behavior: reduceMotion ? "auto" : "smooth",
+                        block: "start"
+                    });
+                });
+            }
         };
 
         if (!animate) {

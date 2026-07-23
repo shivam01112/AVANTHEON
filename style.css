@@ -1197,7 +1197,7 @@ body.industries-page {
 .industry-hub-layout {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(300px, 340px) minmax(700px, 760px) minmax(300px, 340px);
+    grid-template-columns: minmax(230px, 0.78fr) minmax(0, 2fr) minmax(230px, 0.78fr);
     justify-content: center;
     align-items: stretch;
     gap: 24px;
@@ -1220,6 +1220,7 @@ body.industries-page {
     display: grid;
     grid-template-rows: repeat(4, minmax(0, 1fr));
     gap: 14px;
+    min-width: 0;
     height: 720px;
 }
 
@@ -1353,6 +1354,7 @@ body.industries-page {
 }
 
 .industry-spotlight {
+    min-width: 0;
     height: 720px;
     min-height: 0;
 }
@@ -2334,24 +2336,24 @@ body.industries-page {
 
 .industry-support {
     position: relative;
-    padding: 0px 0 86px;
-    background: linear-gradient(180deg, #F8FBFE 0%, #FFFFFF 48%, #F3F8FC 100%);
+    padding: 0;
+    background: var(--navy-900);
 }
 
 .industry-support-layout {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.98fr);
+    grid-template-columns: 1fr;
     width: 100%;
-    min-height: 392px;
+    min-height: 540px;
     margin: 0 auto;
     gap: 0;
     overflow: hidden;
-    background: var(--white);
+    background: url("images/industries-1.jpg") center 58% / cover no-repeat;
     border: 0;
-    border-top: 1px solid rgba(8, 43, 86, 0.08);
-    border-bottom: 1px solid rgba(8, 43, 86, 0.08);
-    box-shadow: 0 24px 58px rgba(4, 24, 56, 0.1);
+    border-top: 4px solid var(--gold-700);
+    border-bottom: 1px solid rgba(246, 205, 83, 0.44);
+    box-shadow: 0 24px 58px rgba(4, 24, 56, 0.20), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .industry-support-layout::before {
@@ -2359,7 +2361,7 @@ body.industries-page {
     inset: 0;
     z-index: 0;
     content: "";
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 48%, rgba(4, 24, 56, 0.08) 48%, rgba(4, 24, 56, 0) 100%);
+    background: linear-gradient(90deg, rgba(3, 18, 37, 0.98) 0%, rgba(4, 24, 56, 0.94) 38%, rgba(4, 24, 56, 0.74) 64%, rgba(4, 24, 56, 0.38) 100%);
     pointer-events: none;
 }
 
@@ -2367,10 +2369,12 @@ body.industries-page {
     position: relative;
     z-index: 1;
     display: grid;
+    width: 100%;
     align-content: center;
+    justify-items: start;
     overflow: hidden;
-    min-height: 392px;
-    padding: 58px clamp(42px, 5vw, 92px);
+    min-height: 540px;
+    padding: clamp(64px, 7vw, 112px) clamp(28px, 7vw, 128px);
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -2383,47 +2387,41 @@ body.industries-page {
 }
 
 .industry-support-card h2 {
-    max-width: 17ch;
-    margin-bottom: 18px;
-    color: var(--navy-900);
+    max-width: 27ch;
+    margin-bottom: 20px;
+    color: var(--white);
     font-family: var(--display);
-    font-size: clamp(34px, 2.3vw, 46px);
+    font-size: clamp(40px, 3.2vw, 58px);
     font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: 0;
+    line-height: 1.04;
+    letter-spacing: -0.018em;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.26);
 }
 
 .industry-support .eyebrow {
-    margin-bottom: 12px;
-    color: var(--gold-600);
-    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+    color: var(--gold-500);
+    letter-spacing: 0.19em;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
 }
 
 .industry-support-card p:not(.eyebrow) {
-    max-width: 51ch;
-    margin: 0 0 24px;
-    color: #415772;
-    font-size: 15.5px;
-    font-weight: 600;
-    line-height: 1.68;
+    max-width: 58ch;
+    margin: 0 0 30px;
+    color: rgba(232, 240, 247, 0.90);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.7;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.24);
 }
 
 .industry-support-map {
     z-index: 1;
-    padding-right: clamp(80px, 10vw, 178px);
-    background:
-        radial-gradient(circle at 73% 46%, rgba(245, 193, 22, 0.08), transparent 19%),
-        linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 52%, #F6FAFD 100%);
+    background: transparent;
 }
 
 .industry-support-map::before {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    content: "";
-    background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.84) 50%, rgba(255, 255, 255, 0.12) 100%);
-    pointer-events: none;
+    display: none;
 }
 
 .industry-support-map img {
@@ -2530,11 +2528,47 @@ body.industries-page {
 }
 
 .industry-support-map .button-outline {
-    min-width: 292px;
+    display: inline-flex;
+    min-width: 300px;
+    min-height: 58px;
+    padding: 15px 24px;
+    justify-content: center;
+    gap: 14px;
     color: var(--navy-900);
-    background: rgba(255, 255, 255, 0.72);
-    border-color: rgba(212, 175, 55, 0.44);
-    box-shadow: 0 14px 30px rgba(4, 24, 56, 0.07);
+    background: linear-gradient(135deg, var(--gold-500), #F0B92F);
+    border: 2px solid #F8D876;
+    border-radius: 10px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26), 0 0 0 4px rgba(246, 205, 83, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.48);
+    font-weight: 900;
+    letter-spacing: 0.035em;
+}
+
+.industry-support-map .button-outline svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    transition: transform 220ms ease;
+}
+
+.industry-support-map .button-outline:hover {
+    color: var(--navy-900);
+    background: linear-gradient(135deg, #FFE07A, var(--gold-500));
+    border-color: #FFF0B5;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32), 0 0 0 5px rgba(246, 205, 83, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+    transform: translateY(-3px);
+}
+
+.industry-support-map .button-outline:hover svg {
+    transform: translateX(4px);
+}
+
+.industry-support-map .button-outline:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 4px;
 }
 
 .industry-support-actions .button {
@@ -2736,6 +2770,7 @@ body.industries-page {
 
     .industry-hub-layout {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .industry-hub-layout::before,
@@ -2745,6 +2780,9 @@ body.industries-page {
 
     .industry-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-auto-rows: minmax(112px, auto);
+        height: auto;
     }
 
     .industry-list-left {
@@ -2761,7 +2799,12 @@ body.industries-page {
 
     .industry-detail-panel,
     .industry-spotlight {
+        height: auto;
         min-height: auto;
+    }
+
+    .industry-detail-default {
+        min-height: 520px;
     }
 
     .application-scroller {
@@ -2769,23 +2812,33 @@ body.industries-page {
     }
 
     .industry-support-layout {
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        grid-template-columns: 1fr;
     }
 }
 
-@media (min-width: 1101px) and (max-width: 1280px) {
+@media (min-width: 1181px) and (max-width: 1439px) {
     .industry-hub-section > .container-fluid {
-        width: min(100% - 36px, 1180px);
+        width: min(100% - 36px, 1360px);
     }
 
     .industry-hub-layout {
-        grid-template-columns: minmax(220px, 250px) minmax(500px, 1fr) minmax(220px, 250px);
+        grid-template-columns: minmax(220px, 0.72fr) minmax(0, 2fr) minmax(220px, 0.72fr);
         gap: 16px;
     }
 
     .industry-list,
     .industry-spotlight {
         height: 680px;
+    }
+
+    .industry-list {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: auto;
+    }
+
+    .industry-detail-panel {
+        height: 100%;
     }
 
     .industry-node {
@@ -2905,7 +2958,7 @@ body.industries-page {
 
     .industry-hub-section,
     .industry-applications {
-        padding: 86px 0;
+        padding: 74px 0;
     }
 
     .industry-hub-section > .container-fluid {
@@ -2929,21 +2982,23 @@ body.industries-page {
     }
 
     .industry-hub-section .industry-section-intro h2 {
-        font-size: 34px;
+        font-size: clamp(30px, 5.4vw, 34px);
+        line-height: 1.1;
     }
 
     .industry-list {
         height: auto;
         grid-template-rows: none;
+        grid-auto-rows: minmax(104px, auto);
     }
 
     .industry-node {
-        min-height: 108px;
+        min-height: 104px;
         height: auto;
     }
 
     .industry-detail-default {
-        min-height: 520px;
+        min-height: 460px;
         padding: 34px 24px;
     }
 
@@ -2980,6 +3035,16 @@ body.industries-page {
         grid-template-columns: 1fr;
     }
 
+    .industry-detail-column,
+    .industry-detail-column:nth-child(3) {
+        grid-column: auto;
+        min-height: 0;
+    }
+
+    .industry-detail-footer {
+        flex-wrap: wrap;
+    }
+
     .application-carousel {
         padding: 0 44px;
     }
@@ -3013,24 +3078,25 @@ body.industries-page {
     }
 
     .industry-support-layout {
-        width: min(100% - 32px, 760px);
+        width: 100%;
         grid-template-columns: 1fr;
-        gap: 14px;
-        min-height: 0;
-        border-radius: 8px;
+        gap: 0;
+        min-height: 500px;
+        background-position: 58% center;
+        border-radius: 0;
     }
 
     .industry-support-card {
-        padding: 34px 28px;
-        min-height: 0;
+        min-height: 500px;
+        padding: 64px 32px;
     }
 
     .industry-support-map {
-        padding-right: 28px;
+        padding-right: 32px;
     }
 
     .industry-support-card h2 {
-        max-width: none;
+        max-width: 15ch;
     }
 
     .industry-support-cta {
@@ -3123,50 +3189,112 @@ body.industries-page {
         font-size: 32px;
     }
 
+    .industry-hub-section {
+        padding: 60px 0 64px;
+    }
+
+    .industry-hub-section > .container-fluid {
+        width: min(100% - 24px, 560px);
+    }
+
+    .industry-hub-section .industry-section-intro {
+        margin-bottom: 20px;
+    }
+
+    .industry-hub-section .industry-section-intro h2 {
+        max-width: 13ch;
+        font-size: clamp(28px, 8.5vw, 32px);
+        line-height: 1.08;
+    }
+
+    .industry-hub-section .industry-section-intro p:last-child {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .industry-hub-layout {
+        gap: 14px;
+    }
+
     .industry-list {
         grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 10px;
     }
 
     .industry-node {
-        grid-template-columns: auto auto minmax(0, 1fr);
-        padding: 18px 16px;
+        grid-template-columns: 24px 48px minmax(0, 1fr) 32px;
+        gap: 10px;
+        min-height: 92px;
+        padding: 14px 12px;
+        border-radius: 14px;
     }
 
     .industry-node-action {
-        grid-column: 2 / 4;
-        justify-self: end;
-        margin-top: -42px;
+        grid-column: auto;
+        justify-self: center;
+        width: 32px;
+        height: 32px;
+        margin-top: 0;
+    }
+
+    .industry-node-index {
+        align-self: center;
+        font-size: 10px;
+    }
+
+    .industry-node-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .industry-node svg {
+        width: 24px;
+        height: 24px;
     }
 
     .industry-node-copy strong {
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .industry-node-copy small {
+        font-size: 11.5px;
+        line-height: 1.35;
     }
 
     .industry-detail-panel {
         padding: 0;
         border-radius: 18px;
+        scroll-margin-top: calc(var(--industries-header-height) + 16px);
     }
 
     .industry-detail-default {
-        min-height: 420px;
+        min-height: 340px;
+        padding: 24px 16px;
     }
 
     .industry-detail-default-mark {
-        width: 108px;
-        height: 108px;
+        width: 112px;
+        height: 112px;
     }
 
     .industry-detail-default-mark img {
-        width: 58px;
-        height: 58px;
+        width: 84px;
+        height: auto;
     }
 
     .industry-detail-default h3 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .industry-default-cue {
+        bottom: 22px;
     }
 
     .industry-detail-visual {
-        height: 220px;
+        height: 200px;
         min-height: 0;
     }
 
@@ -3177,7 +3305,12 @@ body.industries-page {
     }
 
     .industry-detail-heading h3 {
-        font-size: 28px;
+        font-size: clamp(24px, 7.4vw, 28px);
+    }
+
+    .industry-detail-heading span {
+        font-size: 12.5px;
+        line-height: 1.45;
     }
 
     .industry-detail-close {
@@ -3185,6 +3318,41 @@ body.industries-page {
         right: 14px;
         width: 36px;
         height: 36px;
+    }
+
+    .industry-detail-body {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .industry-detail-columns,
+    .industry-detail-grid {
+        gap: 10px;
+    }
+
+    .industry-detail-column,
+    .industry-detail-column:nth-child(3),
+    .industry-detail-list {
+        min-height: 0;
+        padding: 14px;
+    }
+
+    .industry-detail-footer {
+        align-items: stretch;
+        padding: 14px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .industry-detail-footer span {
+        font-size: 10.5px;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .industry-detail-cta {
+        width: 100%;
+        min-width: 0;
     }
 
     .application-scroller {
@@ -3209,14 +3377,43 @@ body.industries-page {
     }
 
     .industry-support-card {
-        padding: 26px 24px 28px;
-        border-radius: 8px;
+        min-height: 520px;
+        padding: 54px 24px;
+        border-radius: 0;
     }
 
     .industry-support-map,
     .industry-support-cta {
         padding-right: 24px;
         padding-left: 24px;
+    }
+
+    .industry-support-layout {
+        min-height: 520px;
+        background-position: 61% center;
+    }
+
+    .industry-support-layout::before {
+        background: linear-gradient(180deg, rgba(3, 18, 37, 0.88) 0%, rgba(4, 24, 56, 0.94) 52%, rgba(4, 24, 56, 0.98) 100%);
+    }
+
+    .industry-support-card h2 {
+        max-width: 13ch;
+        font-size: clamp(32px, 10vw, 42px);
+        line-height: 1.06;
+    }
+
+    .industry-support-card p:not(.eyebrow) {
+        margin-bottom: 26px;
+        font-size: 14.5px;
+        line-height: 1.62;
+    }
+
+    .industry-support-map .button-outline {
+        width: 100%;
+        min-width: 0;
+        min-height: 56px;
+        padding: 14px 18px;
     }
 
     .industry-support-map img {
