@@ -10861,7 +10861,7 @@ body.about-page #process::before {
 
 .solutions-page .nav-link {
     padding-block: 18px;
-    font-size: 12px;
+    font-size: 16px;
     text-transform: none;
 }
 
@@ -18620,6 +18620,42 @@ body.about-page #process .process-card-progress {
         --rail: clamp(220px, 29vw, 310px);
         --card-width: clamp(216px, 27vw, 270px);
     }
+}
+
+/* Solutions page: match About page header treatment */
+.solutions-page {
+    --about-header-height: 86px;
+}
+
+.solutions-page .site-header,
+.solutions-page .site-header.scrolled,
+.solutions-page .site-header.menu-active {
+    padding-top: 0;
+    min-height: var(--about-header-height);
+    overflow: visible;
+    background: rgba(4, 24, 56, 0.96);
+    border-bottom: 0;
+    z-index: 100;
+}
+
+.solutions-page .header-inner {
+    height: var(--about-header-height);
+    min-height: var(--about-header-height);
+    align-items: center;
+}
+
+.solutions-page .brand {
+    height: var(--about-header-height);
+    align-items: center;
+}
+
+.solutions-page .logo-heander {
+    display: block;
+    width: auto;
+    height: 72px;
+    max-height: 72px;
+    object-fit: contain;
+    object-position: center;
 }
 
 /* Solutions hero: active-card color synced aura */

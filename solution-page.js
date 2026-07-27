@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Ownership at term end",
                 "Scalable asset growth"
             ],
-            image: "images/solution-lease-to-own.png",
+            image: "images/Featured-Solution.png",
             alt: "A golden container representing a flexible path to ownership",
             tag: "Build Ownership. Preserve Cash Flow.",
             cta: "Request A Quote",
