@@ -16735,7 +16735,7 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .solution-selector {
     position: relative;
-    min-height: 530px;
+    min-height: 600px;
     align-items: end;
     gap: clamp(18px, 2.6vw, 34px);
     isolation: isolate;
@@ -17348,5 +17348,1548 @@ body.about-page #process .process-card-progress {
     .solutions-page .stage-node,
     .solutions-page .stage-spark {
         animation: none;
+    }
+}
+
+/* Solutions hero: final composition repair */
+.solutions-page .solutions-hero {
+    min-height: 760px;
+    padding: 104px 0 72px;
+}
+
+.solutions-page .solutions-hero-layout {
+    width: min(100% - 56px, 1720px);
+    grid-template-columns: minmax(500px, 560px) minmax(920px, 1fr);
+    gap: clamp(46px, 4.5vw, 86px);
+}
+
+.solutions-page .solutions-hero-copy {
+    max-width: 560px;
+}
+
+.solutions-page .solutions-hero-copy h1 {
+    max-width: 560px;
+    font-size: clamp(44px, 3.35vw, 56px);
+    line-height: 1.08;
+}
+
+.solutions-page .solutions-hero-copy h1 span {
+    display: block;
+}
+
+.solutions-page .solutions-hero-lead {
+    max-width: 545px;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.solutions-page .solution-selector {
+    max-width: 1060px;
+    min-height: 548px;
+    grid-template-columns: minmax(240px, .92fr) minmax(280px, 1.1fr) minmax(240px, .92fr);
+    gap: clamp(28px, 2.4vw, 40px);
+    padding: 28px 18px 22px;
+}
+
+.solutions-page .solutions-stage-svg {
+    inset: -10px -86px -42px;
+    z-index: 1;
+    width: calc(100% + 172px);
+    height: calc(100% + 52px);
+    opacity: 1;
+}
+
+.solutions-page .stage-arc,
+.solutions-page .stage-base,
+.solutions-page .stage-ring {
+    filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor);
+}
+
+.solutions-page .stage-arc-left {
+    color: rgba(77, 134, 255, .78);
+    stroke: rgba(77, 134, 255, .86);
+    stroke-width: 2.4;
+    stroke-dasharray: 12 12;
+}
+
+.solutions-page .stage-arc-right {
+    color: rgba(55, 201, 184, .82);
+    stroke: rgba(55, 201, 184, .9);
+    stroke-width: 2.4;
+    stroke-dasharray: 12 12;
+}
+
+.solutions-page .stage-base-wide {
+    color: rgba(243, 170, 54, .9);
+    stroke: rgba(243, 170, 54, .92);
+    stroke-width: 2.3;
+}
+
+.solutions-page .stage-base-inner,
+.solutions-page .stage-ring {
+    color: rgba(243, 170, 54, .78);
+    stroke: rgba(243, 170, 54, .82);
+    stroke-width: 1.9;
+}
+
+.solutions-page .stage-ring-two {
+    stroke-width: 2.4;
+}
+
+.solutions-page .stage-node,
+.solutions-page .stage-spark {
+    filter: drop-shadow(0 0 7px #ffd27a) drop-shadow(0 0 16px #f3aa36);
+}
+
+.solutions-page .solution-card {
+    z-index: 3;
+    min-height: 372px;
+    border: 1px solid color-mix(in srgb, var(--solution-accent) 42%, rgba(126, 160, 183, .24));
+    border-radius: 18px 18px 8px 8px;
+    background:
+        linear-gradient(180deg, rgba(3, 18, 31, .98) 0 34%, rgba(3, 18, 31, .52) 54%, rgba(3, 18, 31, .95) 100%),
+        rgba(3, 18, 31, .92);
+    box-shadow:
+        0 28px 70px rgba(0, 0, 0, .42),
+        0 0 38px color-mix(in srgb, var(--solution-accent) 24%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.solutions-page .solution-card-leasing,
+.solutions-page .solution-card-trading {
+    margin-bottom: 50px;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    min-height: 520px;
+    border-color: rgba(243, 170, 54, .9);
+    box-shadow:
+        0 34px 88px rgba(0, 0, 0, .46),
+        0 0 58px rgba(243, 170, 54, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .09);
+}
+
+.solutions-page .solution-card::after {
+    background:
+        linear-gradient(180deg, rgba(2, 13, 24, .82) 0 31%, transparent 50%, rgba(2, 13, 24, .93) 100%),
+        radial-gradient(circle at 50% 92%, color-mix(in srgb, var(--solution-accent) 24%, transparent), transparent 48%);
+}
+
+.solutions-page .solution-card-icon {
+    top: -36px;
+    width: 74px;
+    height: 74px;
+    font-size: 25px;
+    border-width: 1.5px;
+    box-shadow:
+        0 0 0 14px color-mix(in srgb, var(--solution-accent) 13%, transparent),
+        0 0 42px color-mix(in srgb, var(--solution-accent) 42%, transparent);
+}
+
+.solutions-page .solution-card-own .solution-card-icon {
+    top: -48px;
+    width: 88px;
+    height: 88px;
+}
+
+.solutions-page .solution-card-title {
+    top: 74px;
+    max-width: 172px;
+    font-size: 15px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+}
+
+.solutions-page .solution-card-own .solution-card-title {
+    top: 92px;
+    max-width: 230px;
+    font-size: 20px;
+}
+
+.solutions-page .solution-card-badge {
+    top: 64px;
+}
+
+.solutions-page .solution-card-image {
+    top: 154px;
+}
+
+.solutions-page .solution-card-own .solution-card-image {
+    top: 164px;
+}
+
+.solutions-page .solution-card-copy {
+    bottom: 24px;
+    padding: 0 6px;
+    font-size: 12px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .72);
+}
+
+.solutions-page .solution-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, transparent 0 58%, rgba(2, 13, 24, .76) 100%),
+        radial-gradient(circle at 50% 70%, transparent 0 42%, rgba(2, 13, 24, .34) 100%);
+    pointer-events: none;
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solutions-hero-layout {
+        width: min(100% - 44px, 1360px);
+        grid-template-columns: minmax(430px, 500px) minmax(760px, 1fr);
+        gap: 48px;
+    }
+
+    .solutions-page .solution-selector {
+        max-width: 850px;
+        gap: 26px;
+    }
+
+    .solutions-page .solutions-hero-copy h1 {
+        font-size: clamp(42px, 3.5vw, 54px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solutions-hero-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .solutions-page .solutions-hero-copy,
+    .solutions-page .solutions-hero-copy h1,
+    .solutions-page .solutions-hero-lead {
+        max-width: 720px;
+    }
+
+    .solutions-page .solution-selector {
+        justify-self: center;
+        width: min(100%, 940px);
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solutions-hero-layout {
+        width: min(100% - 28px, 100%);
+    }
+
+    .solutions-page .solutions-hero-copy h1 {
+        font-size: clamp(38px, 10vw, 50px);
+    }
+
+    .solutions-page .solution-card-leasing,
+    .solutions-page .solution-card-trading {
+        margin-bottom: 0;
+    }
+}
+
+/* Solutions hero: premium continuous card shuffle */
+.solutions-page .solutions-hero {
+    min-height: clamp(760px, 100vh, 920px);
+    background:
+        radial-gradient(circle at 70% 22%, rgba(57, 203, 184, .16), transparent 24%),
+        radial-gradient(circle at 44% 52%, rgba(77, 134, 255, .16), transparent 30%),
+        radial-gradient(circle at 74% 84%, rgba(243, 170, 54, .16), transparent 24%),
+        linear-gradient(135deg, #020913 0%, #031421 46%, #031a24 100%);
+}
+
+.solutions-page .solutions-hero::before {
+    opacity: .72;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .026) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, .38) 0 1px, transparent 1.5px);
+    background-position: 0 0, 0 0, 24px 18px;
+    background-size: 86px 86px, 86px 86px, 122px 112px;
+}
+
+.solutions-page .solutions-hero::after {
+    opacity: .34;
+    background:
+        linear-gradient(100deg, transparent 0 34%, rgba(243, 170, 54, .11) 49%, transparent 64%),
+        radial-gradient(circle at 78% 40%, rgba(57, 203, 184, .2), transparent 28%);
+    background-size: 760px 100%, 100% 100%;
+    animation: solutionsHeroSweep 11s ease-in-out infinite;
+}
+
+.solutions-page .solution-selector {
+    --card-step: clamp(245px, 28vw, 356px);
+    --card-width: clamp(235px, 27vw, 335px);
+    --side-width: clamp(215px, 24vw, 292px);
+    position: relative;
+    display: block;
+    max-width: 1080px;
+    min-height: 570px;
+    padding: 0;
+    perspective: 1400px;
+}
+
+.solutions-page .solution-selector::before {
+    display: block;
+    left: 50%;
+    right: auto;
+    bottom: 2px;
+    z-index: 1;
+    width: min(92%, 940px);
+    height: 116px;
+    border: 0;
+    border-bottom: 2px solid rgba(243, 170, 54, .58);
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at center, rgba(243, 170, 54, .17), transparent 62%),
+        linear-gradient(90deg, transparent, rgba(243, 170, 54, .42), transparent);
+    filter: blur(.2px) drop-shadow(0 0 20px rgba(243, 170, 54, .28));
+    transform: translateX(-50%);
+    animation: solutionsDockGlow 4.8s ease-in-out infinite;
+}
+
+.solutions-page .solutions-stage-svg {
+    inset: -28px -64px -34px;
+    z-index: 1;
+    width: calc(100% + 128px);
+    height: calc(100% + 62px);
+    opacity: .82;
+    transform-origin: center bottom;
+    animation: solutionsStageBreathe 8s ease-in-out infinite;
+}
+
+.solutions-page .stage-arc-left,
+.solutions-page .stage-arc-right {
+    stroke-width: 1.7;
+    stroke-dasharray: 3 17;
+    stroke-linecap: round;
+    opacity: .82;
+}
+
+.solutions-page .stage-base-wide {
+    stroke-width: 2;
+    opacity: .9;
+}
+
+.solutions-page .stage-base-inner,
+.solutions-page .stage-ring {
+    stroke-width: 1.35;
+    opacity: .62;
+}
+
+.solutions-page .stage-node {
+    opacity: .7;
+}
+
+.solutions-page .solution-card {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: var(--card-width);
+    min-height: 458px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--solution-accent) 48%, rgba(165, 195, 214, .2));
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(5, 21, 34, .98) 0 24%, rgba(5, 21, 34, .58) 52%, rgba(3, 13, 23, .98) 100%),
+        #061827;
+    box-shadow:
+        0 28px 78px rgba(0, 0, 0, .48),
+        0 0 34px color-mix(in srgb, var(--solution-accent) 18%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+    animation: solutionsCardShuffle 12s cubic-bezier(.58, 0, .18, 1) infinite;
+    will-change: transform, opacity, filter;
+}
+
+.solutions-page .solution-card:hover,
+.solutions-page .solution-card:focus-visible {
+    box-shadow:
+        0 34px 86px rgba(0, 0, 0, .55),
+        0 0 46px color-mix(in srgb, var(--solution-accent) 32%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.solutions-page .solution-card-leasing {
+    animation-delay: -4s;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    min-height: 458px;
+    border-color: rgba(243, 170, 54, .82);
+    box-shadow:
+        0 34px 90px rgba(0, 0, 0, .5),
+        0 0 52px rgba(243, 170, 54, .27),
+        inset 0 1px 0 rgba(255, 255, 255, .11);
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-trading {
+    animation-delay: -8s;
+}
+
+.solutions-page .solution-card::before {
+    z-index: 4;
+    opacity: .44;
+    background:
+        linear-gradient(105deg, transparent 0 38%, rgba(255, 255, 255, .22) 50%, transparent 62%),
+        radial-gradient(circle at 50% 0, color-mix(in srgb, var(--solution-accent) 16%, transparent), transparent 42%);
+    animation: solutionCardSheen 6.4s ease-in-out infinite;
+}
+
+.solutions-page .solution-card::after {
+    z-index: 2;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(2, 10, 19, .92) 0 31%, rgba(2, 10, 19, .28) 47%, rgba(2, 10, 19, .96) 100%),
+        radial-gradient(circle at 50% 86%, color-mix(in srgb, var(--solution-accent) 28%, transparent), transparent 48%),
+        linear-gradient(90deg, rgba(255, 255, 255, .04), transparent 24% 76%, rgba(255, 255, 255, .04));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--solution-accent) 18%, transparent);
+}
+
+.solutions-page .solution-card-icon {
+    top: 18px;
+    left: 50%;
+    width: 66px;
+    height: 66px;
+    font-size: 23px;
+    transform: translateX(-50%);
+    border: 1px solid color-mix(in srgb, var(--solution-accent) 68%, rgba(255, 255, 255, .2));
+    background:
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--solution-accent) 48%, white 8%), rgba(5, 20, 33, .96) 70%);
+    box-shadow:
+        0 0 0 9px color-mix(in srgb, var(--solution-accent) 12%, transparent),
+        0 0 36px color-mix(in srgb, var(--solution-accent) 38%, transparent);
+    animation: solutionIconPulse 3.2s ease-in-out infinite;
+}
+
+.solutions-page .solution-card-own .solution-card-icon {
+    top: 18px;
+    width: 76px;
+    height: 76px;
+    color: #fff8df;
+}
+
+.solutions-page .solution-card-title {
+    top: 112px;
+    left: 50%;
+    width: calc(100% - 42px);
+    max-width: 235px;
+    font-size: 16px;
+    line-height: 1.12;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.solutions-page .solution-card-own .solution-card-title {
+    top: 116px;
+    max-width: 245px;
+    font-size: 21px;
+}
+
+.solutions-page .solution-card-badge {
+    top: 92px;
+    left: 50%;
+    right: auto;
+    padding: 0;
+    color: #f7ad35;
+    background: transparent;
+    font-size: 9px;
+    letter-spacing: .08em;
+    transform: translateX(-50%);
+}
+
+.solutions-page .solution-card-image,
+.solutions-page .solution-card-own .solution-card-image {
+    inset: auto 0 0;
+    top: 188px;
+    height: calc(100% - 188px);
+    border-radius: 0;
+}
+
+.solutions-page .solution-card-image img {
+    transform: scale(1.04);
+    animation: solutionImageLive 10s ease-in-out infinite;
+}
+
+.solutions-page .solution-card-copy {
+    right: 20px;
+    bottom: 24px;
+    left: 20px;
+    z-index: 4;
+    color: #edf4f8;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+@keyframes solutionsHeroSweep {
+    0%, 42% { background-position: -760px 0, 0 0; }
+    72%, 100% { background-position: 760px 0, 0 0; }
+}
+
+@keyframes solutionsDockGlow {
+    0%, 100% { opacity: .55; transform: translateX(-50%) scaleX(.94); }
+    50% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+}
+
+@keyframes solutionsStageBreathe {
+    0%, 100% { opacity: .68; transform: scale(.985); }
+    50% { opacity: .95; transform: scale(1.015); }
+}
+
+@keyframes solutionsCardShuffle {
+    0%, 20% {
+        z-index: 5;
+        opacity: 1;
+        filter: saturate(1.12) brightness(1.05);
+        transform: translate3d(-50%, -18px, 80px) rotateY(0deg) scale(1.12);
+    }
+    33.333%, 53.333% {
+        z-index: 3;
+        opacity: .78;
+        filter: saturate(.95) brightness(.78);
+        transform: translate3d(calc(-50% - var(--card-step)), 46px, 0) rotateY(10deg) scale(.86);
+    }
+    66.666%, 86.666% {
+        z-index: 3;
+        opacity: .82;
+        filter: saturate(.98) brightness(.82);
+        transform: translate3d(calc(-50% + var(--card-step)), 46px, 0) rotateY(-10deg) scale(.86);
+    }
+    100% {
+        z-index: 5;
+        opacity: 1;
+        filter: saturate(1.12) brightness(1.05);
+        transform: translate3d(-50%, -18px, 80px) rotateY(0deg) scale(1.12);
+    }
+}
+
+@keyframes solutionMobileLift {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow:
+            0 24px 64px rgba(0, 0, 0, .42),
+            0 0 28px color-mix(in srgb, var(--solution-accent) 18%, transparent),
+            inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+    50% {
+        transform: translateY(-8px);
+        box-shadow:
+            0 30px 76px rgba(0, 0, 0, .5),
+            0 0 40px color-mix(in srgb, var(--solution-accent) 28%, transparent),
+            inset 0 1px 0 rgba(255, 255, 255, .1);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solution-selector {
+        --card-step: clamp(220px, 27vw, 286px);
+        --card-width: clamp(225px, 27vw, 292px);
+        min-height: 548px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solution-selector {
+        --card-step: clamp(214px, 31vw, 310px);
+        --card-width: clamp(220px, 30vw, 305px);
+        min-height: 560px;
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solution-selector {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 24px;
+        perspective: none;
+    }
+
+    .solutions-page .solution-selector::before,
+    .solutions-page .solutions-stage-svg {
+        display: none;
+    }
+
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        min-height: 410px;
+        opacity: 1;
+        filter: none;
+        transform: none;
+        animation: solutionMobileLift 7s ease-in-out infinite;
+    }
+
+    .solutions-page .solution-card-own {
+        animation-delay: -1.4s;
+    }
+
+    .solutions-page .solution-card-trading {
+        animation-delay: -2.8s;
+    }
+}
+
+@media (max-width: 560px) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        min-height: 386px;
+    }
+
+    .solutions-page .solution-card-title,
+    .solutions-page .solution-card-own .solution-card-title {
+        font-size: 16px;
+    }
+
+    .solutions-page .solution-card-image,
+    .solutions-page .solution-card-own .solution-card-image {
+        top: 174px;
+        height: calc(100% - 174px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solutions-hero::after,
+    .solutions-page .solution-selector::before,
+    .solutions-page .solutions-stage-svg,
+    .solutions-page .solution-card {
+        animation: none;
+    }
+
+    .solutions-page .solution-card-leasing {
+        transform: translate3d(calc(-50% - var(--card-step)), 46px, 0) rotateY(10deg) scale(.86);
+    }
+
+    .solutions-page .solution-card-own {
+        transform: translate3d(-50%, -18px, 80px) scale(1.12);
+    }
+
+    .solutions-page .solution-card-trading {
+        transform: translate3d(calc(-50% + var(--card-step)), 46px, 0) rotateY(-10deg) scale(.86);
+    }
+}
+
+/* Solutions hero: clean rail carousel */
+.solutions-page .solutions-hero-layout {
+    grid-template-columns: minmax(460px, 560px) minmax(0, 980px);
+    gap: clamp(1px, 0vw, 49px);
+}
+
+.solutions-page .solution-selector {
+    --rail: clamp(250px, 23vw, 330px);
+    --card-width: clamp(238px, 22vw, 292px);
+    width: min(100%, 980px);
+    max-width: 980px;
+    min-height: 540px;
+    overflow: hidden;
+    border-radius: 12px;
+    perspective: 1000px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.solutions-page .solution-selector::before {
+    display: block;
+    bottom: 20px;
+    width: min(86%, 760px);
+    height: 92px;
+    opacity: .8;
+    border-bottom: 1px solid rgba(243, 170, 54, .48);
+    background:
+        radial-gradient(ellipse at center, rgba(243, 170, 54, .18), transparent 64%),
+        repeating-radial-gradient(ellipse at center, transparent 0 18px, rgba(243, 170, 54, .16) 19px 20px, transparent 21px 42px);
+    filter: drop-shadow(0 0 18px rgba(243, 170, 54, .22));
+}
+
+.solutions-page .solutions-stage-svg {
+    inset: 12px 18px 22px;
+    width: calc(100% - 36px);
+    height: calc(100% - 34px);
+    opacity: .42;
+}
+
+.solutions-page .stage-arc-left,
+.solutions-page .stage-arc-right {
+    stroke-width: 1.25;
+    stroke-dasharray: 2 18;
+    opacity: .55;
+}
+
+.solutions-page .stage-base-wide {
+    stroke-width: 1.5;
+    opacity: .62;
+}
+
+.solutions-page .stage-base-inner,
+.solutions-page .stage-ring,
+.solutions-page .stage-node,
+.solutions-page .stage-spark {
+    opacity: .34;
+}
+
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    top: 58px;
+    left: 50%;
+    width: var(--card-width);
+    min-height: 424px;
+    border-radius: 8px;
+    animation: solutionsRailMove 15s linear infinite;
+    transform-origin: center center;
+}
+
+.solutions-page .solution-card-leasing {
+    animation-delay: -5s;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-trading {
+    animation-delay: -10s;
+}
+
+.solutions-page .solution-card:hover,
+.solutions-page .solution-card:focus-visible {
+    animation-play-state: paused;
+}
+
+.solutions-page .solution-card-icon,
+.solutions-page .solution-card-own .solution-card-icon {
+    top: 18px;
+    width: 64px;
+    height: 64px;
+    font-size: 22px;
+}
+
+.solutions-page .solution-card-own .solution-card-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.solutions-page .solution-card-badge {
+    top: 88px;
+    font-size: 8px;
+}
+
+.solutions-page .solution-card-title,
+.solutions-page .solution-card-own .solution-card-title {
+    top: 112px;
+    width: calc(100% - 34px);
+    max-width: 220px;
+    font-size: 16px;
+}
+
+.solutions-page .solution-card-own .solution-card-title {
+    top: 116px;
+    font-size: 19px;
+}
+
+.solutions-page .solution-card-image,
+.solutions-page .solution-card-own .solution-card-image {
+    top: 176px;
+    height: calc(100% - 176px);
+}
+
+.solutions-page .solution-card-copy {
+    bottom: 22px;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+@keyframes solutionsRailMove {
+    0% {
+        z-index: 2;
+        opacity: 0;
+        filter: saturate(.8) brightness(.62);
+        transform: translate3d(calc(-50% + var(--rail) + 110px), 40px, 0) rotateY(-7deg) scale(.78);
+    }
+    8%, 27% {
+        z-index: 3;
+        opacity: .72;
+        filter: saturate(.9) brightness(.76);
+        transform: translate3d(calc(-50% + var(--rail)), 32px, 0) rotateY(-6deg) scale(.84);
+    }
+    40%, 60% {
+        z-index: 6;
+        opacity: 1;
+        filter: saturate(1.1) brightness(1.04);
+        transform: translate3d(-50%, -10px, 80px) rotateY(0deg) scale(1.04);
+    }
+    73%, 92% {
+        z-index: 3;
+        opacity: .72;
+        filter: saturate(.9) brightness(.76);
+        transform: translate3d(calc(-50% - var(--rail)), 32px, 0) rotateY(6deg) scale(.84);
+    }
+    100% {
+        z-index: 2;
+        opacity: 0;
+        filter: saturate(.8) brightness(.62);
+        transform: translate3d(calc(-50% - var(--rail) - 110px), 40px, 0) rotateY(7deg) scale(.78);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solutions-hero-layout {
+        grid-template-columns: minmax(430px, 500px) minmax(0, 850px);
+    }
+
+    .solutions-page .solution-selector {
+        --rail: clamp(220px, 22vw, 280px);
+        --card-width: clamp(226px, 22vw, 270px);
+        width: min(100%, 850px);
+        min-height: 512px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solutions-hero-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .solutions-page .solution-selector {
+        --rail: clamp(230px, 31vw, 320px);
+        --card-width: clamp(232px, 29vw, 292px);
+        width: min(100%, 920px);
+        justify-self: center;
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solution-selector {
+        display: grid;
+        width: 100%;
+        min-height: 0;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        top: auto;
+        left: auto;
+        width: 100%;
+        min-height: 392px;
+        transform: none;
+        animation: solutionMobileLift 7s ease-in-out infinite;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        animation: none;
+    }
+
+    .solutions-page .solution-card-leasing {
+        opacity: .72;
+        transform: translate3d(calc(-50% - var(--rail)), 32px, 0) rotateY(6deg) scale(.84);
+    }
+
+    .solutions-page .solution-card-own {
+        opacity: 1;
+        transform: translate3d(-50%, -10px, 80px) scale(1.04);
+    }
+
+    .solutions-page .solution-card-trading {
+        opacity: .72;
+        transform: translate3d(calc(-50% + var(--rail)), 32px, 0) rotateY(-6deg) scale(.84);
+    }
+}
+
+/* Solutions hero: fast professional snap carousel */
+.solutions-page .solution-selector {
+    --rail: clamp(220px, 21vw, 292px);
+    --card-width: clamp(230px, 21vw, 282px);
+    min-height: 512px;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+    contain: layout paint;
+}
+
+.solutions-page .solutions-stage-svg {
+    opacity: .24;
+    animation: none;
+}
+
+.solutions-page .stage-arc-left,
+.solutions-page .stage-arc-right,
+.solutions-page .stage-base-wide,
+.solutions-page .stage-base-inner,
+.solutions-page .stage-ring,
+.solutions-page .stage-node,
+.solutions-page .stage-spark {
+    animation: none;
+}
+
+.solutions-page .solution-selector::before {
+    animation: none;
+    opacity: .42;
+    filter: none;
+}
+
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    top: 54px;
+    width: var(--card-width);
+    min-height: 414px;
+    border-radius: 8px;
+    animation: solutionsSnapCycle 7.2s cubic-bezier(.2, .75, .25, 1) infinite;
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.solutions-page .solution-card-leasing {
+    animation-delay: -2.4s;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-trading {
+    animation-delay: -4.8s;
+}
+
+.solutions-page .solution-card::before,
+.solutions-page .solution-card-icon,
+.solutions-page .solution-card-image img {
+    animation: none;
+}
+
+.solutions-page .solution-card::before {
+    opacity: .18;
+}
+
+.solutions-page .solution-card-icon,
+.solutions-page .solution-card-own .solution-card-icon {
+    top: 18px;
+    width: 58px;
+    height: 58px;
+    font-size: 20px;
+    box-shadow: 0 0 24px color-mix(in srgb, var(--solution-accent) 28%, transparent);
+}
+
+.solutions-page .solution-card-own .solution-card-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.solutions-page .solution-card-title,
+.solutions-page .solution-card-own .solution-card-title {
+    top: 104px;
+    font-size: 15px;
+}
+
+.solutions-page .solution-card-own .solution-card-title {
+    top: 108px;
+    font-size: 18px;
+}
+
+.solutions-page .solution-card-badge {
+    top: 82px;
+}
+
+.solutions-page .solution-card-image,
+.solutions-page .solution-card-own .solution-card-image {
+    top: 162px;
+    height: calc(100% - 162px);
+}
+
+.solutions-page .solution-card-copy {
+    bottom: 20px;
+}
+
+@keyframes solutionsSnapCycle {
+    0%, 29% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.06);
+    }
+    33%, 62% {
+        z-index: 3;
+        opacity: .62;
+        transform: translate3d(calc(-50% - var(--rail)), 30px, 0) scale(.82);
+    }
+    66%, 95% {
+        z-index: 3;
+        opacity: .62;
+        transform: translate3d(calc(-50% + var(--rail)), 30px, 0) scale(.82);
+    }
+    100% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.06);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(205px, 21vw, 254px);
+        --card-width: clamp(220px, 21vw, 258px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(220px, 30vw, 310px);
+        --card-width: clamp(226px, 28vw, 286px);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        animation: none;
+    }
+}
+
+/* Solutions hero: synchronized 3-card carousel with no empty state */
+.solutions-page .solution-selector {
+    --rail: clamp(215px, 20vw, 282px);
+    --card-width: clamp(220px, 20vw, 272px);
+    min-height: 508px;
+    overflow: visible;
+}
+
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    width: var(--card-width);
+    min-height: 408px;
+    animation: solutionsThreeCardRotate 6.6s cubic-bezier(.34, .88, .26, 1) infinite;
+}
+
+.solutions-page .solution-card-leasing {
+    animation-delay: -2.2s;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-trading {
+    animation-delay: -4.4s;
+}
+
+@keyframes solutionsThreeCardRotate {
+    0%, 25% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.05);
+    }
+    33.333%, 58.333% {
+        z-index: 3;
+        opacity: .78;
+        transform: translate3d(calc(-50% - var(--rail)), 28px, 0) scale(.84);
+    }
+    66.666%, 91.666% {
+        z-index: 3;
+        opacity: .78;
+        transform: translate3d(calc(-50% + var(--rail)), 28px, 0) scale(.84);
+    }
+    100% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.05);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(198px, 20vw, 244px);
+        --card-width: clamp(210px, 20vw, 250px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(215px, 30vw, 300px);
+        --card-width: clamp(220px, 28vw, 278px);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        width: 100%;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Comparison board: remove cramped outer stroke */
+.solutions-page .comparison-grid {
+    gap: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background:
+        radial-gradient(circle at 18% 12%, rgba(61, 156, 255, .12), transparent 28%),
+        radial-gradient(circle at 86% 10%, rgba(237, 182, 60, .14), transparent 30%),
+        linear-gradient(135deg, rgba(5, 23, 39, .48), rgba(4, 17, 31, .22));
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.solutions-page .comparison-grid::before {
+    display: none;
+}
+
+.solutions-page .comparison-grid::after {
+    content: "";
+    position: absolute;
+    inset: -22px -18px -18px;
+    z-index: -1;
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(61, 156, 255, .08), rgba(55, 201, 184, .055), rgba(237, 182, 60, .08)),
+        rgba(3, 15, 27, .38);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .06),
+        0 28px 70px rgba(0, 0, 0, .28);
+    pointer-events: none;
+}
+
+.solutions-page .comparison-card,
+.solutions-page .comparison-card:first-child {
+    border: 1px solid color-mix(in srgb, var(--comparison-accent) 34%, rgba(126, 166, 197, .16));
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, .25),
+        inset 0 1px 0 rgba(255, 255, 255, .055);
+}
+
+.solutions-page .comparison-card:hover,
+.solutions-page .comparison-card:focus-visible,
+.solutions-page .comparison-card.is-active,
+.solutions-page .comparison-card.is-filter-match {
+    transform: translateY(-5px);
+    box-shadow:
+        0 24px 54px rgba(0, 0, 0, .31),
+        0 0 26px color-mix(in srgb, var(--comparison-accent) 14%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+@media (max-width: 760px) {
+    .solutions-page .comparison-grid {
+        gap: 12px;
+        padding: 0;
+        background: transparent;
+    }
+
+    .solutions-page .comparison-grid::after {
+        display: none;
+    }
+}
+
+/* Solutions hero: mouse-safe synchronized motion */
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    pointer-events: none;
+    cursor: default;
+}
+
+.solutions-page .solution-card:hover,
+.solutions-page .solution-card:focus-visible,
+.solutions-page .solution-card-own:hover,
+.solutions-page .solution-card-own:focus-visible {
+    animation-play-state: running;
+}
+
+.solutions-page .solution-selector {
+    --rail: clamp(250px, 22vw, 328px);
+    --card-width: clamp(220px, 20vw, 272px);
+}
+
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    animation-duration: 7.8s;
+}
+
+@keyframes solutionsCardOwnPath {
+    0%, 27% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.02);
+    }
+    33.333%, 60.333% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% - var(--rail)), 26px, 0) scale(.82);
+    }
+    66.666%, 93.666% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% + var(--rail)), 26px, 0) scale(.82);
+    }
+    100% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.02);
+    }
+}
+
+@keyframes solutionsCardTradingPath {
+    0%, 27% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% + var(--rail)), 26px, 0) scale(.82);
+    }
+    33.333%, 60.333% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.02);
+    }
+    66.666%, 93.666% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% - var(--rail)), 26px, 0) scale(.82);
+    }
+    100% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% + var(--rail)), 26px, 0) scale(.82);
+    }
+}
+
+@keyframes solutionsCardLeasingPath {
+    0%, 27% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% - var(--rail)), 26px, 0) scale(.82);
+    }
+    33.333%, 60.333% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% + var(--rail)), 26px, 0) scale(.82);
+    }
+    66.666%, 93.666% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.02);
+    }
+    100% {
+        z-index: 3;
+        opacity: .82;
+        transform: translate3d(calc(-50% - var(--rail)), 26px, 0) scale(.82);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(220px, 21vw, 276px);
+        --card-width: clamp(206px, 19vw, 244px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(220px, 29vw, 310px);
+        --card-width: clamp(216px, 27vw, 270px);
+    }
+}
+
+/* Solutions hero: active-card color synced aura */
+.solutions-page .solutions-hero {
+    background:
+        radial-gradient(circle at 50% 80%, rgba(243, 170, 54, .08), transparent 28%),
+        linear-gradient(135deg, #020913 0%, #031421 48%, #031923 100%);
+}
+
+.solutions-page .solutions-hero::after {
+    opacity: .72;
+    background:
+        radial-gradient(circle at 73% 28%, rgba(243, 170, 54, .22), transparent 28%),
+        radial-gradient(circle at 64% 72%, rgba(243, 170, 54, .14), transparent 32%),
+        linear-gradient(100deg, transparent 0 34%, rgba(243, 170, 54, .08) 50%, transparent 66%);
+    animation: solutionsActiveAura 6.6s cubic-bezier(.34, .88, .26, 1) infinite;
+}
+
+.solutions-page .solution-selector::before {
+    border-bottom-color: rgba(243, 170, 54, .48);
+    background:
+        radial-gradient(ellipse at center, rgba(243, 170, 54, .18), transparent 64%),
+        repeating-radial-gradient(ellipse at center, transparent 0 18px, rgba(243, 170, 54, .16) 19px 20px, transparent 21px 42px);
+    animation: solutionsActiveDock 6.6s cubic-bezier(.34, .88, .26, 1) infinite;
+}
+
+@keyframes solutionsActiveAura {
+    0%, 25%, 100% {
+        background:
+            radial-gradient(circle at 73% 28%, rgba(243, 170, 54, .24), transparent 28%),
+            radial-gradient(circle at 64% 72%, rgba(243, 170, 54, .16), transparent 32%),
+            linear-gradient(100deg, transparent 0 34%, rgba(243, 170, 54, .09) 50%, transparent 66%);
+    }
+    33.333%, 58.333% {
+        background:
+            radial-gradient(circle at 73% 28%, rgba(57, 203, 184, .24), transparent 28%),
+            radial-gradient(circle at 64% 72%, rgba(57, 203, 184, .15), transparent 32%),
+            linear-gradient(100deg, transparent 0 34%, rgba(57, 203, 184, .085) 50%, transparent 66%);
+    }
+    66.666%, 91.666% {
+        background:
+            radial-gradient(circle at 73% 28%, rgba(77, 134, 255, .24), transparent 28%),
+            radial-gradient(circle at 64% 72%, rgba(77, 134, 255, .15), transparent 32%),
+            linear-gradient(100deg, transparent 0 34%, rgba(77, 134, 255, .085) 50%, transparent 66%);
+    }
+}
+
+@keyframes solutionsActiveDock {
+    0%, 25%, 100% {
+        border-bottom-color: rgba(243, 170, 54, .5);
+        background:
+            radial-gradient(ellipse at center, rgba(243, 170, 54, .18), transparent 64%),
+            repeating-radial-gradient(ellipse at center, transparent 0 18px, rgba(243, 170, 54, .16) 19px 20px, transparent 21px 42px);
+    }
+    33.333%, 58.333% {
+        border-bottom-color: rgba(57, 203, 184, .5);
+        background:
+            radial-gradient(ellipse at center, rgba(57, 203, 184, .18), transparent 64%),
+            repeating-radial-gradient(ellipse at center, transparent 0 18px, rgba(57, 203, 184, .16) 19px 20px, transparent 21px 42px);
+    }
+    66.666%, 91.666% {
+        border-bottom-color: rgba(77, 134, 255, .5);
+        background:
+            radial-gradient(ellipse at center, rgba(77, 134, 255, .18), transparent 64%),
+            repeating-radial-gradient(ellipse at center, transparent 0 18px, rgba(77, 134, 255, .16) 19px 20px, transparent 21px 42px);
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solutions-hero::after,
+    .solutions-page .solution-selector::before {
+        animation: none;
+    }
+}
+
+/* Solutions hero: final locked carousel and image-forward cards */
+.solutions-page .solution-selector {
+    --rail: clamp(225px, 20.5vw, 292px);
+    --card-width: clamp(232px, 21vw, 286px);
+    min-height: 600px;
+    overflow: visible;
+}
+
+.solutions-page .solution-card,
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    top: 58px;
+    width: var(--card-width);
+    min-height: 458px;
+    animation-duration: 7.2s;
+    animation-timing-function: cubic-bezier(.22, .78, .24, 1);
+    animation-iteration-count: infinite;
+}
+
+.solutions-page .solution-card-own,
+.solutions-page .solution-card-own.is-active {
+    animation-name: solutionsCardOwnPath;
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-trading {
+    animation-name: solutionsCardTradingPath;
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-leasing {
+    animation-name: solutionsCardLeasingPath;
+    animation-delay: 0s;
+}
+
+.solutions-page .solution-card-icon,
+.solutions-page .solution-card-own .solution-card-icon {
+    top: 14px;
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
+}
+
+.solutions-page .solution-card-own .solution-card-icon {
+    width: 52px;
+    height: 52px;
+}
+
+.solutions-page .solution-card-badge {
+    top: 64px;
+    font-size: 7px;
+}
+
+.solutions-page .solution-card-title,
+.solutions-page .solution-card-own .solution-card-title {
+    top: 84px;
+    width: calc(100% - 28px);
+    font-size: 14px;
+    line-height: 1.12;
+}
+
+.solutions-page .solution-card-own .solution-card-title {
+    top: 88px;
+    font-size: 17px;
+}
+
+.solutions-page .solution-card-image,
+.solutions-page .solution-card-own .solution-card-image {
+    top: 128px;
+    height: calc(100% - 128px);
+}
+
+.solutions-page .solution-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+    filter: saturate(1.08) contrast(1.04) brightness(.98);
+}
+
+.solutions-page .solution-card-own .solution-card-image img {
+    object-position: center 48%;
+}
+
+.solutions-page .solution-card::after {
+    background:
+        linear-gradient(180deg, rgba(2, 10, 19, .78) 0 27%, rgba(2, 10, 19, .06) 43%, rgba(2, 10, 19, .88) 100%),
+        radial-gradient(circle at 50% 90%, color-mix(in srgb, var(--solution-accent) 22%, transparent), transparent 50%);
+}
+
+.solutions-page .solution-card-image::after {
+    background: linear-gradient(180deg, transparent 0 62%, rgba(2, 13, 24, .68) 100%);
+}
+
+.solutions-page .solution-card-copy {
+    right: 16px;
+    bottom: 18px;
+    left: 16px;
+    font-size: 11px;
+    line-height: 1.28;
+}
+
+@keyframes solutionsCardOwnPath {
+    0%, 24% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.04);
+    }
+    33.333%, 57.333% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% - var(--rail)), 28px, 0) scale(.84);
+    }
+    66.666%, 90.666% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% + var(--rail)), 28px, 0) scale(.84);
+    }
+    100% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.04);
+    }
+}
+
+@keyframes solutionsCardTradingPath {
+    0%, 24% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% + var(--rail)), 28px, 0) scale(.84);
+    }
+    33.333%, 57.333% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.04);
+    }
+    66.666%, 90.666% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% - var(--rail)), 28px, 0) scale(.84);
+    }
+    100% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% + var(--rail)), 28px, 0) scale(.84);
+    }
+}
+
+@keyframes solutionsCardLeasingPath {
+    0%, 24% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% - var(--rail)), 28px, 0) scale(.84);
+    }
+    33.333%, 57.333% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% + var(--rail)), 28px, 0) scale(.84);
+    }
+    66.666%, 90.666% {
+        z-index: 6;
+        opacity: 1;
+        transform: translate3d(-50%, -8px, 0) scale(1.04);
+    }
+    100% {
+        z-index: 3;
+        opacity: .76;
+        transform: translate3d(calc(-50% - var(--rail)), 28px, 0) scale(.84);
+    }
+}
+
+@media (max-width: 1500px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(200px, 19vw, 244px);
+        --card-width: clamp(216px, 20vw, 252px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .solutions-page .solution-selector {
+        --rail: clamp(214px, 29vw, 300px);
+        --card-width: clamp(222px, 28vw, 280px);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 860px) {
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        width: 100%;
+        min-height: 390px;
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 }
