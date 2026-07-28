@@ -7166,107 +7166,144 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 }
 
-.vector-hub-orbit {
+.vector-hub-orbit,
+.vector-route-glow,
+.vector-route,
+.vector-route-secondary,
+.vector-route-motion,
+.vector-cargo-pulses {
+    display: none;
+}
+
+.vector-route-web path {
     fill: none;
-    stroke: rgba(245, 193, 22, 0.28);
-    stroke-dasharray: 3 12;
+    stroke: #EAB728;
+    stroke-dasharray: 9 9;
+    stroke-dashoffset: 0;
     stroke-linecap: round;
-    stroke-width: 1.1;
-    transform-origin: 625px 285px;
-    animation: premiumHubOrbit 8s linear infinite;
-}
-
-.vector-route-glow {
-    fill: none;
-    stroke: rgba(245, 193, 22, 0.16);
-    stroke-linecap: round;
-    stroke-width: 4;
-    opacity: 0.68;
-    filter: blur(1px) drop-shadow(0 0 10px rgba(245, 193, 22, 0.16));
-}
-
-.vector-route {
-    fill: none;
-    stroke: url(#vectorRouteStroke);
-    stroke-linecap: round;
-    stroke-width: 1.35;
-    opacity: 0.82;
-    filter:
-        drop-shadow(0 0 5px rgba(245, 193, 22, 0.34))
-        drop-shadow(0 8px 13px rgba(184, 144, 43, 0.14));
-}
-
-.vector-route-secondary {
-    fill: none;
-    stroke: rgba(246, 230, 165, 0.42);
-    stroke-dasharray: 2 9;
-    stroke-linecap: round;
-    stroke-width: 0.85;
-    opacity: 0.72;
-    animation: premiumAmbientRoute 18s linear infinite;
-}
-
-.vector-route-motion {
-    fill: none;
-    stroke: #FFF4B8;
-    stroke-dasharray: 30 160;
-    stroke-linecap: round;
-    stroke-width: 3.4;
-    opacity: 0.95;
-    filter:
-        drop-shadow(0 0 8px rgba(245, 193, 22, 0.58))
-        drop-shadow(0 0 18px rgba(245, 193, 22, 0.24));
-    animation: premiumRouteFlow 3.6s linear infinite;
-}
-
-.vector-route-motion-2 {
-    animation-duration: 4.1s;
-    animation-delay: -0.8s;
-}
-
-.vector-route-motion-3 {
-    animation-duration: 3.4s;
-    animation-delay: -1.2s;
-}
-
-.vector-route-motion-4 {
-    animation-duration: 5.4s;
-    animation-delay: -1.8s;
-}
-
-.vector-cargo-pulses circle {
-    fill: #FFF9D6;
-    stroke: var(--gold-500);
-    stroke-width: 0.75;
+    stroke-width: 1.8;
     opacity: 0.9;
-    filter:
-        drop-shadow(0 0 5px rgba(245, 193, 22, 0.72))
-        drop-shadow(0 0 10px rgba(245, 193, 22, 0.28));
+    filter: drop-shadow(0 0 5px rgba(245, 193, 22, 0.28));
+    animation: networkDashFlow 5.2s linear infinite;
 }
 
-.vector-mini-ports circle {
-    fill: rgba(255, 255, 255, 0.92);
-    stroke: rgba(245, 193, 22, 0.64);
-    stroke-width: 0.8;
-    opacity: 0.68;
-    filter: drop-shadow(0 0 5px rgba(245, 193, 22, 0.2));
+.vector-route-web path:nth-child(2n) {
+    animation-duration: 6.4s;
+    animation-delay: -1.6s;
+}
+
+.vector-route-web path:nth-child(3n) {
+    animation-duration: 7.1s;
+    animation-delay: -3.2s;
+}
+
+.vector-route-web-track path {
+    stroke: rgba(245, 193, 22, 0.27);
+    stroke-dasharray: none;
+    stroke-width: 4.2;
+    opacity: 0.52;
+    filter: blur(2.5px);
+    animation: none;
+}
+
+.vector-route-sparks circle {
+    fill: #FFF5C7;
+    stroke: #FFFFFF;
+    stroke-width: 0.7;
+    opacity: 0.98;
+    filter:
+        drop-shadow(0 0 5px rgba(255, 244, 192, 0.98))
+        drop-shadow(0 0 12px rgba(245, 193, 22, 0.8));
+}
+
+.vector-port-marker .port-orbit {
+    fill: none;
+    stroke: rgba(249, 210, 85, 0.62);
+    stroke-width: 0.85;
+}
+
+.vector-port-marker .port-aura {
+    fill: rgba(245, 193, 22, 0.26);
+    filter: drop-shadow(0 0 7px rgba(245, 193, 22, 0.56));
+}
+
+.vector-port-marker .port-core {
+    fill: #F6BD1B;
+    stroke: #FFF3BE;
+    stroke-width: 1.05;
+    filter: drop-shadow(0 0 5px rgba(245, 193, 22, 0.95));
+}
+
+.vector-port-marker .port-center {
+    fill: #FFFFFF;
+}
+
+.vector-hub-marker {
+    filter: drop-shadow(0 0 8px rgba(245, 193, 22, 0.78)) drop-shadow(0 0 22px rgba(245, 193, 22, 0.44));
+}
+
+.hub-orbit {
+    fill: none;
+    stroke: rgba(246, 193, 37, 0.68);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.hub-orbit-one { stroke-width: 1; stroke-dasharray: 3 4; animation: hubOrbitSpin 12s linear infinite; }
+.hub-orbit-two { stroke-width: 1.05; stroke-dasharray: 2 3; animation: hubOrbitSpin 8s linear infinite reverse; }
+.hub-orbit-three { stroke-width: 1.2; opacity: 0.82; }
+
+.hub-core {
+    fill: #F7BF1F;
+    stroke: #FFF3B5;
+    stroke-width: 1.3;
+}
+
+.hub-diamond {
+    fill: #FFFFFF;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.96));
+}
+
+.vector-port-labels text {
+    fill: #F8FAFF;
+    font-family: var(--body);
+    paint-order: stroke;
+    stroke: rgba(3, 22, 50, 0.88);
+    stroke-linejoin: round;
+    stroke-width: 2.6px;
+}
+
+.vector-port-labels .port-name,
+.vector-port-labels .hub-name {
+    font-size: 10.8px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.vector-port-labels .port-country,
+.vector-port-labels .hub-country {
+    fill: rgba(233, 241, 252, 0.88);
+    font-size: 8.7px;
+    font-weight: 500;
+}
+
+.vector-port-labels .hub-name,
+.vector-port-labels .hub-country {
+    fill: #F5C116;
 }
 
 .vector-map-pin {
     position: absolute;
     z-index: 5;
     display: grid;
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
     padding: 0;
     place-items: center;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1.5px solid rgba(245, 193, 22, 0.9);
+    background: transparent;
+    border: 0;
     border-radius: 50%;
-    box-shadow:
-        0 0 0 2px rgba(255, 255, 255, 0.72),
-        0 0 0 5px rgba(245, 193, 22, 0.12),
-        0 8px 16px rgba(4, 24, 56, 0.16);
+    box-shadow: none;
     cursor: pointer;
     outline: none;
     transform: translate(-50%, -50%);
@@ -7274,36 +7311,20 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .vector-map-pin::before {
-    width: 5px;
-    height: 5px;
-    content: "";
-    background: linear-gradient(135deg, var(--gold-700), var(--gold-500));
-    border-radius: 50%;
-    box-shadow: 0 0 14px rgba(245, 193, 22, 0.42);
+    display: none;
 }
 
 .vector-map-pin::after {
-    position: absolute;
-    inset: -7px;
-    z-index: -1;
-    content: "";
-    background: radial-gradient(circle, rgba(245, 193, 22, 0.26), transparent 64%);
-    border-radius: inherit;
-    opacity: 0;
-    transform: scale(0.82);
-    transition: opacity var(--ease), transform var(--ease);
+    display: none;
 }
 
 .vector-map-pin:hover,
 .vector-map-pin:focus-visible,
 .vector-map-pin.is-active {
-    background: #FFFFFF;
-    border-color: rgba(245, 193, 22, 1);
-    box-shadow:
-        0 0 0 5px rgba(255, 255, 255, 0.86),
-        0 0 0 8px rgba(245, 193, 22, 0.16),
-        0 18px 32px rgba(4, 24, 56, 0.2);
-    transform: translate(-50%, -50%) scale(1.14);
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .vector-map-pin:hover::after,
@@ -7314,21 +7335,15 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .vector-pin-hub {
-    width: 23px;
-    height: 23px;
-    background: radial-gradient(circle at 50% 50%, #0B3A6D 0 55%, #041838 56% 100%);
-    border-color: rgba(245, 193, 22, 0.95);
-    box-shadow:
-        0 0 0 3px rgba(255, 255, 255, 0.72),
-        0 0 0 7px rgba(245, 193, 22, 0.13),
-        0 12px 24px rgba(4, 24, 56, 0.28);
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .vector-pin-hub::before {
-    width: 7px;
-    height: 7px;
-    background: linear-gradient(135deg, var(--gold-100), var(--gold-500));
-    box-shadow: 0 0 18px rgba(245, 193, 22, 0.56);
+    display: none;
 }
 
 .vector-pin-europe { top: 38.5%;
@@ -7444,6 +7459,51 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 }
 
+@keyframes networkDashFlow {
+    to {
+        stroke-dashoffset: -32;
+    }
+}
+
+@keyframes hubOrbitSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes networkPulseDash {
+    0% {
+        stroke-dashoffset: 56;
+        opacity: 0.46;
+    }
+
+    12% {
+        opacity: 0.95;
+    }
+
+    82% {
+        opacity: 0.95;
+    }
+
+    100% {
+        stroke-dashoffset: -56;
+        opacity: 0.5;
+    }
+}
+
+@keyframes hubDotBreath {
+    0%,
+    100% {
+        opacity: 0.86;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.18);
+    }
+}
+
 @keyframes premiumAmbientRoute {
     to {
         stroke-dashoffset: -60;
@@ -7466,6 +7526,23 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 @keyframes premiumHubOrbit {
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes portRingPulse {
+    0% {
+        opacity: 0.82;
+        transform: scale(0.7);
+    }
+
+    70% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
     }
 }
 
@@ -9541,7 +9618,11 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     .vector-ambient-lanes path,
     .vector-hub-glow,
     .vector-hub-orbit,
+    .vector-route-web path,
+    .vector-route-sparks circle,
+    .hub-orbit,
     .vector-route-motion,
+    .vector-map-pin::after,
     .vision-orbit,
     .vision-flow,
     .vision-node,
@@ -10194,6 +10275,10 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
         gap: 42px;
     }
 
+    .presence .split-layout {
+        grid-template-columns: 1fr;
+    }
+
     .about-company {
         padding: 78px 0;
     }
@@ -10654,28 +10739,40 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
         stroke-width: 5;
     }
 
-    .vector-route-motion {
-        stroke-width: 2.8;
+    .vector-route-web path {
+        stroke-width: 1.35;
+    }
+
+    .vector-route-web-track path {
+        stroke-width: 3.2;
+    }
+
+    .vector-port-labels .port-name,
+    .vector-port-labels .hub-name {
+        font-size: 9.5px;
+    }
+
+    .vector-port-labels .port-country,
+    .vector-port-labels .hub-country {
+        font-size: 7.8px;
     }
 
     .vector-map-pin {
-        width: 13px;
-        height: 13px;
+        width: 22px;
+        height: 22px;
     }
 
     .vector-map-pin::before {
-        width: 4px;
-        height: 4px;
+        display: none;
     }
 
     .vector-pin-hub {
-        width: 20px;
-        height: 20px;
+        width: 28px;
+        height: 28px;
     }
 
     .vector-pin-hub::before {
-        width: 6px;
-        height: 6px;
+        display: none;
     }
 
     .vector-map-tooltip {

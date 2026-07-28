@@ -454,54 +454,71 @@
                                     <stop offset="58%" stop-color="#F5C116" stop-opacity="0.18"></stop>
                                     <stop offset="100%" stop-color="#F5C116" stop-opacity="0"></stop>
                                 </radialGradient>
+                                <filter id="routeSoftGlow" x="-35%" y="-35%" width="170%" height="170%">
+                                    <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                                    <feMerge>
+                                        <feMergeNode in="blur"></feMergeNode>
+                                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                                    </feMerge>
+                                </filter>
                             </defs>
-                            <g class="vector-ambient-lanes">
-                                <path d="M110 225 C240 175 380 194 510 245 S730 300 900 224"></path>
-                                <path d="M98 392 C250 320 405 344 555 410 S772 450 920 388"></path>
-                                <path d="M220 155 C340 112 446 136 552 196 S730 246 858 172"></path>
+                            <circle class="vector-hub-glow" cx="625" cy="285" r="56"></circle>
+                            <g class="vector-route-web vector-route-web-track">
+                                <path d="M625 285 C534 154 364 142 230 184"></path>
+                                <path d="M625 285 C552 230 442 220 360 242"></path>
+                                <path d="M625 285 C586 244 550 214 510 188"></path>
+                                <path d="M625 285 C604 270 584 264 564 270"></path>
+                                <path d="M625 285 C704 223 785 210 836 250"></path>
+                                <path d="M625 285 C700 329 753 352 800 368"></path>
+                                <path d="M625 285 C688 350 775 420 900 465"></path>
+                                <path d="M625 285 C585 353 565 415 573 468"></path>
+                                <path d="M625 285 C518 325 412 386 325 440"></path>
                             </g>
-                            <circle class="vector-hub-glow" cx="625" cy="285" r="54"></circle>
-                            <circle class="vector-hub-orbit" cx="625" cy="285" r="44"></circle>
-                            <path class="vector-route-glow" d="M625 285 C585 260 535 230 492 210"></path>
-                            <path class="vector-route-glow" d="M625 285 C672 280 718 284 760 288"></path>
-                            <path class="vector-route-glow" d="M625 285 C612 314 596 338 575 355"></path>
-                            <path class="vector-route-glow" d="M625 285 C520 318 420 365 338 410"></path>
-                            <path class="vector-route-secondary" d="M492 210 C560 122 686 126 760 288"></path>
-                            <path class="vector-route-secondary" d="M492 210 C410 142 314 148 230 204"></path>
-                            <path class="vector-route-secondary" d="M338 410 C292 355 254 293 230 204"></path>
-                            <path id="premium-route-europe" class="vector-route" d="M625 285 C585 260 535 230 492 210"></path>
-                            <path id="premium-route-asia" class="vector-route" d="M625 285 C672 280 718 284 760 288"></path>
-                            <path id="premium-route-africa" class="vector-route" d="M625 285 C612 314 596 338 575 355"></path>
-                            <path id="premium-route-south-america" class="vector-route" d="M625 285 C520 318 420 365 338 410"></path>
-                            <g class="vector-cargo-pulses">
-                                <circle r="2.2">
-                                    <animateMotion dur="6.8s" repeatCount="indefinite" begin="-0.4s">
-                                        <mpath href="#premium-route-europe"></mpath>
-                                    </animateMotion>
-                                </circle>
-                                <circle r="2.2">
-                                    <animateMotion dur="6.1s" repeatCount="indefinite" begin="-2.1s">
-                                        <mpath href="#premium-route-asia"></mpath>
-                                    </animateMotion>
-                                </circle>
-                                <circle r="2">
-                                    <animateMotion dur="6.5s" repeatCount="indefinite" begin="-3.4s">
-                                        <mpath href="#premium-route-africa"></mpath>
-                                    </animateMotion>
-                                </circle>
-                                <circle r="2.2">
-                                    <animateMotion dur="7.8s" repeatCount="indefinite" begin="-4.5s">
-                                        <mpath href="#premium-route-south-america"></mpath>
-                                    </animateMotion>
-                                </circle>
+                            <g class="vector-route-web">
+                                <path id="web-route-vancouver" d="M625 285 C534 154 364 142 230 184"></path>
+                                <path id="web-route-new-york" d="M625 285 C552 230 442 220 360 242"></path>
+                                <path id="web-route-rotterdam" d="M625 285 C586 244 550 214 510 188"></path>
+                                <path id="web-route-piraeus" d="M625 285 C604 270 584 264 564 270"></path>
+                                <path id="web-route-shanghai" d="M625 285 C704 223 785 210 836 250"></path>
+                                <path id="web-route-singapore" d="M625 285 C700 329 753 352 800 368"></path>
+                                <path id="web-route-sydney" d="M625 285 C688 350 775 420 900 465"></path>
+                                <path id="web-route-durban" d="M625 285 C585 353 565 415 573 468"></path>
+                                <path id="web-route-santos" d="M625 285 C518 325 412 386 325 440"></path>
                             </g>
-                            <g class="vector-mini-ports">
-                                <circle cx="548" cy="246" r="1.8"></circle>
-                                <circle cx="690" cy="281" r="1.8"></circle>
-                                <circle cx="607" cy="322" r="1.8"></circle>
-                                <circle cx="500" cy="330" r="1.8"></circle>
-                                <circle cx="430" cy="360" r="1.8"></circle>
-                                <circle cx="230" cy="204" r="2"></circle>
+                            <g class="vector-route-sparks">
+                                <circle r="2.1"><animateMotion dur="6.4s" repeatCount="indefinite" begin="-1.4s"><mpath href="#web-route-vancouver"></mpath></animateMotion></circle>
+                                <circle r="2.1"><animateMotion dur="5.8s" repeatCount="indefinite" begin="-4.2s"><mpath href="#web-route-new-york"></mpath></animateMotion></circle>
+                                <circle r="2.1"><animateMotion dur="4.9s" repeatCount="indefinite" begin="-2.8s"><mpath href="#web-route-rotterdam"></mpath></animateMotion></circle>
+                                <circle r="2.1"><animateMotion dur="4.3s" repeatCount="indefinite" begin="-3.6s"><mpath href="#web-route-shanghai"></mpath></animateMotion></circle>
+                                <circle r="2.1"><animateMotion dur="5.2s" repeatCount="indefinite" begin="-0.9s"><mpath href="#web-route-singapore"></mpath></animateMotion></circle>
+                                <circle r="2.1"><animateMotion dur="6.2s" repeatCount="indefinite" begin="-4.8s"><mpath href="#web-route-sydney"></mpath></animateMotion></circle>
+                            </g>
+                            <g class="vector-port-markers">
+                                <g class="vector-port-marker" transform="translate(230 184)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(360 242)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(510 188)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(564 270)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(836 250)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(800 368)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(900 465)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(573 468)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                                <g class="vector-port-marker" transform="translate(325 440)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
+                            </g>
+                            <g class="vector-hub-marker" transform="translate(625 285)">
+                                <circle class="hub-orbit hub-orbit-one" r="28"></circle><circle class="hub-orbit hub-orbit-two" r="19"></circle><circle class="hub-orbit hub-orbit-three" r="11"></circle>
+                                <circle class="hub-core" r="7.5"></circle><rect class="hub-diamond" x="-3.2" y="-3.2" width="6.4" height="6.4" rx="1" transform="rotate(45)"></rect>
+                            </g>
+                            <g class="vector-port-labels">
+                                <text x="240" y="176"><tspan class="port-name">VANCOUVER</tspan><tspan class="port-country" x="240" dy="12">Canada</tspan></text>
+                                <text x="372" y="247"><tspan class="port-name">NEW YORK</tspan><tspan class="port-country" x="372" dy="12">USA</tspan></text>
+                                <text x="510" y="166" text-anchor="middle"><tspan class="port-name">ROTTERDAM</tspan><tspan class="port-country" x="510" dy="12">Netherlands</tspan></text>
+                                <text x="550" y="284" text-anchor="end"><tspan class="port-name">PIRAEUS</tspan><tspan class="port-country" x="550" dy="12">Greece</tspan></text>
+                                <text x="650" y="306"><tspan class="hub-name">JEBEL ALI</tspan><tspan class="hub-country" x="650" dy="14">UAE</tspan></text>
+                                <text x="848" y="256"><tspan class="port-name">SHANGHAI</tspan><tspan class="port-country" x="848" dy="12">China</tspan></text>
+                                <text x="812" y="357"><tspan class="port-name">SINGAPORE</tspan><tspan class="port-country" x="812" dy="12">Singapore</tspan></text>
+                                <text x="911" y="471"><tspan class="port-name">SYDNEY</tspan><tspan class="port-country" x="911" dy="12">Australia</tspan></text>
+                                <text x="584" y="482"><tspan class="port-name">DURBAN</tspan><tspan class="port-country" x="584" dy="12">South Africa</tspan></text>
+                                <text x="336" y="452"><tspan class="port-name">SANTOS</tspan><tspan class="port-country" x="336" dy="12">Brazil</tspan></text>
                             </g>
                         </svg>
                         <button class="vector-map-pin vector-pin-europe" type="button" data-location="Europe" data-detail="Connected access across key European trade corridors." aria-label="Europe"></button>
@@ -512,7 +529,7 @@
                         <div class="vector-map-tooltip" id="network-map-tooltip" role="status" aria-live="polite"></div>
                         <div class="map-status-card" aria-hidden="true">
                             <span>Live Network</span>
-                            <strong>UAE Hub + 4 Trade Regions</strong>
+                            <strong>UAE Hub + Multiple Ports</strong>
                         </div>
                         <div class="map-fallback"> Interactive world map loading...</div>
                     </div>
