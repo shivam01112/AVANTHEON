@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (processSection && processTrack && processTimeline && processSteps.length > 0) {
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const stepDurationMs = 4200;
+        const stepDurationMs = 3000;
         const routeTravelDurationMs = 900;
         let activeProcessIndex = 0;
         let processTimer = 0;

@@ -3509,9 +3509,9 @@ body.about-page {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(390px, 0.88fr) minmax(500px, 1.12fr);
+    grid-template-columns: minmax(390px, 0.82fr) minmax(580px, 1.18fr);
     align-items: center;
-    gap: clamp(28px, 4.4vw, 66px);
+    gap: clamp(24px, 3.4vw, 52px);
 }
 
 .about-hero-copy {
@@ -3570,7 +3570,7 @@ body.about-page {
 
 .about-hero-visual {
     position: relative;
-    min-height: 500px;
+    min-height: 550px;
     overflow: hidden;
     border: 1px solid rgba(245, 193, 22, 0.22);
     border-radius: 8px;
@@ -3592,9 +3592,11 @@ body.about-page {
 .about-hero-visual img {
     width: 100%;
     height: 100%;
-    min-height: 500px;
+    min-height: 550px;
     object-fit: cover;
-    transform: scale(1.02);
+    object-position: center 52%;
+    filter: saturate(1.05) contrast(1.025);
+    transform: scale(1.015);
 }
 
 .about-hero-badge {
@@ -13459,7 +13461,7 @@ body.about-page #process .process-timeline::before {
 
 body.about-page #process .process-timeline::after {
     height: 4px;
-    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #37A69A 66%, #1699D5 100%);
+    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #2D86C8 66%, #1699D5 100%);
     box-shadow: 0 0 8px rgba(232, 179, 62, 0.32), 0 0 17px rgba(21, 152, 212, 0.16);
 }
 
@@ -14594,7 +14596,7 @@ body.about-page #process .process-timeline::before {
 
 body.about-page #process .process-timeline::after {
     height: 4px;
-    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #37A69A 66%, #1699D5 100%);
+    background: linear-gradient(90deg, #E4A92D 0%, #F1C14B 32%, #2D86C8 66%, #1699D5 100%);
     box-shadow: 0 0 8px rgba(232, 179, 62, 0.32), 0 0 17px rgba(21, 152, 212, 0.16);
 }
 
@@ -19738,28 +19740,22 @@ body.about-page #process .process-card-progress {
 
 /* Featured solution: premium gold accents on the light panel. */
 .solutions-page .featured-solution {
-    border-color: rgba(212, 175, 55, 0.38);
+    border-color: rgba(62, 118, 163, 0.28);
     background:
-        radial-gradient(circle at 92% 0%, rgba(26, 118, 197, 0.10), transparent 34%),
-        radial-gradient(circle at 48% 0%, rgba(246, 205, 83, 0.09), transparent 28%),
-        linear-gradient(145deg, #ffffff 0%, #f8fbfe 66%, #edf4fa 100%);
+        radial-gradient(circle at 95% 3%, rgba(26, 118, 197, 0.16), transparent 34%),
+        radial-gradient(circle at 30% 100%, rgba(11, 58, 109, 0.055), transparent 40%),
+        linear-gradient(145deg, #ffffff 0%, #f5f9fd 60%, #eaf3fa 100%);
     box-shadow:
-        0 28px 72px rgba(4, 24, 56, 0.14),
+        0 24px 58px rgba(4, 24, 56, 0.12),
         0 0 0 1px rgba(255, 255, 255, 0.92) inset;
 }
 
 .solutions-page .featured-solution::after {
-    position: absolute;
-    top: 0;
-    right: 30px;
-    left: 30px;
-    z-index: 6;
-    height: 3px;
-    content: "";
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, var(--gold-700) 18%, var(--gold-100) 50%, var(--gold-700) 82%, transparent);
-    border-radius: 0 0 999px 999px;
-    box-shadow: 0 3px 14px rgba(212, 175, 55, 0.22);
+    display: none;
+}
+
+.solutions-page .featured-solution::before {
+    background: linear-gradient(112deg, transparent 27%, rgba(26, 118, 197, 0.09) 49%, transparent 69%);
 }
 
 .solutions-page .featured-solution .solutions-kicker {
@@ -19770,10 +19766,8 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .featured-value-grid article > span {
-    color: #8f6c0d;
-    background:
-        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.72), transparent 34%),
-        linear-gradient(145deg, #fff6d4, #e4b82f);
+color: #edba0a;
+    background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.72), transparent 34%), linear-gradient(145deg, #fffffd, #ffffff);
     border-color: rgba(212, 175, 55, 0.52);
     box-shadow:
         0 10px 24px rgba(212, 175, 55, 0.16),
@@ -19791,15 +19785,15 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .featured-value-grid article,
 .solutions-page .featured-value-grid article + article {
-    border-color: rgba(212, 175, 55, 0.18);
+    border-color: rgba(52, 109, 156, 0.15);
 }
 
 .solutions-page .featured-bottom {
-    border-top-color: rgba(212, 175, 55, 0.28);
+    border-top-color: rgba(52, 109, 156, 0.17);
 }
 
 .solutions-page .featured-benefits i {
-    color: var(--gold-700);
+    color: #f5d148;
     filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.16));
 }
 
@@ -19979,9 +19973,7 @@ body.about-page #process .process-card-progress {
 /* Global network: centered content with the full map underneath. */
 .presence#operations {
     padding: 78px 0 88px !important;
-    background:
-        radial-gradient(circle at 50% 32%, rgba(26, 118, 197, 0.16), transparent 34%),
-        linear-gradient(180deg, #061f42 0%, #082b56 46%, #041838 100%);
+    background:linear-gradient(180deg, #01112c 0%, #011130 45%, #011430 75%, #011434 100%);
 }
 
 .presence#operations .split-layout {
@@ -20102,25 +20094,25 @@ body.about-page #process .process-card-progress {
 .presence#operations .vector-route-mesh path {
     fill: none;
     stroke: #F2BC2C;
-    stroke-dasharray: 9 8;
+    stroke-dasharray: 6 10;
     stroke-dashoffset: 0;
     stroke-linecap: round;
-    stroke-width: 1.02;
-    opacity: 0.82;
+    stroke-width: 0.84;
+    opacity: 0.68;
     filter:
-        drop-shadow(0 0 3px rgba(245, 193, 22, 0.36))
-        drop-shadow(0 0 8px rgba(245, 193, 22, 0.16));
-    animation: networkDashFlow 6.8s linear infinite;
+        drop-shadow(0 0 2px rgba(245, 193, 22, 0.30))
+        drop-shadow(0 0 6px rgba(245, 193, 22, 0.13));
+    animation: networkDashFlow 7.6s linear infinite;
 }
 
 .presence#operations .vector-route-web path:nth-child(n+10) {
-    stroke-width: 1.02;
-    opacity: 0.82;
-    stroke-dasharray: 9 8;
+    stroke-width: 0.84;
+    opacity: 0.68;
+    stroke-dasharray: 6 10;
     filter:
-        drop-shadow(0 0 3px rgba(245, 193, 22, 0.36))
-        drop-shadow(0 0 8px rgba(245, 193, 22, 0.16));
-    animation: networkDashFlow 6.8s linear infinite;
+        drop-shadow(0 0 2px rgba(245, 193, 22, 0.30))
+        drop-shadow(0 0 6px rgba(245, 193, 22, 0.13));
+    animation: networkDashFlow 7.6s linear infinite;
 }
 
 .presence#operations .vector-route-web path:nth-child(n+19) {
@@ -20134,9 +20126,9 @@ body.about-page #process .process-card-progress {
 .presence#operations .vector-route-web-track path {
     stroke: #F2BC2C;
     stroke-dasharray: none;
-    stroke-width: 1.8;
-    opacity: 0.14;
-    filter: blur(0.7px);
+    stroke-width: 1.4;
+    opacity: 0.13;
+    filter: blur(0.55px);
     animation: none;
 }
 
@@ -20145,11 +20137,19 @@ body.about-page #process .process-card-progress {
 }
 
 .presence#operations .vector-route-sparks circle {
-    display: none;
+    display: block;
+    fill: #FFF7D2;
+    stroke: #F2BC2C;
+    stroke-width: 0.55;
+    opacity: 0.9;
+    filter:
+        drop-shadow(0 0 3px rgba(255, 247, 210, 0.92))
+        drop-shadow(0 0 7px rgba(242, 188, 44, 0.72));
 }
 
 .presence#operations .vector-route-sparks circle:nth-child(n+7) {
-    display: none;
+    display: block;
+    opacity: 0.76;
 }
 
 .presence#operations .network-map-wrap::before,
@@ -20158,18 +20158,18 @@ body.about-page #process .process-card-progress {
 }
 
 .presence#operations .vector-route-mesh path:nth-child(3n+2) {
-    stroke-dasharray: 9 8;
-    stroke-width: 1.02;
-    opacity: 0.82;
-    animation: networkDashFlow 6.8s linear infinite;
+    stroke-dasharray: 6 10;
+    stroke-width: 0.84;
+    opacity: 0.68;
+    animation: networkDashFlow 7.6s linear infinite;
     animation-delay: -2.2s;
 }
 
 .presence#operations .vector-route-mesh path:nth-child(3n) {
-    stroke-dasharray: 9 8;
-    stroke-width: 1.02;
-    opacity: 0.82;
-    animation: networkDashFlow 6.8s linear infinite;
+    stroke-dasharray: 6 10;
+    stroke-width: 0.84;
+    opacity: 0.68;
+    animation: networkDashFlow 7.6s linear infinite;
     animation-delay: -4.4s;
 }
 
@@ -20231,6 +20231,276 @@ width: 9px;
     border-radius: 50%;
     margin-top: 4px;
     box-shadow: 0 0 8px rgba(35, 214, 138, 0.72);
+}
+
+/* Premium global network map — illuminated raster base with live SVG routes. */
+.presence#operations .map-panel {
+    min-height: 0;
+    aspect-ratio: 1916 / 821;
+}
+
+.presence#operations .network-map-wrap {
+    overflow: hidden;
+}
+
+.presence#operations .network-map-base {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.presence#operations .network-map {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.presence#operations .vector-network-overlay {
+    z-index: 3;
+    transform: none;
+}
+
+.presence#operations .map-legend,
+.presence#operations .map-status-card {
+    display: none;
+}
+
+.presence#operations .vector-route-web-track path {
+    stroke: #F6C846;
+    stroke-width: 1.25;
+    opacity: 0.16;
+    filter: blur(0.35px);
+}
+
+.presence#operations .vector-route-web:not(.vector-route-web-track) path {
+    stroke: #F7C844;
+    stroke-width: 0.9;
+    stroke-dasharray: 5 8;
+    opacity: 0.82;
+    filter: drop-shadow(0 0 2.5px rgba(247, 200, 68, 0.58));
+    animation-duration: 6.4s;
+}
+
+.presence#operations .vector-route-mesh path,
+.presence#operations .vector-route-mesh path:nth-child(3n+2),
+.presence#operations .vector-route-mesh path:nth-child(3n) {
+    stroke: #48A9FF;
+    stroke-width: 0.72;
+    stroke-dasharray: 2 7;
+    opacity: 0.72;
+    filter: drop-shadow(0 0 2px rgba(72, 169, 255, 0.46));
+    animation: networkDashFlow 8.8s linear infinite;
+}
+
+.presence#operations .vector-route-mesh path:nth-child(3n+2) {
+    animation-delay: -2.8s;
+}
+
+.presence#operations .vector-route-mesh path:nth-child(3n) {
+    animation-delay: -5.6s;
+}
+
+.presence#operations .vector-route-sparks circle {
+    fill: #FFF6C9;
+    stroke: #F7C844;
+    stroke-width: 0.45;
+    opacity: 1;
+    filter: drop-shadow(0 0 3px #FFF2A8) drop-shadow(0 0 7px rgba(247, 200, 68, 0.9));
+}
+
+.presence#operations .vector-route-sparks circle:nth-child(n+7):nth-child(-n+12) {
+    fill: #DFF4FF;
+    stroke: #48A9FF;
+    opacity: 0.96;
+    filter: drop-shadow(0 0 3px #DFF4FF) drop-shadow(0 0 7px rgba(72, 169, 255, 0.9));
+}
+
+.presence#operations .vector-port-markers {
+    filter: drop-shadow(0 0 5px rgba(247, 200, 68, 0.74));
+}
+
+.presence#operations .vector-port-labels text {
+    display: block;
+    fill: #F8FBFF;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.025em;
+    paint-order: stroke fill;
+    stroke: rgba(2, 15, 35, 0.96);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+}
+
+.presence#operations .vector-port-labels .port-country,
+.presence#operations .vector-port-labels .hub-country {
+    display: none;
+}
+
+.presence#operations .vector-port-labels .hub-name {
+    fill: #FFD34F;
+    font-size: 10px;
+}
+
+.presence#operations .vector-port-labels text:nth-child(4),
+.presence#operations .vector-port-labels text:nth-child(9) {
+    display: none;
+}
+
+.network-info-legend,
+.network-route-key {
+    position: absolute;
+    z-index: 6;
+    color: #F6FAFF;
+    background: rgba(2, 17, 42, 0.88);
+    border: 1px solid rgba(104, 162, 226, 0.32);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+.network-info-legend {
+    left: 16px;
+    bottom: 18px;
+    width: 184px;
+    padding: 12px 13px;
+    border-radius: 10px;
+}
+
+.network-info-legend > div {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 9px;
+    align-items: start;
+}
+
+.network-info-legend > div + div {
+    margin-top: 10px;
+}
+
+.network-feature-icon {
+    color: #F7C844;
+    font-size: 17px;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(247, 200, 68, 0.65);
+}
+
+.network-info-legend p {
+    margin: 0;
+}
+
+.network-info-legend strong,
+.network-info-legend small {
+    display: block;
+}
+
+.network-info-legend strong {
+    font-size: 8px;
+    line-height: 1.25;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+.network-info-legend small {
+    margin-top: 2px;
+    color: rgba(219, 232, 247, 0.7);
+    font-size: 6.7px;
+    line-height: 1.35;
+}
+
+.network-route-key {
+    left: 50%;
+    bottom: 18px;
+    display: grid;
+    gap: 7px;
+    min-width: 178px;
+    padding: 10px 14px;
+    border-radius: 9px;
+    transform: translateX(-50%);
+}
+
+.network-route-key span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(242, 247, 253, 0.88);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.network-route-key i {
+    width: 30px;
+    height: 0;
+    border-top: 1px dashed #F7C844;
+}
+
+.network-route-key .route-key-secondary {
+    border-color: #48A9FF;
+    border-top-style: dotted;
+}
+
+.network-route-key .route-key-port {
+    width: 7px;
+    height: 7px;
+    margin-left: 11px;
+    margin-right: 12px;
+    border: 1px solid #FFE58B;
+    border-radius: 50%;
+    background: #F7C844;
+    box-shadow: 0 0 7px rgba(247, 200, 68, 0.85);
+}
+
+@media (max-width: 860px) {
+    .presence#operations .map-panel {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .network-info-legend {
+        display: none;
+    }
+
+    .network-route-key {
+        bottom: 10px;
+        grid-template-columns: repeat(3, auto);
+        min-width: 0;
+        width: max-content;
+        max-width: calc(100% - 20px);
+        padding: 8px 10px;
+    }
+
+    .network-route-key span {
+        font-size: 6px;
+    }
+
+    .network-route-key i {
+        width: 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    .presence#operations .map-panel {
+        min-height: 300px;
+        aspect-ratio: auto;
+    }
+
+    .presence#operations .network-map-base {
+        object-fit: cover;
+    }
+
+    .presence#operations .vector-port-labels text,
+    .network-route-key {
+        display: none;
+    }
 }
 
 /* Contact page */

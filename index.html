@@ -35,7 +35,6 @@
                 <a class="nav-link" href="solution.html">Solutions</a>
                 <a class="nav-link" href="industries.html">Industries</a>
                 <a class="nav-link" href="#operations">Global Network</a>
-                <a class="nav-link" href="#advantage">Why Avantheon</a>
                 <a class="button button-gold nav-cta" href="contact.html">Contact Us</a>
             </nav>
         </div>
@@ -420,7 +419,7 @@
         </section>
 
                  <section class="presence" style="padding: 50px 0px;" id="operations">
-            <div class="container split-layout">
+            <div class="container-fluid split-layout">
                 <div class="section-copy reveal">
                     <p class="eyebrow">Global Network</p>
                     <h2>A Connected Global Network That Moves With You</h2>
@@ -437,6 +436,7 @@
                 <div class="map-panel reveal" aria-label="Interactive AVANTHEON global route map">
                     <div class="network-map-wrap">
                         <div class="map-atmosphere" aria-hidden="true"></div>
+                        <img class="network-map-base" src="images/global-network-map-premium.png" alt="Illuminated world map showing Avantheon's global trade network">
                         <div class="map-legend" aria-hidden="true">
                             <span class="map-legend-item"><i></i> Trade Routes</span>
                             <span class="map-legend-item map-legend-item-hub"><i></i> UAE Hub</span>
@@ -534,37 +534,50 @@
                                 <path id="web-route-singapore-alt-3" d="M625 285 C728 338 770 366 800 368"></path>
                             </g>
                             <g class="vector-route-mesh">
-                                <path d="M230 184 C315 94 430 112 510 188"></path>
-                                <path d="M230 184 C276 166 322 180 360 242"></path>
+                                <path id="mesh-route-north-atlantic" d="M230 184 C315 94 430 112 510 188"></path>
+                                <path id="mesh-route-north-america" d="M230 184 C276 166 322 180 360 242"></path>
                                 <path d="M230 184 C308 266 330 354 325 440"></path>
-                                <path d="M360 242 C402 182 462 166 510 188"></path>
+                                <path id="mesh-route-europe" d="M360 242 C402 182 462 166 510 188"></path>
                                 <path d="M360 242 C424 218 510 232 564 270"></path>
                                 <path d="M360 242 C500 154 698 146 836 250"></path>
-                                <path d="M510 188 C620 116 754 146 836 250"></path>
+                                <path id="mesh-route-north-asia" d="M510 188 C620 116 754 146 836 250"></path>
                                 <path d="M510 188 C630 206 748 294 800 368"></path>
                                 <path d="M564 270 C646 198 758 196 836 250"></path>
                                 <path d="M564 270 C654 272 748 326 800 368"></path>
                                 <path d="M836 250 C858 294 836 338 800 368"></path>
                                 <path d="M836 250 C916 304 932 392 900 465"></path>
-                                <path d="M800 368 C842 390 880 424 900 465"></path>
-                                <path d="M325 440 C416 486 500 496 573 468"></path>
+                                <path id="mesh-route-oceania" d="M800 368 C842 390 880 424 900 465"></path>
+                                <path id="mesh-route-south-atlantic" d="M325 440 C416 486 500 496 573 468"></path>
                                 <path d="M325 440 C486 506 724 482 900 465"></path>
                                 <path d="M573 468 C646 416 730 382 800 368"></path>
                                 <path d="M573 468 C692 508 818 500 900 465"></path>
                                 <path d="M325 440 C476 360 684 328 800 368"></path>
                             </g>
                             <g class="vector-route-sparks">
-                                <circle r="2.1"><animateMotion dur="6.4s" repeatCount="indefinite" begin="-1.4s"><mpath href="#web-route-vancouver"></mpath></animateMotion></circle>
-                                <circle r="2.1"><animateMotion dur="5.8s" repeatCount="indefinite" begin="-4.2s"><mpath href="#web-route-new-york"></mpath></animateMotion></circle>
-                                <circle r="2.1"><animateMotion dur="4.9s" repeatCount="indefinite" begin="-2.8s"><mpath href="#web-route-rotterdam"></mpath></animateMotion></circle>
-                                <circle r="2.1"><animateMotion dur="4.3s" repeatCount="indefinite" begin="-3.6s"><mpath href="#web-route-shanghai"></mpath></animateMotion></circle>
-                                <circle r="2.1"><animateMotion dur="5.2s" repeatCount="indefinite" begin="-0.9s"><mpath href="#web-route-singapore"></mpath></animateMotion></circle>
-                                <circle r="2.1"><animateMotion dur="6.2s" repeatCount="indefinite" begin="-4.8s"><mpath href="#web-route-sydney"></mpath></animateMotion></circle>
-                                <circle r="1.7"><animateMotion dur="7.8s" repeatCount="indefinite" begin="-2.1s"><mpath href="#web-route-north-pacific"></mpath></animateMotion></circle>
-                                <circle r="1.7"><animateMotion dur="7.2s" repeatCount="indefinite" begin="-5.4s"><mpath href="#web-route-atlantic-wide"></mpath></animateMotion></circle>
-                                <circle r="1.7"><animateMotion dur="8.1s" repeatCount="indefinite" begin="-3.7s"><mpath href="#web-route-south-america-deep"></mpath></animateMotion></circle>
-                                <circle r="1.7"><animateMotion dur="6.9s" repeatCount="indefinite" begin="-1.8s"><mpath href="#web-route-north-asia"></mpath></animateMotion></circle>
-                                <circle r="1.7"><animateMotion dur="7.5s" repeatCount="indefinite" begin="-6.1s"><mpath href="#web-route-oceania-wide"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="7.4s" repeatCount="indefinite" begin="-1.4s"><mpath href="#web-route-vancouver"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="6.8s" repeatCount="indefinite" begin="-4.2s"><mpath href="#web-route-new-york"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="6.1s" repeatCount="indefinite" begin="-2.8s"><mpath href="#web-route-rotterdam"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="7.1s" repeatCount="indefinite" begin="-3.6s"><mpath href="#web-route-shanghai"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="6.6s" repeatCount="indefinite" begin="-0.9s"><mpath href="#web-route-singapore"></mpath></animateMotion></circle>
+                                <circle r="1.65"><animateMotion dur="8.2s" repeatCount="indefinite" begin="-4.8s"><mpath href="#web-route-sydney"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="8.8s" repeatCount="indefinite" begin="-2.1s"><mpath href="#mesh-route-north-atlantic"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="7.6s" repeatCount="indefinite" begin="-5.4s"><mpath href="#mesh-route-north-america"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="7.9s" repeatCount="indefinite" begin="-3.7s"><mpath href="#mesh-route-europe"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="9.2s" repeatCount="indefinite" begin="-1.8s"><mpath href="#mesh-route-north-asia"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="7.8s" repeatCount="indefinite" begin="-6.1s"><mpath href="#mesh-route-oceania"></mpath></animateMotion></circle>
+                                <circle r="1.4"><animateMotion dur="8.6s" repeatCount="indefinite" begin="-3.2s"><mpath href="#mesh-route-south-atlantic"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="9.4s" repeatCount="indefinite" begin="-7.1s"><mpath href="#web-route-vancouver-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="8.1s" repeatCount="indefinite" begin="-5.8s"><mpath href="#web-route-new-york-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="7.7s" repeatCount="indefinite" begin="-4.9s"><mpath href="#web-route-rotterdam-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="8.9s" repeatCount="indefinite" begin="-6.6s"><mpath href="#web-route-shanghai-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="7.5s" repeatCount="indefinite" begin="-3.9s"><mpath href="#web-route-singapore-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.3"><animateMotion dur="9.7s" repeatCount="indefinite" begin="-8.3s"><mpath href="#web-route-sydney-alt-1"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="10.2s" repeatCount="indefinite" begin="-5.1s"><mpath href="#web-route-vancouver-alt-2"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="8.6s" repeatCount="indefinite" begin="-2.7s"><mpath href="#web-route-new-york-alt-2"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="9.1s" repeatCount="indefinite" begin="-7.4s"><mpath href="#web-route-shanghai-alt-2"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="8.3s" repeatCount="indefinite" begin="-4.5s"><mpath href="#web-route-singapore-alt-2"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="10.5s" repeatCount="indefinite" begin="-9.2s"><mpath href="#web-route-sydney-alt-2"></mpath></animateMotion></circle>
+                                <circle r="1.15"><animateMotion dur="8.8s" repeatCount="indefinite" begin="-6.3s"><mpath href="#web-route-durban-alt-2"></mpath></animateMotion></circle>
                             </g>
                             <g class="vector-port-markers">
                                 <g class="vector-port-marker" transform="translate(230 184)"><circle class="port-orbit" r="7.5"></circle><circle class="port-aura" r="5"></circle><circle class="port-core" r="3.2"></circle><circle class="port-center" r="1.15"></circle></g>
@@ -600,7 +613,17 @@
                         <button class="vector-map-pin vector-pin-africa" type="button" data-location="Africa" data-detail="Trade support across connected African supply networks." aria-label="Africa"></button>
                         <button class="vector-map-pin vector-pin-south-america" type="button" data-location="South America" data-detail="Container access across South American trade markets." aria-label="South America"></button>
                         <div class="vector-map-tooltip" id="network-map-tooltip" role="status" aria-live="polite"></div>
-                        <div class="map-status-card" aria-hidden="true"><span>Live Network</span><i></i></div>
+                        <aside class="network-info-legend" aria-label="Global network features">
+                            <div><span class="network-feature-icon">●</span><p><strong>Strategic Locations</strong><small>Positioned at key global hubs</small></p></div>
+                            <div><span class="network-feature-icon">◎</span><p><strong>Global Connections</strong><small>Seamless links across continents</small></p></div>
+                            <div><span class="network-feature-icon">◆</span><p><strong>Reliable Infrastructure</strong><small>Built for performance and trust</small></p></div>
+                            <div><span class="network-feature-icon">∞</span><p><strong>Endless Possibilities</strong><small>Solutions that move your business forward</small></p></div>
+                        </aside>
+                        <div class="network-route-key" aria-label="Route legend">
+                            <span><i class="route-key-primary"></i>Primary Routes</span>
+                            <span><i class="route-key-secondary"></i>Secondary Routes</span>
+                            <span><i class="route-key-port"></i>Key Ports</span>
+                        </div>
                         <div class="map-fallback"> Interactive world map loading...</div>
                     </div>
                 </div>
