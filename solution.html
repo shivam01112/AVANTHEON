@@ -58,7 +58,8 @@
                     </div>
                 </div>
 
-                <div class="solution-selector reveal" aria-label="Avantheon solution overview">
+                <div class="solutions-showcase">
+                <div class="solution-selector reveal" role="tablist" aria-label="Choose an Avantheon solution">
                     <svg class="solutions-stage-svg" viewBox="0 0 940 540" preserveAspectRatio="none" aria-hidden="true">
                         <defs>
                             <filter id="solutions-stage-glow" x="-30%" y="-30%" width="160%" height="160%">
@@ -79,8 +80,8 @@
                                 <stop offset="1" stop-color="#f3aa36" stop-opacity="0"></stop>
                             </linearGradient>
                             <linearGradient id="solutions-stage-teal" x1="1" y1="0" x2="0" y2="1">
-                                <stop offset="0" stop-color="#37c9b8" stop-opacity="0"></stop>
-                                <stop offset="0.42" stop-color="#37c9b8" stop-opacity="0.86"></stop>
+                                <stop offset="0" stop-color="#1a76c5" stop-opacity="0"></stop>
+                                <stop offset="0.42" stop-color="#1a76c5" stop-opacity="0.86"></stop>
                                 <stop offset="1" stop-color="#f3aa36" stop-opacity="0.2"></stop>
                             </linearGradient>
                         </defs>
@@ -102,7 +103,7 @@
                             <animateMotion dur="3.4s" repeatCount="indefinite" path="M332 456 C392 494 548 494 608 456"></animateMotion>
                         </circle>
                     </svg>
-                    <article class="solution-card solution-card-leasing">
+                    <article class="solution-card solution-card-leasing" data-solution="leasing" role="tab" tabindex="-1" aria-selected="false" aria-controls="featured-solution">
                         <span class="solution-card-icon"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></span>
                         <span class="solution-card-title">Container Leasing</span>
                         <span class="solution-card-image">
@@ -111,7 +112,7 @@
                         <span class="solution-card-copy">Flexible access without long-term commitment.</span>
                     </article>
 
-                    <article class="solution-card solution-card-own is-active">
+                    <article class="solution-card solution-card-own is-active" data-solution="lease-to-own" role="tab" tabindex="0" aria-selected="true" aria-controls="featured-solution">
                         <!-- <span class="solution-card-badge">Featured Solution</span> -->
                         <span class="solution-card-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
                         <span class="solution-card-title">Lease-to-Own</span>
@@ -121,7 +122,7 @@
                         <span class="solution-card-copy">Operate today while you build ownership over time.</span>
                     </article>
 
-                    <article class="solution-card solution-card-trading">
+                    <article class="solution-card solution-card-trading" data-solution="trading" role="tab" tabindex="-1" aria-selected="false" aria-controls="featured-solution">
                         <span class="solution-card-icon"><i class="fa-solid fa-dharmachakra" aria-hidden="true"></i></span>
                         <span class="solution-card-title">Container Trading</span>
                         <span class="solution-card-image">
@@ -130,10 +131,12 @@
                         <span class="solution-card-copy">Buy quality containers with confidence and transparency.</span>
                     </article>
                 </div>
-            </div>
-            <div class="solutions-scroll-cue" aria-hidden="true">
-                <i class="fa-solid fa-computer-mouse"></i>
-                <span>Explore each solution below</span>
+                    <div class="solutions-scroll-cue">
+                        <i class="fa-regular fa-hand-pointer" aria-hidden="true"></i>
+                        <span><strong>Choose a solution</strong> to explore full details</span>
+                        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
         </section>
 

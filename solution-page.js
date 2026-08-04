@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const featuredTag = document.querySelector(".featured-media-tag");
     const featuredCta = document.querySelector("[data-featured-cta]");
     let activeSolution = "lease-to-own";
-    let transitionTimer = 0;
 
     const updateSolution = (solutionKey, options = {}) => {
         const { scrollToPanel = false } = options;
@@ -150,9 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.toggle("is-active", isActive);
             card.setAttribute("aria-pressed", String(isActive));
         });
-
-        featuredPanel.classList.add("is-changing");
-        window.clearTimeout(transitionTimer);
 
         const applyContent = () => {
             if (featuredImage) {
@@ -185,25 +181,27 @@ document.addEventListener("DOMContentLoaded", () => {
             featuredPanel.classList.remove("is-changing");
         };
 
-        if (prefersReducedMotion) {
-            applyContent();
-        } else {
-            transitionTimer = window.setTimeout(applyContent, 180);
-        }
+        applyContent();
 
         if (scrollToPanel) {
-            window.setTimeout(() => {
+            window.requestAnimationFrame(() => {
                 featuredPanel.scrollIntoView({
                     behavior: prefersReducedMotion ? "auto" : "smooth",
-                    block: "center"
+                    block: "start"
                 });
-            }, prefersReducedMotion ? 0 : 220);
+            });
         }
     };
 
     solutionCards.forEach((card, index) => {
         card.addEventListener("click", () => updateSolution(card.dataset.solution, { scrollToPanel: true }));
         card.addEventListener("keydown", (event) => {
+            if (["Enter", " "].includes(event.key)) {
+                event.preventDefault();
+                updateSolution(card.dataset.solution, { scrollToPanel: true });
+                return;
+            }
+
             if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
                 return;
             }
@@ -224,6 +222,13 @@ document.addEventListener("DOMContentLoaded", () => {
     comparisonCards.forEach((card) => {
         card.addEventListener("click", () => updateSolution(card.dataset.solution, { scrollToPanel: true }));
     });
+
+    const linkedSolution = new URLSearchParams(window.location.search).get("solution");
+    if (linkedSolution && solutions[linkedSolution]) {
+        updateSolution(linkedSolution, {
+            scrollToPanel: window.location.hash === "#featured-solution"
+        });
+    }
 
     const comparisonExperience = document.querySelector("[data-comparison]");
     const comparisonFilters = Array.from(document.querySelectorAll("[data-comparison-filter]"));
