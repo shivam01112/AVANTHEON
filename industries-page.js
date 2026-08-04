@@ -540,21 +540,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="industry-detail-columns">
                             <article class="industry-detail-column">
                                 <h4>Industry Challenge</h4>
-                                <p>${escapeHtml(getSummary(industry.challenge, 155))}</p>
+                                <p>${escapeHtml(getSummary(industry.challenge, 112))}</p>
                             </article>
                             <article class="industry-detail-column">
                                 <h4>How Avantheon Helps</h4>
-                                <p>${escapeHtml(getSummary(industry.helps, 165))}</p>
+                                <p>${escapeHtml(getSummary(industry.helps, 124))}</p>
                             </article>
                             <article class="industry-detail-column">
                                 <h4>Operational Outcome</h4>
-                                <p>${escapeHtml(getSummary(industry.teaser, 150))}</p>
+                                <p>${escapeHtml(getSummary(industry.teaser, 108))}</p>
                             </article>
                         </div>
                         <div class="industry-detail-grid">
                             <article class="industry-detail-list">
                                 <h4>Business Benefits</h4>
-                                <ul>${renderList(industry.benefits)}</ul>
+                                <ul>${renderList(industry.benefits.slice(0, 4))}</ul>
                             </article>
                             <article class="industry-detail-list">
                                 <h4>Solutions Most Used</h4>
@@ -562,12 +562,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             </article>
                             <article class="industry-detail-list">
                                 <h4>Typical Applications</h4>
-                                <ul>${renderList(industry.applications)}</ul>
+                                <ul>${renderList(industry.applications.slice(0, 3))}</ul>
                             </article>
                         </div>
                         <div class="industry-detail-footer">
                             <span>Container infrastructure tailored for this industry</span>
-                            <a class="button button-gold industry-detail-cta" href="mailto:info@avantheon.com">Explore Solutions -&gt;</a>
+                            <a class="button button-gold industry-detail-cta" href="contact.html#enquiry-form">Explore Solutions -&gt;</a>
                         </div>
                     </div>
                 </div>
