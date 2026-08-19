@@ -84,36 +84,34 @@
                 </div>
 
                 <div class="contact-enquiry reveal">
-                    <div class="contact-stepper" aria-label="Enquiry progress">
-                        <div class="contact-stepper-item is-active" data-step-indicator="1">
+                    <div class="contact-stepper" role="tablist" aria-label="Enquiry progress">
+                        <button class="contact-stepper-item is-active" type="button" role="tab" aria-selected="true" aria-controls="contact-step-1" data-step-indicator="1">
                             <span class="contact-stepper-circle">1</span>
                             <span class="contact-stepper-label"><small>Step 1</small>Business Information</span>
-                        </div>
-                        <span class="contact-stepper-line" aria-hidden="true"></span>
-                        <div class="contact-stepper-item" data-step-indicator="2">
+                        </button>
+                        <span class="contact-stepper-line" data-step-line="1" aria-hidden="true"></span>
+                        <button class="contact-stepper-item" type="button" role="tab" aria-selected="false" aria-controls="contact-step-2" data-step-indicator="2">
                             <span class="contact-stepper-circle">2</span>
                             <span class="contact-stepper-label"><small>Step 2</small>Requirements</span>
-                        </div>
-                        <span class="contact-stepper-line" aria-hidden="true"></span>
-                        <div class="contact-stepper-item" data-step-indicator="3">
+                        </button>
+                        <span class="contact-stepper-line" data-step-line="2" aria-hidden="true"></span>
+                        <button class="contact-stepper-item" type="button" role="tab" aria-selected="false" aria-controls="contact-step-3" data-step-indicator="3">
                             <span class="contact-stepper-circle">3</span>
                             <span class="contact-stepper-label"><small>Step 3</small>Contact &amp; Submit</span>
-                        </div>
+                        </button>
                     </div>
 
                     <form class="contact-form" id="contact-form" novalidate>
                         <div class="contact-steps-viewport">
                             <div class="contact-steps-track" id="contact-steps-track">
-                                <fieldset class="contact-step-panel is-active" data-step="1">
-                                    <legend class="contact-step-heading">
+                                <fieldset class="contact-step-panel is-active" id="contact-step-1" data-step="1" role="tabpanel">
+                                    <div class="contact-step-heading">
                                         <span class="contact-step-tag">Step 1</span>
-                                        <span>
-                                            <strong>Business Information</strong>
-                                            <small>Let&rsquo;s begin with a few details about you and your business.</small>
-                                        </span>
-                                    </legend>
+                                        <strong>Business Information</strong>
+                                        <p>Let&rsquo;s begin with a few details about you and your business.</p>
+                                    </div>
 
-                                    <div class="contact-form-grid">
+                                    <div class="contact-form-grid contact-form-grid-step1">
                                         <div class="contact-field contact-field-wide">
                                             <label for="contact-company">Company Name <em>*</em></label>
                                             <div class="contact-input-wrap">
@@ -170,9 +168,9 @@
                                             <small class="contact-field-note">Used solely to verify legitimate business enquiries. If your country does not issue a TRN/VAT number, you may enter your business registration number instead.</small>
                                             <small class="field-error">Please enter your TRN or business registration number.</small>
                                         </div>
-                                        <div class="contact-field">
+                                        <div class="contact-field contact-field-wide">
                                             <label for="contact-phone">Phone Number <em>*</em></label>
-                                            <div class="contact-input-wrap contact-phone-wrap">
+                                            <div class="contact-phone-wrap">
                                                 <span class="contact-phone-prefix" aria-hidden="true">+971</span>
                                                 <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="00 000 0000" required>
                                             </div>
@@ -186,14 +184,12 @@
                                     <p class="contact-secure-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Your information is secure and will never be shared with third parties.</p>
                                 </fieldset>
 
-                                <fieldset class="contact-step-panel" data-step="2">
-                                    <legend class="contact-step-heading">
+                                <fieldset class="contact-step-panel" id="contact-step-2" data-step="2" role="tabpanel">
+                                    <div class="contact-step-heading">
                                         <span class="contact-step-tag">Step 2</span>
-                                        <span>
-                                            <strong>Requirements</strong>
-                                            <small>Tell us what you need so we can prepare the right commercial response.</small>
-                                        </span>
-                                    </legend>
+                                        <strong>Requirements</strong>
+                                        <p>Tell us what you need so we can prepare the right commercial response.</p>
+                                    </div>
 
                                     <div class="contact-field contact-field-wide">
                                         <span class="contact-field-label">Solution Required <em>*</em></span>
@@ -255,7 +251,7 @@
                                             </div>
                                             <small class="field-error">Please enter an estimated quantity.</small>
                                         </div>
-                                        <div class="contact-field">
+                                        <div class="contact-field contact-field-wide contact-field-timeline">
                                             <span class="contact-field-label">Preferred Timeline <em>*</em></span>
                                             <div class="contact-chip-group" role="radiogroup" aria-label="Preferred timeline">
                                                 <label class="contact-chip"><input type="radio" name="timeline" value="Immediate" required><span>Immediate</span></label>
@@ -273,14 +269,12 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="contact-step-panel" data-step="3">
-                                    <legend class="contact-step-heading">
+                                <fieldset class="contact-step-panel" id="contact-step-3" data-step="3" role="tabpanel">
+                                    <div class="contact-step-heading">
                                         <span class="contact-step-tag">Step 3</span>
-                                        <span>
-                                            <strong>Contact &amp; Submit</strong>
-                                            <small>Share any additional requirements and submit your enquiry.</small>
-                                        </span>
-                                    </legend>
+                                        <strong>Contact &amp; Submit</strong>
+                                        <p>Share any additional requirements and submit your enquiry.</p>
+                                    </div>
 
                                     <div class="contact-form-grid">
                                         <div class="contact-field contact-field-wide">

@@ -60,12 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageCount = document.getElementById("message-count");
     const stepPanels = Array.from(document.querySelectorAll(".contact-step-panel"));
     const stepIndicators = Array.from(document.querySelectorAll("[data-step-indicator]"));
+    const stepLines = Array.from(document.querySelectorAll("[data-step-line]"));
 
     if (!form || !track) {
         return;
     }
 
     let currentStep = 1;
+    let maxVisitedStep = 1;
 
     const updateMessageCount = () => {
         if (!messageField || !messageCount) {
@@ -158,11 +160,40 @@ document.addEventListener("DOMContentLoaded", () => {
             const step = Number(item.dataset.stepIndicator);
             item.classList.toggle("is-active", step === currentStep);
             item.classList.toggle("is-complete", step < currentStep);
+            item.setAttribute("aria-selected", String(step === currentStep));
+        });
+
+        stepLines.forEach((line) => {
+            const lineStep = Number(line.dataset.stepLine);
+            line.classList.toggle("is-complete", lineStep < currentStep);
         });
 
         stepPanels.forEach((panel) => {
             panel.classList.toggle("is-active", Number(panel.dataset.step) === currentStep);
         });
+    };
+
+    const goToStep = (targetStep) => {
+        if (targetStep < 1 || targetStep > stepPanels.length || targetStep === currentStep) {
+            return;
+        }
+
+        if (targetStep > currentStep) {
+            for (let step = currentStep; step < targetStep; step += 1) {
+                if (!validateStep(step)) {
+                    return;
+                }
+            }
+        }
+
+        currentStep = targetStep;
+        maxVisitedStep = Math.max(maxVisitedStep, currentStep);
+        updateStepUI();
+        status?.classList.remove("is-visible");
+
+        const activePanel = stepPanels.find((panel) => Number(panel.dataset.step) === currentStep);
+        const firstField = activePanel?.querySelector("input, select, textarea, button");
+        firstField?.focus({ preventScroll: true });
     };
 
     form.querySelectorAll("[required]").forEach((field) => {
@@ -183,21 +214,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const action = button.dataset.action;
 
             if (action === "next") {
-                if (!validateStep(currentStep)) {
-                    return;
-                }
+                goToStep(currentStep + 1);
+                return;
+            }
 
-                currentStep = Math.min(currentStep + 1, stepPanels.length);
+            if (action === "prev") {
+                goToStep(currentStep - 1);
+            }
+        });
+    });
+
+    stepIndicators.forEach((indicator) => {
+        indicator.addEventListener("click", () => {
+            const targetStep = Number(indicator.dataset.stepIndicator);
+
+            if (targetStep <= maxVisitedStep || targetStep <= currentStep) {
+                currentStep = targetStep;
+                maxVisitedStep = Math.max(maxVisitedStep, currentStep);
                 updateStepUI();
                 status?.classList.remove("is-visible");
                 return;
             }
 
-            if (action === "prev") {
-                currentStep = Math.max(currentStep - 1, 1);
-                updateStepUI();
-                status?.classList.remove("is-visible");
-            }
+            goToStep(targetStep);
         });
     });
 
