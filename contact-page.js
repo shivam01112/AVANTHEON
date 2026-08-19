@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const stepPanels = Array.from(document.querySelectorAll(".contact-step-panel"));
     const stepIndicators = Array.from(document.querySelectorAll("[data-step-indicator]"));
     const stepLines = Array.from(document.querySelectorAll("[data-step-line]"));
+    const stepsViewport = document.querySelector(".contact-steps-viewport");
 
     if (!form || !track) {
         return;
@@ -68,6 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentStep = 1;
     let maxVisitedStep = 1;
+
+    const syncStepHeight = () => {
+        if (!stepsViewport || window.innerWidth < 1081) {
+            stepsViewport?.style.removeProperty("min-height");
+            return;
+        }
+
+        let maxHeight = 0;
+
+        stepPanels.forEach((panel) => {
+            maxHeight = Math.max(maxHeight, panel.offsetHeight);
+        });
+
+        stepsViewport.style.minHeight = `${maxHeight}px`;
+    };
 
     const updateMessageCount = () => {
         if (!messageField || !messageCount) {
@@ -171,6 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
         stepPanels.forEach((panel) => {
             panel.classList.toggle("is-active", Number(panel.dataset.step) === currentStep);
         });
+
+        window.requestAnimationFrame(syncStepHeight);
     };
 
     const goToStep = (targetStep) => {
@@ -281,4 +299,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updateStepUI();
+    syncStepHeight();
+    window.addEventListener("resize", syncStepHeight, { passive: true });
 });
