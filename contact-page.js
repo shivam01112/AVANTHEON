@@ -54,26 +54,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const form = document.getElementById("contact-form");
+    const track = document.getElementById("contact-steps-track");
     const status = document.getElementById("contact-form-status");
+    const messageField = document.getElementById("contact-message");
+    const messageCount = document.getElementById("message-count");
+    const stepPanels = Array.from(document.querySelectorAll(".contact-step-panel"));
+    const stepIndicators = Array.from(document.querySelectorAll("[data-step-indicator]"));
 
-    if (!form) {
+    if (!form || !track) {
         return;
     }
 
-    const requiredFields = Array.from(form.querySelectorAll("[required]"));
-    const consent = form.querySelector('input[name="consent"]');
-    const consentError = form.querySelector(".contact-consent-error");
+    let currentStep = 1;
+
+    const updateMessageCount = () => {
+        if (!messageField || !messageCount) {
+            return;
+        }
+
+        messageCount.textContent = String(messageField.value.length);
+    };
+
+    messageField?.addEventListener("input", updateMessageCount);
+    updateMessageCount();
+
+    const getStepFields = (step) => {
+        const panel = stepPanels.find((item) => Number(item.dataset.step) === step);
+        if (!panel) {
+            return [];
+        }
+
+        return Array.from(panel.querySelectorAll("[required]"));
+    };
 
     const isFieldValid = (field) => {
         if (field.type === "checkbox") {
             return field.checked;
         }
 
+        if (field.type === "radio") {
+            return Boolean(form.querySelector(`input[name="${field.name}"]:checked`));
+        }
+
+        if (field.type === "number") {
+            return field.value.trim() !== "" && Number(field.value) > 0;
+        }
+
         return field.checkValidity() && field.value.trim() !== "";
     };
 
     const updateFieldState = (field) => {
+        if (field.type === "radio") {
+            const wrapper = field.closest(".contact-field");
+            const groupValid = isFieldValid(field);
+            wrapper?.classList.toggle("is-invalid", !groupValid);
+            return groupValid;
+        }
+
         if (field.type === "checkbox") {
+            const consentError = form.querySelector(".contact-consent-error");
             consentError?.classList.toggle("is-visible", !field.checked);
             return field.checked;
         }
@@ -85,11 +124,79 @@ document.addEventListener("DOMContentLoaded", () => {
         return isValid;
     };
 
-    requiredFields.forEach((field) => {
+    const validateStep = (step) => {
+        const fields = getStepFields(step);
+        const checkedGroups = new Set();
+        let firstInvalid = null;
+
+        fields.forEach((field) => {
+            if (field.type === "radio") {
+                if (checkedGroups.has(field.name)) {
+                    return;
+                }
+
+                checkedGroups.add(field.name);
+            }
+
+            const isValid = updateFieldState(field);
+
+            if (!isValid && !firstInvalid) {
+                firstInvalid = field.type === "radio"
+                    ? form.querySelector(`input[name="${field.name}"]`)
+                    : field;
+            }
+        });
+
+        firstInvalid?.focus();
+        return !firstInvalid;
+    };
+
+    const updateStepUI = () => {
+        track.style.transform = `translateX(-${(currentStep - 1) * (100 / stepPanels.length)}%)`;
+
+        stepIndicators.forEach((item) => {
+            const step = Number(item.dataset.stepIndicator);
+            item.classList.toggle("is-active", step === currentStep);
+            item.classList.toggle("is-complete", step < currentStep);
+        });
+
+        stepPanels.forEach((panel) => {
+            panel.classList.toggle("is-active", Number(panel.dataset.step) === currentStep);
+        });
+    };
+
+    form.querySelectorAll("[required]").forEach((field) => {
+        const eventName = field.tagName === "SELECT" || field.type === "checkbox" || field.type === "radio"
+            ? "change"
+            : "input";
+
         field.addEventListener("blur", () => updateFieldState(field));
-        field.addEventListener(field.tagName === "SELECT" || field.type === "checkbox" ? "change" : "input", () => {
-            if (field.type === "checkbox" || field.closest(".contact-field")?.classList.contains("is-invalid")) {
+        field.addEventListener(eventName, () => {
+            if (field.type === "checkbox" || field.type === "radio" || field.closest(".contact-field")?.classList.contains("is-invalid")) {
                 updateFieldState(field);
+            }
+        });
+    });
+
+    form.querySelectorAll("[data-action]").forEach((button) => {
+        button.addEventListener("click", () => {
+            const action = button.dataset.action;
+
+            if (action === "next") {
+                if (!validateStep(currentStep)) {
+                    return;
+                }
+
+                currentStep = Math.min(currentStep + 1, stepPanels.length);
+                updateStepUI();
+                status?.classList.remove("is-visible");
+                return;
+            }
+
+            if (action === "prev") {
+                currentStep = Math.max(currentStep - 1, 1);
+                updateStepUI();
+                status?.classList.remove("is-visible");
             }
         });
     });
@@ -97,11 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const invalidFields = requiredFields.filter((field) => !updateFieldState(field));
-
-        if (invalidFields.length > 0) {
-            invalidFields[0].focus();
-            status?.classList.remove("is-visible");
+        if (!validateStep(currentStep)) {
             return;
         }
 
@@ -112,16 +215,19 @@ document.addEventListener("DOMContentLoaded", () => {
             "",
             "I would like to submit the following business enquiry:",
             "",
+            `Company: ${data.get("company")}`,
             `Name: ${data.get("name")}`,
-            `Company: ${data.get("company") || "Not provided"}`,
             `Email: ${data.get("email")}`,
-            `Phone: ${data.get("phone") || "Not provided"}`,
-            `Country / Market: ${data.get("country") || "Not provided"}`,
-            `Solution: ${data.get("interest")}`,
-            `Estimated Quantity: ${data.get("quantity") || "Not provided"}`,
+            `Country: ${data.get("country")}`,
+            `TRN / Tax Registration Number: ${data.get("trn")}`,
+            `Phone: +971 ${data.get("phone")}`,
+            `Solution Required: ${data.get("interest")}`,
+            `Industry: ${data.get("industry")}`,
+            `Estimated Container Requirement: ${data.get("quantity")}`,
+            `Preferred Timeline: ${data.get("timeline")}`,
             "",
-            "Requirement:",
-            data.get("message"),
+            "Additional Requirements:",
+            data.get("message") || "Not provided",
             "",
             "Regards,",
             data.get("name")
@@ -134,4 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.location.href = `mailto:info@avantheon.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
+
+    updateStepUI();
 });
