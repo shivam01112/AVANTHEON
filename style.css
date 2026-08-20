@@ -10407,6 +10407,14 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
         min-height: 72px;
     }
 
+    .container {
+        width: min(100% - 32px, 1280px);
+    }
+
+    .site-header {
+        padding-top: max(8px, env(safe-area-inset-top));
+    }
+
     .brand-mark {
         width: 36px;
         height: 36px;
@@ -10436,13 +10444,36 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .hero-inner {
-        min-height: 720px;
-        padding-top: 96px;
-        padding-bottom: 130px;
+        min-height: auto;
+        padding-top: 88px;
+        padding-bottom: 100px;
+    }
+
+    .hero-copy .eyebrow {
+        margin-bottom: 16px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(32px, 9vw, 40px);
+        line-height: 1.08;
     }
 
     .hero-lead {
-        font-size: 16px;
+        margin: 18px 0 26px;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .hero-trust-tags span {
+        min-height: 64px;
+        padding: 12px;
+        font-size: 11px;
+    }
+
+    .hero-trust-tags strong {
+        font-size: 11px;
     }
 
     .hero-actions,
@@ -21647,6 +21678,23 @@ width: 9px;
         padding: 106px 0 42px;
     }
 
+    .contact-main > .container {
+        width: min(100% - 32px, 1180px);
+    }
+
+    .contact-intro-lead {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .contact-value-list strong {
+        font-size: 13px;
+    }
+
+    .contact-value-list p {
+        font-size: 12px;
+    }
+
     .contact-enquiry {
         padding: 18px 14px;
         border-radius: 16px;
@@ -21671,6 +21719,54 @@ width: 9px;
 
     .contact-stepper-label {
         font-size: 10px;
+    }
+
+    .contact-step-heading strong {
+        font-size: 20px;
+    }
+
+    .contact-step-heading p {
+        font-size: 13px;
+    }
+
+    .contact-step-tag {
+        font-size: 10px;
+    }
+
+    .contact-field label,
+    .contact-field-label {
+        font-size: 10px;
+    }
+
+    .contact-field input,
+    .contact-field select,
+    .contact-field textarea {
+        font-size: 16px;
+    }
+
+    .contact-field input,
+    .contact-field select {
+        min-height: 46px;
+    }
+
+    .contact-choice-card {
+        min-height: 74px;
+        padding: 12px 8px;
+        font-size: 10px;
+    }
+
+    .contact-chip span {
+        min-height: 40px;
+        font-size: 11px;
+    }
+
+    .contact-step-btn {
+        min-height: 48px;
+        font-size: 14px;
+    }
+
+    .contact-consent {
+        font-size: 12px;
     }
 
     .contact-form-grid,
@@ -21720,12 +21816,37 @@ width: 9px;
         grid-template-columns: 1fr;
     }
 
+    .contact-process-flow h3 {
+        font-size: 17px;
+    }
+
+    .contact-process-flow p {
+        font-size: 14px;
+    }
+
     .contact-faq-list {
         grid-template-columns: 1fr;
     }
 
+    .contact-faq-item summary {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+
     .contact-faq-body {
         padding-left: 20px;
+    }
+
+    .contact-faq-body p {
+        font-size: 12px;
+    }
+
+    .contact-success-actions {
+        flex-direction: column;
+    }
+
+    .contact-success-actions .button {
+        width: 100%;
     }
 }
 
@@ -21735,11 +21856,17 @@ width: 9px;
     }
 
     .contact-choice-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .contact-choice-card:nth-child(5) {
+        grid-column: 1 / -1;
     }
 
     .contact-stepper-label {
-        font-size: 8px;
+        font-size: 10px;
+        line-height: 1.25;
     }
 
     .contact-intro h1 {
@@ -22324,5 +22451,114 @@ width: 9px;
     .connect-pillars {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         row-gap: 14px;
+    }
+}
+
+/* Mobile polish — spacing, typography, touch targets (desktop unchanged) */
+@media (max-width: 720px) {
+    .connect-shell {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .connect-hero {
+        min-height: 200px;
+        padding: 28px 20px 46px;
+    }
+
+    .connect-body {
+        padding-inline: 16px;
+    }
+
+    .connect-eyebrow {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .connect-lead {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .connect-btn {
+        min-height: 60px;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .connect-btn-text strong {
+        font-size: 11px;
+    }
+
+    .connect-btn-text small {
+        font-size: 12px;
+    }
+
+    .connect-footer {
+        padding: 24px 16px calc(28px + env(safe-area-inset-bottom));
+    }
+
+    .connect-footer-brand {
+        font-size: 11px;
+    }
+
+    .connect-footer-copy {
+        font-size: 11px;
+    }
+
+    .about-hero {
+        padding-top: calc(var(--about-header-height) + 28px);
+        padding-bottom: 56px;
+    }
+
+    .about-hero-copy h1 {
+        font-size: clamp(34px, 9vw, 42px);
+    }
+
+    .solutions-hero {
+        padding: 118px 0 72px;
+    }
+
+    .solutions-hero-copy h1 {
+        font-size: clamp(36px, 10vw, 52px);
+        line-height: 1.06;
+    }
+
+    .solutions-hero-lead {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .industry-hub-section > .container-fluid,
+    .industry-applications > .container-fluid {
+        width: min(100% - 32px, 760px);
+    }
+
+    .footer {
+        padding-bottom: calc(28px + env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 480px) {
+    .connect-actions {
+        gap: 8px;
+    }
+
+    .connect-btn {
+        grid-template-columns: 36px minmax(0, 1fr) 14px;
+        min-height: 58px;
+    }
+
+    .connect-btn-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contact-enquiry {
+        padding: 16px 12px 18px;
+    }
+
+    .contact-field-timeline .contact-chip {
+        flex: 1 1 100%;
     }
 }
