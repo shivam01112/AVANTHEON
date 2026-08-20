@@ -20842,12 +20842,8 @@ width: 9px;
 }
 
 .contact-form-grid-step2 {
-    grid-template-columns: 1fr;
-    gap: 12px;
-}
-
-.contact-form-grid-step2 .contact-field:not(.contact-field-wide) {
-    max-width: 280px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
 }
 
 .contact-form-grid-step1 .contact-field:has(#contact-company) { grid-area: company; }
@@ -21692,8 +21688,8 @@ width: 9px;
             "phone";
     }
 
-    .contact-form-grid-step2 .contact-field:not(.contact-field-wide) {
-        max-width: none;
+    .contact-form-grid-step2 {
+        grid-template-columns: 1fr;
     }
 
     .contact-field-timeline .contact-chip {
