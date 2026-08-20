@@ -12223,6 +12223,17 @@ body.about-page #process::before {
         justify-content: flex-start;
     }
 
+    body.about-page #process .process-timeline-step,
+    body.about-page #process .process-timeline-step.is-active-step,
+    body.about-page #process .process-timeline-step.is-complete-step {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        transform: none;
+    }
+
     body.about-page #process .process-timeline-step::after {
         display: none;
     }
