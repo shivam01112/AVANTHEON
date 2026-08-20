@@ -19994,6 +19994,7 @@ color: #edba0a;
 }
 
 .solutions-page .featured-value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
     padding: 16px 0;
     border-block: 1px solid rgba(52, 109, 156, 0.14);
@@ -20003,11 +20004,11 @@ color: #edba0a;
 .solutions-page .featured-value-grid article + article,
 .solutions-page .featured-value-grid article:first-child {
     display: grid;
-    grid-template-columns: 62px minmax(0, 1fr);
-    align-content: start;
-    gap: 12px 14px;
-    min-height: 230px;
-    padding: 18px;
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-content: center;
+    gap: 8px 14px;
+    min-height: 150px;
+    padding: 18px 20px;
     background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 253, 0.74));
     border-radius: 16px;
@@ -20023,19 +20024,24 @@ color: #edba0a;
 .solutions-page .featured-value-grid article > span {
     grid-row: 1 / span 2;
     align-self: start;
+    width: 58px;
+    height: 58px;
 }
 
 .solutions-page .featured-value-grid h3 {
-    align-self: end;
+    align-self: start;
     margin: 0;
+    font-size: 19px;
+    line-height: 1.18;
 }
 
 .solutions-page .featured-value-grid p {
     grid-column: 2;
     align-self: start;
-    max-width: 24ch;
+    max-width: 34ch;
     margin: 0;
-    line-height: 1.58;
+    font-size: 15px;
+    line-height: 1.52;
 }
 
 .solutions-page .featured-bottom {
