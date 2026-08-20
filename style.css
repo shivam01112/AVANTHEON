@@ -10288,7 +10288,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     .about-layout {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding: 22px;
+        /* padding: 22px; */
     }
 
     .about-content {
@@ -10614,9 +10614,12 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .about-content h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
-
+.services .section-intro p {
+    color: rgba(255, 255, 255, 0.74);
+    margin: 0px;
+}
     .about-media {
         min-height: 320px;
     }
@@ -22820,7 +22823,7 @@ width: 9px;
     }
 
     .primary-nav {
-        top: 68px;
+        top: 85px;
         min-height: calc(100dvh - 68px);
         justify-content: flex-start;
         gap: 2px;
@@ -22890,5 +22893,60 @@ width: 9px;
 
     .hero-copy .eyebrow {
         font-size: 9px;
+    }
+}
+
+/* Home sections: mobile-only spacing and type refinement. */
+@media (max-width: 480px) {
+    .services .section-intro {
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+
+    .services .section-intro h2 {
+        max-width: 100%;
+        font-size: clamp(28px, 8.4vw, 34px);
+        line-height: 1.08;
+    }
+
+    .services .section-intro p {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .services .section-intro .text-link {
+        padding: 12px 15px;
+        font-size: 11px;
+    }
+
+    .presence#operations {
+        padding: 52px 0 56px !important;
+    }
+
+    .presence#operations .split-layout {
+        gap: 24px;
+    }
+
+    .presence#operations .section-copy h2 {
+        max-width: 100%;
+        font-size: clamp(28px, 8.5vw, 34px);
+        line-height: 1.08;
+    }
+
+    .presence#operations .section-copy p:not(.eyebrow) {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .presence#operations .section-copy .button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .presence#operations .map-panel {
+        min-height: 0;
+        aspect-ratio: 1 / 0.72;
     }
 }
