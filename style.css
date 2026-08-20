@@ -22052,8 +22052,8 @@ width: 9px;
     display: block;
     width: min(160px, 68vw);
     height: auto;
-    margin: 0 auto 12px;
-    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+    /* margin: 0 auto 12px;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28)); */
 }
 
 .connect-hero-tagline {
