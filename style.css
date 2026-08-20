@@ -12129,6 +12129,58 @@ body.about-page #process::before {
 }
 
 @media (max-width: 720px) {
+    body.about-page #process.about-process {
+        padding: 52px 0 60px;
+    }
+
+    body.about-page #process .about-section-heading {
+        margin-bottom: 28px;
+        padding-inline: 16px;
+    }
+
+    body.about-page #process .about-section-heading h2 {
+        max-width: 100%;
+        font-size: clamp(28px, 8vw, 34px);
+        line-height: 1.08;
+    }
+
+    body.about-page #process .process-timeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        width: 100%;
+        min-height: 112px;
+        margin: 0;
+        padding: 0 8px 10px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    body.about-page #process .process-timeline-step .about-process-icon,
+    body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    body.about-page #process .process-timeline-step::after {
+        top: 58px;
+    }
+
+    body.about-page #process .timeline-step-meta {
+        margin-top: 9px;
+        font-size: 9px;
+        letter-spacing: 0.08em;
+    }
+
+    body.about-page #process .about-process-track {
+        width: 100%;
+        gap: 18px;
+    }
+
+    body.about-page #process .process-step-image,
+    body.about-page #process .process-step-image img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
     .solutions-page .container {
         width: min(100% - 32px, 1280px);
     }
@@ -20528,7 +20580,7 @@ width: 9px;
     }
 
     .presence#operations .network-map-base {
-        object-fit: cover;
+        object-fit: fill;
     }
 
     .presence#operations .vector-port-labels text,
@@ -22900,7 +22952,7 @@ width: 9px;
     .presence#operations > .container-fluid {
         width: 100%;
         max-width: none;
-        padding-inline: 16px;
+        /* padding-inline: 16px; */
         box-sizing: border-box;
     }
 
@@ -23010,8 +23062,8 @@ width: 9px;
 
     .industry-card span {
         min-height: 0;
-        padding: 12px 14px;
-        font-size: 18px;
+        padding: 12px 0px;
+        font-size: 16px;
         line-height: 1.12;
     }
 
