@@ -19990,7 +19990,52 @@ color: #edba0a;
 
 .solutions-page .featured-value-grid article,
 .solutions-page .featured-value-grid article + article {
-    border-color: rgba(52, 109, 156, 0.15);
+    border: 1px solid rgba(52, 109, 156, 0.14);
+}
+
+.solutions-page .featured-value-grid {
+    gap: 14px;
+    padding: 16px 0;
+    border-block: 1px solid rgba(52, 109, 156, 0.14);
+}
+
+.solutions-page .featured-value-grid article,
+.solutions-page .featured-value-grid article + article,
+.solutions-page .featured-value-grid article:first-child {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    align-content: start;
+    gap: 12px 14px;
+    min-height: 230px;
+    padding: 18px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 253, 0.74));
+    border-radius: 16px;
+    box-shadow:
+        0 14px 32px rgba(4, 24, 56, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.solutions-page .featured-value-grid article + article {
+    padding-left: 18px;
+}
+
+.solutions-page .featured-value-grid article > span {
+    grid-row: 1 / span 2;
+    align-self: start;
+}
+
+.solutions-page .featured-value-grid h3 {
+    align-self: end;
+    margin: 0;
+}
+
+.solutions-page .featured-value-grid p {
+    grid-column: 2;
+    align-self: start;
+    max-width: 24ch;
+    margin: 0;
+    line-height: 1.58;
 }
 
 .solutions-page .featured-bottom {
@@ -21807,7 +21852,7 @@ width: 9px;
 }
 
 .contact-faq-body {
-    padding: 0 16px 14px 54px;
+    padding: 0 16px 14px 17px;
 }
 
 .contact-faq-body p {
