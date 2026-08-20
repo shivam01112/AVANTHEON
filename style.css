@@ -23242,12 +23242,25 @@ width: 9px;
 /* Final mobile cascade for the About process timeline. */
 @media (max-width: 720px) {
     body.about-page #process.about-process {
-        padding: 52px 0 60px;
+        padding: 52px 0 58px;
+        overflow: hidden;
+    }
+
+    body.about-page #process .container {
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: start;
+        width: min(100%, 430px);
+        padding-inline: 14px;
+        margin-inline: auto;
     }
 
     body.about-page #process .about-section-heading {
+        grid-column: 1 / -1;
         margin-bottom: 28px;
-        padding-inline: 16px;
+        padding-inline: 0;
+        text-align: center;
     }
 
     body.about-page #process .about-section-heading h2 {
@@ -23257,39 +23270,242 @@ width: 9px;
     }
 
     body.about-page #process .process-timeline {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-column: 1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 360px);
         width: 100%;
-        min-height: 112px;
+        height: auto;
+        min-height: 0;
         margin: 0;
-        padding: 0 8px 10px;
-        overflow: hidden;
+        padding: 2px 0;
+        overflow: visible;
         box-sizing: border-box;
+        gap: 16px;
+        align-self: start;
     }
 
     body.about-page #process .process-timeline-step .about-process-icon,
     body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
-        width: 54px;
-        height: 54px;
+        width: 48px;
+        height: 48px;
     }
 
+    body.about-page #process .process-timeline-step,
+    body.about-page #process .process-timeline-step.is-active-step,
+    body.about-page #process .process-timeline-step.is-complete-step {
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        opacity: 1;
+    }
+
+    body.about-page #process .process-timeline::before,
+    body.about-page #process .process-timeline::after,
+    body.about-page #process .process-timeline .process-route-runner,
+    body.about-page #process .process-route-spark,
+    body.about-page #process .process-active-arrow,
     body.about-page #process .process-timeline-step::after {
-        top: 58px;
+        display: none !important;
+    }
+
+    body.about-page #process .process-timeline-step::before {
+        content: "";
+        position: absolute;
+        top: 52px;
+        bottom: -16px;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        background: linear-gradient(180deg, rgba(15, 92, 108, 0.32), rgba(246, 186, 47, 0.36));
+    }
+
+    body.about-page #process .process-timeline-step:last-of-type::before {
+        display: none;
     }
 
     body.about-page #process .timeline-step-meta {
-        margin-top: 9px;
+        width: 100%;
         font-size: 9px;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        display: grid;
+        grid-template-columns: 26px 1fr;
+        align-items: center;
+        gap: 5px;
+        text-align: left;
+        color: #0f5c6c;
+    }
+
+    body.about-page #process .timeline-step-meta b {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        color: #0f5c6c;
+        font-size: 10px;
+        letter-spacing: 0;
+        box-shadow: 0 8px 18px rgba(8, 42, 71, 0.12);
+    }
+
+    body.about-page #process .process-timeline-step.is-active-step .timeline-step-meta b,
+    body.about-page #process .process-timeline-step.is-complete-step .timeline-step-meta b {
+        background: #075f83;
+        color: #ffffff;
+    }
+
+    body.about-page #process .timeline-step-meta em {
+        min-width: 0;
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 800;
+        text-transform: uppercase;
+        word-break: break-word;
     }
 
     body.about-page #process .about-process-track {
+        grid-column: 2;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: start;
         width: 100%;
-        gap: 18px;
+        gap: 16px;
+        min-width: 0;
+        margin: 0;
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-complete-step,
+    body.about-page #process .about-process-step.is-active-step {
+        display: flex !important;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 360px;
+        height: 360px;
+        padding: 9px;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        filter: none !important;
+        pointer-events: auto;
+    }
+
+    body.about-page #process .about-process-step.is-complete-step,
+    body.about-page #process .about-process-step.reveal.is-visible.is-complete-step {
+        opacity: 1 !important;
+        filter: none !important;
+    }
+
+    body.about-page #process .about-process-step::before,
+    body.about-page #process .about-process-step::after,
+    body.about-page #process .about-process-step.reveal.is-visible::before,
+    body.about-page #process .about-process-step.reveal.is-visible::after {
+        inset: 0;
+    }
+
+    body.about-page #process .process-step-image {
+        aspect-ratio: 1.42 / 1;
+        min-height: 0;
+        margin: 0;
+        border-radius: 6px;
+        overflow: hidden;
     }
 
     body.about-page #process .process-step-image,
     body.about-page #process .process-step-image img {
         width: 100%;
         max-width: 100%;
+    }
+
+    body.about-page #process .process-step-image img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    body.about-page #process .process-image-status {
+        width: 42px;
+        height: 42px;
+        bottom: -21px;
+    }
+
+    body.about-page #process .process-card-body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 8px 10px;
+        text-align: center;
+    }
+
+    body.about-page #process .about-process-step h3,
+    body.about-page #process .about-process-step.reveal.is-visible h3 {
+        font-size: clamp(19px, 5.4vw, 23px);
+        line-height: 1.08;
+        margin: 0 0 12px;
+    }
+
+    body.about-page #process .about-process-step p,
+    body.about-page #process .about-process-step.reveal.is-visible p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    body.about-page #process .container {
+        grid-template-columns: 86px minmax(0, 1fr);
+        column-gap: 10px;
+        padding-inline: 10px;
+    }
+
+    body.about-page #process .process-timeline {
+        grid-template-rows: repeat(4, 348px);
+    }
+
+    body.about-page #process .about-process-step,
+    body.about-page #process .about-process-step.reveal,
+    body.about-page #process .about-process-step.reveal.is-visible,
+    body.about-page #process .about-process-step.is-complete-step,
+    body.about-page #process .about-process-step.is-active-step {
+        min-height: 348px;
+        height: 348px;
+    }
+
+    body.about-page #process .process-timeline-step .about-process-icon,
+    body.about-page #process .process-timeline-step.is-complete-step .about-process-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    body.about-page #process .timeline-step-meta {
+        grid-template-columns: 24px 1fr;
+        gap: 4px;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+    }
+
+    body.about-page #process .timeline-step-meta b {
+        width: 24px;
+        height: 24px;
+        font-size: 9px;
     }
 }
