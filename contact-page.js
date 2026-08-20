@@ -54,8 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const form = document.getElementById("contact-form");
+    const formShell = document.getElementById("contact-form-shell");
+    const successPanel = document.getElementById("contact-success");
+    const stepper = document.querySelector(".contact-stepper");
     const track = document.getElementById("contact-steps-track");
-    const status = document.getElementById("contact-form-status");
     const messageField = document.getElementById("contact-message");
     const messageCount = document.getElementById("message-count");
     const stepPanels = Array.from(document.querySelectorAll(".contact-step-panel"));
@@ -213,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
         currentStep = targetStep;
         maxVisitedStep = Math.max(maxVisitedStep, currentStep);
         updateStepUI();
-        status?.classList.remove("is-visible");
 
         const activePanel = stepPanels.find((panel) => Number(panel.dataset.step) === currentStep);
         const firstField = activePanel?.querySelector("input, select, textarea, button");
@@ -260,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentStep = targetStep;
                 maxVisitedStep = Math.max(maxVisitedStep, currentStep);
                 updateStepUI();
-                status?.classList.remove("is-visible");
                 return;
             }
 
@@ -282,6 +282,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const showSuccess = () => {
+        formShell?.classList.add("is-hidden");
+        stepper?.setAttribute("hidden", "");
+        successPanel?.removeAttribute("hidden");
+        successPanel?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    };
+
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -289,37 +296,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const data = new FormData(form);
-        const subject = `Avantheon Enquiry - ${data.get("interest")}`;
-        const body = [
-            "Hello Avantheon Team,",
-            "",
-            "I would like to submit the following business enquiry:",
-            "",
-            `Company: ${data.get("company")}`,
-            `Name: ${data.get("name")}`,
-            `Email: ${data.get("email")}`,
-            `Country: ${data.get("country")}`,
-            `TRN / Tax Registration Number: ${data.get("trn")}`,
-            `Phone: +971 ${data.get("phone")}`,
-            `Solution Required: ${data.get("interest")}`,
-            `Industry: ${data.get("industry")}`,
-            `Estimated Container Requirement: ${data.get("quantity")}`,
-            `Preferred Timeline: ${data.get("timeline")}`,
-            "",
-            "Additional Requirements:",
-            data.get("message") || "Not provided",
-            "",
-            "Regards,",
-            data.get("name")
-        ].join("\n");
+        const submitButton = form.querySelector(".contact-submit");
+        submitButton?.setAttribute("disabled", "true");
 
-        if (status) {
-            status.textContent = "Your enquiry is ready. Your email application will open so you can review and send it.";
-            status.classList.add("is-visible");
-        }
-
-        window.location.href = `mailto:info@avantheon.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        showSuccess();
     });
 
     updateStepUI();
