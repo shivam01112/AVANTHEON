@@ -12145,11 +12145,11 @@ body.about-page #process::before {
     }
 
     body.about-page #process .process-timeline {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
-        min-height: 112px;
+        min-height: 196px;
         margin: 0;
-        padding: 0 8px 10px;
+        padding: 0 12px 10px;
         overflow: hidden;
         box-sizing: border-box;
     }
@@ -12161,13 +12161,18 @@ body.about-page #process::before {
     }
 
     body.about-page #process .process-timeline-step::after {
-        top: 58px;
+        display: none;
     }
 
     body.about-page #process .timeline-step-meta {
         margin-top: 9px;
         font-size: 9px;
         letter-spacing: 0.08em;
+    }
+
+    body.about-page #process .process-timeline-step {
+        min-width: 0;
+        padding-inline: 4px;
     }
 
     body.about-page #process .about-process-track {
@@ -12179,6 +12184,25 @@ body.about-page #process::before {
     body.about-page #process .process-step-image img {
         width: 100%;
         max-width: 100%;
+    }
+}
+
+/* Final mobile step-grid override: keep every label readable. */
+@media (max-width: 720px) {
+    body.about-page #process .process-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: 196px;
+        padding-inline: 12px;
+        overflow: hidden;
+    }
+
+    body.about-page #process .process-timeline-step {
+        min-width: 0;
+        padding-inline: 4px;
+    }
+
+    body.about-page #process .process-timeline-step::after {
+        display: none;
     }
 }
     .solutions-page .container {
