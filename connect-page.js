@@ -23,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    const setLabel = (id, text) => {
+        const element = document.getElementById(id);
+        if (element && text) {
+            element.textContent = text;
+        }
+    };
+
     setLink("connect-website", resolvePath(config.website));
     setLink("connect-whatsapp", config.whatsapp);
     setLink("connect-linkedin", config.linkedin);
@@ -30,20 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setLink("connect-phone", `tel:${config.phone}`);
     setLink("connect-enquiry", resolvePath(config.enquiry));
 
-    const emailLabel = document.getElementById("connect-email-label");
-    const phoneLabel = document.getElementById("connect-phone-label");
+    setLabel("connect-website-label", config.websiteDisplay);
+    setLabel("connect-whatsapp-label", config.whatsappDisplay);
+    setLabel("connect-linkedin-label", config.linkedinDisplay);
+    setLabel("connect-email-label", config.email);
+    setLabel("connect-phone-label", config.phoneDisplay || config.phone);
+    setLabel("connect-vcard-label", config.vcardDisplay);
+    setLabel("connect-enquiry-label", config.enquiryDisplay);
 
-    if (emailLabel) {
-        emailLabel.textContent = config.email;
-    }
-
-    if (phoneLabel) {
-        phoneLabel.textContent = config.phoneDisplay || config.phone;
-    }
-
-    const vcardButton = document.getElementById("connect-vcard");
-
-    vcardButton?.addEventListener("click", () => {
+    document.getElementById("connect-vcard")?.addEventListener("click", () => {
         const link = document.createElement("a");
         link.href = resolvePath(config.vcardFile || "avantheon-connect.vcf");
         link.download = "AVANTHEON.vcf";

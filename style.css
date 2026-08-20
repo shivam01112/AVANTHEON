@@ -21868,48 +21868,151 @@ width: 9px;
     margin: 0;
     min-height: 100svh;
     color: var(--white);
-    background:
-        radial-gradient(circle at 20% 12%, rgba(238, 164, 45, 0.14), transparent 34%),
-        radial-gradient(circle at 82% 88%, rgba(26, 118, 197, 0.16), transparent 30%),
-        linear-gradient(165deg, #071D49 0%, #041838 52%, #020B1C 100%);
+    background: #071D49;
 }
 
 .connect-shell {
-    display: grid;
+    width: min(100%, 520px);
     min-height: 100svh;
+    margin: 0 auto;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08), transparent 42%),
+        linear-gradient(180deg, #071D49 0%, #041838 55%, #020B1C 100%);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
+}
+
+.connect-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 220px;
+    display: grid;
     place-items: center;
-    padding: 28px 18px 34px;
+    overflow: hidden;
+    padding: 42px 24px 54px;
 }
 
-.connect-card {
-    width: min(100%, 440px);
-    padding: 28px 20px 22px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 24px;
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(14px);
+.connect-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.connect-brand {
-    margin-bottom: 24px;
+.connect-hero-map,
+.connect-hero-port {
+    display: block;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.connect-hero-map {
+    background-image:
+        linear-gradient(90deg, rgba(7, 29, 73, 0.2), rgba(7, 29, 73, 0.72)),
+        url("images/worldmap.png");
+    background-position: 30% 40%;
+    background-size: 180% auto;
+    opacity: 0.55;
+}
+
+.connect-hero-port {
+    background-image:
+        linear-gradient(270deg, rgba(7, 29, 73, 0.15), rgba(7, 29, 73, 0.82)),
+        url("images/truck-logistics-operation-dusk.jpg");
+    background-position: 70% 35%;
+}
+
+.connect-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(197, 160, 89, 0.12), transparent 38%),
+        linear-gradient(180deg, rgba(7, 29, 73, 0.35) 0%, rgba(4, 24, 56, 0.88) 100%);
+}
+
+.connect-hero-brand {
+    position: relative;
+    z-index: 1;
     text-align: center;
 }
 
 .connect-logo {
     display: block;
-    width: min(190px, 72vw);
+    width: min(210px, 68vw);
     height: auto;
-    margin: 0 auto 14px;
+    margin: 0 auto 12px;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
 }
 
-.connect-tagline {
+.connect-hero-tagline {
     margin: 0;
-    color: var(--gold-500);
-    font-size: 12px;
+    color: #C5A059;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+}
+
+.connect-arc {
+    position: relative;
+    height: 34px;
+    margin-top: -28px;
+    margin-bottom: 8px;
+}
+
+.connect-arc-line {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: min(92%, 440px);
+    height: 56px;
+    border: 1px solid rgba(197, 160, 89, 0.55);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    box-shadow:
+        0 0 18px rgba(197, 160, 89, 0.28),
+        0 0 40px rgba(197, 160, 89, 0.12);
+    transform: translateX(-50%);
+}
+
+.connect-arc-star {
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    z-index: 1;
+    color: #E8C56A;
+    font-size: 14px;
+    line-height: 1;
+    text-shadow: 0 0 12px rgba(232, 197, 106, 0.8);
+    transform: translateX(-50%);
+}
+
+.connect-body {
+    padding: 0 18px 24px;
+}
+
+.connect-intro {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.connect-eyebrow {
+    margin: 0 0 12px;
+    color: #C5A059;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.connect-lead {
+    margin: 0 auto;
+    max-width: 360px;
+    color: rgba(214, 228, 244, 0.78);
+    font-size: 13px;
+    line-height: 1.65;
 }
 
 .connect-actions {
@@ -21919,18 +22022,21 @@ width: 9px;
 
 .connect-btn {
     display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) auto;
+    grid-template-columns: 42px minmax(0, 1fr) 18px;
     gap: 12px;
     align-items: center;
     width: 100%;
-    min-height: 62px;
+    min-height: 64px;
     padding: 12px 14px;
     color: inherit;
     text-align: left;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(197, 160, 89, 0.38);
+    border-radius: 12px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 22px rgba(0, 0, 0, 0.16);
     cursor: pointer;
     transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
     -webkit-tap-highlight-color: transparent;
@@ -21939,32 +22045,33 @@ width: 9px;
 .connect-btn:hover,
 .connect-btn:focus-visible {
     transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(238, 164, 45, 0.42);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    background: rgba(197, 160, 89, 0.08);
+    border-color: rgba(232, 197, 106, 0.72);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 12px 28px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(232, 197, 106, 0.12);
 }
 
 .connect-btn-icon {
     display: grid;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     place-items: center;
-    color: var(--gold-500);
-    background: rgba(238, 164, 45, 0.1);
-    border: 1px solid rgba(238, 164, 45, 0.24);
-    border-radius: 12px;
+    color: #C5A059;
 }
 
 .connect-btn-icon svg {
-    width: 20px;
+    width: 22px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.6;
+    stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-.connect-btn-whatsapp .connect-btn-icon svg {
+.connect-btn:nth-child(2) .connect-btn-icon svg,
+.connect-btn:nth-child(2) .connect-btn-icon path:last-child {
     fill: currentColor;
     stroke: none;
 }
@@ -21972,83 +22079,140 @@ width: 9px;
 .connect-btn-text strong {
     display: block;
     color: var(--white);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.25;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
 }
 
 .connect-btn-text small {
     display: block;
-    margin-top: 2px;
-    color: rgba(203, 219, 236, 0.62);
+    margin-top: 3px;
+    color: rgba(203, 219, 236, 0.58);
     font-size: 11px;
     line-height: 1.35;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
 }
 
-.connect-btn-arrow {
-    color: rgba(238, 164, 45, 0.88);
-    font-size: 18px;
-    font-weight: 700;
+.connect-btn-chevron {
+    display: grid;
+    place-items: center;
+    color: #C5A059;
 }
 
-.connect-btn-primary {
-    margin-top: 4px;
-    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
-    border-color: transparent;
-    box-shadow: 0 12px 28px rgba(238, 164, 45, 0.22);
+.connect-btn-chevron svg {
+    width: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.connect-btn-primary .connect-btn-icon {
-    color: #071D49;
-    background: rgba(7, 29, 73, 0.12);
-    border-color: rgba(7, 29, 73, 0.14);
+.connect-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 24px;
+    padding: 16px 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 14px;
 }
 
-.connect-btn-primary .connect-btn-text strong {
-    color: #071D49;
-}
-
-.connect-btn-primary .connect-btn-text small {
-    color: rgba(7, 29, 73, 0.72);
-}
-
-.connect-btn-primary .connect-btn-arrow {
-    color: #071D49;
-}
-
-.connect-btn-primary:hover,
-.connect-btn-primary:focus-visible {
-    background: linear-gradient(148deg, rgba(255, 184, 55, 1) 0%, rgba(255, 252, 150, 1) 42%, rgba(255, 184, 55, 1) 100%);
-    border-color: transparent;
-}
-
-.connect-footer {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+.connect-pillar {
+    display: grid;
+    gap: 8px;
+    justify-items: center;
     text-align: center;
 }
 
-.connect-footer p {
-    margin: 0;
-    color: rgba(186, 202, 220, 0.58);
-    font-size: 10px;
-    line-height: 1.55;
-    letter-spacing: 0.04em;
+.connect-pillar-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: #C5A059;
+}
+
+.connect-pillar-icon svg {
+    width: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.connect-pillar span:last-child {
+    color: rgba(214, 228, 244, 0.72);
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
+.connect-footer {
+    padding: 28px 18px 34px;
+    text-align: center;
+}
+
+.connect-footer-brand {
+    margin: 0 0 6px;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.connect-footer-tagline {
+    margin: 0 0 14px;
+    color: #C5A059;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.connect-footer-copy {
+    margin: 0;
+    color: rgba(186, 202, 220, 0.45);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
 @media (min-width: 480px) {
-    .connect-card {
-        padding: 32px 24px 26px;
+    .connect-hero {
+        min-height: 240px;
+        padding-top: 48px;
+    }
+
+    .connect-body {
+        padding-inline: 24px;
     }
 
     .connect-btn {
-        min-height: 66px;
+        min-height: 68px;
         padding: 14px 16px;
     }
 
     .connect-btn-text strong {
-        font-size: 15px;
+        font-size: 12px;
+    }
+
+    .connect-pillar span:last-child {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 380px) {
+    .connect-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 14px;
     }
 }
