@@ -21741,8 +21741,8 @@ width: 9px;
 
 .contact-faq-item summary {
     display: grid;
-    grid-template-columns: 28px minmax(0, 1fr) 18px;
-    gap: 11px;
+    grid-template-columns: minmax(0, 1fr) 18px;
+    gap: 14px;
     align-items: center;
     padding: 13px 15px;
     list-style: none;
@@ -22428,7 +22428,7 @@ width: 9px;
     }
 
     body.contact-page .contact-faq-item summary {
-        grid-template-columns: 30px minmax(0, 1fr) 22px;
+        grid-template-columns: minmax(0, 1fr) 22px;
         gap: 10px;
         padding: 14px 12px;
     }
