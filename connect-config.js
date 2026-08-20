@@ -5,18 +5,18 @@
 window.AVANTHEON_CONNECT = {
     website: "index.html",
     websiteDisplay: "www.avantheonglobal.com",
-    whatsapp: "https://wa.me/97145286612",
+    whatsapp: "https://wa.me/971569060333",
     whatsappDisplay: "Message us instantly",
     linkedin: "https://www.linkedin.com/company/avantheon",
     linkedinDisplay: "Follow Avantheon Global",
-    email: "info@avantheon.com",
-    phone: "+97145286612",
-    phoneDisplay: "+971 4 528 6612",
+    email: "info@avantheonglobal.com",
+    phone: "+971569060333",
+    phoneDisplay: "+971 569060333",
     enquiry: "contact.html#enquiry-form",
     enquiryDisplay: "Submit enquiry online",
     vcardFile: "avantheon-connect.vcf",
     vcardDisplay: "Download vCard",
-    company: "AVANTHEON Containers Trading FZCO",
+    company: "Avantheon Containers Trading FZCO",
     tagline: "Powering Global Commerce",
-    location: "Dubai, United Arab Emirates"
+    location: "IFZA Business Park, Dubai Silicon Oasis, Dubai, UAE."
 };

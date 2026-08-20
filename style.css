@@ -9441,7 +9441,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 .footer-grid {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(280px, 1.6fr) repeat(3, minmax(150px, 1fr)) minmax(230px, 1.05fr);
+    grid-template-columns: minmax(280px, 1.6fr) repeat(3, minmax(150px, 1fr)) minmax(265px, 1.05fr);
     gap: 36px;
     padding: 76px 0 46px;
 }
