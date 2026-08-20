@@ -20587,6 +20587,11 @@ width: 9px;
     justify-content: center;
     gap: clamp(32px, 4vw, 56px);
     align-items: start;
+    min-width: 0;
+}
+
+.contact-main-grid > * {
+    min-width: 0;
 }
 
 .contact-intro {
@@ -20674,6 +20679,8 @@ width: 9px;
     width: 100%;
     max-width: 760px;
     justify-self: end;
+    min-width: 0;
+    overflow: hidden;
     padding: 18px 20px 20px;
     background: linear-gradient(145deg, rgba(7, 24, 51, 0.97), rgba(4, 15, 34, 0.98));
     border: 1px solid rgba(103, 147, 190, 0.28);
@@ -20779,6 +20786,8 @@ width: 9px;
 
 .contact-steps-viewport {
     overflow: hidden;
+    width: 100%;
+    min-width: 0;
     transition: height 420ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -20854,6 +20863,13 @@ width: 9px;
 
 .contact-form {
     margin: 0;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.contact-form-shell {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .contact-form-grid {
@@ -21639,12 +21655,16 @@ width: 9px;
 @media (max-width: 1080px) {
     .contact-main-grid {
         grid-template-columns: 1fr;
-        gap: 42px;
+        justify-content: stretch;
+        gap: 28px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .contact-intro {
-        width: min(100%, 760px);
-        max-width: 720px;
+        width: 100%;
+        max-width: none;
         margin: 0 auto;
         padding-top: 0;
     }
@@ -21674,17 +21694,56 @@ width: 9px;
 }
 
 @media (max-width: 720px) {
+    .contact-page {
+        overflow-x: clip;
+    }
+
     .contact-main {
-        padding: 106px 0 42px;
+        padding: 98px 0 36px;
+        overflow-x: clip;
     }
 
     .contact-main > .container {
-        width: min(100% - 32px, 1180px);
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 16px;
+        box-sizing: border-box;
+    }
+
+    .contact-intro {
+        padding-top: 0;
+    }
+
+    .contact-intro .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        line-height: 1.45;
+    }
+
+    .contact-intro h1 {
+        max-width: 100%;
+        font-size: clamp(26px, 7.5vw, 32px);
+        line-height: 1.12;
     }
 
     .contact-intro-lead {
+        max-width: 100%;
         font-size: 14px;
         line-height: 1.65;
+    }
+
+    .contact-page .contact-intro.reveal,
+    .contact-page .contact-enquiry.reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .contact-value-list {
+        gap: 12px;
+    }
+
+    .contact-value-list li {
+        gap: 10px;
     }
 
     .contact-value-list strong {
@@ -21803,13 +21862,28 @@ width: 9px;
 
     .contact-process,
     .contact-faq {
-        padding: 14px 0;
+        padding: 14px 16px;
     }
 
-    .contact-process .container,
-    .contact-faq .container {
-        padding: 30px 18px 34px;
+    .contact-process > .container,
+    .contact-faq > .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 28px 16px 32px;
         border-radius: 12px;
+    }
+
+    .contact-page .contact-process .reveal,
+    .contact-page .contact-faq .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .contact-process-heading h2,
+    .contact-faq-heading h2 {
+        font-size: clamp(22px, 6vw, 28px);
+        line-height: 1.15;
     }
 
     .contact-process-flow {
@@ -21851,6 +21925,10 @@ width: 9px;
 }
 
 @media (max-width: 480px) {
+    .contact-main > .container {
+        padding-inline: 14px;
+    }
+
     .contact-stepper-label small {
         display: none;
     }
