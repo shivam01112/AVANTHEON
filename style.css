@@ -15310,7 +15310,7 @@ body.about-page #process .process-card-progress {
 .solutions-page .featured-benefits span {
     gap: 8px;
     color: #d0dce6;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 1.42;
 }
 
@@ -20007,7 +20007,7 @@ color: #edba0a;
     grid-template-columns: 58px minmax(0, 1fr);
     align-content: center;
     gap: 8px 14px;
-    min-height: 150px;
+    /* min-height: 150px; */
     padding: 18px 20px;
     background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 253, 0.74));
@@ -20024,8 +20024,8 @@ color: #edba0a;
 .solutions-page .featured-value-grid article > span {
     grid-row: 1 / span 2;
     align-self: start;
-    width: 58px;
-    height: 58px;
+    width: 44px;
+    height: 44px;
 }
 
 .solutions-page .featured-value-grid h3 {
@@ -20040,7 +20040,7 @@ color: #edba0a;
     align-self: start;
     max-width: 34ch;
     margin: 0;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.52;
 }
 
