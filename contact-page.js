@@ -71,18 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let maxVisitedStep = 1;
 
     const syncStepHeight = () => {
-        if (!stepsViewport || window.innerWidth < 1081) {
-            stepsViewport?.style.removeProperty("min-height");
+        if (!stepsViewport) {
             return;
         }
 
-        let maxHeight = 0;
+        const activePanel = stepPanels.find((panel) => Number(panel.dataset.step) === currentStep);
+        if (!activePanel) {
+            return;
+        }
 
-        stepPanels.forEach((panel) => {
-            maxHeight = Math.max(maxHeight, panel.offsetHeight);
-        });
-
-        stepsViewport.style.minHeight = `${maxHeight}px`;
+        stepsViewport.style.height = `${activePanel.scrollHeight}px`;
     };
 
     const updateMessageCount = () => {
@@ -177,6 +175,11 @@ document.addEventListener("DOMContentLoaded", () => {
             item.classList.toggle("is-active", step === currentStep);
             item.classList.toggle("is-complete", step < currentStep);
             item.setAttribute("aria-selected", String(step === currentStep));
+            if (step === currentStep) {
+                item.setAttribute("aria-current", "step");
+            } else {
+                item.removeAttribute("aria-current");
+            }
         });
 
         stepLines.forEach((line) => {
@@ -185,7 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         stepPanels.forEach((panel) => {
-            panel.classList.toggle("is-active", Number(panel.dataset.step) === currentStep);
+            const isActive = Number(panel.dataset.step) === currentStep;
+            panel.classList.toggle("is-active", isActive);
+            panel.setAttribute("aria-hidden", String(!isActive));
+            panel.inert = !isActive;
         });
 
         window.requestAnimationFrame(syncStepHeight);
@@ -212,6 +218,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const activePanel = stepPanels.find((panel) => Number(panel.dataset.step) === currentStep);
         const firstField = activePanel?.querySelector("input, select, textarea, button");
         firstField?.focus({ preventScroll: true });
+
+        if (window.innerWidth <= 720) {
+            document.querySelector(".contact-enquiry")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
     };
 
     form.querySelectorAll("[required]").forEach((field) => {
@@ -255,6 +265,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             goToStep(targetStep);
+        });
+    });
+
+    document.querySelectorAll(".contact-faq-item").forEach((item) => {
+        item.addEventListener("toggle", () => {
+            if (!item.open) {
+                return;
+            }
+
+            document.querySelectorAll(".contact-faq-item[open]").forEach((openItem) => {
+                if (openItem !== item) {
+                    openItem.removeAttribute("open");
+                }
+            });
         });
     });
 
