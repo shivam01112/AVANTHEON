@@ -20523,11 +20523,11 @@ width: 9px;
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: 110px 0 56px;
+    padding: 116px 0 52px;
 }
 
 .contact-main > .container {
-    width: 100%;
+    width: min(100% - 48px, 1180px);
 }
 
 .contact-main-bg {
@@ -20535,7 +20535,8 @@ width: 9px;
     inset: 0;
     z-index: -1;
     background:
-        linear-gradient(180deg, rgba(5, 10, 24, 0.72) 0%, rgba(5, 10, 24, 0.92) 58%, #050A18 100%),
+        linear-gradient(90deg, rgba(3, 12, 29, 0.7) 0%, rgba(3, 12, 29, 0.88) 42%, rgba(3, 12, 29, 0.96) 100%),
+        linear-gradient(180deg, rgba(5, 10, 24, 0.45) 0%, rgba(5, 10, 24, 0.82) 72%, #050A18 100%),
         url("images/truck-logistics-operation-dusk.jpg") center 35% / cover no-repeat;
 }
 
@@ -20551,9 +20552,14 @@ width: 9px;
 
 .contact-main-grid {
     display: grid;
-    grid-template-columns: minmax(280px, 0.88fr) minmax(480px, 1.28fr);
-    gap: clamp(20px, 3vw, 36px);
-    align-items: center;
+    grid-template-columns: minmax(300px, 360px) minmax(0, 760px);
+    justify-content: center;
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+}
+
+.contact-intro {
+    padding-top: 64px;
 }
 
 .contact-intro .eyebrow,
@@ -20566,26 +20572,26 @@ width: 9px;
 }
 
 .contact-intro h1 {
-    max-width: 520px;
+    max-width: 390px;
     margin: 0 0 12px;
     color: var(--white);
     font-family: var(--display);
-    font-size: clamp(30px, 3.2vw, 46px);
-    line-height: 1.04;
+    font-size: clamp(34px, 2.8vw, 44px);
+    line-height: 1.08;
     letter-spacing: -0.03em;
 }
 
 .contact-intro-lead {
-    max-width: 480px;
-    margin: 0 0 22px;
+    max-width: 380px;
+    margin: 0 0 26px;
     color: rgba(214, 228, 244, 0.78);
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
 .contact-value-list {
     display: grid;
-    gap: 12px;
+    gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -20593,15 +20599,15 @@ width: 9px;
 
 .contact-value-list li {
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr);
-    gap: 10px;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 11px;
     align-items: center;
 }
 
 .contact-value-icon {
     display: grid;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     place-items: center;
     color: var(--gold-500);
     background: rgba(238, 164, 45, 0.1);
@@ -20610,7 +20616,7 @@ width: 9px;
 }
 
 .contact-value-icon svg {
-    width: 16px;
+    width: 17px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.6;
@@ -20622,7 +20628,7 @@ width: 9px;
     display: block;
     margin-bottom: 1px;
     color: var(--white);
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.25;
 }
 
@@ -20634,19 +20640,23 @@ width: 9px;
 }
 
 .contact-enquiry {
+    width: 100%;
+    max-width: 760px;
+    justify-self: end;
     padding: 18px 20px 20px;
-    background: rgba(6, 14, 32, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    background: linear-gradient(145deg, rgba(7, 24, 51, 0.97), rgba(4, 15, 34, 0.98));
+    border: 1px solid rgba(103, 147, 190, 0.28);
+    border-radius: 14px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(18px);
+    scroll-margin-top: 96px;
 }
 
 .contact-stepper {
     display: flex;
     align-items: flex-start;
     gap: 0;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
     padding-bottom: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -20654,12 +20664,14 @@ width: 9px;
 .contact-stepper-item {
     display: grid;
     flex: 1;
-    justify-items: center;
-    gap: 6px;
+    grid-template-columns: 32px minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: 7px;
     min-width: 0;
     padding: 0;
     color: inherit;
-    text-align: center;
+    text-align: left;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -20678,8 +20690,8 @@ width: 9px;
 
 .contact-stepper-circle {
     display: grid;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     place-items: center;
     color: rgba(214, 228, 244, 0.72);
     background: transparent;
@@ -20693,16 +20705,16 @@ width: 9px;
 .contact-stepper-label {
     display: grid;
     gap: 2px;
-    max-width: 108px;
+    max-width: 132px;
     color: rgba(203, 219, 236, 0.58);
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     line-height: 1.25;
 }
 
 .contact-stepper-label small {
     color: rgba(238, 164, 45, 0.72);
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -20711,7 +20723,7 @@ width: 9px;
 .contact-stepper-line {
     flex: 0 0 clamp(20px, 5vw, 44px);
     height: 2px;
-    margin-top: 15px;
+    margin-top: 14px;
     background: rgba(255, 255, 255, 0.12);
     border-radius: 999px;
     transition: background 260ms ease;
@@ -20736,6 +20748,7 @@ width: 9px;
 
 .contact-steps-viewport {
     overflow: hidden;
+    transition: height 420ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-steps-track {
@@ -20753,6 +20766,14 @@ width: 9px;
     background: transparent;
     border: 0;
     border-radius: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    transition: opacity 260ms ease;
+}
+
+.contact-step-panel.is-active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .contact-step-panel fieldset {
@@ -20788,7 +20809,7 @@ width: 9px;
     display: block;
     margin: 0;
     color: var(--white);
-    font-size: clamp(18px, 1.8vw, 22px);
+    font-size: clamp(18px, 1.6vw, 21px);
     font-weight: 700;
     line-height: 1.15;
 }
@@ -20807,13 +20828,25 @@ width: 9px;
 .contact-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 14px;
+    gap: 11px 14px;
     align-items: start;
 }
 
 .contact-form-grid-step1 {
-    gap: 12px 14px;
+    grid-template-areas:
+        "company company"
+        "email email"
+        "country trn"
+        "name phone";
+    gap: 10px 14px;
 }
+
+.contact-form-grid-step1 .contact-field:has(#contact-company) { grid-area: company; }
+.contact-form-grid-step1 .contact-field:has(#contact-name) { grid-area: name; }
+.contact-form-grid-step1 .contact-field:has(#contact-email) { grid-area: email; }
+.contact-form-grid-step1 .contact-field:has(#contact-country) { grid-area: country; }
+.contact-form-grid-step1 .contact-field:has(#contact-trn) { grid-area: trn; }
+.contact-form-grid-step1 .contact-field:has(#contact-phone) { grid-area: phone; }
 
 .contact-field {
     min-width: 0;
@@ -20826,9 +20859,9 @@ width: 9px;
 .contact-field label,
 .contact-field-label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     color: rgba(226, 236, 248, 0.88);
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.07em;
     text-transform: uppercase;
@@ -20880,7 +20913,7 @@ width: 9px;
 
 .contact-field input,
 .contact-field select {
-    height: 44px;
+    height: 42px;
     padding-right: 14px;
 }
 
@@ -20935,7 +20968,7 @@ width: 9px;
 }
 
 .contact-phone-wrap input {
-    height: 44px;
+    height: 42px;
     padding: 0 14px;
     background: transparent;
     border: 0;
@@ -20944,9 +20977,9 @@ width: 9px;
 
 .contact-field-note {
     display: block;
-    margin-top: 5px;
+    margin-top: 4px;
     color: rgba(167, 184, 204, 0.52);
-    font-size: 9px;
+    font-size: 8px;
     line-height: 1.45;
 }
 
@@ -20976,9 +21009,9 @@ width: 9px;
 .field-error,
 .contact-consent-error {
     display: none;
-    margin-top: 5px;
+    margin-top: 4px;
     color: #F0A0A0;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
 }
 
@@ -21031,7 +21064,8 @@ width: 9px;
 }
 
 .contact-choice-card:hover,
-.contact-choice-card:has(input:checked) {
+.contact-choice-card:has(input:checked),
+.contact-choice-card:has(input:focus-visible) {
     transform: translateY(-2px);
     background: rgba(238, 164, 45, 0.08);
     border-color: rgba(238, 164, 45, 0.55);
@@ -21075,7 +21109,8 @@ width: 9px;
 }
 
 .contact-chip:hover span,
-.contact-chip:has(input:checked) span {
+.contact-chip:has(input:checked) span,
+.contact-chip:has(input:focus-visible) span {
     color: var(--white);
     background: rgba(238, 164, 45, 0.1);
     border-color: rgba(238, 164, 45, 0.55);
@@ -21121,8 +21156,8 @@ width: 9px;
 .contact-step-actions {
     display: grid;
     gap: 10px;
-    margin-top: 14px;
-    padding-top: 14px;
+    margin-top: 12px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
@@ -21140,7 +21175,7 @@ width: 9px;
     align-items: center;
     gap: 8px;
     width: 100%;
-    min-height: 46px;
+    min-height: 42px;
     padding: 0 18px;
     border: 0;
     border-radius: 10px;
@@ -21214,14 +21249,22 @@ width: 9px;
 }
 
 .contact-process {
-    padding: 88px 0 92px;
+    padding: 36px 0 18px;
     background:
         radial-gradient(circle at 50% 0%, rgba(19, 91, 151, 0.22), transparent 42%),
         #041838;
 }
 
+.contact-process .container {
+    padding: 38px clamp(24px, 4vw, 54px) 42px;
+    background: rgba(4, 18, 42, 0.72);
+    border: 1px solid rgba(103, 147, 190, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+}
+
 .contact-process-heading {
-    margin-bottom: 48px;
+    margin-bottom: 34px;
     text-align: center;
 }
 
@@ -21229,8 +21272,8 @@ width: 9px;
     margin: 0;
     color: var(--white);
     font-family: var(--display);
-    font-size: clamp(30px, 3.5vw, 42px);
-    letter-spacing: 0.08em;
+    font-size: clamp(24px, 2.6vw, 32px);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
@@ -21246,7 +21289,7 @@ width: 9px;
 .contact-process-flow {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
+    gap: 32px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -21259,9 +21302,9 @@ width: 9px;
 
 .contact-process-flow li:not(:last-child)::after {
     position: absolute;
-    top: 38px;
-    right: -12%;
-    width: 24%;
+    top: 32px;
+    right: -24%;
+    width: 48%;
     height: 0;
     content: "";
     border-top: 2px dotted rgba(238, 164, 45, 0.34);
@@ -21271,10 +21314,10 @@ width: 9px;
 .contact-process-icon {
     position: relative;
     display: grid;
-    width: 76px;
-    height: 76px;
+    width: 66px;
+    height: 66px;
     place-items: center;
-    margin: 0 auto 18px;
+    margin: 0 auto 15px;
     color: var(--white);
     background: rgba(255, 255, 255, 0.03);
     border: 1.5px solid rgba(238, 164, 45, 0.42);
@@ -21306,7 +21349,7 @@ width: 9px;
 }
 
 .contact-process-flow h3 {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     color: var(--white);
     font-size: 16px;
 }
@@ -21320,49 +21363,66 @@ width: 9px;
 }
 
 .contact-faq {
-    padding: 88px 0 110px;
-    background: #F4F8FC;
+    padding: 18px 0 72px;
+    background: #041838;
     color: var(--navy-900);
+}
+
+.contact-faq .container {
+    padding: 34px clamp(24px, 4vw, 52px) 38px;
+    background: #F7F9FC;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
 }
 
 .contact-faq-heading {
     max-width: 760px;
-    margin: 0 auto 34px;
-    text-align: center;
+    margin: 0 0 22px;
+    text-align: left;
 }
 
 .contact-faq-heading h2 {
     margin: 0;
     color: var(--navy-900);
     font-family: var(--display);
-    font-size: clamp(34px, 4vw, 48px);
+    font-size: clamp(25px, 2.8vw, 34px);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .contact-faq-list {
     display: grid;
-    gap: 12px;
-    max-width: 920px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    max-width: none;
+    margin: 0;
 }
 
 .contact-faq-item {
     overflow: hidden;
     background: var(--white);
     border: 1px solid #D8E3EE;
-    border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(4, 24, 56, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(4, 24, 56, 0.04);
 }
 
 .contact-faq-item summary {
     display: grid;
-    grid-template-columns: 34px minmax(0, 1fr) 18px;
-    gap: 14px;
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+    gap: 11px;
     align-items: center;
-    padding: 18px 20px;
+    padding: 13px 15px;
     list-style: none;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
+}
+
+.contact-faq-item summary:focus-visible {
+    outline: 2px solid rgba(238, 164, 45, 0.8);
+    outline-offset: -3px;
+    border-radius: 8px;
 }
 
 .contact-faq-item summary::-webkit-details-marker {
@@ -21371,8 +21431,8 @@ width: 9px;
 
 .contact-faq-icon {
     display: grid;
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     place-items: center;
     color: var(--navy-900);
     background: rgba(238, 164, 45, 0.14);
@@ -21415,13 +21475,13 @@ width: 9px;
 }
 
 .contact-faq-body {
-    padding: 0 20px 18px 68px;
+    padding: 0 16px 14px 54px;
 }
 
 .contact-faq-body p {
     margin: 0;
     color: #5B7086;
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1.65;
 }
 
@@ -21447,6 +21507,18 @@ width: 9px;
 @media (max-width: 1080px) {
     .contact-main-grid {
         grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .contact-intro {
+        width: min(100%, 760px);
+        max-width: 720px;
+        margin: 0 auto;
+        padding-top: 0;
+    }
+
+    .contact-enquiry {
+        justify-self: center;
     }
 
     .contact-choice-grid {
@@ -21471,7 +21543,7 @@ width: 9px;
 
 @media (max-width: 720px) {
     .contact-main {
-        padding: 118px 0 72px;
+        padding: 106px 0 42px;
     }
 
     .contact-enquiry {
@@ -21483,6 +21555,13 @@ width: 9px;
         gap: 0;
         margin-bottom: 20px;
         padding-bottom: 18px;
+    }
+
+    .contact-stepper-item {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 6px;
+        text-align: center;
     }
 
     .contact-stepper-line {
@@ -21498,6 +21577,16 @@ width: 9px;
         grid-template-columns: 1fr;
     }
 
+    .contact-form-grid-step1 {
+        grid-template-areas:
+            "company"
+            "email"
+            "country"
+            "trn"
+            "name"
+            "phone";
+    }
+
     .contact-field-wide {
         grid-column: auto;
     }
@@ -21508,10 +21597,20 @@ width: 9px;
 
     .contact-process,
     .contact-faq {
-        padding: 72px 0 78px;
+        padding: 14px 0;
+    }
+
+    .contact-process .container,
+    .contact-faq .container {
+        padding: 30px 18px 34px;
+        border-radius: 12px;
     }
 
     .contact-process-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-faq-list {
         grid-template-columns: 1fr;
     }
 
@@ -21527,6 +21626,26 @@ width: 9px;
 
     .contact-choice-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-stepper-label {
+        font-size: 8px;
+    }
+
+    .contact-intro h1 {
+        font-size: 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-steps-track,
+    .contact-steps-viewport,
+    .contact-step-panel,
+    .contact-stepper-item,
+    .contact-stepper-circle,
+    .contact-stepper-line {
+        scroll-behavior: auto;
+        transition-duration: 0.01ms !important;
     }
 }
 
@@ -21741,5 +21860,195 @@ width: 9px;
 
     .industry-default-cue {
         bottom: 22px;
+    }
+}
+
+/* Connect — digital contact / QR page */
+.connect-page {
+    margin: 0;
+    min-height: 100svh;
+    color: var(--white);
+    background:
+        radial-gradient(circle at 20% 12%, rgba(238, 164, 45, 0.14), transparent 34%),
+        radial-gradient(circle at 82% 88%, rgba(26, 118, 197, 0.16), transparent 30%),
+        linear-gradient(165deg, #071D49 0%, #041838 52%, #020B1C 100%);
+}
+
+.connect-shell {
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    padding: 28px 18px 34px;
+}
+
+.connect-card {
+    width: min(100%, 440px);
+    padding: 28px 20px 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+}
+
+.connect-brand {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.connect-logo {
+    display: block;
+    width: min(190px, 72vw);
+    height: auto;
+    margin: 0 auto 14px;
+}
+
+.connect-tagline {
+    margin: 0;
+    color: var(--gold-500);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.connect-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.connect-btn {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    min-height: 62px;
+    padding: 12px 14px;
+    color: inherit;
+    text-align: left;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.connect-btn:hover,
+.connect-btn:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(238, 164, 45, 0.42);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.connect-btn-icon {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    color: var(--gold-500);
+    background: rgba(238, 164, 45, 0.1);
+    border: 1px solid rgba(238, 164, 45, 0.24);
+    border-radius: 12px;
+}
+
+.connect-btn-icon svg {
+    width: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.connect-btn-whatsapp .connect-btn-icon svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+.connect-btn-text strong {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.connect-btn-text small {
+    display: block;
+    margin-top: 2px;
+    color: rgba(203, 219, 236, 0.62);
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.connect-btn-arrow {
+    color: rgba(238, 164, 45, 0.88);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.connect-btn-primary {
+    margin-top: 4px;
+    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
+    border-color: transparent;
+    box-shadow: 0 12px 28px rgba(238, 164, 45, 0.22);
+}
+
+.connect-btn-primary .connect-btn-icon {
+    color: #071D49;
+    background: rgba(7, 29, 73, 0.12);
+    border-color: rgba(7, 29, 73, 0.14);
+}
+
+.connect-btn-primary .connect-btn-text strong {
+    color: #071D49;
+}
+
+.connect-btn-primary .connect-btn-text small {
+    color: rgba(7, 29, 73, 0.72);
+}
+
+.connect-btn-primary .connect-btn-arrow {
+    color: #071D49;
+}
+
+.connect-btn-primary:hover,
+.connect-btn-primary:focus-visible {
+    background: linear-gradient(148deg, rgba(255, 184, 55, 1) 0%, rgba(255, 252, 150, 1) 42%, rgba(255, 184, 55, 1) 100%);
+    border-color: transparent;
+}
+
+.connect-footer {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.connect-footer p {
+    margin: 0;
+    color: rgba(186, 202, 220, 0.58);
+    font-size: 10px;
+    line-height: 1.55;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 480px) {
+    .connect-card {
+        padding: 32px 24px 26px;
+    }
+
+    .connect-btn {
+        min-height: 66px;
+        padding: 14px 16px;
+    }
+
+    .connect-btn-text strong {
+        font-size: 15px;
     }
 }
