@@ -22898,6 +22898,48 @@ width: 9px;
 
 /* Home sections: mobile-only spacing and type refinement. */
 @media (max-width: 480px) {
+    .industries {
+        padding: 48px 16px 56px;
+    }
+
+    .industries .container-fluid {
+        width: 100%;
+    }
+
+    .industries .center-intro {
+        gap: 10px;
+        margin-bottom: 28px;
+    }
+
+    .industries .center-intro .eyebrow {
+        padding-bottom: 7px;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+    }
+
+    .industries .center-intro h2 {
+        max-width: 100%;
+        font-size: clamp(30px, 8.8vw, 36px);
+        line-height: 1.08;
+    }
+
+    .industry-track {
+        gap: 14px;
+    }
+
+    .industry-card {
+        min-height: 232px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .industry-card span {
+        min-height: 0;
+        padding: 12px 14px;
+        font-size: 18px;
+        line-height: 1.12;
+    }
+
     .services .section-intro {
         gap: 16px;
         margin-bottom: 30px;
