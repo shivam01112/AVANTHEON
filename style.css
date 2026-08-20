@@ -12223,8 +12223,8 @@ body.about-page #process::before {
 
     body.about-page #process .container {
         display: grid;
-        grid-template-columns: 86px minmax(0, 1fr);
-        column-gap: 12px;
+        grid-template-columns: 104px minmax(0, 1fr);
+        column-gap: 14px;
         align-items: start;
     }
 
@@ -12238,11 +12238,12 @@ body.about-page #process::before {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, minmax(0, 1fr));
-        width: 86px;
+        width: 104px;
         min-height: 0;
         height: 100%;
         padding: 4px 0 0;
         overflow: hidden;
+        row-gap: 4px;
     }
 
     body.about-page #process .process-timeline-step {
