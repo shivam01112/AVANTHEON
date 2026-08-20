@@ -22896,6 +22896,35 @@ width: 9px;
     }
 }
 
+@media (max-width: 480px) {
+    .presence#operations {
+        padding-top: 38px !important;
+        padding-bottom: 44px !important;
+    }
+
+    .presence#operations .section-copy {
+        padding-inline: 8px;
+    }
+
+    .presence#operations .section-copy h2 {
+        max-width: 420px;
+        font-size: clamp(27px, 7.2vw, 32px);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+    }
+
+    .presence#operations .section-copy p:not(.eyebrow) {
+        max-width: 390px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .presence#operations .map-panel {
+        min-height: 0;
+        aspect-ratio: 1.35 / 1;
+    }
+}
+
 /* Home sections: mobile-only spacing and type refinement. */
 @media (max-width: 480px) {
     .presence#operations {
