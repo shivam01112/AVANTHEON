@@ -21888,7 +21888,7 @@ width: 9px;
     display: grid;
     place-items: center;
     overflow: hidden;
-    padding: 42px 24px 54px;
+    padding: 20px 24px 54px;
 }
 
 .connect-hero-bg {
@@ -21940,7 +21940,7 @@ width: 9px;
 
 .connect-logo {
     display: block;
-    width: min(210px, 68vw);
+    width: min(160px, 68vw);
     height: auto;
     margin: 0 auto 12px;
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
@@ -21967,7 +21967,7 @@ width: 9px;
     left: 50%;
     bottom: 0;
     width: min(92%, 440px);
-    height: 56px;
+    height: 35px;
     border: 1px solid rgba(197, 160, 89, 0.55);
     border-bottom: 0;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
