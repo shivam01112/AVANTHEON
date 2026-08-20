@@ -22897,6 +22897,26 @@ width: 9px;
 }
 
 @media (max-width: 480px) {
+    .presence#operations > .container-fluid {
+        width: 100%;
+        max-width: none;
+        padding-inline: 16px;
+        box-sizing: border-box;
+    }
+
+    .presence#operations .map-panel,
+    .presence#operations .network-map-wrap {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+    }
+
+    .presence#operations .network-map-base,
+    .presence#operations .vector-network-overlay {
+        width: 100%;
+        max-width: none;
+    }
+
     .presence#operations {
         padding-top: 38px !important;
         padding-bottom: 44px !important;
