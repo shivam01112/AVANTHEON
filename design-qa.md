@@ -12,6 +12,7 @@
 - Implementation screenshot: unavailable because no in-app browser backend was exposed in this session.
 - Full-view comparison: blocked by missing browser-rendered capture.
 - Focused region comparison: blocked by missing browser-rendered capture.
+- User-provided before-state: 375 x 634 responsive screenshot showing excessive empty space between the 140px logo and the welcome heading.
 - Primary interactions tested: not browser-tested; existing link and vCard behavior was preserved.
 - Console errors checked: blocked by missing browser connection.
 
@@ -43,6 +44,7 @@
 - Initial implementation used `background-size: cover`, which visibly cropped the supplied portrait background on narrow screens.
 - Fix applied: generated a mobile-specific portrait asset and changed rendering to `100% auto` with a dark continuation color.
 - Branding refinement: created a non-destructive v2 background using the supplied AVANTHEON lockup on three container panels, then reduced and strengthened the live hero logo treatment.
+- Spacing refinement: reduced the mobile hero from 290px to 180px and its padding from `14px 20px 52px` to `10px 20px 18px`, removing approximately 110px of reserved vertical space.
 - Post-fix visual evidence: blocked because browser capture is unavailable.
 
 **Implementation Checklist**
