@@ -33,11 +33,13 @@
 - Matched the latest reference with eight ordered action rows: website, LinkedIn, email, WhatsApp, profile, contact save, meeting, and location.
 - Replaced thin action artwork with 24px Font Awesome solid/brand icons in high-contrast gold.
 - Rebuilt the proof strip as five reference-matched metrics and added LinkedIn, Instagram, and WhatsApp follow actions.
+- Added `images/connect-footer-ribbon.png`, a transparent 2172 x 724 metallic-gold ribbon derived from the reference footer treatment.
+- Removed the mobile body-to-footer gap and overlaid Follow Us on the ribbon center to visually connect metrics, socials, and copyright.
 
 **Required Fidelity Surfaces**
 
 - Fonts and typography: CSS values updated to the reference hierarchy; rendered comparison blocked.
-- Spacing and layout rhythm: compact 48px actions, 6px mobile gaps, and a five-column proof strip implemented; rendered comparison blocked.
+- Spacing and layout rhythm: compact 42px actions, 6px mobile gaps, a 300px action width, zero mobile body-bottom padding, and a five-column proof strip implemented; rendered comparison blocked.
 - Colors and visual tokens: navy, white, and gold treatment matches the supplied reference direction.
 - Image quality and asset fidelity: generated 1024 x 1536 raster asset inspected successfully. Three supplied-logo decals are integrated into the left and right container faces with perspective and restrained scale; all UI icons now use a consistent icon library rather than approximate drawings.
 - Copy and content: latest reference action labels, metric values, descriptions, follow label, and location copy implemented.
@@ -49,6 +51,7 @@
 - Branding refinement: created a non-destructive v2 background using the supplied AVANTHEON lockup on three container panels, then reduced and strengthened the live hero logo treatment.
 - Spacing refinement: reduced the mobile hero from 290px to 180px and its padding from `14px 20px 52px` to `10px 20px 18px`, removing approximately 110px of reserved vertical space.
 - Reference-detail refinement: implemented eight compact actions, clear gold icons, five metrics, and social links; static checks confirm matching root and nested-route counts.
+- Bottom-section refinement: added the missing gold ribbon asset, tightened action density, and removed the disconnected empty space visible in the user-provided mobile screenshot.
 - Post-fix visual evidence: blocked because browser capture is unavailable.
 
 **Implementation Checklist**
