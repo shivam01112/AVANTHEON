@@ -23041,7 +23041,7 @@ width: 9px;
 
 .connect-pillar-value strong {
     color: #F4B63E;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1;
 }
 
@@ -23089,7 +23089,7 @@ width: 9px;
 }
 
 .connect-footer-tagline {
-    margin: 0 0 5px;
+    margin: 16px 0 0px;
     color: #F4B63E;
     font-size: 9px;
     font-weight: 700;
