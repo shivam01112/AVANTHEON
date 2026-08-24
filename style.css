@@ -22888,7 +22888,7 @@ width: 9px;
 .connect-actions {
     display: grid;
     gap: 7px;
-    width: min(100%, 380px);
+    width: min(100%, 300px);
     margin: 0 auto;
 }
 
@@ -23072,7 +23072,9 @@ width: 9px;
 }
 
 .connect-footer {
-    padding: 8px 18px 22px;
+    position: relative;
+    padding: 0 18px 18px;
+    overflow: hidden;
     text-align: center;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
@@ -23093,6 +23095,16 @@ width: 9px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.connect-footer-ribbon {
+    display: block;
+    width: calc(100% + 36px);
+    height: 44px;
+    margin: 0 -18px -25px;
+    object-fit: cover;
+    object-position: center 70%;
+    pointer-events: none;
 }
 
 .connect-socials {
@@ -23187,7 +23199,7 @@ width: 9px;
     }
 
     .connect-body {
-        padding-inline: 14px;
+        padding: 0 14px;
     }
 
     .connect-eyebrow {
@@ -23202,26 +23214,26 @@ width: 9px;
     }
 
     .connect-btn {
-        min-height: 48px;
-        grid-template-columns: 38px minmax(0, 1fr) 14px;
-        gap: 8px;
-        padding: 6px 10px;
+        min-height: 42px;
+        grid-template-columns: 32px minmax(0, 1fr) 12px;
+        gap: 6px;
+        padding: 5px 9px;
         border-color: rgba(245, 180, 58, 0.86);
     }
 
     .connect-btn-text strong {
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0;
         text-transform: none;
     }
 
     .connect-btn-text small {
         margin-top: 1px;
-        font-size: 8px;
+        font-size: 7px;
     }
 
     .connect-footer {
-        padding: 8px 16px calc(18px + env(safe-area-inset-bottom));
+        padding: 0 16px calc(14px + env(safe-area-inset-bottom));
     }
 
     .connect-footer-brand {
@@ -23271,13 +23283,17 @@ width: 9px;
     }
 
     .connect-btn {
-        grid-template-columns: 36px minmax(0, 1fr) 14px;
-        min-height: 48px;
+        grid-template-columns: 32px minmax(0, 1fr) 12px;
+        min-height: 42px;
     }
 
     .connect-btn-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .connect-btn-icon i {
+        font-size: 21px;
     }
 
     .contact-enquiry {
