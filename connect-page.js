@@ -34,16 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     setLink("connect-whatsapp", config.whatsapp);
     setLink("connect-linkedin", config.linkedin);
     setLink("connect-email", `mailto:${config.email}`);
-    setLink("connect-phone", `tel:${config.phone}`);
-    setLink("connect-enquiry", resolvePath(config.enquiry));
+    setLink("connect-profile", resolvePath(config.profile));
+    setLink("connect-meeting", resolvePath(config.meeting));
+    setLink("connect-location", config.locationMap);
+    setLink("connect-social-linkedin", config.linkedin);
+    setLink("connect-social-instagram", config.instagram);
+    setLink("connect-social-whatsapp", config.whatsapp);
 
     setLabel("connect-website-label", config.websiteDisplay);
     setLabel("connect-whatsapp-label", config.whatsappDisplay);
     setLabel("connect-linkedin-label", config.linkedinDisplay);
     setLabel("connect-email-label", config.email);
-    setLabel("connect-phone-label", config.phoneDisplay || config.phone);
+    setLabel("connect-profile-label", config.profileDisplay);
+    setLabel("connect-meeting-label", config.meetingDisplay);
+    setLabel("connect-location-label", config.locationDisplay || config.location);
     setLabel("connect-vcard-label", config.vcardDisplay);
-    setLabel("connect-enquiry-label", config.enquiryDisplay);
 
     document.getElementById("connect-vcard")?.addEventListener("click", () => {
         const link = document.createElement("a");
