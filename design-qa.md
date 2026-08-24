@@ -30,14 +30,17 @@
 - Kept the upper center clear for the existing logo and the lower portion dark for readable controls.
 - Matched the reference intro copy, gold borders, dark button surfaces, and compact mobile spacing.
 - Preserved all existing contact actions and configuration-driven links.
+- Matched the latest reference with eight ordered action rows: website, LinkedIn, email, WhatsApp, profile, contact save, meeting, and location.
+- Replaced thin action artwork with 24px Font Awesome solid/brand icons in high-contrast gold.
+- Rebuilt the proof strip as five reference-matched metrics and added LinkedIn, Instagram, and WhatsApp follow actions.
 
 **Required Fidelity Surfaces**
 
 - Fonts and typography: CSS values updated to the reference hierarchy; rendered comparison blocked.
-- Spacing and layout rhythm: mobile proportions updated; rendered comparison blocked.
+- Spacing and layout rhythm: compact 48px actions, 6px mobile gaps, and a five-column proof strip implemented; rendered comparison blocked.
 - Colors and visual tokens: navy, white, and gold treatment matches the supplied reference direction.
-- Image quality and asset fidelity: generated 1024 x 1536 raster asset inspected successfully. Three supplied-logo decals are integrated into the left and right container faces with perspective and restrained scale; rendered crop comparison remains blocked.
-- Copy and content: reference intro wording implemented; existing action labels retained to preserve working destinations.
+- Image quality and asset fidelity: generated 1024 x 1536 raster asset inspected successfully. Three supplied-logo decals are integrated into the left and right container faces with perspective and restrained scale; all UI icons now use a consistent icon library rather than approximate drawings.
+- Copy and content: latest reference action labels, metric values, descriptions, follow label, and location copy implemented.
 
 **Comparison History**
 
@@ -45,6 +48,7 @@
 - Fix applied: generated a mobile-specific portrait asset and changed rendering to `100% auto` with a dark continuation color.
 - Branding refinement: created a non-destructive v2 background using the supplied AVANTHEON lockup on three container panels, then reduced and strengthened the live hero logo treatment.
 - Spacing refinement: reduced the mobile hero from 290px to 180px and its padding from `14px 20px 52px` to `10px 20px 18px`, removing approximately 110px of reserved vertical space.
+- Reference-detail refinement: implemented eight compact actions, clear gold icons, five metrics, and social links; static checks confirm matching root and nested-route counts.
 - Post-fix visual evidence: blocked because browser capture is unavailable.
 
 **Implementation Checklist**
