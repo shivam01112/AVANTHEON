@@ -22729,34 +22729,37 @@ width: 9px;
     margin: 0;
     min-height: 100svh;
     color: var(--white);
-    background: #071D49;
+    background: #020B1C;
 }
 
 .connect-shell {
+    position: relative;
+    isolation: isolate;
     width: min(100%, 520px);
     min-height: 100svh;
     margin: 0 auto;
     background:
-        radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.08), transparent 42%),
-        linear-gradient(180deg, #071D49 0%, #041838 55%, #020B1C 100%);
+        linear-gradient(180deg, rgba(1, 8, 23, 0.05) 0%, rgba(1, 8, 23, 0.12) 29%, rgba(1, 8, 23, 0.54) 48%, rgba(1, 8, 23, 0.88) 72%, #020B1C 100%),
+        url("images/connect-bg-mobile-v2.png") center top / 100% auto no-repeat,
+        #020B1C;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.35);
 }
 
 .connect-hero {
     position: relative;
     isolation: isolate;
-    min-height: 220px;
+    min-height: 300px;
     display: grid;
     place-items: center;
     overflow: hidden;
-    padding: 20px 24px 54px;
+    padding: 16px 24px 58px;
 }
 
 .connect-hero-bg {
     position: absolute;
     inset: 0;
     z-index: -2;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -22788,23 +22791,25 @@ width: 9px;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background:
-        radial-gradient(circle at 50% 28%, rgba(197, 160, 89, 0.12), transparent 38%),
-        linear-gradient(180deg, rgba(7, 29, 73, 0.35) 0%, rgba(4, 24, 56, 0.88) 100%);
+    background: linear-gradient(180deg, rgba(2, 10, 27, 0.02) 0%, rgba(2, 10, 27, 0.1) 55%, rgba(2, 10, 27, 0.5) 100%);
 }
 
 .connect-hero-brand {
     position: relative;
     z-index: 1;
+    align-self: start;
+    margin-top: 4px;
     text-align: center;
 }
 
 .connect-logo {
     display: block;
-    width: min(160px, 68vw);
+    width: min(230px, 66vw);
     height: auto;
-    /* margin: 0 auto 12px;
-    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28)); */
+    margin: 0 auto;
+    filter:
+        drop-shadow(0 3px 2px rgba(0, 0, 0, 0.7))
+        drop-shadow(0 14px 30px rgba(0, 0, 0, 0.5));
 }
 
 .connect-hero-tagline {
@@ -22818,9 +22823,11 @@ width: 9px;
 
 .connect-arc {
     position: relative;
+    display: none;
     height: 34px;
-    margin-top: -28px;
-    margin-bottom: 8px;
+    margin-top: -56px;
+    margin-bottom: 14px;
+    opacity: 0.72;
 }
 
 .connect-arc-line {
@@ -22855,25 +22862,27 @@ width: 9px;
 }
 
 .connect-intro {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     text-align: center;
 }
 
 .connect-eyebrow {
-    margin: 0 0 12px;
-    color: #C5A059;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    margin: 0 0 6px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.2;
+    text-transform: none;
 }
 
 .connect-lead {
     margin: 0 auto;
-    max-width: 360px;
-    color: rgba(214, 228, 244, 0.78);
+    max-width: 330px;
+    color: rgba(242, 247, 255, 0.9);
     font-size: 13px;
-    line-height: 1.65;
+    line-height: 1.45;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .connect-actions {
@@ -22892,12 +22901,12 @@ width: 9px;
     color: inherit;
     text-align: left;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(197, 160, 89, 0.38);
-    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(2, 16, 42, 0.98), rgba(4, 28, 68, 0.94));
+    border: 1px solid rgba(242, 180, 63, 0.86);
+    border-radius: 8px;
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.04),
-        0 8px 22px rgba(0, 0, 0, 0.16);
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 10px 24px rgba(0, 0, 0, 0.28);
     cursor: pointer;
     transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
     -webkit-tap-highlight-color: transparent;
@@ -22950,7 +22959,7 @@ width: 9px;
 .connect-btn-text small {
     display: block;
     margin-top: 3px;
-    color: rgba(203, 219, 236, 0.58);
+    color: rgba(226, 236, 249, 0.72);
     font-size: 11px;
     line-height: 1.35;
     text-transform: none;
@@ -22979,9 +22988,10 @@ width: 9px;
     gap: 8px;
     margin-top: 24px;
     padding: 16px 10px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    border-radius: 14px;
+    background: rgba(2, 16, 40, 0.72);
+    border: 1px solid rgba(232, 174, 67, 0.55);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
 }
 
 .connect-pillar {
@@ -23020,6 +23030,7 @@ width: 9px;
 .connect-footer {
     padding: 28px 18px 34px;
     text-align: center;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 .connect-footer-brand {
@@ -23049,8 +23060,8 @@ width: 9px;
 
 @media (min-width: 480px) {
     .connect-hero {
-        min-height: 240px;
-        padding-top: 48px;
+        min-height: 300px;
+        padding-top: 20px;
     }
 
     .connect-body {
@@ -23083,31 +23094,48 @@ width: 9px;
     .connect-shell {
         width: 100%;
         box-shadow: none;
+        background:
+            linear-gradient(180deg, rgba(1, 8, 23, 0.02) 0%, rgba(1, 8, 23, 0.08) 28%, rgba(1, 8, 23, 0.5) 49%, rgba(1, 8, 23, 0.9) 74%, #020B1C 100%),
+            url("images/connect-bg-mobile-v2.png") center top / 100% auto no-repeat,
+            #020B1C;
     }
 
     .connect-hero {
-        min-height: 200px;
-        padding: 28px 20px 46px;
+        min-height: 290px;
+        padding: 14px 20px 52px;
+    }
+
+    .connect-logo {
+        width: min(220px, 64vw);
+    }
+
+    .connect-arc {
+        display: none;
+    }
+
+    .connect-intro {
+        margin-bottom: 14px;
     }
 
     .connect-body {
-        padding-inline: 16px;
+        padding-inline: 14px;
     }
 
     .connect-eyebrow {
-        font-size: 12px;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
+        font-size: 22px;
     }
 
     .connect-lead {
-        font-size: 14px;
-        line-height: 1.6;
+        font-size: 13px;
+        line-height: 1.45;
     }
 
     .connect-btn {
-        min-height: 60px;
+        min-height: 64px;
         gap: 10px;
-        padding: 12px;
+        padding: 10px 12px;
+        border-color: rgba(245, 180, 58, 0.86);
     }
 
     .connect-btn-text strong {
@@ -23115,7 +23143,7 @@ width: 9px;
     }
 
     .connect-btn-text small {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .connect-footer {
