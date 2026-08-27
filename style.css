@@ -1400,8 +1400,8 @@ body.industries-page {
     overflow: hidden;
     text-align: center;
     background:
-        radial-gradient(circle at 50% 48%, rgba(212, 175, 55, 0.11), transparent 28%),
-        radial-gradient(circle at 50% 50%, rgba(4, 24, 56, 0.04) 1px, transparent 1px);
+        radial-gradient(circle at 50% 48%, rgba(212, 175, 55, 0.16), transparent 28%),
+        radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.14) 1px, transparent 1px);
     background-size: auto, 18px 18px;
 }
 
