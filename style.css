@@ -1050,7 +1050,8 @@ body.industries-page {
     border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.industry-hero-points svg {
+.industry-hero-points svg,
+.industry-hero-points img {
     position: relative;
     z-index: 1;
     flex: 0 0 auto;
@@ -1065,6 +1066,7 @@ body.industries-page {
     background: transparent;
     border: 0;
     border-radius: 0;
+    object-fit: contain;
     animation: industryPointPulse 3.8s ease-in-out infinite;
     transition: transform 240ms ease, stroke 240ms ease, filter 240ms ease;
 }
@@ -2693,7 +2695,8 @@ body.industries-page {
         padding: 8px 10px;
     }
 
-    .industry-hero-points svg {
+    .industry-hero-points svg,
+    .industry-hero-points img {
         width: 30px;
         height: 30px;
         padding: 0;
@@ -9917,7 +9920,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 .industries-page .industry-hero-points article {
     display: grid;
-    min-height: 142px;
+    min-height: 122px;
     padding: 20px 14px 16px;
     justify-items: center;
     align-content: center;
@@ -9941,7 +9944,8 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     display: none;
 }
 
-.industries-page .industry-hero-points svg {
+.industries-page .industry-hero-points svg,
+.industries-page .industry-hero-points img {
     width: 47px;
     height: 47px;
     stroke: #F3C54C;
@@ -9950,7 +9954,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 .industries-page .industry-hero-points span {
     max-width: none;
     color: #FFFFFF;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
     line-height: 1.25;
     letter-spacing: 0.02em;
@@ -10005,7 +10009,8 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
         padding: 15px 10px;
     }
 
-    .industries-page .industry-hero-points svg {
+    .industries-page .industry-hero-points svg,
+    .industries-page .industry-hero-points img {
         width: 36px;
         height: 36px;
     }
@@ -24177,7 +24182,8 @@ width: 9px;
         text-align: center;
     }
 
-    body.industries-page .industry-hero-points svg {
+    body.industries-page .industry-hero-points svg,
+    body.industries-page .industry-hero-points img {
         width: 28px;
         height: 28px;
     }
