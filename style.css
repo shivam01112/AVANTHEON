@@ -1413,10 +1413,10 @@ body.industries-page {
     height: 170px;
     place-items: center;
     margin-top: 6px;
-    background:#0e2140;
-    border: 1px solid rgba(212, 175, 55, 0.24);
+    background: #ffffff;
+    border: 2px solid var(--gold-500);
     border-radius: 50%;
-    box-shadow: 0 24px 50px rgba(4, 24, 56, 0.12);
+    box-shadow: 0 24px 50px rgba(4, 24, 56, 0.28), 0 0 0 6px rgba(246, 205, 83, 0.14);
     animation: industryCenterPulse 2.8s ease-in-out infinite;
 }
 
@@ -1425,8 +1425,21 @@ body.industries-page {
     inset: -16px;
     z-index: -1;
     content: "";
-    border: 1px solid rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.28);
     border-radius: inherit;
+}
+
+.industry-detail-default-mark::after {
+    position: absolute;
+    inset: -58px;
+    z-index: -2;
+    content: "";
+    border: 1px dashed rgba(246, 205, 83, 0.22);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 40px rgba(246, 205, 83, 0.05),
+        0 0 0 80px rgba(246, 205, 83, 0.03);
+    animation: industryRingPulse 5.6s ease-in-out infinite;
 }
 
 .industry-detail-default-mark img {
