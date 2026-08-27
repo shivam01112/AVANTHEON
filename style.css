@@ -16977,14 +16977,10 @@ body.about-page #process .process-card-progress {
 .solutions-page .solutions-hero {
     min-height: clamp(720px, 100vh, 900px);
     padding: clamp(118px, 13vh, 158px) 0 86px;
-    background:
-        radial-gradient(circle at 61% 80%, rgba(243, 170, 54, .12), transparent 20%),
-        radial-gradient(circle at 81% 44%, rgba(53, 203, 185, .14), transparent 27%),
-        radial-gradient(circle at 42% 48%, rgba(77, 134, 255, .14), transparent 28%),
-        linear-gradient(135deg, #020b16 0%, #031323 50%, #02101d 100%);
+    background-image: url('images/solution12.png');
 }
 
-.solutions-page .solutions-hero::after {
+/* .solutions-page .solutions-hero::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -16996,7 +16992,7 @@ body.about-page #process .process-card-progress {
     background-size: 90px 90px, 420px 100%;
     animation: solutionsStarDrift 22s linear infinite, solutionsLightSweep 9s ease-in-out infinite;
     pointer-events: none;
-}
+} */
 
 .solutions-page .solutions-hero-layout {
     width: min(100% - 40px, 1420px);
@@ -17005,12 +17001,59 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .solutions-hero-copy {
+    position: relative;
     align-self: center;
     padding-top: 0;
+    isolation: isolate;
+}
+
+.solutions-page .solutions-hero-copy::before {
+    content: "";
+    position: absolute;
+    top: -140px;
+    left: -110px;
+    z-index: -1;
+    width: 460px;
+    height: 460px;
+    /* background:
+        radial-gradient(circle at 40% 40%, rgba(246, 205, 83, 0.24), transparent 60%),
+        radial-gradient(circle at 70% 75%, rgba(77, 134, 255, 0.14), transparent 55%); */
+    pointer-events: none;
+    animation: solutionsHeroGlowDrift 11s ease-in-out infinite;
+}
+
+.solutions-page .solutions-hero-copy::after {
+    content: "";
+    position: absolute;
+    bottom: -120px;
+    left: -60px;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(77, 134, 255, 0.16), transparent 65%);
+    pointer-events: none;
+    animation: solutionsHeroDecorFloat 13s ease-in-out infinite;
+}
+
+@keyframes solutionsHeroGlowDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+    50% { transform: translate(18px, -18px) scale(1.12); opacity: 1; }
+}
+
+@keyframes solutionsHeroDecorFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50% { transform: translate(-10px, 12px) scale(1.08); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+    .solutions-page .solutions-hero-copy::before,
+    .solutions-page .solutions-hero-copy::after {
+        display: none;
+    }
 }
 
 .solutions-page .solutions-hero-copy .solutions-kicker {
-    color: #f1aa35;
+    color: var(--gold-500);
 }
 
 .solutions-page .solutions-hero-copy h1 {
@@ -17023,8 +17066,8 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .solutions-hero-copy h1 span {
-    color: #f1aa35;
-    text-shadow: 0 0 30px rgba(243, 170, 54, .16);
+    color: var(--gold-500);
+    text-shadow: 0 0 30px rgba(246, 205, 83, .18);
 }
 
 .solutions-page .solutions-hero-lead {
@@ -17154,7 +17197,7 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .solution-card-own .solution-card-title {
     top: 86px;
-    color: #f1aa35;
+    color: var(--gold-500);
     font-size: clamp(18px, 1.35vw, 24px);
 }
 
@@ -17162,7 +17205,7 @@ body.about-page #process .process-card-progress {
     top: 58px;
     left: 50%;
     right: auto;
-    color: #f1aa35;
+    color: var(--gold-500);
     background: transparent;
     transform: translateX(-50%);
     white-space: nowrap;
@@ -17576,7 +17619,7 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .stage-node-c,
 .solutions-page .stage-spark {
-    fill: #f3aa36;
+    fill: var(--gold-500);
     animation: solutionNodePulse 1.8s ease-in-out infinite;
 }
 
@@ -17610,9 +17653,9 @@ body.about-page #process .process-card-progress {
     height: 78px;
     color: #fff7d8;
     background:
-        radial-gradient(circle at 50% 45%, rgba(255, 238, 170, .92), rgba(243, 170, 54, .8) 42%, rgba(77, 45, 5, .96) 72%);
+        radial-gradient(circle at 50% 45%, rgba(255, 238, 170, .92), rgba(246, 205, 83, .85) 42%, rgba(77, 45, 5, .96) 72%);
     border-color: rgba(255, 219, 127, .82);
-    box-shadow: 0 0 0 14px rgba(243, 170, 54, .12), 0 0 48px rgba(243, 170, 54, .46);
+    box-shadow: 0 0 0 14px rgba(246, 205, 83, .12), 0 0 48px rgba(246, 205, 83, .46);
 }
 
 .solutions-page .solution-card-own::after {
@@ -17744,7 +17787,7 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .stage-node,
 .solutions-page .stage-spark {
-    filter: drop-shadow(0 0 7px #ffd27a) drop-shadow(0 0 16px #f3aa36);
+    filter: drop-shadow(0 0 7px #ffdc4d) drop-shadow(0 0 16px #f6cd53);
 }
 
 .solutions-page .solution-card {
@@ -19051,8 +19094,10 @@ body.about-page #process .process-card-progress {
     top: 58px;
     width: var(--card-width);
     min-height: 458px;
-    animation-duration: 7.2s;
-    animation-timing-function: cubic-bezier(.22, .78, .24, 1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    animation-duration: 9s;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.15, 1);
     animation-iteration-count: infinite;
 }
 
@@ -19501,7 +19546,7 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .featured-benefits i {
-    color: var(--gold-700);
+    color: var(--gold-500);
 }
 
 .solutions-page .solution-finder {
@@ -19537,7 +19582,7 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .finder-intro .solutions-kicker {
-    color: var(--gold-700);
+    color: var(--gold-500);
     text-shadow: none;
 }
 
@@ -19623,11 +19668,10 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .solutions-hero {
-    background:
-        radial-gradient(circle at 72% 22%, rgba(26, 118, 197, 0.24), transparent 27%),
-        radial-gradient(circle at 44% 54%, rgba(77, 134, 255, 0.15), transparent 31%),
-        radial-gradient(circle at 76% 84%, rgba(246, 205, 83, 0.13), transparent 25%),
-        linear-gradient(135deg, #03142e 0%, var(--navy-900) 48%, var(--navy-800) 100%);
+    background:radial-gradient(circle at 72% 22%, rgb(26 118 197 / 0%), transparent 27%), radial-gradient(circle at 44% 54%, rgb(77 134 255 / 0%), #00000000 31%), radial-gradient(circle at 76% 84%, rgb(246 205 83 / 0%), transparent 25%), linear-gradient(135deg, rgb(3 20 46 / 0%) 0%, rgb(4 24 56 / 49%) 48%, rgb(8 43 86) 100%), url(images/solution12.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .solutions-page .solutions-hero::after {
@@ -19756,8 +19800,9 @@ body.about-page #process .process-card-progress {
 }
 
 @keyframes solutionCueTap {
-    0%, 100% { transform: translateY(0) rotate(-8deg); }
-    50% { transform: translateY(-3px) rotate(0); }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(2px, 2px) scale(0.86); }
+    55% { transform: translate(2px, 2px) scale(1.12); }
 }
 
 @keyframes solutionCueDown {
@@ -19966,7 +20011,7 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .featured-solution .solutions-kicker {
-    color: var(--gold-700);
+    color: var(--gold-500);
     font-weight: 900;
     letter-spacing: 0.15em;
     text-shadow: 0 0 16px rgba(212, 175, 55, 0.12);
