@@ -249,9 +249,22 @@ document.addEventListener("DOMContentLoaded", () => {
             filter.classList.toggle("is-active", isActive);
             filter.setAttribute("aria-selected", String(isActive));
         });
+
         comparisonCards.forEach((card) => {
-            card.classList.toggle("is-filter-match", winners.includes(card.dataset.solution));
+            card.classList.remove("is-filter-match");
             card.classList.toggle("is-filter-muted", !winners.includes(card.dataset.solution));
+        });
+
+        // Force a reflow so the match animation restarts below even when a
+        // card was already matched by the previous filter (toggle alone
+        // won't re-add a class that never left, so the CSS animation
+        // wouldn't replay).
+        void comparisonExperience.offsetWidth;
+
+        comparisonCards.forEach((card) => {
+            if (winners.includes(card.dataset.solution)) {
+                card.classList.add("is-filter-match");
+            }
         });
     };
 
