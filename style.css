@@ -20718,7 +20718,7 @@ width: 9px;
 @media (max-width: 860px) {
     .presence#operations .map-panel {
         min-height: 0;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 1916 / 821;
     }
 
     .network-info-legend {
@@ -20745,12 +20745,12 @@ width: 9px;
 
 @media (max-width: 560px) {
     .presence#operations .map-panel {
-        min-height: 300px;
-        aspect-ratio: auto;
+        min-height: 0;
+        aspect-ratio: 1916 / 821;
     }
 
     .presence#operations .network-map-base {
-        object-fit: fill;
+        object-fit: cover;
     }
 
     .presence#operations .vector-port-labels text,
@@ -23602,7 +23602,7 @@ width: 9px;
 
     .presence#operations .map-panel {
         min-height: 0;
-        aspect-ratio: 1.35 / 1;
+        aspect-ratio: 1916 / 821;
     }
 }
 
@@ -23631,7 +23631,7 @@ width: 9px;
     }
 
     .presence#operations .map-panel {
-        aspect-ratio: 1.35 / 1;
+        aspect-ratio: 1916 / 821;
     }
 
     .industries {
@@ -23725,7 +23725,7 @@ width: 9px;
 
     .presence#operations .map-panel {
         min-height: 0;
-        aspect-ratio: 1 / 0.72;
+        aspect-ratio: 1916 / 821;
     }
 }
 
