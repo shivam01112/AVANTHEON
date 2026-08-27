@@ -753,7 +753,7 @@ body.industries-page {
 
 .industries-page .industry-hero .eyebrow {
     margin-bottom: 16px;
-    color: var(--gold-600);
+    color: var(--gold-500);
 }
 
 .industry-hero-copy h1 {
@@ -778,7 +778,7 @@ body.industries-page {
 }
 
 .industry-hero-copy h1 span {
-    color: var(--gold-600);
+    color: var(--gold-500);
 }
 
 .industry-hero-copy p:not(.eyebrow) {
@@ -1431,7 +1431,7 @@ body.industries-page {
     width: 135px;
     height: auto;
     fill: none;
-    stroke: var(--gold-600);
+    stroke: var(--gold-500);
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.8;
@@ -1607,7 +1607,7 @@ body.industries-page {
     width: 34px;
     height: 34px;
     fill: none;
-    stroke: var(--gold-600);
+    stroke: var(--gold-500);
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.8;
@@ -3736,7 +3736,7 @@ body.about-page {
 
 .about-purpose-intro .eyebrow {
     margin-bottom: 14px;
-    color: var(--gold-600);
+    color: var(--gold-500);
 }
 
 .about-purpose-intro h2 {
@@ -5995,7 +5995,7 @@ body.about-page {
 }
 
 .stat-suffix {
-    color: #504f4c;
+    color: var(--gold-500);
     font-size: 1.05em;
     font-weight: 800;
     letter-spacing: 0.05em;;
@@ -6136,7 +6136,7 @@ body.about-page {
 
 .about-content .eyebrow {
     margin-bottom: 0;
-    color: var(--gold-600);
+    color: var(--gold-500);
     letter-spacing: 0;
 }
 
@@ -7957,7 +7957,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     max-width: none !important;
     margin: 0 auto;
     padding: 0 0 8px;
-    color: var(--gold-600);
+    color: var(--gold-500);
     background: transparent;
     border: 0;
     border-bottom: 2px solid rgba(245, 193, 22, 0.44);
@@ -8571,7 +8571,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 .catalogue-copy .eyebrow {
     margin-bottom: 0;
-    color: var(--gold-600);
+    color: var(--gold-500);
 }
 
 .catalogue-copy h2 {
@@ -8625,7 +8625,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .catalogue-active-label {
-    color: var(--gold-600);
+    color: var(--gold-500);
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -8769,7 +8769,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .catalogue-stage-label {
-    color: var(--gold-600);
+    color: var(--gold-500);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -12469,7 +12469,7 @@ body.about-page #process .about-section-heading {
     margin-bottom: 54px;
 }
 
-body.about-page #process .about-section-heading .eyebrow { color: #F1C75B; }
+body.about-page #process .about-section-heading .eyebrow { color: var(--gold-500); }
 body.about-page #process .about-section-heading h2 { color: #FFFFFF; }
 
 body.about-page #process .about-process-track {
@@ -12711,7 +12711,7 @@ body.about-page #process .about-section-heading {
     margin-bottom: 48px;
 }
 
-body.about-page #process .about-section-heading .eyebrow { color: #D3A62F; }
+body.about-page #process .about-section-heading .eyebrow { color: var(--gold-500); }
 body.about-page #process .about-section-heading h2 { color: #041838; text-shadow: none; }
 
 body.about-page #process .process-banner {
@@ -13110,7 +13110,7 @@ body.about-page #process .about-section-heading {
 }
 
 body.about-page #process .about-section-heading .eyebrow {
-    color: #A97818;
+    color: var(--gold-500);
     letter-spacing: 0.16em;
 }
 
@@ -20105,8 +20105,8 @@ color: #edba0a;
 }
 
 .services .service-card svg {
-    stroke: var(--gold-700);
-    color: var(--gold-700);
+    stroke: var(--gold-500);
+    color: var(--gold-500);
     background:radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.92), transparent 34%), linear-gradient(145deg, #ffffff, #e2e2e2);
     border-color: rgba(212, 175, 55, 0.28);
     box-shadow:
