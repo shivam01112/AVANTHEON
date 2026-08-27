@@ -5844,8 +5844,10 @@ body.about-page {
     box-shadow: none;
 }
 .footer-logo{
-    width: 150px;
-}
+    width: 250px;
+    background: #fff;
+    padding: 3px;
+    border-radius: 6px;}
 
 .stat-item {
     position: relative;
