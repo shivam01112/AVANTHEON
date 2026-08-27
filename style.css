@@ -1368,9 +1368,9 @@ body.industries-page {
     padding: 0;
     overflow: hidden;
     background:
-        radial-gradient(circle at 50% 50%, rgba(245, 193, 22, 0.1), transparent 24%),
-        linear-gradient(180deg, #FFFFFF 0%, #F8FBFE 100%);
-    border: 1px solid rgba(11, 58, 109, 0.1);
+        radial-gradient(circle at 50% 50%, rgba(245, 193, 22, 0.14), transparent 24%),
+        linear-gradient(180deg, #061D42 0%, #041838 100%);
+    border: 1px solid rgba(212, 175, 55, 0.22);
     border-radius: 18px;
     box-shadow: 0 24px 54px rgba(4, 24, 56, 0.1);
     transition: opacity 260ms ease, transform 260ms ease;
