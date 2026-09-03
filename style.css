@@ -21340,6 +21340,93 @@ width: 9px;
     background: var(--white);
 }
 
+.contact-country-combo [data-country-select] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.contact-country-combo {
+    position: relative;
+}
+
+.contact-country-combo input[data-country-search] {
+    cursor: pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, rgba(238, 164, 45, 0.85) 50%),
+        linear-gradient(135deg, rgba(238, 164, 45, 0.85) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) calc(50% - 3px),
+        calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 30px;
+}
+
+.contact-country-listbox {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    left: 0;
+    z-index: 20;
+    max-height: 248px;
+    margin: 0;
+    padding: 6px;
+    overflow-y: auto;
+    list-style: none;
+    background: #0a2140;
+    border: 1px solid rgba(238, 164, 45, 0.28);
+    border-radius: 12px;
+    box-shadow: 0 20px 44px rgba(1, 11, 29, 0.42);
+}
+
+.contact-country-option {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    color: rgba(226, 236, 248, 0.9);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.contact-country-flag {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.contact-country-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.contact-country-dial {
+    color: rgba(226, 236, 248, 0.5);
+    font-size: 11px;
+}
+
+.contact-country-option:hover,
+.contact-country-option.is-active {
+    background: rgba(238, 164, 45, 0.16);
+    color: #fff;
+}
+
+.contact-country-empty {
+    padding: 12px 10px;
+    color: rgba(226, 236, 248, 0.55);
+    font-size: 12px;
+    text-align: center;
+}
+
 .contact-phone-wrap {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);

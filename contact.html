@@ -136,26 +136,15 @@
                                             </div>
                                             <small class="field-error">Enter a valid email address.</small>
                                         </div>
-                                        <div class="contact-field">
-                                            <label for="contact-country">Country <em>*</em></label>
-                                            <div class="contact-input-wrap">
+                                        <div class="contact-field contact-field-country" data-country-field>
+                                            <label for="contact-country-search">Country <em>*</em></label>
+                                            <div class="contact-input-wrap contact-country-combo">
                                                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M2.5 12h19M12 3.5c2.4 2.8 3.7 5.8 3.7 8.5S14.4 17.7 12 20.5C9.6 17.7 8.3 14.7 8.3 12S9.6 6.3 12 3.5Z"/></svg>
-                                                <select id="contact-country" name="country" required>
+                                                <input id="contact-country-search" type="text" role="combobox" aria-expanded="false" aria-controls="contact-country-listbox" aria-autocomplete="list" autocomplete="off" placeholder="Select country" data-country-search>
+                                                <select id="contact-country" name="country" required aria-hidden="true" tabindex="-1" data-country-select>
                                                     <option value="">Select country</option>
-                                                    <option>United Arab Emirates</option>
-                                                    <option>Saudi Arabia</option>
-                                                    <option>Qatar</option>
-                                                    <option>Kuwait</option>
-                                                    <option>Oman</option>
-                                                    <option>Bahrain</option>
-                                                    <option>India</option>
-                                                    <option>Pakistan</option>
-                                                    <option>United Kingdom</option>
-                                                    <option>United States</option>
-                                                    <option>Germany</option>
-                                                    <option>China</option>
-                                                    <option>Other</option>
                                                 </select>
+                                                <ul class="contact-country-listbox" id="contact-country-listbox" role="listbox" data-country-listbox hidden></ul>
                                             </div>
                                             <small class="field-error">Please select your country.</small>
                                         </div>
@@ -171,7 +160,7 @@
                                         <div class="contact-field contact-field-wide">
                                             <label for="contact-phone">Phone Number <em>*</em></label>
                                             <div class="contact-phone-wrap">
-                                                <span class="contact-phone-prefix" aria-hidden="true">+971</span>
+                                                <span class="contact-phone-prefix" aria-hidden="true" data-phone-prefix>+971</span>
                                                 <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="00 000 0000" required>
                                             </div>
                                             <small class="field-error">Please enter your phone number.</small>
