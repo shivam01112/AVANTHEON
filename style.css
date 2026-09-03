@@ -8270,6 +8270,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     filter: drop-shadow(0 30px 26px rgba(4, 24, 56, 0.24));
     animation: containerFloat 3.8s ease-in-out infinite;
     will-change: transform;
+    border-radius:8px;
 }
 
 .container-shadow-svg {
