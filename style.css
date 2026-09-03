@@ -23026,12 +23026,10 @@ width: 9px;
 
 .connect-logo {
     display: block;
-    width: min(230px, 66vw);
+    width: min(175px, 66vw);
     height: auto;
     margin: 0 auto;
-    filter:
-        drop-shadow(0 3px 2px rgba(0, 0, 0, 0.7))
-        drop-shadow(0 14px 30px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
 }
 
 .connect-hero-tagline {
@@ -23134,7 +23132,9 @@ width: 9px;
     color: inherit;
     text-align: left;
     text-decoration: none;
-    background: linear-gradient(90deg, rgba(2, 16, 42, 0.98), rgba(4, 28, 68, 0.94));
+    appearance: none;
+    background: transparent;
+    font: inherit;
     border: 1px solid rgba(242, 180, 63, 0.86);
     border-radius: 8px;
     box-shadow:
@@ -23148,7 +23148,7 @@ width: 9px;
 .connect-btn:hover,
 .connect-btn:focus-visible {
     transform: translateY(-1px);
-    background: rgba(197, 160, 89, 0.08);
+    background:linear-gradient(90deg, rgba(2, 16, 42, 0.98), rgba(4, 28, 68, 0.94));
     border-color: rgba(232, 197, 106, 0.72);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.06),
@@ -23190,11 +23190,11 @@ width: 9px;
 .connect-btn-text strong {
     display: block;
     color: var(--white);
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0;
     line-height: 1.3;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .connect-btn-text small {
