@@ -642,7 +642,7 @@ body.industries-page {
     align-items: center;
 }
 
-.industries-page .brand {
+.industries-page .site-header .brand {
     height: var(--industries-header-height);
     align-items: center;
 }
@@ -2415,7 +2415,7 @@ body.industries-page {
     margin: 0 auto;
     gap: 0;
     overflow: hidden;
-    background: url("images/industries-1.jpg") center 58% / cover no-repeat;
+    background: url("images/solution-trading.png") center 58% / cover no-repeat;
     border: 0;
     border-top: 4px solid var(--gold-700);
     border-bottom: 1px solid rgba(246, 205, 83, 0.44);
@@ -3523,7 +3523,7 @@ body.about-page {
     align-items: center;
 }
 
-.about-page .brand {
+.about-page .site-header .brand {
     height: var(--about-header-height);
     align-items: center;
 }
@@ -5911,7 +5911,10 @@ body.about-page {
     box-shadow: none;
 }
 .footer-logo {
-    width: 150px;
+     width: 239px;
+    background: #fff;
+    padding: 7px;
+    border-radius: 8px;
 }
 
 .stat-item {
@@ -15170,6 +15173,7 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .featured-solution.is-visible .featured-value-grid article {
     animation: featuredCardRise 650ms cubic-bezier(.2, .75, .25, 1) both;
+   
 }
 
 .solutions-page .featured-solution.is-visible .featured-value-grid article:nth-child(1) { animation-delay: 230ms; }
@@ -15210,6 +15214,7 @@ body.about-page #process .process-card-progress {
 @media (max-width: 720px) {
     .solutions-page .featured-value-grid { grid-template-columns: 1fr; }
     .solutions-page .featured-value-grid article + article { padding-left: 0; }
+    
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -19048,7 +19053,7 @@ body.about-page #process .process-card-progress {
     align-items: center;
 }
 
-.solutions-page .brand {
+.solutions-page .site-header .brand {
     height: var(--about-header-height);
     align-items: center;
 }
@@ -23746,6 +23751,14 @@ display: block;
         gap: 22px;
         padding-top: 44px;
     }
+    .solutions-page .featured-solution.is-visible .featured-value-grid article {
+    animation: featuredCardRise 650ms cubic-bezier(.2, .75, .25, 1) both;
+    display: flex !important;
+    padding: 12px !important;
+    gap: 10px !important;
+    flex-direction: column !important;
+}
+
 }
 
 @media (max-width: 360px) {
