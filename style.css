@@ -22774,7 +22774,7 @@ width: 9px;
         font-size: 11.7px;
         line-height: 1.42;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 7;
     }
 
     .industry-detail-column:nth-child(3) p {

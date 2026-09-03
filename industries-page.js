@@ -542,11 +542,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="industry-detail-columns">
                             <article class="industry-detail-column">
                                 <h4>Industry Challenge</h4>
-                                <p>${escapeHtml(getSummary(industry.challenge, 112))}</p>
+                                <p>${escapeHtml(getSummary(industry.challenge, 230))}</p>
                             </article>
                             <article class="industry-detail-column">
                                 <h4>How Avantheon Helps</h4>
-                                <p>${escapeHtml(getSummary(industry.helps, 124))}</p>
+                                <p>${escapeHtml(getSummary(industry.helps, 240))}</p>
                             </article>
                             <article class="industry-detail-column">
                                 <h4>Operational Outcome</h4>
@@ -555,8 +555,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="industry-detail-grid">
                             <article class="industry-detail-list">
-                                <h4>Business Benefits</h4>
-                                <ul>${renderList(industry.benefits.slice(0, 4))}</ul>
+                                <h4>Operational Advantage</h4>
+                                <ul>${renderList(industry.benefits)}</ul>
                             </article>
                             <article class="industry-detail-list">
                                 <h4>Solutions Most Used</h4>
@@ -564,7 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </article>
                             <article class="industry-detail-list">
                                 <h4>Typical Applications</h4>
-                                <ul>${renderList(industry.applications.slice(0, 3))}</ul>
+                                <ul>${renderList(industry.applications)}</ul>
                             </article>
                         </div>
                         <div class="industry-detail-footer">
