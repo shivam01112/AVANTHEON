@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setLink("connect-profile", resolvePath(config.profile));
     setLink("connect-meeting", resolvePath(config.meeting));
     setLink("connect-location", config.locationMap);
+    setLink("connect-vcard", resolvePath(config.vcardFile || "avantheon-connect.vcf"));
     setLink("connect-social-linkedin", config.linkedin);
     setLink("connect-social-instagram", config.instagram);
     setLink("connect-social-whatsapp", config.whatsapp);
@@ -49,14 +50,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setLabel("connect-meeting-label", config.meetingDisplay);
     setLabel("connect-location-label", config.locationDisplay || config.location);
     setLabel("connect-vcard-label", config.vcardDisplay);
-
-    document.getElementById("connect-vcard")?.addEventListener("click", () => {
-        const link = document.createElement("a");
-        link.href = resolvePath(config.vcardFile || "avantheon-connect.vcf");
-        link.download = "AVANTHEON.vcf";
-        link.rel = "noopener";
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-    });
 });
