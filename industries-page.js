@@ -241,13 +241,13 @@ document.addEventListener("DOMContentLoaded", () => {
             eyebrow: "Industry Intelligence",
             subtitle: "Keeping Global Cargo Moving Efficiently",
             teaser: "Flexible container access for global logistics providers that need reliable equipment without slowing down cargo movement.",
-            challenge: "Keeping containers available when demand suddenly changes while avoiding large upfront investments and delays that can disrupt cargo movement.",
-            helps: "Avantheon provides flexible Container Leasing, Container Trading, and Lease-to-Own solutions, giving logistics companies quick access to containers whenever they need them without unnecessary capital investment.",
+            challenge: "Managing changing container demand, seasonal peaks and evolving trade lanes while keeping equipment available without tying up capital in an oversized fleet.",
+            helps: "Flexible Container Leasing, Container Trading and Lease-to-Own solutions provide equipment for new routes, peak demand and fleet expansion without a large upfront purchase.",
             benefits: [
                 "Reliable container availability",
-                "Lower capital investment",
-                "Flexible fleet expansion",
-                "Faster operations",
+                "Flexible fleet capacity",
+                "Lower capital exposure",
+                "Faster response to demand",
                 "Scalable growth"
             ],
             solutions: [
@@ -256,26 +256,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Lease-to-Own"
             ],
             applications: [
-                "Cross-border logistics",
+                "New trade lanes",
+                "Peak demand",
                 "Fleet expansion",
-                "Peak season demand",
                 "Intermodal transportation"
             ],
-            image: "images/oil&gas.png"
+            image: "images/Industry-Intelligence-Hub/SHIPPING.png"
         },
         "nvoccs": {
             name: "NVOCCs",
             eyebrow: "Industry Intelligence",
             subtitle: "Infrastructure Built For Agile Freight Operations",
             teaser: "Scalable support for freight operators that need flexible equipment access without carrying a large owned fleet.",
-            challenge: "Managing customer bookings without owning a large container fleet, while handling changing cargo volumes and controlling costs.",
-            helps: "Avantheon helps NVOCCs access containers whenever they need them through flexible leasing and ownership options, allowing them to serve customers without making large capital investments.",
+            challenge: "NVOCCs must manage changing cargo volumes and customer requirements without operating their own vessel fleet. Limited container access can complicate consolidation, delay bookings and increase costs.",
+            helps: "Flexible Container Leasing, Container Trading and Lease-to-Own options provide equipment for consolidated loads, peak demand and new customer requirements without significant upfront fleet investment.",
             benefits: [
-                "Flexible equipment access",
-                "Reduced capital expenditure",
-                "Faster response to customer demand",
-                "Scalable operations",
-                "Reliable support"
+                "Dependable equipment access",
+                "Flexible capacity",
+                "Lower capital exposure",
+                "Faster response to demand",
+                "Scalable operations"
             ],
             solutions: [
                 "Container Leasing",
@@ -286,23 +286,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Export consolidation",
                 "Regional expansion",
                 "Equipment balancing",
-                "Customer-specific projects"
+                "Customer projects"
             ],
-            image: "images/about.png"
+            image: "images/Industry-Intelligence-Hub/NVOCCS.png"
         },
         "freight-forwarders": {
             name: "Freight Forwarders",
             eyebrow: "Industry Intelligence",
             subtitle: "Supporting Efficient End-to-End Logistics",
             teaser: "Container access designed for forwarders that need flexibility at any scale without minimum demand barriers.",
-            challenge: "Many freight forwarders struggle to access containers when their shipment volumes are low. Larger volume requirements in the market can make it difficult for small and growing businesses to secure the equipment they need, limiting their ability to take on new business and grow with confidence.",
-            helps: "Avantheon supports freight forwarders of every size with flexible Container Leasing and Lease-to-Own solutions without minimum demand requirements. Whether you need one container or an entire fleet, we help you access the equipment you need so you can serve your customers and expand confidently.",
+            challenge: "Growing freight forwarders may not have predictable volumes on every trade lane. Sourcing containers booking by booking can delay confirmations, limit consolidation opportunities and restrict new business.",
+            helps: "Avantheon removes the equipment-side minimum-demand barrier. Container Leasing and Lease-to-Own provide access based on actual requirements, from individual containers to larger fleet needs, without fixed volume commitments.",
             benefits: [
+                "Flexible equipment access",
                 "Improved service reliability",
-                "Flexible leasing options",
                 "Lower upfront investment",
-                "Scalable operations",
-                "Responsive support"
+                "Faster response to demand",
+                "Scalable capacity"
             ],
             solutions: [
                 "Container Leasing",
@@ -311,24 +311,24 @@ document.addEventListener("DOMContentLoaded", () => {
             applications: [
                 "Consolidated freight",
                 "International forwarding",
-                "Seasonal logistics",
+                "Seasonal shipments",
                 "Multi-modal transportation"
             ],
-            image: "images/Defense Logistics.png"
+            image: "images/Industry-Intelligence-Hub/FREIGHT-FORWARDERS.png"
         },
         "import-export": {
             name: "Import & Export Enterprises",
             eyebrow: "Industry Intelligence",
             subtitle: "Simplifying International Trade Operations",
             teaser: "Reliable container access that protects cash flow and keeps cargo commitments moving across borders.",
-            challenge: "Buying containers ties up valuable capital, while relying on limited equipment availability can delay shipments and affect customer commitments.",
-            helps: "Avantheon provides flexible access to containers through leasing, trading, and ownership solutions, helping importers and exporters move cargo without large upfront costs.",
+            challenge: "Importers and exporters depend on specific cargo-ready and delivery dates. Container shortages can cause missed cut-offs, warehouse delays and customer disruption, while ownership can unnecessarily tie up capital.",
+            helps: "Flexible Container Leasing, Container Trading and Lease-to-Own solutions provide equipment for individual shipments, seasonal requirements and expanding trade lanes without a large upfront purchase.",
             benefits: [
                 "Reliable container access",
-                "Better cash flow",
-                "Lower upfront investment",
-                "Smooth cargo movement",
-                "Greater flexibility"
+                "Better dispatch planning",
+                "Lower capital requirements",
+                "Fewer equipment-related delays",
+                "Flexible capacity growth"
             ],
             solutions: [
                 "Container Leasing",
@@ -341,21 +341,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Distribution hubs",
                 "Regional trade"
             ],
-            image: "images/hero.jpg"
+            image: "images/Industry-Intelligence-Hub/IMPORT-AND-EXPORT.png"
         },
         "manufacturing-industrial": {
             name: "Manufacturing & Industrial Enterprises",
             eyebrow: "Industry Intelligence",
             subtitle: "Infrastructure That Supports Continuous Production",
             teaser: "Flexible container infrastructure for manufacturers that need dependable storage, transport, and operational continuity.",
-            challenge: "Manufacturers need reliable containers for transporting and storing goods without disrupting production or investing heavily in logistics assets.",
-            helps: "Avantheon provides flexible container solutions that help manufacturers move raw materials, store inventory, and transport finished goods efficiently.",
+            challenge: "Manufacturers depend on reliable movement and storage of raw materials, inventory and finished goods. Container shortages can disrupt production, consume factory space and put customer deliveries at risk.",
+            helps: "Flexible container solutions support raw-material movements, inventory overflow, storage and finished-goods dispatch. Businesses can add equipment during peaks or expansion without purchasing a fleet for temporary demand.",
             benefits: [
-                "Continuous operations",
-                "Better inventory management",
-                "Flexible storage",
-                "Lower capital investment",
-                "Reliable logistics support"
+                "Reliable material flow",
+                "Smoother goods dispatch",
+                "Flexible storage capacity",
+                "Reduced capital tied to equipment",
+                "Support for production growth"
             ],
             solutions: [
                 "Container Leasing",
@@ -363,25 +363,25 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             applications: [
                 "Factory logistics",
-                "Raw material storage",
-                "Finished goods transportation",
-                "Industrial expansion"
+                "Raw-material storage",
+                "Inventory overflow",
+                "Finished-goods transportation"
             ],
-            image: "images/mining.png"
+            image: "images/Industry-Intelligence-Hub/Manufacturing-Industrial.png"
         },
         "infrastructure-construction": {
             name: "Infrastructure & Construction Companies",
             eyebrow: "Industry Intelligence",
             subtitle: "Supporting Projects From Groundbreaking To Completion",
             teaser: "Durable, deployable container support for projects that move across sites and timelines.",
-            challenge: "Construction projects require secure storage and transport solutions that can be deployed quickly across different project locations.",
-            helps: "Avantheon supplies durable containers for storage, transportation, and long-term project use with flexible leasing and ownership options.",
+            challenge: "Construction and infrastructure projects require secure storage and material staging before permanent facilities are available. Equipment requirements can also change throughout mobilisation, construction and completion.",
+            helps: "Flexible Container Leasing and Lease-to-Own solutions support site storage, material staging and project transport. Companies can deploy equipment when needed, add capacity as projects expand and avoid idle assets between projects.",
             benefits: [
-                "Secure site storage",
-                "Quick deployment",
-                "Flexible ownership options",
-                "Durable container solutions",
-                "Reliable project support"
+                "Rapid site deployment",
+                "Secure on-site storage",
+                "Flexible project capacity",
+                "Better material control",
+                "Reduced investment in underused assets"
             ],
             solutions: [
                 "Container Leasing",
@@ -393,25 +393,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Remote operations",
                 "Equipment storage"
             ],
-            image: "images/contruction.png"
+            image: "images/Industry-Intelligence-Hub/Infrastructure-Construction.png"
         },
         "supply-chain-distribution": {
             name: "Supply Chain & Distribution Networks",
             eyebrow: "Industry Intelligence",
             subtitle: "Strengthening Supply Chain Resilience",
             teaser: "Scalable container infrastructure that adapts quickly to customer demand and supply chain disruptions.",
-            challenge: "Changing customer demand and supply chain disruptions require businesses to quickly increase or reduce container capacity without affecting operations.",
-            helps: "Avantheon provides flexible container infrastructure that allows businesses to scale capacity as demand changes while keeping supply chains moving.",
+            challenge: "Distribution networks must respond to seasonal peaks, supplier delays and uneven regional demand. When container capacity is unavailable where needed, inbound goods can back up and outbound dispatches can be delayed.",
+            helps: "Flexible Container Leasing, Container Trading and Lease-to-Own solutions allow businesses to increase capacity where demand rises without purchasing equipment for every potential peak.",
             benefits: [
-                "Increased flexibility",
-                "Better business continuity",
+                "Flexible network capacity",
+                "Fewer storage bottlenecks",
                 "Faster response to demand",
-                "Scalable operations",
-                "Reliable infrastructure"
+                "Better inventory flow",
+                "Scalable infrastructure"
             ],
             solutions: [
                 "Container Leasing",
-                "Container Trading"
+                "Container Trading",
+                "Lease-to-Own"
             ],
             applications: [
                 "Distribution centres",
@@ -419,25 +420,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Retail logistics",
                 "Regional distribution"
             ],
-            image: "images/Defense Logistics.png"
+            image: "images/Industry-Intelligence-Hub/Supply-Chain-Distribution.png"
         },
         "container-traders-fleet": {
             name: "Container Traders & Fleet Operators",
             eyebrow: "Industry Intelligence",
             subtitle: "Optimizing Container Assets For Maximum Value",
             teaser: "Commercially agile support for sourcing, leasing, trading, and repositioning container assets more effectively.",
-            challenge: "Finding reliable equipment, managing fleet utilization, and buying or selling containers at the right time can be difficult in a changing market.",
-            helps: "Avantheon helps businesses source, lease, and trade containers efficiently, improving fleet utilization and maximizing asset value.",
+            challenge: "Container traders and fleet operators must balance equipment availability, utilization, location and capital. Buying too many units creates idle inventory, while buying too few can mean missed sales and costly sourcing.",
+            helps: "Avantheon combines Container Trading, Leasing and Lease-to-Own to align equipment decisions with market demand. Trading supports fleet changes, Leasing covers short-term needs and Lease-to-Own supports gradual fleet growth.",
             benefits: [
                 "Better fleet utilization",
-                "Easier equipment sourcing",
-                "Improved asset value",
-                "Flexible commercial options",
-                "Reliable market access"
+                "Flexible equipment sourcing",
+                "Reduced idle inventory",
+                "Greater capital flexibility",
+                "Improved asset value"
             ],
             solutions: [
                 "Container Trading",
-                "Container Leasing"
+                "Container Leasing",
+                "Lease-to-Own"
             ],
             applications: [
                 "Fleet expansion",
@@ -445,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Container resale",
                 "Regional trading"
             ],
-            image: "images/about.png"
+            image: "images/Industry-Intelligence-Hub/Container-Traders-Fleet.png"
         }
     };
 
