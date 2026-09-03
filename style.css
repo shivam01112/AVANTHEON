@@ -1319,7 +1319,7 @@ body.industries-page {
     font-size: 18px;
     line-height: 1.16;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
 }
 
 .industry-node-copy small {
