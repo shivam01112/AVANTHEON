@@ -21503,7 +21503,7 @@ width: 9px;
 .contact-choice-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 8px;
+    gap: 10px;
     padding: 2px;
     border: 1px solid transparent;
     border-radius: 12px;
@@ -21512,17 +21512,18 @@ width: 9px;
 .contact-choice-card {
     position: relative;
     display: grid;
-    gap: 5px;
+    gap: 8px;
     justify-items: center;
-    min-height: 68px;
-    padding: 10px 6px;
+    align-content: center;
+    min-height: 96px;
+    padding: 16px 10px;
     color: rgba(226, 236, 248, 0.82);
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    font-size: 9px;
+    border-radius: 12px;
+    font-size: 11px;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.3;
     text-align: center;
     cursor: pointer;
     transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
@@ -21532,6 +21533,17 @@ width: 9px;
     position: absolute;
     opacity: 0;
     pointer-events: none;
+}
+
+.contact-choice-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    background: rgba(238, 164, 45, 0.1);
+    border: 1px solid rgba(238, 164, 45, 0.24);
+    border-radius: 50%;
+    transition: background 220ms ease, border-color 220ms ease;
 }
 
 .contact-choice-icon svg {
@@ -21550,6 +21562,13 @@ width: 9px;
     background: rgba(238, 164, 45, 0.08);
     border-color: rgba(238, 164, 45, 0.55);
     box-shadow: 0 0 0 4px rgba(238, 164, 45, 0.08);
+}
+
+.contact-choice-card:hover .contact-choice-icon,
+.contact-choice-card:has(input:checked) .contact-choice-icon,
+.contact-choice-card:has(input:focus-visible) .contact-choice-icon {
+    background: rgba(238, 164, 45, 0.2);
+    border-color: rgba(238, 164, 45, 0.7);
 }
 
 .contact-chip-group {
