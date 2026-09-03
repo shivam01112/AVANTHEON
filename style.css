@@ -1367,9 +1367,7 @@ body.industries-page {
     min-height: 0;
     padding: 0;
     overflow: hidden;
-    background:
-        radial-gradient(circle at 50% 50%, rgba(245, 193, 22, 0.14), transparent 24%),
-        linear-gradient(180deg, #061D42 0%, #041838 100%);
+    background:radial-gradient(circle at 50% 50%, rgba(245, 193, 22, 0.14), #fdf0f000 24%), linear-gradient(180deg, #17458f 0%, #0a244f 100%);
     border: 1px solid rgba(212, 175, 55, 0.22);
     border-radius: 18px;
     box-shadow: 0 24px 54px rgba(4, 24, 56, 0.1);
@@ -1400,17 +1398,47 @@ body.industries-page {
     overflow: hidden;
     text-align: center;
     background:
-        radial-gradient(circle at 50% 48%, rgba(212, 175, 55, 0.16), transparent 28%),
+        radial-gradient(circle at 50% 48%, rgba(212, 175, 55, 0.22), transparent 38%),
         radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.14) 1px, transparent 1px);
     background-size: auto, 18px 18px;
+}
+
+.industry-detail-default::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    width: 380px;
+    height: 380px;
+    content: "";
+    border: 1px dashed rgba(246, 205, 83, 0.16);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: industryOrbitSpin 46s linear infinite;
+    pointer-events: none;
+}
+
+.industry-detail-default::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    width: 460px;
+    height: 460px;
+    content: "";
+    border: 1px dashed rgba(77, 134, 255, 0.12);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: industryOrbitSpin 62s linear infinite reverse;
+    pointer-events: none;
 }
 
 .industry-detail-default-mark {
     position: relative;
     z-index: 2;
     display: grid;
-    width: 170px;
-    height: 170px;
+    width: 196px;
+    height: 196px;
     place-items: center;
     margin-top: 6px;
     background: #ffffff;
@@ -1443,7 +1471,7 @@ body.industries-page {
 }
 
 .industry-detail-default-mark img {
-    width: 135px;
+    width: 158px;
     height: auto;
     fill: none;
     stroke: var(--gold-500);
@@ -1631,7 +1659,7 @@ body.industries-page {
 
 .industry-default-cue p {
     margin: 0;
-    color: rgba(4, 24, 56, 0.68);
+    color: rgba(255, 255, 255, 0.82);
     font-size: 12px;
     font-weight: 700;
     line-height: 1.35;
@@ -1660,6 +1688,16 @@ body.industries-page {
     50% {
         transform: scale(1.06);
         opacity: 1;
+    }
+}
+
+@keyframes industryOrbitSpin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
@@ -22617,7 +22655,7 @@ width: 9px;
     } */
 
     .industry-hub-layout {
-        height: clamp(560px, calc(100svh - 165px), 650px);
+        height: clamp(600px, calc(100svh - 165px), 650px);
         gap: 16px;
     }
 
@@ -24622,7 +24660,7 @@ width: 9px;
 
     body.industries-page .industry-default-cue p {
         margin: 0;
-        color: #0f172a;
+        color: rgba(255, 255, 255, 0.82);
         font-size: 14px;
         font-weight: 700;
         line-height: 1.35;
