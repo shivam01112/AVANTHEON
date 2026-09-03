@@ -10594,8 +10594,8 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .catalogue-stage.container-showcase {
-        min-height: 320px;
-        border-radius: 20px;
+        min-height: 330px;
+        border-radius: 26px;
     }
 
     .catalogue-stage.container-showcase::before {
@@ -10617,20 +10617,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .catalogue-stage-copy {
-        top: 16px;
-        left: 16px;
-        right: 16px;
-        max-width: none;
-        gap: 6px;
-        padding: 14px 14px 12px;
-    }
-
-    .catalogue-stage-copy strong {
-        font-size: 24px;
-    }
-
-    .catalogue-stage-copy p {
-        font-size: 12px;
+        display: none;
     }
 
     .catalogue-stage-badge {
@@ -10646,7 +10633,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     }
 
     .catalogue-stage .catalogue-hero-image {
-        top: 86px;
+        top: 24px;
         width: min(88%, 360px);
     }
 
