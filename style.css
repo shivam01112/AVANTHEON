@@ -5910,11 +5910,9 @@ body.about-page {
     border-radius: 0;
     box-shadow: none;
 }
-.footer-logo{
-    width: 250px;
-    background: #fff;
-    padding: 3px;
-    border-radius: 6px;}
+.footer-logo {
+    width: 160px;
+}
 
 .stat-item {
     position: relative;
