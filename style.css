@@ -454,12 +454,16 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     max-width: 720px;
 }
 
-.eyebrow {
+.eyebrow , strong {
     margin: 0 0 24px;
-    color: var(--gold-500);
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
+    background: linear-gradient(135deg, #fff3a0 0%, #f6cd53 45%, #d99b22 100%) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
 }
 
 h1,
@@ -11553,17 +11557,6 @@ body.about-page #process::before {
     box-shadow: 0 14px 30px rgba(57, 203, 184, 0.16);
 }
 
-.featured-solution.is-changing .featured-solution-media img,
-.featured-solution.is-changing .featured-solution-content {
-    opacity: 0;
-    transform: translateY(8px);
-}
-
-.featured-solution-media img,
-.featured-solution-content {
-    transition: opacity 180ms ease, transform 240ms ease;
-}
-
 .solution-comparison {
     padding: 92px 0;
     background: #041624;
@@ -19138,8 +19131,8 @@ body.about-page #process .process-card-progress {
 
 /* Solutions hero: final locked carousel and image-forward cards */
 .solutions-page .solution-selector {
-    --rail: clamp(225px, 20.5vw, 292px);
-    --card-width: clamp(232px, 21vw, 286px);
+    --rail: clamp(225px, 20.6vw, 331px);
+    --card-width: clamp(232px, 21vw, 319px);
     min-height: 600px;
     overflow: visible;
 }
@@ -19237,7 +19230,7 @@ body.about-page #process .process-card-progress {
     right: 16px;
     bottom: 18px;
     left: 16px;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.28;
 }
 
@@ -19724,7 +19717,7 @@ body.about-page #process .process-card-progress {
 }
 
 .solutions-page .solutions-hero {
-    background:radial-gradient(circle at 72% 22%, rgb(26 118 197 / 0%), transparent 27%), radial-gradient(circle at 44% 54%, rgb(77 134 255 / 0%), #00000000 31%), radial-gradient(circle at 76% 84%, rgb(246 205 83 / 0%), transparent 25%), linear-gradient(135deg, rgb(3 20 46 / 0%) 0%, rgb(4 24 56 / 49%) 48%, rgb(8 43 86) 100%), url(images/solution12.png);
+    background:radial-gradient(circle at 72% 22%, rgb(26 118 197 / 0%), #0000003d 27%), radial-gradient(circle at 44% 54%, rgb(77 134 255 / 0%), #0000004a 31%), radial-gradient(circle at 76% 84%, rgb(246 205 83 / 0%), transparent 25%), linear-gradient(135deg, rgb(3 20 46 / 0%) 0%, rgb(4 24 56 / 49%) 48%, rgb(8 43 86) 100%), url(images/solution12.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -24960,5 +24953,171 @@ display: block;
 
     .legal-content {
         padding: 44px 0 64px;
+    }
+}
+
+/* Our Solutions cards: cursor-tracked premium glow (desktop, fine pointer only) */
+.solutions-page .solution-card-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    border-radius: inherit;
+    background: radial-gradient(240px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255, 255, 255, 0.34), transparent 62%);
+    opacity: 0;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.solutions-page .solution-card.is-glowing .solution-card-glow {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+    .solutions-page .solution-card-glow {
+        display: none;
+    }
+}
+
+/* Featured solution panel: smooth premium transition when switching solutions.
+   Image opacity reuses its existing transition; the value-grid's own
+   staggered rise/settle animation (is-visible) is replayed by JS on switch. */
+.featured-solution-heading,
+.featured-overview,
+.featured-benefits,
+.featured-cta {
+    transition: opacity 240ms ease, transform 300ms ease;
+}
+
+.featured-benefits,
+.featured-cta {
+    transition-delay: 70ms;
+}
+
+.featured-solution.is-changing .featured-solution-media img {
+    opacity: 0;
+}
+
+.featured-solution.is-changing .featured-solution-heading,
+.featured-solution.is-changing .featured-overview,
+.featured-solution.is-changing .featured-benefits,
+.featured-solution.is-changing .featured-cta {
+    transition-delay: 0ms;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .featured-solution-heading,
+    .featured-overview,
+    .featured-benefits,
+    .featured-cta {
+        transition: none;
+    }
+}
+
+/* Our Solutions cards: richer hover state. The shuffle carousel keeps full
+   ownership of `transform`, so the shuffle keeps running uninterrupted on
+   hover - only box-shadow/border (properties the shuffle never touches) get
+   a stronger glow, layered on top of whatever position it's mid-cycle. */
+.solutions-page .solution-card {
+    transition: border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.solutions-page .solution-card:hover,
+.solutions-page .solution-card:focus-visible {
+    border-color: color-mix(in srgb, var(--solution-accent) 90%, white);
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, .58),
+        0 0 60px color-mix(in srgb, var(--solution-accent) 42%, transparent),
+        inset 0 0 0 1px color-mix(in srgb, var(--solution-accent) 55%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, .16);
+}
+
+.solutions-page .solution-card-own:hover,
+.solutions-page .solution-card-own.is-active:hover,
+.solutions-page .solution-card-own:focus-visible {
+    box-shadow:
+        0 44px 110px rgba(0, 0, 0, .6),
+        0 0 70px rgba(243, 170, 54, .4),
+        inset 0 0 0 1px rgba(243, 170, 54, .6),
+        inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+
+/* Choose-a-solution cue: a warmer, breathing pill so it reads as an
+   affordance pointing at the clickable cards above, not static caption text. */
+.solutions-page .solutions-scroll-cue {
+    padding: 12px 22px;
+    background: linear-gradient(135deg, rgba(246, 205, 83, .2), rgba(8, 43, 86, .94));
+    border-color: rgba(246, 205, 83, .5);
+    font-size: 13px;
+    font-weight: 600;
+    animation: solutionsCuePulse 2.6s ease-in-out infinite;
+}
+
+@keyframes solutionsCuePulse {
+    0%, 100% {
+        box-shadow: 0 14px 34px rgba(1, 11, 29, .3), 0 0 0 rgba(246, 205, 83, 0);
+        border-color: rgba(246, 205, 83, .38);
+    }
+    50% {
+        box-shadow: 0 18px 44px rgba(1, 11, 29, .36), 0 0 30px rgba(246, 205, 83, .36);
+        border-color: rgba(246, 205, 83, .88);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solutions-scroll-cue {
+        animation: none;
+    }
+}
+
+/* Featured panel arrival: a large, unmistakable "unveiling" - rises up from
+   well below, grows in from noticeably smaller, and pulls into focus from a
+   blur, with a brief gold glow as it settles. Runs the full width of the
+   scroll (~1050ms) so the panel is still visibly settling as it lands. */
+.solutions-page .featured-solution.reveal {
+    opacity: 0;
+    transform: translateY(90px) scale(0.82);
+    filter: blur(16px);
+}
+
+.solutions-page .featured-solution.reveal.is-visible {
+    animation: featuredPanelArrive 1050ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes featuredPanelArrive {
+    0% {
+        opacity: 0;
+        transform: translateY(90px) scale(0.82);
+        filter: blur(16px);
+        box-shadow: 0 0 0 rgba(246, 205, 83, 0);
+    }
+    40% {
+        opacity: 1;
+    }
+    70% {
+        filter: blur(0);
+    }
+    85% {
+        box-shadow: 0 0 60px rgba(246, 205, 83, 0.45);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+        box-shadow: 0 0 0 rgba(246, 205, 83, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .featured-solution.reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    .solutions-page .featured-solution.reveal.is-visible {
+        animation: none;
     }
 }

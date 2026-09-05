@@ -4,6 +4,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const nav = document.getElementById("primary-nav");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    // Native `scrollIntoView({behavior:"smooth"})` uses a flat, browser-default
+    // ease that reads as a plain slide. This hand-rolled version uses a
+    // snappier ease-out curve so landing on the featured panel feels intentional.
+    // `html` has `scroll-behavior: smooth` globally, which would otherwise
+    // intercept each of these per-frame scrollTo calls and re-animate them
+    // itself - each frame interrupting the last - so every call here is
+    // explicitly "instant" and the easing is entirely our own.
+    const smoothScrollToElement = (el, duration = 1050) => {
+        const offset = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+        const targetY = el.getBoundingClientRect().top + window.scrollY - offset;
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+
+        if (Math.abs(distance) < 1) {
+            return;
+        }
+
+        const startTime = performance.now();
+        const ease = (t) => 1 - Math.pow(1 - t, 4);
+
+        const step = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            window.scrollTo({ top: startY + distance * ease(progress), left: 0, behavior: "instant" });
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    };
+
     const setHeaderState = () => {
         header?.classList.toggle("scrolled", window.scrollY > 24);
     };
@@ -126,9 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const featuredTag = document.querySelector(".featured-media-tag");
     const featuredCta = document.querySelector("[data-featured-cta]");
     let activeSolution = "lease-to-own";
+    let pendingSwapTimer = null;
 
     const updateSolution = (solutionKey, options = {}) => {
-        const { scrollToPanel = false } = options;
+        const { scrollToPanel = false, animate = true } = options;
         const solution = solutions[solutionKey];
 
         if (!solution || !featuredPanel) {
@@ -178,22 +210,85 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             featuredPanel.dataset.activeSolution = solutionKey;
-            featuredPanel.classList.remove("is-changing");
         };
 
-        applyContent();
+        const finishSwap = () => {
+            applyContent();
 
-        if (scrollToPanel) {
+            // Replay the panel's built-in reveal animation (image settle,
+            // staggered value-grid rise, light sweep, and the panel's own
+            // fade-up) so switching solutions feels like a fresh, premium
+            // reveal instead of a static swap. A single rAF isn't enough here:
+            // the browser can coalesce the "hidden" state and its re-add into
+            // the same paint, skipping the transition entirely - so the
+            // hidden state gets a full frame to actually paint first.
+            featuredPanel.classList.remove("is-visible");
+            void featuredPanel.offsetWidth;
+            featuredPanel.classList.remove("is-changing");
             window.requestAnimationFrame(() => {
-                featuredPanel.scrollIntoView({
-                    behavior: prefersReducedMotion ? "auto" : "smooth",
-                    block: "start"
+                window.requestAnimationFrame(() => {
+                    featuredPanel.classList.add("is-visible");
                 });
             });
+
+            if (scrollToPanel) {
+                window.requestAnimationFrame(() => {
+                    if (prefersReducedMotion) {
+                        featuredPanel.scrollIntoView({ behavior: "instant", block: "start" });
+                    } else {
+                        smoothScrollToElement(featuredPanel);
+                    }
+                });
+            }
+        };
+
+        if (pendingSwapTimer) {
+            window.clearTimeout(pendingSwapTimer);
+            pendingSwapTimer = null;
         }
+
+        if (!animate || prefersReducedMotion) {
+            applyContent();
+            featuredPanel.classList.remove("is-changing");
+
+            if (scrollToPanel) {
+                window.requestAnimationFrame(() => {
+                    if (prefersReducedMotion) {
+                        featuredPanel.scrollIntoView({ behavior: "instant", block: "start" });
+                    } else {
+                        smoothScrollToElement(featuredPanel);
+                    }
+                });
+            }
+            return;
+        }
+
+        featuredPanel.classList.add("is-changing");
+        pendingSwapTimer = window.setTimeout(() => {
+            pendingSwapTimer = null;
+            finishSwap();
+        }, 150);
     };
 
+    const enableSolutionCardGlow = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+        && !prefersReducedMotion;
+
     solutionCards.forEach((card, index) => {
+        if (enableSolutionCardGlow) {
+            card.addEventListener("pointermove", (event) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty("--glow-x", `${x.toFixed(2)}%`);
+                card.style.setProperty("--glow-y", `${y.toFixed(2)}%`);
+                card.classList.add("is-glowing");
+            });
+
+            card.addEventListener("pointerleave", () => {
+                card.classList.remove("is-glowing");
+            });
+        }
+
         card.addEventListener("click", () => updateSolution(card.dataset.solution, { scrollToPanel: true }));
         card.addEventListener("keydown", (event) => {
             if (["Enter", " "].includes(event.key)) {
@@ -226,7 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const linkedSolution = new URLSearchParams(window.location.search).get("solution");
     if (linkedSolution && solutions[linkedSolution]) {
         updateSolution(linkedSolution, {
-            scrollToPanel: window.location.hash === "#featured-solution"
+            scrollToPanel: window.location.hash === "#featured-solution",
+            animate: false
         });
     }
 
@@ -339,5 +435,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     updateFinder();
 
-    updateSolution(activeSolution);
+    updateSolution(activeSolution, { animate: false });
 });
