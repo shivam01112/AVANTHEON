@@ -459,7 +459,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
-    background: linear-gradient(135deg, #fff3a0 0%, #f6cd53 45%, #d99b22 100%) !important;
+    background: linear-gradient(135deg, #f5cb37 0%, #f6cd53 45%, #d99b22 100%) !important;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
