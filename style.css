@@ -8261,7 +8261,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 
 .floating-container-image {
     position: absolute;
-    top: 42px;
+    top: 30% !important;
     left: 50%;
     z-index: 2;
     width: min(84%, 600px);
@@ -11795,9 +11795,9 @@ body.about-page #process::before {
 }
 
 .finder-progress span.is-complete {
-    color: #04141f;
-    background: var(--solutions-teal);
-    border-color: var(--solutions-teal);
+    color: var(--navy-900);
+    background: var(--gold-500);
+    border-color: var(--gold-500);
 }
 
 .finder-progress i {
@@ -16339,10 +16339,6 @@ body.about-page #process .process-card-progress {
     line-height: 1.58;
 }
 
-.solutions-page .finder-progress {
-    display: none;
-}
-
 .solutions-page .finder-form {
     position: relative;
     z-index: 1;
@@ -19368,8 +19364,8 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .button-gold {
     color: var(--navy-900);
-    background: linear-gradient(135deg, var(--gold-700) 0%, var(--gold-100) 52%, var(--gold-500) 100%);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.22);
+    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
+    box-shadow: 0 12px 24px rgba(212, 175, 55, 0.18);
 }
 
 .solutions-page .button-outline {
@@ -19450,9 +19446,9 @@ body.about-page #process .process-card-progress {
 
 .solutions-page .featured-cta {
     color: var(--navy-900);
-    background: linear-gradient(135deg, var(--gold-700), var(--gold-100));
-    border-color: rgba(255, 220, 77, 0.66);
-    box-shadow: 0 12px 28px rgba(212, 175, 55, 0.25);
+    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
+    border-color: rgba(238, 164, 45, 0.66);
+    box-shadow: 0 12px 24px rgba(212, 175, 55, 0.18);
 }
 
 .solutions-page .solution-comparison {
@@ -19515,7 +19511,7 @@ body.about-page #process .process-card-progress {
 .solutions-page .finder-options input:checked + span,
 .solutions-page .finder-result-link:hover {
     color: var(--navy-900);
-    background: linear-gradient(135deg, var(--gold-700), var(--gold-100));
+    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
     border-color: var(--gold-500);
 }
 
