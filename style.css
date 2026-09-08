@@ -25258,3 +25258,37 @@ display: block;
     from { opacity: 0; transform: translateY(-16px) scale(0.94); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+.connect-intro,
+.connect-btn,
+.connect-pillar,
+.connect-footer {
+    animation-name: connectContentIn;
+    animation-duration: 850ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+}
+
+@keyframes connectContentIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.connect-intro { animation-delay: 5000ms; }
+
+.connect-btn:nth-of-type(1) { animation-delay: 5250ms; }
+.connect-btn:nth-of-type(2) { animation-delay: 5370ms; }
+.connect-btn:nth-of-type(3) { animation-delay: 5490ms; }
+.connect-btn:nth-of-type(4) { animation-delay: 5610ms; }
+.connect-btn:nth-of-type(5) { animation-delay: 5730ms; }
+.connect-btn:nth-of-type(6) { animation-delay: 5850ms; }
+.connect-btn:nth-of-type(7) { animation-delay: 5970ms; }
+.connect-btn:nth-of-type(8) { animation-delay: 6090ms; }
+
+.connect-pillar:nth-of-type(1) { animation-delay: 6250ms; }
+.connect-pillar:nth-of-type(2) { animation-delay: 6360ms; }
+.connect-pillar:nth-of-type(3) { animation-delay: 6470ms; }
+.connect-pillar:nth-of-type(4) { animation-delay: 6580ms; }
+.connect-pillar:nth-of-type(5) { animation-delay: 6690ms; }
+
+.connect-footer { animation-delay: 6900ms; }
