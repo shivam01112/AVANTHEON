@@ -22995,7 +22995,7 @@ width: 9px;
     position: absolute;
     inset: 0;
     z-index: -1;
-    /* background: linear-gradient(180deg, rgba(2, 10, 27, 0.02) 0%, rgba(2, 10, 27, 0.1) 55%, rgba(2, 10, 27, 0.5) 100%); */
+    background: radial-gradient(ellipse 78% 62% at 50% 30%, rgba(2, 10, 27, 0.6) 0%, rgba(2, 10, 27, 0.32) 48%, rgba(2, 10, 27, 0.06) 74%, transparent 88%);
 }
 
 .connect-hero-brand {
