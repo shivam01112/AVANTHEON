@@ -25244,3 +25244,17 @@ display: block;
     99%  { opacity: 0; visibility: visible; }
     100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
+
+/* Real page: the header logo fades/settles in as the splash logo's departure
+   finishes, so one hands off to the other; the rest of the content then
+   settles in with a slow one-by-one stagger (intro -> each button -> each
+   pillar -> footer). */
+.connect-logo {
+    opacity: 0;
+    animation: connectHeaderLogoIn 850ms cubic-bezier(0.22, 1, 0.36, 1) 4300ms both;
+}
+
+@keyframes connectHeaderLogoIn {
+    from { opacity: 0; transform: translateY(-16px) scale(0.94); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
