@@ -25123,3 +25123,44 @@ display: block;
         animation: none;
     }
 }
+
+/* Connect page: intro splash (logo -> welcome text -> fade into the page),
+   then the real page content reveals in a slow, staggered sequence. Pure CSS
+   timeline (animation-delay chain) so it always plays on load with no JS
+   dependency, and every element uses fill-mode "both" so it stays hidden
+   until its own delay elapses rather than flashing visible on paint. */
+.connect-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 42%, #0c2e63 0%, #051636 58%, #020b1c 100%);
+    animation: connectSplashOut 900ms ease 4100ms both;
+}
+
+.connect-splash-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.connect-splash-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(232, 197, 106, 0.32) 0%, rgba(232, 197, 106, 0.1) 45%, transparent 72%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+    animation:
+        connectSplashGlowIn 1500ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both,
+        connectSplashGlowOut 1000ms ease 3400ms both;
+}
