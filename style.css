@@ -455,7 +455,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
 }
 
 .eyebrow , strong {
-    margin: 0 0 24px;
+   
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
@@ -465,7 +465,9 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     background-clip: text !important;
     color: transparent !important;
 }
-
+.eyebrow{
+ margin: 0 0 25px;
+}
 h1,
 h2 {
     margin: 0;
