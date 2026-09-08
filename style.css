@@ -22995,7 +22995,7 @@ width: 9px;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(ellipse 82% 68% at 50% 38%, rgba(2, 10, 27, 0.78) 0%, rgba(2, 10, 27, 0.5) 45%, rgba(2, 10, 27, 0.14) 72%, transparent 90%);
+    background: linear-gradient(180deg, rgba(2, 10, 27, 0.32) 0%, rgba(2, 10, 27, 0.1) 45%, rgba(2, 10, 27, 0.4) 100%);
 }
 
 .connect-hero-brand {
@@ -23004,6 +23004,16 @@ width: 9px;
     align-self: start;
     margin-top: 4px;
     text-align: center;
+}
+
+.connect-hero-brand::before {
+    content: "";
+    position: absolute;
+    inset: -14px -30px;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, rgba(2, 10, 27, 0.88) 0%, rgba(2, 10, 27, 0.78) 50%, rgba(2, 10, 27, 0.42) 76%, transparent 92%);
+    border-radius: 28px;
+    filter: blur(7px);
 }
 
 .connect-logo {
