@@ -23023,8 +23023,7 @@ width: 9px;
     margin: 0 auto;
     filter:
         drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7))
-        drop-shadow(0 0 16px rgba(255, 255, 255, 0.28))
-        drop-shadow(0 0 32px rgba(2, 10, 27, 0.45));
+        drop-shadow(0 0 14px rgba(255, 255, 255, 0.22));
 }
 
 .connect-hero-tagline {
