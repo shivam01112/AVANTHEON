@@ -25164,3 +25164,32 @@ display: block;
         connectSplashGlowIn 1500ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both,
         connectSplashGlowOut 1000ms ease 3400ms both;
 }
+
+/* Logo: fades in centered, rises slightly to sit above the welcome text,
+   holds, then - once the text has cleared - continues rising well past the
+   text and shrinks away toward the header at a smooth, constant-feeling
+   pace throughout (a gentle ease-in-out, not a hold-then-snap curve), so it
+   reads as one continuous "logo travels up into place" motion. */
+.connect-splash-logo {
+    width: min(180px, 52vw);
+    height: auto;
+    opacity: 0;
+    animation:
+        connectSplashLogoIn 850ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both,
+        connectSplashLogoRise 700ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms both,
+        connectSplashLogoDepart 1300ms cubic-bezier(0.65, 0, 0.35, 1) 3400ms both;
+}
+
+.connect-splash-welcome {
+    margin: 0;
+    opacity: 0;
+    color: #e8c56a;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(232, 197, 106, 0.4);
+    animation:
+        connectSplashTextIn 700ms cubic-bezier(0.22, 1, 0.36, 1) 1400ms both,
+        connectSplashTextOut 500ms ease 3300ms both;
+}
