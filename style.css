@@ -22995,7 +22995,7 @@ width: 9px;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(180deg, rgba(2, 10, 27, 0.92) 0%, rgba(2, 10, 27, 0.72) 40%, rgba(2, 10, 27, 0.3) 75%, rgba(2, 10, 27, 0) 100%);
+    background: linear-gradient(180deg, rgba(2, 10, 27, 0.55) 0%, rgba(2, 10, 27, 0.38) 40%, rgba(2, 10, 27, 0.14) 75%, rgba(2, 10, 27, 0) 100%);
 }
 
 .connect-hero-brand {
@@ -23012,8 +23012,9 @@ width: 9px;
     height: auto;
     margin: 0 auto;
     filter:
-        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7))
-        drop-shadow(0 0 14px rgba(255, 255, 255, 0.22));
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75))
+        drop-shadow(0 0 3px rgba(255, 255, 255, 0.85))
+        drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
 }
 
 .connect-hero-tagline {
