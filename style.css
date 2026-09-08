@@ -22995,7 +22995,11 @@ width: 9px;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(180deg, rgba(2, 10, 27, 0.55) 0%, rgba(2, 10, 27, 0.38) 40%, rgba(2, 10, 27, 0.14) 75%, rgba(2, 10, 27, 0) 100%);
+    /* Solid navy behind the logo (no photo showing through at all here),
+       so contrast is guaranteed rather than depending on which part of the
+       photo happens to sit behind it - then a quick fade at the very
+       bottom of the hero so the photo still takes over cleanly below it. */
+    background: linear-gradient(180deg, #041838 0%, #041838 78%, rgba(4, 24, 56, 0) 100%);
 }
 
 .connect-hero-brand {
@@ -23011,10 +23015,9 @@ width: 9px;
     width: min(175px, 66vw);
     height: auto;
     margin: 0 auto;
-    filter:
-        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75))
-        drop-shadow(0 0 3px rgba(255, 255, 255, 0.85))
-        drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
+    /* Sits on a solid navy backdrop now, so it just needs a normal soft
+       shadow for depth - not fighting a busy photo anymore. */
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
 }
 
 .connect-hero-tagline {
