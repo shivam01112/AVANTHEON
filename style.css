@@ -25292,3 +25292,20 @@ display: block;
 .connect-pillar:nth-of-type(5) { animation-delay: 6690ms; }
 
 .connect-footer { animation-delay: 6900ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .connect-splash {
+        animation: none;
+        display: none;
+    }
+
+    .connect-logo,
+    .connect-intro,
+    .connect-btn,
+    .connect-pillar,
+    .connect-footer {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
