@@ -25193,3 +25193,38 @@ display: block;
         connectSplashTextIn 700ms cubic-bezier(0.22, 1, 0.36, 1) 1400ms both,
         connectSplashTextOut 500ms ease 3300ms both;
 }
+
+@keyframes connectSplashGlowIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+    60%  { opacity: 1; }
+    to   { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes connectSplashGlowOut {
+    from { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+    to   { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+}
+
+@keyframes connectSplashLogoIn {
+    from {
+        opacity: 0;
+        transform: translateY(-18px) scale(0.55);
+        filter: blur(14px) drop-shadow(0 0 22px rgba(232, 197, 106, 0)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) drop-shadow(0 0 22px rgba(232, 197, 106, 0.4)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
+    }
+}
+
+@keyframes connectSplashLogoRise {
+    from { transform: translateY(0) scale(1); }
+    to   { transform: translateY(-26px) scale(1); }
+}
+
+@keyframes connectSplashLogoDepart {
+    0%   { opacity: 1; transform: translateY(-26px) scale(1); }
+    55%  { opacity: 1; transform: translateY(-140px) scale(0.68); }
+    100% { opacity: 0; transform: translateY(-230px) scale(0.42); }
+}
