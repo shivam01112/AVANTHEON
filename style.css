@@ -25502,6 +25502,7 @@ body.contact-page .contact-stepper-circle {
 }
 
 body.contact-page .contact-stepper-label {
+    letter-spacing: 0.01em;
     color: #71869a;
 }
 
@@ -25512,6 +25513,18 @@ body.contact-page .contact-stepper-item.is-complete .contact-stepper-label {
 
 body.contact-page .contact-stepper-line {
     background: rgba(11, 58, 109, 0.14);
+}
+
+body.contact-page .contact-stepper-item.is-active .contact-stepper-label {
+    font-weight: 800;
+}
+
+body.contact-page .contact-stepper-item.is-complete .contact-stepper-label {
+    color: var(--blue-700);
+}
+
+body.contact-page .contact-stepper-line.is-complete {
+    background: linear-gradient(90deg, var(--gold-500), var(--blue-400));
 }
 
 body.contact-page .contact-step-heading strong {
