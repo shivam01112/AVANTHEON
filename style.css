@@ -25442,9 +25442,9 @@ body.contact-page .contact-value-list p {
 
 body.contact-page .contact-enquiry {
     color: var(--navy-900);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(235, 245, 252, 0.98));
-    border-color: rgba(11, 58, 109, 0.2);
-    box-shadow: 0 28px 70px rgba(4, 24, 56, 0.14), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+    background: linear-gradient(145deg, #ffffff 0%, #f4faff 68%, #e6f2fb 100%);
+    border: 1px solid rgba(92, 170, 226, 0.58);
+    box-shadow: 0 28px 70px rgba(1, 16, 40, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.9) inset, 0 0 30px rgba(26, 118, 197, 0.12);
 }
 
 body.contact-page .contact-stepper,
@@ -25477,6 +25477,11 @@ body.contact-page .contact-step-heading strong {
 
 body.contact-page .contact-step-heading p {
     color: #607589;
+}
+
+body.contact-page .contact-stepper-item.is-active .contact-stepper-circle,
+body.contact-page .contact-stepper-item.is-complete .contact-stepper-circle {
+    box-shadow: 0 0 0 4px rgba(246, 205, 83, 0.2), 0 0 18px rgba(246, 205, 83, 0.24);
 }
 
 body.contact-page .contact-field label,
