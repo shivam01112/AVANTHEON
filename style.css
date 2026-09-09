@@ -25705,3 +25705,30 @@ body.contact-page .contact-faq-item {
 body.contact-page .contact-faq-item summary {
     color: var(--navy-900);
 }
+
+@media (max-width: 720px) {
+    body.contact-page .contact-intro h1 {
+        max-width: 360px;
+        margin-inline: auto;
+        font-size: clamp(32px, 8.7vw, 40px);
+    }
+
+    body.contact-page .contact-intro-lead {
+        max-width: 390px;
+        margin-inline: auto;
+    }
+
+    body.contact-page .contact-value-list li {
+        min-height: 68px;
+        padding: 11px 14px;
+    }
+
+    body.contact-page .contact-value-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    body.contact-page .contact-enquiry {
+        border-radius: 16px;
+    }
+}
