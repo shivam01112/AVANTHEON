@@ -308,7 +308,7 @@
                         <div class="catalogue-active-head">
                             <div class="catalogue-active-title">
                                 <span class="catalogue-active-label">Selected Container</span>
-                                <strong data-catalogue-active>20FT DRY</strong>
+                                <h3 class="dry-container-heading" data-catalogue-active>20FT DRY</h3>
                             </div>
                             <span class="catalogue-active-count"><span data-catalogue-position>01</span>/<span data-catalogue-total>07</span></span>
                         </div>
@@ -330,7 +330,7 @@
                 <div class="container-showcase catalogue-stage reveal" data-catalogue-stage aria-live="polite">
                     <div class="catalogue-stage-copy">
                         <span class="catalogue-stage-label">Current Selection</span>
-                        <strong data-catalogue-stage-type>20FT DRY</strong>
+                        <strong class="data-catalogue-u" data-catalogue-stage-type>20FT DRY</strong>
                         <p data-catalogue-stage-meta>Standard ISO dry container</p>
                     </div>
                     <div class="catalogue-floor-rings" aria-hidden="true"></div>
@@ -340,7 +340,10 @@
                     </svg>
                     <div class="catalogue-stage-badge">
                         <span>Best For</span>
-                        <strong data-catalogue-usage>General Cargo &amp; Export Lanes</strong>
+                        <strong   style=" background:  #ffffff !important;
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;" data-catalogue-usage>General Cargo &amp; Export Lanes</strong>
                     </div>
                 </div>
             </div>
@@ -353,21 +356,21 @@
                         </svg>
                     </button>
                     <div class="catalogue-rail" data-catalogue-rail aria-label="Container catalogue types">
-                        <button class="catalogue-card active" type="button" aria-pressed="true" data-image="images/20FT.png" data-type="20FT DRY" data-stage-meta="Standard ISO dry container" data-description="Compact and dependable for general cargo, inland movements, and quick export deployments." data-usage="General Cargo &amp; Export Lanes" data-specs="ISO certified|Compact footprint|Daily cargo flexibility">
+                        <button class="catalogue-card active" type="button" aria-pressed="true" data-image="images/20ftDry.png" data-type="20FT DRY" data-stage-meta="Standard ISO dry container" data-description="Compact and dependable for general cargo, inland movements, and quick export deployments." data-usage="General Cargo &amp; Export Lanes" data-specs="ISO certified|Compact footprint|Daily cargo flexibility">
                             <svg viewBox="0 0 120 44" aria-hidden="true">
                                 <rect x="10" y="10" width="100" height="24" rx="3"></rect>
                                 <path d="M24 10v24M38 10v24M52 10v24M66 10v24M80 10v24M94 10v24"></path>
                             </svg>
                             <span class="catalogue-card-name">20FT DRY</span>
                         </button>
-                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/40HG1.png" data-type="40FT DRY" data-stage-meta="Extended capacity dry container" data-description="Built for larger-volume cargo loads where dependable dry storage and route efficiency matter most." data-usage="High Volume Cargo &amp; Distribution" data-specs="ISO certified|Higher load volume|Efficient route coverage">
+                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/20ftDry.png" data-type="40FT DRY" data-stage-meta="Extended capacity dry container" data-description="Built for larger-volume cargo loads where dependable dry storage and route efficiency matter most." data-usage="High Volume Cargo &amp; Distribution" data-specs="ISO certified|Higher load volume|Efficient route coverage">
                             <svg viewBox="0 0 120 44" aria-hidden="true">
                                 <rect x="6" y="10" width="108" height="24" rx="3"></rect>
                                 <path d="M20 10v24M34 10v24M48 10v24M62 10v24M76 10v24M90 10v24M104 10v24"></path>
                             </svg>
                             <span class="catalogue-card-name">40FT DRY</span>
                         </button>
-                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/40FT.png" data-type="40FT HC" data-stage-meta="High-cube dry container" data-description="Extra interior height gives more cubic space for lighter, bulky cargo without sacrificing durability." data-usage="Voluminous Cargo &amp; Space Optimization" data-specs="High-cube profile|Extra cubic volume|Flexible export loading">
+                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/40ftHC.png" data-type="40FT HC" data-stage-meta="High-cube dry container" data-description="Extra interior height gives more cubic space for lighter, bulky cargo without sacrificing durability." data-usage="Voluminous Cargo &amp; Space Optimization" data-specs="High-cube profile|Extra cubic volume|Flexible export loading">
                             <svg viewBox="0 0 120 44" aria-hidden="true">
                                 <rect x="6" y="8" width="108" height="28" rx="3"></rect>
                                 <path d="M20 8v28M34 8v28M48 8v28M62 8v28M76 8v28M90 8v28M104 8v28"></path>
@@ -382,6 +385,22 @@
                                 <path d="M19 16v4M16 19h6M19 22v4"></path>
                             </svg>
                             <span class="catalogue-card-name">REEFER</span>
+                        </button>
+                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/20ftrefer.png" data-type="20FT REEFER" data-stage-meta="Compact temperature-controlled container" data-description="A compact reefer format for temperature-sensitive cargo, regional distribution, and flexible cold-chain operations." data-usage="Regional Cold Chain &amp; Perishable Cargo" data-specs="Temperature controlled|Compact cold-chain format|Reliable cargo protection">
+                            <svg viewBox="0 0 120 44" aria-hidden="true">
+                                <rect x="10" y="10" width="100" height="24" rx="3"></rect>
+                                <rect x="10" y="10" width="18" height="24" rx="3"></rect>
+                                <path d="M38 10v24M52 10v24M66 10v24M80 10v24M94 10v24"></path>
+                                <path d="M19 16v4M16 19h6M19 22v4"></path>
+                            </svg>
+                            <span class="catalogue-card-name">20FT REEFER</span>
+                        </button>
+                        <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/ISOTank1.png" data-type="ISO TANK" data-stage-meta="Specialized liquid cargo container" data-description="Built for the secure movement of liquid cargo, chemicals, and other specialized materials across global trade routes." data-usage="Liquid Cargo &amp; Specialized Transport" data-specs="ISO certified|Secure tank construction|Specialized cargo handling">
+                            <svg viewBox="0 0 120 44" aria-hidden="true">
+                                <rect x="16" y="9" width="88" height="26" rx="12"></rect>
+                                <path d="M28 9v26M92 9v26M16 17h-6v10h6M104 17h6v10h-6M40 9v26M80 9v26"></path>
+                            </svg>
+                            <span class="catalogue-card-name">ISO TANK</span>
                         </button>
                         <button class="catalogue-card" type="button" aria-pressed="false" data-image="images/OTOP.png" data-type="OPEN TOP" data-stage-meta="Top-loading cargo solution" data-description="Ideal for oversized cargo and machinery that needs crane loading from above with easier top access." data-usage="Oversized Machinery &amp; Crane Loading" data-specs="Open-top access|Project cargo ready|Heavy lift compatibility">
                             <svg viewBox="0 0 120 44" aria-hidden="true">
