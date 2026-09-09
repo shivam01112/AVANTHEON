@@ -25440,9 +25440,17 @@ body.contact-page .contact-value-list li::before {
 }
 
 body.contact-page .contact-value-icon {
-    color: var(--blue-700);
-    background: rgba(26, 118, 197, 0.1);
-    border-color: rgba(26, 118, 197, 0.26);
+    width: 42px;
+    height: 42px;
+    color: var(--navy-900);
+    background: linear-gradient(145deg, var(--gold-100), var(--gold-500));
+    border-color: rgba(255, 244, 166, 0.8);
+    box-shadow: 0 7px 16px rgba(246, 205, 83, 0.2);
+}
+
+body.contact-page .contact-value-icon svg {
+    width: 18px;
+    stroke-width: 1.8;
 }
 
 body.contact-page .contact-value-list strong {
