@@ -25604,3 +25604,28 @@ body.contact-page .contact-process-icon {
 body.contact-page .contact-faq {
     background: linear-gradient(180deg, #edf5fb 0%, #ffffff 100%);
 }
+
+body.contact-page .contact-value-list li,
+body.contact-page .contact-faq-item {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+body.contact-page .contact-value-list li:hover,
+body.contact-page .contact-faq-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(26, 118, 197, 0.38);
+    box-shadow: 0 12px 26px rgba(4, 24, 56, 0.12);
+}
+
+body.contact-page .contact-faq .container {
+    border-color: rgba(26, 118, 197, 0.2);
+    box-shadow: 0 18px 50px rgba(4, 24, 56, 0.1);
+}
+
+body.contact-page .contact-faq-item {
+    border-color: rgba(26, 118, 197, 0.18);
+}
+
+body.contact-page .contact-faq-item summary {
+    color: var(--navy-900);
+}
