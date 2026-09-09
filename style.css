@@ -1703,6 +1703,112 @@ body.industries-page {
     0%, 100% { opacity: 0.58; }
     50% { opacity: 1; }
 }
+
+/* Final cursor cue: float above the cards without changing the existing tagline. */
+.solutions-page .solutions-showcase {
+    position: relative;
+}
+
+.solutions-page .solution-card-cursor {
+    position: absolute !important;
+    top: 42px !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 50% !important;
+    z-index: 20;
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.solutions-page .solution-card-cursor img {
+    display: block;
+    width: 54px !important;
+    height: 54px !important;
+    max-width: 54px !important;
+    max-height: 54px !important;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(246, 205, 83, .48));
+    animation: solutionCardCursorFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes solutionCardCursorFloat {
+    0%, 100% { opacity: .76; transform: translateY(4px) scale(.94); }
+    50% { opacity: 1; transform: translateY(-5px) scale(1); }
+}
+
+@media (max-width: 720px) {
+    .solutions-page .solution-card-cursor {
+        top: 62px !important;
+        width: 44px;
+        height: 44px;
+    }
+
+    .solutions-page .solution-card-cursor img {
+        width: 44px !important;
+        height: 44px !important;
+        max-width: 44px !important;
+        max-height: 44px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solution-card-cursor img {
+        animation: none;
+    }
+}
+
+/* Floating click cue above the solution cards; the original tagline stays below. */
+.solutions-page .solutions-showcase {
+    position: relative;
+}
+
+.solutions-page .solution-card-cursor {
+    position: absolute;
+    top: 84px;
+    left: 50%;
+    z-index: 10;
+    width: 54px;
+    height: 54px;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.solutions-page .solution-card-cursor img {
+    display: block;
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(246, 205, 83, 0.48));
+    animation: solutionCardCursorFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes solutionCardCursorFloat {
+    0%, 100% { opacity: 0.76; transform: translateY(4px) scale(0.94); }
+    50% { opacity: 1; transform: translateY(-5px) scale(1); }
+}
+
+@media (max-width: 720px) {
+    .solutions-page .solution-card-cursor {
+        top: 62px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .solutions-page .solution-card-cursor img {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solution-card-cursor img {
+        animation: none;
+    }
+}
     box-shadow: 0 0 0 6px rgba(245, 193, 22, 0.12);
     animation: industryDotLeftTop 3s linear infinite;
 }
@@ -23225,7 +23331,7 @@ width: 9px;
        so contrast is guaranteed rather than depending on which part of the
        photo happens to sit behind it - then a quick fade at the very
        bottom of the hero so the photo still takes over cleanly below it. */
-    background: linear-gradient(180deg, #041838 0%, #041838 78%, rgba(4, 24, 56, 0) 100%);
+    /* background: linear-gradient(180deg, #041838 0%, #041838 78%, rgba(4, 24, 56, 0) 100%); */
 }
 
 .connect-hero-brand {
@@ -23586,7 +23692,7 @@ display: block;
     }
 
     .connect-btn {
-        min-height: 68px;
+        min-height: 65px;
         padding: 14px 16px;
     }
 
@@ -26028,4 +26134,42 @@ body.contact-page .contact-faq-item summary {
 @keyframes industryRingGlow {
     0%, 100% { opacity: 0.58; }
     50% { opacity: 1; }
+}
+
+/* Final cursor cue: float above the cards without changing the existing tagline. */
+.solutions-page .solutions-showcase { position: relative; }
+.solutions-page .solution-card-cursor {
+    position: absolute !important;
+    top: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 50% !important;
+    z-index: 20;
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+.solutions-page .solution-card-cursor img {
+    display: block;
+    width: 150px !important;
+    height: 150px !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(246, 205, 83, .48));
+    animation: solutionCardCursorFloat 2.8s ease-in-out infinite;
+}
+@keyframes solutionCardCursorFloat {
+    0%, 100% { opacity: .76; transform: translateY(10px) scale(.94); }
+    50% { opacity: 1; transform: translateY(-10px) scale(1); }
+}
+@media (max-width: 720px) {
+    .solutions-page .solution-card-cursor { top: 28px !important; width: 44px; height: 44px; }
+    .solutions-page .solution-card-cursor img { width: 44px !important; height: 44px !important; max-width: 44px !important; max-height: 44px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .solutions-page .solution-card-cursor img { animation: none; }
 }
