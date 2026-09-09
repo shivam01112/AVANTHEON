@@ -25393,8 +25393,11 @@ body.contact-page .site-header {
 
 body.contact-page .contact-main {
     background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
         radial-gradient(circle at 76% 16%, rgba(26, 118, 197, 0.3), transparent 34%),
         linear-gradient(135deg, #041838 0%, #082b56 54%, #0b477e 100%);
+    background-size: 72px 72px, 72px 72px, auto, auto;
 }
 
 body.contact-page .contact-main-bg {
