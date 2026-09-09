@@ -12242,6 +12242,20 @@ body.about-page #process::before {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body.contact-page .contact-value-list li,
+    body.contact-page .contact-faq-item,
+    body.contact-page .contact-step-btn.button-gold {
+        transition: none;
+    }
+
+    body.contact-page .contact-value-list li:hover,
+    body.contact-page .contact-faq-item:hover,
+    body.contact-page .contact-step-btn.button-gold:hover {
+        transform: none;
+    }
+}
+
 /* Final mobile step-grid override: keep every label readable. */
 @media (max-width: 720px) {
     body.about-page #process .process-route-spark,
