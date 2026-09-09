@@ -25575,30 +25575,32 @@ body.contact-page .contact-success-link:hover {
 }
 
 body.contact-page .contact-process {
-    background: linear-gradient(180deg, #dfeef8 0%, #edf5fb 100%);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(26, 118, 197, 0.3), transparent 42%),
+        linear-gradient(180deg, #082b56 0%, #041838 100%);
 }
 
 body.contact-page .contact-process .container {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba(11, 58, 109, 0.14);
-    box-shadow: 0 18px 48px rgba(4, 24, 56, 0.08);
+    background: rgba(4, 24, 56, 0.58);
+    border-color: rgba(125, 191, 234, 0.24);
+    box-shadow: 0 18px 48px rgba(0, 8, 24, 0.24);
 }
 
 body.contact-page .contact-process-heading h2,
 body.contact-page .contact-process-flow h3 {
-    color: var(--navy-900);
+    color: var(--white);
 }
 
 body.contact-page .contact-process-flow p {
-    color: #607589;
+    color: rgba(213, 229, 242, 0.72);
 }
 
 body.contact-page .contact-process-icon {
-    color: var(--blue-700);
-    background: rgba(26, 118, 197, 0.08);
+    color: #9ed7f7;
+    background: rgba(26, 118, 197, 0.18);
     border-color: rgba(212, 175, 55, 0.58);
 }
 
 body.contact-page .contact-faq {
-    background: #edf5fb;
+    background: linear-gradient(180deg, #edf5fb 0%, #ffffff 100%);
 }
