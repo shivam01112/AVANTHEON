@@ -25471,10 +25471,23 @@ body.contact-page .contact-value-list p {
 }
 
 body.contact-page .contact-enquiry {
+    position: relative;
     color: var(--navy-900);
     background: linear-gradient(145deg, #ffffff 0%, #f4faff 68%, #e6f2fb 100%);
     border: 1px solid rgba(92, 170, 226, 0.58);
-    box-shadow: 0 28px 70px rgba(1, 16, 40, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.9) inset, 0 0 30px rgba(26, 118, 197, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 30px 72px rgba(1, 16, 40, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.9) inset, 0 0 30px rgba(26, 118, 197, 0.12);
+}
+
+body.contact-page .contact-enquiry::before {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    left: 24px;
+    height: 3px;
+    content: "";
+    background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    border-radius: 0 0 6px 6px;
 }
 
 body.contact-page .contact-stepper,
