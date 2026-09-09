@@ -25419,11 +25419,24 @@ body.contact-page .contact-intro-lead {
 }
 
 body.contact-page .contact-value-list li {
+    position: relative;
+    min-height: 64px;
+    align-items: center;
     padding: 10px 12px;
-    border: 1px solid rgba(11, 58, 109, 0.1);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 20px rgba(4, 24, 56, 0.05);
+    overflow: hidden;
+    border: 1px solid rgba(137, 202, 239, 0.22);
+    border-radius: 10px;
+    background: linear-gradient(105deg, rgba(19, 78, 132, 0.72), rgba(8, 43, 86, 0.52));
+    box-shadow: 0 10px 22px rgba(1, 16, 40, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.contact-page .contact-value-list li::before {
+    position: absolute;
+    inset: 12px auto 12px 0;
+    width: 3px;
+    content: "";
+    background: linear-gradient(180deg, var(--gold-100), var(--gold-500));
+    border-radius: 0 4px 4px 0;
 }
 
 body.contact-page .contact-value-icon {
