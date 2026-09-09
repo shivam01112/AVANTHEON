@@ -25392,13 +25392,15 @@ body.contact-page .site-header {
 }
 
 body.contact-page .contact-main {
-    background: linear-gradient(180deg, #eaf4fb 0%, #f8fbfd 78%, #edf5fb 100%);
+    background:
+        radial-gradient(circle at 76% 16%, rgba(26, 118, 197, 0.3), transparent 34%),
+        linear-gradient(135deg, #041838 0%, #082b56 54%, #0b477e 100%);
 }
 
 body.contact-page .contact-main-bg {
-    opacity: 0.18;
+    opacity: 0.32;
     background:
-        linear-gradient(90deg, rgba(234, 244, 251, 0.9), rgba(248, 251, 253, 0.76)),
+        linear-gradient(90deg, rgba(4, 24, 56, 0.88), rgba(8, 43, 86, 0.72)),
         url("images/truck-logistics-operation-dusk.jpg") center 35% / cover no-repeat;
 }
 
@@ -25409,18 +25411,18 @@ body.contact-page .contact-main-bg::after {
 }
 
 body.contact-page .contact-intro h1 {
-    color: var(--navy-900);
+    color: var(--white);
 }
 
 body.contact-page .contact-intro-lead {
-    color: #526c84;
+    color: rgba(226, 238, 249, 0.82);
 }
 
 body.contact-page .contact-value-list li {
     padding: 10px 12px;
     border: 1px solid rgba(11, 58, 109, 0.1);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.64);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 20px rgba(4, 24, 56, 0.05);
 }
 
@@ -25431,11 +25433,11 @@ body.contact-page .contact-value-icon {
 }
 
 body.contact-page .contact-value-list strong {
-    color: var(--navy-900);
+    color: var(--white);
 }
 
 body.contact-page .contact-value-list p {
-    color: #607589;
+    color: rgba(213, 229, 242, 0.7);
 }
 
 body.contact-page .contact-enquiry {
