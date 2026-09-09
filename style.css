@@ -1543,6 +1543,166 @@ body.industries-page {
     content: "";
     background: var(--gold-500);
     border-radius: 50%;
+@media (min-width: 721px) {
+    body.industries-page .industry-detail-panel.is-default,
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default {
+        background:
+            radial-gradient(circle at 50% 50%, rgba(35, 102, 170, 0.42), transparent 32%),
+            linear-gradient(145deg, #03142e 0%, #062c5d 56%, #041a3c 100%);
+    }
+
+    body.industries-page .industry-detail-panel.is-default {
+        border: 1px solid rgba(246, 205, 83, 0.48);
+        box-shadow: 0 24px 56px rgba(4, 24, 56, 0.22), inset 0 0 0 1px rgba(125, 191, 234, 0.12);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default {
+        overflow: hidden;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::before {
+        width: 430px;
+        height: 430px;
+        border-color: rgba(246, 205, 83, 0.25);
+        box-shadow: 0 0 0 34px rgba(246, 205, 83, 0.045), 0 0 0 70px rgba(98, 178, 235, 0.04);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::after {
+        width: 600px;
+        height: 600px;
+        border-color: rgba(246, 205, 83, 0.14);
+        box-shadow: 0 0 0 44px rgba(246, 205, 83, 0.025), 0 0 0 92px rgba(86, 171, 232, 0.03);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark {
+        border-width: 3px;
+        box-shadow: 0 24px 50px rgba(0, 7, 22, 0.46), 0 0 0 8px rgba(246, 205, 83, 0.18), 0 0 36px rgba(246, 205, 83, 0.36);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark::before {
+        inset: -20px;
+        border-color: rgba(246, 205, 83, 0.45);
+        box-shadow: 0 0 24px rgba(246, 205, 83, 0.2);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark::after {
+        inset: -72px;
+        border-color: rgba(246, 205, 83, 0.32);
+        box-shadow: 0 0 0 36px rgba(246, 205, 83, 0.07), 0 0 0 78px rgba(246, 205, 83, 0.035);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-lines use {
+        stroke: #f6cd53;
+        filter: drop-shadow(0 0 5px rgba(246, 205, 83, 0.56));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-endpoints circle {
+        fill: #ffe873;
+        filter: drop-shadow(0 0 7px rgba(246, 205, 83, 0.76));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star {
+        fill: #fff3a6;
+        stroke: #f6cd53;
+        stroke-width: 0.45;
+        filter: drop-shadow(0 0 5px rgba(246, 205, 83, 0.92));
+        animation: industryStarTwinkle 1.4s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star:nth-child(2n) {
+        animation-delay: -0.45s;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-default-cue p {
+        color: rgba(239, 247, 255, 0.86);
+    }
+}
+
+@keyframes industryStarTwinkle {
+    0%, 100% { opacity: 0.72; transform: scale(0.82) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.18) rotate(18deg); }
+}
+
+/* Final spotlight polish: deeper blue atmosphere, luminous gold rings, and rotating stars. */
+@media (min-width: 721px) {
+    body.industries-page .industry-detail-panel.is-default {
+        background:
+            radial-gradient(circle at 50% 45%, rgba(16, 72, 139, 0.52), transparent 34%),
+            radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.08), transparent 20%),
+            linear-gradient(145deg, #010b1d 0%, #031b3c 48%, #020c20 100%);
+        border-color: rgba(246, 205, 83, 0.68);
+        box-shadow: 0 28px 68px rgba(0, 5, 18, 0.48), inset 0 0 0 1px rgba(125, 191, 234, 0.14), inset 0 0 80px rgba(7, 61, 126, 0.24);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default {
+        background:
+            radial-gradient(circle at 50% 50%, rgba(19, 85, 164, 0.44), transparent 30%),
+            radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.07), transparent 17%),
+            linear-gradient(145deg, #010b1d 0%, #031d43 52%, #020b1d 100%);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::before {
+        border-color: rgba(255, 220, 77, 0.42);
+        box-shadow: 0 0 0 34px rgba(246, 205, 83, 0.07), 0 0 0 70px rgba(32, 125, 220, 0.06), 0 0 46px rgba(246, 205, 83, 0.18);
+        animation: industryOrbitSpin 38s linear infinite, industryRingGlow 4.6s ease-in-out infinite;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::after {
+        border-color: rgba(246, 205, 83, 0.24);
+        box-shadow: 0 0 0 44px rgba(246, 205, 83, 0.04), 0 0 0 92px rgba(32, 125, 220, 0.055), 0 0 70px rgba(246, 205, 83, 0.1);
+        animation: industryOrbitSpin 58s linear infinite reverse, industryRingGlow 6.2s ease-in-out infinite reverse;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark {
+        box-shadow: 0 24px 50px rgba(0, 3, 14, 0.62), 0 0 0 8px rgba(246, 205, 83, 0.24), 0 0 28px rgba(246, 205, 83, 0.62), 0 0 68px rgba(246, 205, 83, 0.22);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark::before {
+        border-color: rgba(255, 226, 91, 0.68);
+        box-shadow: 0 0 22px rgba(246, 205, 83, 0.36), inset 0 0 12px rgba(246, 205, 83, 0.1);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-lines use {
+        stroke: #ffdc4d;
+        stroke-width: 0.5;
+        filter: drop-shadow(0 0 5px rgba(246, 205, 83, 0.7)) drop-shadow(0 0 12px rgba(246, 205, 83, 0.28));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-endpoints circle {
+        fill: #fff0a1;
+        filter: drop-shadow(0 0 6px rgba(246, 205, 83, 0.95)) drop-shadow(0 0 14px rgba(246, 205, 83, 0.36));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star {
+        fill: #fff8c5;
+        stroke: #ffdc4d;
+        stroke-width: 0.58;
+        filter: drop-shadow(0 0 4px #fff0a1) drop-shadow(0 0 9px rgba(246, 205, 83, 0.98)) drop-shadow(0 0 18px rgba(246, 205, 83, 0.46));
+        animation: industryStarTravelSpin 5.2s linear infinite;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star:nth-child(2n) {
+        animation-delay: -0.72s;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star:nth-child(3n) {
+        animation-delay: -1.34s;
+    }
+}
+
+@keyframes industryStarTravelSpin {
+    0%, 100% { opacity: 0.68; transform: scale(0.84) rotate(0deg); }
+    25% { opacity: 0.9; transform: scale(0.96) rotate(90deg); }
+    50% { opacity: 1; transform: scale(1.06) rotate(180deg); }
+    75% { opacity: 0.9; transform: scale(0.96) rotate(270deg); }
+}
+
+@keyframes industryRingGlow {
+    0%, 100% { opacity: 0.58; }
+    50% { opacity: 1; }
+}
     box-shadow: 0 0 0 6px rgba(245, 193, 22, 0.12);
     animation: industryDotLeftTop 3s linear infinite;
 }
@@ -25776,4 +25936,96 @@ body.contact-page .contact-faq-item summary {
     body.contact-page .contact-enquiry {
         border-radius: 16px;
     }
+}
+
+/* Final desktop cascade for the industries network spotlight. */
+@media (min-width: 721px) {
+    body.industries-page .industry-detail-panel.is-default {
+        background: radial-gradient(circle at 50% 45%, rgba(16, 72, 139, 0.52), transparent 34%), radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.08), transparent 20%), linear-gradient(145deg, #010b1d 0%, #031b3c 48%, #020c20 100%);
+        border: 1px solid rgba(246, 205, 83, 0.68);
+        box-shadow: 0 28px 68px rgba(0, 5, 18, 0.48), inset 0 0 0 1px rgba(125, 191, 234, 0.14), inset 0 0 80px rgba(7, 61, 126, 0.24);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default {
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 50%, rgba(19, 85, 164, 0.44), transparent 30%), radial-gradient(circle at 50% 50%, rgba(246, 205, 83, 0.07), transparent 17%), linear-gradient(145deg, #010b1d 0%, #031d43 52%, #020b1d 100%);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::before {
+        width: 430px;
+        height: 430px;
+        border-color: rgba(255, 220, 77, 0.42);
+        box-shadow: 0 0 0 34px rgba(246, 205, 83, 0.07), 0 0 0 70px rgba(32, 125, 220, 0.06), 0 0 46px rgba(246, 205, 83, 0.18);
+        animation: industryOrbitSpin 38s linear infinite, industryRingGlow 4.6s ease-in-out infinite;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default::after {
+        width: 600px;
+        height: 600px;
+        border-color: rgba(246, 205, 83, 0.24);
+        box-shadow: 0 0 0 44px rgba(246, 205, 83, 0.04), 0 0 0 92px rgba(32, 125, 220, 0.055), 0 0 70px rgba(246, 205, 83, 0.1);
+        animation: industryOrbitSpin 58s linear infinite reverse, industryRingGlow 6.2s ease-in-out infinite reverse;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark {
+        border-width: 3px;
+        box-shadow: 0 24px 50px rgba(0, 3, 14, 0.62), 0 0 0 8px rgba(246, 205, 83, 0.24), 0 0 28px rgba(246, 205, 83, 0.62), 0 0 68px rgba(246, 205, 83, 0.22);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark::before {
+        inset: -20px;
+        border-color: rgba(255, 226, 91, 0.68);
+        box-shadow: 0 0 22px rgba(246, 205, 83, 0.36), inset 0 0 12px rgba(246, 205, 83, 0.1);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-detail-default-mark::after {
+        inset: -72px;
+        border-color: rgba(246, 205, 83, 0.32);
+        box-shadow: 0 0 0 36px rgba(246, 205, 83, 0.07), 0 0 0 78px rgba(246, 205, 83, 0.035);
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-lines use {
+        stroke: #ffdc4d;
+        stroke-width: 0.5;
+        filter: drop-shadow(0 0 5px rgba(246, 205, 83, 0.7)) drop-shadow(0 0 12px rgba(246, 205, 83, 0.28));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-endpoints circle {
+        fill: #fff0a1;
+        filter: drop-shadow(0 0 6px rgba(246, 205, 83, 0.95)) drop-shadow(0 0 14px rgba(246, 205, 83, 0.36));
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star {
+        fill: #fff4a6;
+        stroke: #ffdc4d;
+        stroke-width: 0.48;
+        filter: drop-shadow(0 0 5px rgba(246, 205, 83, 0.82));
+        animation: industryStarTravelSpin 7.2s linear infinite;
+        will-change: opacity, transform;
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star:nth-child(2n) {
+        animation-delay: -0.72s;
+    }
+
+    body.industries-page .industry-detail-panel.is-default .industry-network-star:nth-child(3n) {
+        animation-delay: -1.34s;
+    }
+}
+
+@keyframes industryStarTwinkle {
+    0%, 100% { opacity: 0.72; transform: scale(0.82) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.18) rotate(18deg); }
+}
+
+@keyframes industryStarTravelSpin {
+    0%, 100% { opacity: 0.82; transform: scale(0.62) rotate(0deg); }
+    50% { opacity: 0.96; transform: scale(0.82) rotate(180deg); }
+}
+
+@keyframes industryRingGlow {
+    0%, 100% { opacity: 0.58; }
+    50% { opacity: 1; }
 }
