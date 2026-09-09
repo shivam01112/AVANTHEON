@@ -25411,11 +25411,20 @@ body.contact-page .contact-main-bg::after {
 }
 
 body.contact-page .contact-intro h1 {
+    max-width: 430px;
+    margin-bottom: 18px;
     color: var(--white);
+    font-size: clamp(38px, 3.4vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
 }
 
 body.contact-page .contact-intro-lead {
+    max-width: 430px;
+    margin-bottom: 30px;
     color: rgba(226, 238, 249, 0.82);
+    font-size: 14px;
+    line-height: 1.65;
 }
 
 body.contact-page .contact-value-list li {
