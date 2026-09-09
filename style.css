@@ -26017,6 +26017,57 @@ body.contact-page .contact-faq-item summary {
     color: var(--navy-900);
 }
 
+/* Connect page welcome copy: visible immediately over the hero image. */
+body.connect-page .connect-intro {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 430px);
+    margin: -20px auto 22px;
+    padding: 0px 18px 16px;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    background: linear-gradient(180deg, rgb(2 15 38 / 16%), rgba(2, 15, 38, 0.48));
+    border: 1px solid rgba(232, 197, 106, 0.28);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.62);
+}
+
+body.connect-page .connect-eyebrow {
+    color: #fff7d0;
+    font-size: clamp(20px, 4vw, 26px);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+body.connect-page .connect-lead {
+    max-width: 390px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 720px) {
+    body.connect-page .connect-intro {
+        width: min(100%, 420px);
+        margin-top: -12px;
+        margin-bottom: 18px;
+        padding: 12px 14px 14px;
+    }
+
+    body.connect-page .connect-eyebrow {
+        font-size: 20px;
+    }
+
+    body.connect-page .connect-lead {
+        max-width: 340px;
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 720px) {
     body.contact-page .contact-intro h1 {
         max-width: 360px;
