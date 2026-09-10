@@ -454,28 +454,10 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     max-width: 720px;
 }
 
-.eyebrow , strong {
-   
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-background: linear-gradient(
-  135deg,
-  #7A5608 0%,
-  #A97810 20%,
-  #E0B83F 42%,
-  #F4D66A 52%,
-  #D2A12A 70%,
-  #8B620A 100%
-) !important;
 
--webkit-background-clip: text;
--webkit-text-fill-color: transparent !important;
-background-clip: text !important;
-color: transparent !important;
-}
 .eyebrow{
  margin: 0 0 25px;
+ font-size: 17px !important;
 }
 h1,
 h2 {
@@ -8306,8 +8288,8 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     max-width: none !important;
     margin: 0 auto;
     padding: 0 0 8px;
-    color: var(--gold-500);
-    background: transparent;
+    /* color: var(--gold-500); */
+    /* backgroun    d: transparent; */
     border: 0;
     border-bottom: 2px solid rgba(245, 193, 22, 0.44);
     border-radius: 0;
@@ -9404,9 +9386,9 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     width: fit-content;
     margin-bottom: 22px;
     padding: 8px 12px;
-    color: var(--gold-100);
+    /* color: var(--gold-100);
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(242, 226, 162, 0.22);
+    border: 1px solid rgba(242, 226, 162, 0.22); */
     border-radius: 4px;
 }
 
@@ -26293,7 +26275,7 @@ body.connect-page .connect-intro {
 
 body.connect-page .connect-eyebrow {
     color: #fff7d0;
-    font-size: clamp(20px, 4vw, 26px);
+    font-size: clamp(20px, 4vw, 23px);
     font-weight: 800;
     line-height: 1.15;
 }
@@ -26469,6 +26451,19 @@ body.connect-page .connect-lead {
     object-fit: contain;
     filter: drop-shadow(0 0 8px rgba(246, 205, 83, .48));
     animation: solutionCardCursorFloat 2.8s ease-in-out infinite;
+}
+.eyebrow , strong {
+   
+    font-size: 12px ;
+    font-weight: 800;
+    text-transform: uppercase;
+background:linear-gradient(
+359deg, #805B0A 0%, #B78316 20%, #D8AF3D 38%, #F2D477 50%, #D0A12A 65%, #A87510 82%, #765208 100%) !important;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent !important;
+background-clip: text !important;
+color: transparent !important;
 }
 @keyframes solutionCardCursorFloat {
     0%, 100% { opacity: .76; transform: translateY(10px) scale(.94); }
