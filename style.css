@@ -25474,6 +25474,11 @@ display: block;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    min-height: 100svh;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
     background: radial-gradient(circle at 50% 42%, #0c2e63 0%, #051636 58%, #020b1c 100%);
     animation: connectSplashOut 900ms ease 4100ms both;
 }
@@ -25483,8 +25488,10 @@ display: block;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 0 24px;
+    justify-content: center;
+    width: min(100%, 520px);
+    gap: clamp(16px, 2.5vh, 20px);
+    padding: 24px;
     text-align: center;
 }
 
@@ -25500,6 +25507,7 @@ display: block;
     transform: translate(-50%, -50%) scale(0.6);
     animation:
         connectSplashGlowIn 1500ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both,
+        connectSplashGlowPulse 2200ms ease-in-out 1700ms infinite alternate,
         connectSplashGlowOut 1000ms ease 3400ms both;
 }
 
@@ -25509,13 +25517,15 @@ display: block;
    pace throughout (a gentle ease-in-out, not a hold-then-snap curve), so it
    reads as one continuous "logo travels up into place" motion. */
 .connect-splash-logo {
-    width: min(180px, 52vw);
+    display: block;
+    width: min(180px, 58vw, 24dvh);
     height: auto;
     opacity: 0;
+    transform-origin: center center;
     animation:
-     connectSplashLogoIn 850ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both,
-    connectSplashLogoRise 700ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms both,
-     connectSplashLogoDepart 1300ms cubic-bezier(0.65, 0, 0.35, 1) 3400ms both;
+        connectSplashLogoIn 950ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both,
+        connectSplashLogoRise 700ms cubic-bezier(0.22, 1, 0.36, 1) 1200ms both,
+        connectSplashLogoDepart 1300ms cubic-bezier(0.65, 0, 0.35, 1) 3400ms both;
 }
 
 .dry-container-heading{
@@ -25532,11 +25542,12 @@ display: block;
 }
 .connect-splash-welcome {
     margin: 0;
+    max-width: 100%;
     opacity: 0;
     color: #e8c56a;
-    font-size: 14px;
+    font-size: clamp(11px, 3.4vw, 14px);
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: clamp(0.14em, 0.22em, 0.22em);
     text-transform: uppercase;
     text-shadow: 0 0 16px rgba(232, 197, 106, 0.4);
     animation:
@@ -25553,6 +25564,11 @@ display: block;
 @keyframes connectSplashGlowOut {
     from { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
     to   { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+}
+
+@keyframes connectSplashGlowPulse {
+    from { opacity: 0.72; transform: translate(-50%, -50%) scale(0.94); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
 }
 
 @keyframes connectSplashLogoIn {
@@ -25593,6 +25609,17 @@ display: block;
     0%   { opacity: 1; visibility: visible; }
     99%  { opacity: 0; visibility: visible; }
     100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@media (max-width: 480px) {
+    .connect-splash-inner {
+        padding-inline: 16px;
+    }
+
+    .connect-splash-glow {
+        width: min(340px, 88vw);
+        height: min(340px, 88vw);
+    }
 }
 
 /* Real page: the header logo fades/settles in as the splash logo's departure
