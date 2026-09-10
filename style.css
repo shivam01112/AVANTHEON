@@ -25265,6 +25265,20 @@ display: block;
     }
 }
 
+/* Keep the mobile industry hero clean; the full-bleed port image remains on desktop. */
+@media (max-width: 720px) {
+    body.industries-page .industry-hero-image,
+    body.industries-page .industry-hero-image::after {
+        display: none;
+    }
+
+    body.industries-page .industry-hero-showcase {
+        background:
+            radial-gradient(circle at 50% 0%, rgba(24, 91, 157, 0.24), transparent 52%),
+            linear-gradient(180deg, #061c3d 0%, #03132d 100%);
+    }
+}
+
 /* =========================================================
    Legal pages (Privacy Policy, Terms & Conditions)
    ========================================================= */
