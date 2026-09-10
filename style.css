@@ -26027,8 +26027,7 @@ body.connect-page .connect-intro {
     opacity: 1;
     transform: none;
     animation: none;
-    background: linear-gradient(180deg, rgb(2 15 38 / 16%), rgba(2, 15, 38, 0.48));
-    border: 1px solid rgba(232, 197, 106, 0.28);
+    background:linear-gradient(180deg, rgb(2 15 38 / 0%), rgb(2 15 38 / 0%));
     border-radius: 12px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.62);
