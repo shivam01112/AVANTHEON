@@ -461,11 +461,12 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     text-transform: uppercase;
 background: linear-gradient(
   135deg,
-  #d49b14 0%,
-  #d8a22e 22%,
-  #d9b12c 48%,
-  #D3A12D 70%,
-  #926b1d 100%
+  #7A5608 0%,
+  #A97810 20%,
+  #E0B83F 42%,
+  #F4D66A 52%,
+  #D2A12A 70%,
+  #8B620A 100%
 ) !important;
 
 -webkit-background-clip: text;
@@ -23461,7 +23462,7 @@ width: 9px;
     text-align: left;
     text-decoration: none;
     appearance: none;
-    background: transparent;
+    background: #0000004a;
     font: inherit;
     border: 1px solid rgba(242, 180, 63, 0.86);
     border-radius: 8px;
@@ -23705,7 +23706,7 @@ display: block;
     }
 
     .connect-btn-text strong {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .connect-pillar span:last-child {
@@ -26284,7 +26285,7 @@ body.connect-page .connect-intro {
     opacity: 1;
     transform: none;
     animation: none;
-    background:linear-gradient(180deg, rgb(2 15 38 / 0%), rgb(2 15 38 / 0%));
+    background:linear-gradient(180deg, rgb(2 15 38 / 56%), rgb(2 15 38 / 21%));
     border-radius: 12px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.62);
