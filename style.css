@@ -521,7 +521,7 @@ h2 span {
     display: block;
     margin-bottom: 5px;
     color: var(--gold-100);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 800;
 }
 
@@ -9563,7 +9563,7 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     display: block;
     margin-bottom: 8px;
     color: var(--gold-100);
-    font-size: 27px;
+    font-size: 24px;
     line-height: 1.12;
 }
 
@@ -19042,6 +19042,144 @@ body.about-page #process .process-card-progress {
     }
 }
 
+/* Mobile-only layout lock for the solution chooser. */
+@media (max-width: 860px) {
+    .solutions-page .solutions-hero {
+        min-height: auto;
+        padding: 88px 0 42px;
+    }
+
+    .solutions-page .solutions-hero-layout {
+        width: min(100% - 28px, 520px);
+        gap: 34px;
+    }
+
+    .solutions-page .solutions-hero-copy {
+        width: 100%;
+        text-align: center;
+    }
+
+    .solutions-page .solutions-hero-copy h1 {
+        max-width: 360px;
+        margin-inline: auto;
+        font-size: clamp(34px, 10vw, 46px);
+        line-height: 1.08;
+    }
+
+    .solutions-page .solutions-hero-lead {
+        max-width: 350px;
+        margin-inline: auto;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .solutions-page .solutions-hero-actions {
+        width: 100%;
+        margin-top: 26px;
+        gap: 10px;
+    }
+
+    .solutions-page .solutions-hero-actions .button {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .solutions-page .solution-selector {
+        width: 100%;
+        min-height: 0;
+        gap: 22px;
+        overflow: visible;
+        contain: none;
+    }
+
+    .solutions-page .solution-card-cursor {
+        display: none !important;
+    }
+
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        top: auto;
+        left: auto;
+        min-height: 390px;
+        border-radius: 12px;
+        transform: none;
+        animation: none;
+    }
+
+    .solutions-page .solution-card-icon,
+    .solutions-page .solution-card-own .solution-card-icon {
+        top: 18px;
+        width: 62px;
+        height: 62px;
+    }
+
+    .solutions-page .solution-card-title,
+    .solutions-page .solution-card-own .solution-card-title {
+        top: 104px;
+        width: calc(100% - 30px);
+        font-size: 15px;
+    }
+
+    .solutions-page .solution-card-own .solution-card-title {
+        top: 108px;
+        font-size: 18px;
+    }
+
+    .solutions-page .solution-card-image,
+    .solutions-page .solution-card-own .solution-card-image {
+        top: 164px;
+        height: calc(100% - 164px);
+    }
+
+    .solutions-page .solutions-scroll-cue {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        display: flex;
+        width: 100%;
+        min-height: 48px;
+        margin-top: 2px;
+        padding: 10px 14px;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .solutions-page .solutions-hero {
+        padding-top: 74px;
+    }
+
+    .solutions-page .solutions-hero-layout {
+        width: min(100% - 20px, 430px);
+        gap: 28px;
+    }
+
+    .solutions-page .solutions-hero-copy h1 {
+        font-size: clamp(32px, 7.5vw, 42px);
+    }
+
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        top: auto;
+        left: auto;
+        min-height: 382px;
+    }
+
+    .solutions-page .solution-card-image,
+    .solutions-page .solution-card-own .solution-card-image {
+        top: 160px;
+        height: calc(100% - 160px);
+    }
+}
+
 /* Solutions hero: synchronized 3-card carousel with no empty state */
 .solutions-page .solution-selector {
     --rail: clamp(215px, 20vw, 282px);
@@ -20649,7 +20787,7 @@ color: #edba0a;
 /* Global network: centered content with the full map underneath. */
 .presence#operations {
     padding: 78px 0 88px !important;
-    background:linear-gradient(180deg, #01112c 0%, #011130 45%, #011430 75%, #011434 100%);
+   background:linear-gradient(180deg, #061a382e 0%, #061A38 15%, rgb(0 13 38) 30%, rgba(3, 21, 47, 0.75) 48%, rgba(2, 18, 43, 0.45) 65%, rgb(0 16 45) 82%, rgb(1 17 40 / 42%) 100%), url(images/map-bg-imd.png);
 }
 
 .presence#operations .split-layout {
@@ -21167,6 +21305,9 @@ width: 9px;
     .presence#operations .map-panel {
         min-height: 0;
         aspect-ratio: 1916 / 821;
+    }
+    .solutions-page .solution-card-cursor{
+        display: none;
     }
 
     .presence#operations .network-map-base {
@@ -25148,6 +25289,107 @@ display: block;
     letter-spacing: 0.02em;
 }
 
+/* Industries mobile polish: keep cards readable while preserving the desktop composition. */
+@media (max-width: 720px) {
+    body.industries-page .industry-applications,
+    body.industries-page .industry-support {
+        padding-block: 48px;
+    }
+
+    body.industries-page .industry-section-intro {
+        margin-bottom: 22px;
+    }
+
+    body.industries-page .industry-section-intro h2 {
+        font-size: clamp(28px, 8vw, 34px);
+        line-height: 1.1;
+    }
+
+    body.industries-page .industry-section-intro p:last-child {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    body.industries-page .application-scroller {
+        grid-auto-columns: calc(100% - 42px);
+        gap: 14px;
+        padding: 5px 0 16px;
+        scroll-padding-inline: 0;
+    }
+
+    body.industries-page .application-card {
+        min-height: 300px;
+        padding: 24px 18px 22px;
+        border-radius: 18px;
+    }
+
+    body.industries-page .application-icon {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 18px;
+    }
+
+    body.industries-page .application-card h3 {
+        max-width: 100%;
+        font-size: clamp(20px, 5.7vw, 25px);
+        line-height: 1.12;
+    }
+
+    body.industries-page .application-card p {
+        max-width: 270px;
+        margin-inline: auto;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    body.industries-page .application-dots {
+        margin-top: 14px;
+    }
+
+    body.industries-page .industry-support-layout {
+        width: min(100% - 24px, 520px);
+    }
+
+    body.industries-page .industry-support-card {
+        min-height: 0;
+        padding: 32px 18px 30px;
+    }
+
+    body.industries-page .industry-support-card h2 {
+        max-width: 330px;
+        margin-inline: auto;
+        font-size: clamp(28px, 8vw, 34px);
+        line-height: 1.1;
+    }
+
+    body.industries-page .industry-support-card p:not(.eyebrow) {
+        max-width: 340px;
+        margin-inline: auto;
+        font-size: 14px;
+        line-height: 1.58;
+    }
+
+    body.industries-page .industry-support-map .button-outline {
+        max-width: 100%;
+        min-height: 54px;
+        padding-inline: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    body.industries-page .application-scroller {
+        grid-auto-columns: calc(100% - 28px);
+    }
+
+    body.industries-page .application-card {
+        min-height: 284px;
+    }
+
+    body.industries-page .industry-support-card {
+        padding-inline: 15px;
+    }
+}
+
 .legal-content {
     padding: 64px 0 96px;
     background: var(--white);
@@ -26458,7 +26700,7 @@ body.connect-page .connect-lead {
     font-weight: 800;
     text-transform: uppercase;
 background:linear-gradient(
-359deg, #805B0A 0%, #B78316 20%, #D8AF3D 38%, #F2D477 50%, #D0A12A 65%, #A87510 82%, #765208 100%) !important;
+25deg, #fbb41b 0%, #B78316 20%, #ffd255 38%, #e8d13eeb 50%, #ffd30f 65%, #e8c03c 82%, #a07519d4 100%) !important;
 
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent !important;
@@ -26475,4 +26717,22 @@ color: transparent !important;
 }
 @media (prefers-reduced-motion: reduce) {
     .solutions-page .solution-card-cursor img { animation: none; }
+}
+
+/* Final mobile override: keep the chooser in normal document flow. */
+@media (max-width: 860px) {
+    .solutions-page .solution-card-cursor {
+        display: none !important;
+    }
+
+    .solutions-page .solution-card,
+    .solutions-page .solution-card-own,
+    .solutions-page .solution-card-own.is-active {
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        min-height: 390px !important;
+        transform: none !important;
+        animation: none !important;
+    }
 }
