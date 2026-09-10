@@ -459,11 +459,19 @@ background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
-    background:linear-gradient(135deg, #eec020 0%, #8f7013 45%, #d99b22 100%) !important;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    color: transparent !important;
+background: linear-gradient(
+  135deg,
+  #d49b14 0%,
+  #d8a22e 22%,
+  #d9b12c 48%,
+  #D3A12D 70%,
+  #926b1d 100%
+) !important;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent !important;
+background-clip: text !important;
+color: transparent !important;
 }
 .eyebrow{
  margin: 0 0 25px;
@@ -2873,7 +2881,7 @@ body.industries-page {
     justify-content: center;
     gap: 14px;
     color: var(--navy-900);
-    background: linear-gradient(135deg, var(--gold-500), #F0B92F);
+    background: linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
     border: 2px solid #F8D876;
     border-radius: 10px;
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26), 0 0 0 4px rgba(246, 205, 83, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.48);
@@ -25974,7 +25982,7 @@ body.contact-page .contact-success-link {
 body.contact-page .contact-step-btn.button-gold {
     min-height: 46px;
     color: var(--navy-900);
-    background: linear-gradient(135deg, #f4b936 0%, #ffe873 48%, #f0ad2d 100%);
+    background:linear-gradient(148deg, rgba(238, 164, 45, 1) 0%, rgba(255, 248, 123, 1) 42%, rgba(238, 164, 45, 1) 100%);
     border: 1px solid rgba(212, 175, 55, 0.72);
     box-shadow: 0 10px 22px rgba(212, 175, 55, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
@@ -26012,6 +26020,229 @@ body.contact-page .contact-process-icon {
     color: #9ed7f7;
     background: rgba(26, 118, 197, 0.18);
     border-color: rgba(212, 175, 55, 0.58);
+}
+
+/* Contact workflow: image-backed steps connected by a travelling route. */
+body.contact-page .contact-process-flow {
+    position: relative;
+    gap: clamp(18px, 2.2vw, 34px);
+    padding-top: 12px;
+}
+
+body.contact-page .contact-process-route {
+    position: absolute;
+    top: 44px;
+    right: 12.5%;
+    left: 12.5%;
+    height: 2px;
+    overflow: visible;
+    background: repeating-linear-gradient(90deg, rgba(142, 192, 224, 0.48) 0 7px, transparent 7px 14px);
+    pointer-events: none;
+}
+
+body.contact-page .contact-process-flow > .contact-process-route {
+    display: block;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body.contact-page .contact-process-route::before,
+body.contact-page .contact-process-route::after {
+    position: absolute;
+    top: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+body.contact-page .contact-process-route::before {
+    left: 0;
+    width: 22%;
+    height: 3px;
+    background: linear-gradient(90deg, #e4b83f, #7dd7f5);
+    transform: translateY(-50%);
+    transform-origin: left center;
+    animation: contactProcessRouteFill 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+body.contact-page .contact-process-route::after {
+    left: 0;
+    width: 11px;
+    height: 11px;
+    background: #ffe27e;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(241, 199, 91, 0.18), 0 0 18px rgba(241, 199, 91, 0.8);
+    transform: translate(-50%, -50%);
+    animation: contactProcessRouteRunner 12s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+body.contact-page .contact-process-flow li {
+    z-index: 1;
+    min-width: 0;
+}
+
+body.contact-page .contact-process-icon {
+    z-index: 2;
+    width: 68px;
+    height: 68px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 0 7px rgba(7, 31, 73, 0.72), 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+body.contact-page .contact-process-icon img,
+body.contact-page .contact-process-icon svg {
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
+}
+
+body.contact-page .contact-process-icon img {
+    filter: brightness(0) invert(1) sepia(0.15) saturate(1.4);
+}
+
+body.contact-page .contact-process-image {
+    height: clamp(132px, 12vw, 174px);
+    margin: 0 0 18px;
+    overflow: hidden;
+    background: #0b2b50;
+    border: 1px solid rgba(151, 205, 238, 0.35);
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+body.contact-page .contact-process-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 400ms ease;
+}
+
+body.contact-page .contact-process-flow li:hover .contact-process-image img {
+    filter: saturate(1.12) brightness(1.05);
+    transform: scale(1.06);
+}
+
+body.contact-page .contact-process-flow h3 {
+    /* min-height: 2.4em; */
+    margin-bottom: 7px;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.2;
+}
+
+@keyframes contactProcessRouteRunner {
+    0%, 7% { left: 0; opacity: 0; }
+    12% { opacity: 1; }
+    30% { left: 33.333%; }
+    55% { left: 66.666%; }
+    82%, 91% { left: 100%; opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+@keyframes contactProcessRouteFill {
+    0%, 7% { width: 0; opacity: 0; }
+    12% { width: 12%; opacity: 1; }
+    30% { width: 33.333%; }
+    55% { width: 66.666%; }
+    82%, 91% { width: 100%; opacity: 1; }
+    100% { width: 100%; opacity: 0; }
+}
+
+@media (max-width: 720px) {
+    body.contact-page .contact-process-flow {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 6px 0 0 10px;
+    }
+
+    body.contact-page .contact-process-route {
+        top: 42px;
+        right: auto;
+        bottom: 42px;
+        left: 43px;
+        width: 2px;
+        height: auto;
+        background: repeating-linear-gradient(180deg, rgba(142, 192, 224, 0.48) 0 7px, transparent 7px 14px);
+    }
+
+    body.contact-page .contact-process-route::before {
+        top: 0;
+        left: 50%;
+        width: 3px;
+        height: 22%;
+        transform: translateX(-50%);
+        transform-origin: center top;
+        animation-name: contactProcessRouteFillMobile;
+    }
+
+    body.contact-page .contact-process-route::after {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-name: contactProcessRouteRunnerMobile;
+    }
+
+    body.contact-page .contact-process-flow li {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        column-gap: 16px;
+        align-items: start;
+        padding: 0;
+        text-align: left;
+    }
+
+    body.contact-page .contact-process-flow > .contact-process-route {
+        display: block;
+    }
+
+    body.contact-page .contact-process-icon {
+        grid-row: span 3;
+        margin: 0;
+    }
+
+    body.contact-page .contact-process-image {
+        width: 100%;
+        height: 145px;
+        margin-bottom: 10px;
+    }
+
+    body.contact-page .contact-process-flow h3,
+    body.contact-page .contact-process-flow p {
+        max-width: none;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    body.contact-page .contact-process-flow h3 {
+        min-height: 0;
+    }
+}
+
+@keyframes contactProcessRouteRunnerMobile {
+    0%, 7% { top: 0; opacity: 0; }
+    12% { opacity: 1; }
+    30% { top: 33.333%; }
+    55% { top: 66.666%; }
+    82%, 91% { top: 100%; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes contactProcessRouteFillMobile {
+    0%, 7% { height: 0; opacity: 0; }
+    12% { height: 12%; opacity: 1; }
+    30% { height: 33.333%; }
+    55% { height: 66.666%; }
+    82%, 91% { height: 100%; opacity: 1; }
+    100% { height: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.contact-page .contact-process-route::before,
+    body.contact-page .contact-process-route::after {
+        animation: none;
+    }
 }
 
 body.contact-page .contact-faq {
