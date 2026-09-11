@@ -6,7 +6,7 @@
     --blue-400: #1A76C5;
     --gold-700:#f6cd53;
     --gold-600:#f6cd53;
-    --gold-500:#f6cd53;
+    --gold-500:#eebc28;
     --gold-100:#ffdc4d;
     --white: #FFFFFF;
     --slate-50: #F7F9FC;
@@ -26713,8 +26713,7 @@ body.connect-page .connect-lead {
     font-size: 12px ;
     font-weight: 800;
     text-transform: uppercase;
-background:linear-gradient(
-25deg, #fbb41b 0%, #B78316 20%, #ffd255 38%, #e8d13eeb 50%, #ffd30f 65%, #e8c03c 82%, #a07519d4 100%) !important;
+background: var(--gold-500)!important;
 
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent !important;
